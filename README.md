@@ -4,7 +4,7 @@ This is a public distribution mirror for the Pokemon Automation discord server's
  - **Discord Server:** https://discord.gg/cQ4gWxN
  - **Documentation:** [User Manual.pdf](!User%20Manual.pdf)
 
-The latest releases and betas are in the discord server. This repo is merely a mirror that isn't always update.
+The latest releases and betas are in the discord server. This repo is merely a mirror that isn't always up-to-date.
 
 -----
 
