@@ -8,7 +8,7 @@ The latest releases and betas are in the discord server. This repo is merely a m
 
 -----
 
-These programs for the Arduino will can to automate various different things in Pokemon Sword/Shield.
+These programs for the Arduino can automate various different things in Pokemon Sword/Shield.
 
 These programs are similar to BrianuuuSonic's Autocontroller programs. But they are more expert-oriented and are more focused on speed and reliability.
 
