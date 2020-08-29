@@ -19,9 +19,10 @@ These programs are similar to BrianuuuSonic's Autocontroller programs. But they 
 -	**MultiGameFossil** – Revive fossils. Supports multiple saves so you can go afk for longer than 5 hours.
 -	**MassRelease** – Mass release boxes of Pokémon.
 -	**SurpriseTrade** – Surprise trade away boxes of Pokémon.
+-	**TradeBot** – Surprise trade with code for giveaways.
 
 **Date-Spam Farmers:**
--	**WattFarmer** – Farm watts from a wishing piece beam.
+-	**WattFarmer** – Farm watts from a wishing piece beam. (6.9 seconds/fetch, 1 million watts/hour)
 -	**BerryFarmer** – Farm berries.
 -	**LotoFarmer** – Farm the Loto ID.
 -	**StowOnSideFarmer** – Farm the Stow-on-Side items dealer.
@@ -29,9 +30,9 @@ These programs are similar to BrianuuuSonic's Autocontroller programs. But they 
 **Den Hunting:**
 -	**BeamReset** – Reset a beam until you see a purple beam.
 -	**EventBeamFinder** – Drop wishing pieces until you find an event den.
--	**DaySkipperJPN** – A day skipper for Japanese date format that runs at over 7500 skips/hour.
--	**DaySkipperEU** – A day skipper for EU date format that runs at about 7500 skips/hour.
--	**DaySkipperUS** – A day skipper for US date format that runs at about 7100 skips/hour.
+-	**DaySkipperJPN** – A day skipper for Japanese date format. (> 7500 skips/hour)
+-	**DaySkipperEU** – A day skipper for EU date format that. (~7500 skips/hour)
+-	**DaySkipperUS** – A day skipper for US date format that. (~7100 skips/hour)
 
 **Hosting:**
 -	**DenRoller** – Roll den to the N'th day, SR and repeat.
@@ -39,7 +40,7 @@ These programs are similar to BrianuuuSonic's Autocontroller programs. But they 
 -	**AutoHostAirplane** – Softlock Hosting: Host, airplane disconnect, repeat.
 -	**AutoHostFriendSearch** – Softlock Hosting: Host, friend-search disconnect, repeat.
 -	**AutoHostSleep** – Softlock Hosting: Host, sleep disconnect, repeat.
--	**AutoHostMultiGame** – Run AutoHostRolling across multiple game saves.
+-	**AutoHostMultiGame** – Run AutoHostRolling across multiple game saves. (Up to 16 dens!)
 -	**FriendDelete** – Mass delete/block all those unwanted friends from the above.
 
 **Egg Hatching:**
