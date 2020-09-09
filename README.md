@@ -22,6 +22,7 @@ These programs are similar to BrianuuuSonic's Autocontroller programs. But they 
 -	**MassRelease** – Mass release boxes of Pokémon.
 -	**SurpriseTrade** – Surprise trade away boxes of Pokémon.
 -	**TradeBot** – Surprise trade with code for giveaways.
+-	**ClothingBuyer** – Buy out all the clothing in a store.
 
 **Date-Spam Farmers:**
 -	**WattFarmer** – Farm watts from a wishing piece beam. (6.9 seconds/fetch, 1 million watts/hour)
@@ -32,9 +33,10 @@ These programs are similar to BrianuuuSonic's Autocontroller programs. But they 
 **Den Hunting:**
 -	**BeamReset** – Reset a beam until you see a purple beam.
 -	**EventBeamFinder** – Drop wishing pieces until you find an event den.
--	**DaySkipperJPN** – A day skipper for Japanese date format. (> 7500 skips/hour)
+-	**DaySkipperJPN** – A day skipper for Japanese date format. (7600 skips/hour)
 -	**DaySkipperEU** – A day skipper for EU date format that. (~7500 skips/hour)
 -	**DaySkipperUS** – A day skipper for US date format that. (~7100 skips/hour)
+-	**DaySkipperJPN-7.8k** – An even faster, but less reliable Japanese date skipper. (~7800 skips/hour)
 
 **Hosting:**
 -	**DenRoller** – Roll den to the N'th day, SR and repeat.
