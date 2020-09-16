@@ -14,6 +14,12 @@ These programs for the Arduino can automate various different things in Pokemon 
 
 These programs are similar to BrianuuuSonic's Autocontroller programs. But they are more expert-oriented and are more focused on speed and reliability.
 
+## Demo Videos:
+ - [7800/hour JPN Date Skipper](https://cdn.discordapp.com/attachments/755635697737531544/755637307167735888/DaySkipperJPN-7.8k.mov)
+ - [7500/hour EU Date Skipper](https://cdn.discordapp.com/attachments/755635697737531544/755638422558736434/DaySkipperEU-7.5k.mov)
+ - [1 million watts/hour Watt Farmer](https://cdn.discordapp.com/attachments/755635697737531544/755640509376233522/WattFarmer.mov)
+ - [Fast Code Entry](https://cdn.discordapp.com/attachments/755635697737531544/755642709183561789/FastCodeEntry.mov)
+
 ## Program List:
 
 **General Tools:**
