@@ -19,7 +19,7 @@ These programs are similar to BrianuuuSonic's Autocontroller programs. But they 
  - [7500/hour EU Date Skipper](https://cdn.discordapp.com/attachments/755635697737531544/755638422558736434/DaySkipperEU-7.5k.mov)
  - [1 million watts/hour Watt Farmer](https://cdn.discordapp.com/attachments/755635697737531544/755640509376233522/WattFarmer.mov)
  - [Fast Code Entry - Enter any 8-digit code in half a second.](https://cdn.discordapp.com/attachments/755635697737531544/755642709183561789/FastCodeEntry.mov)
- - [Rolling Auto-Hosting](https://cdn.discordapp.com/attachments/755635697737531544/755891856172253194/RollingAutoHost.mov)
+ - [Rolling Auto-Host](https://cdn.discordapp.com/attachments/755635697737531544/755891856172253194/RollingAutoHost.mov)
 
 ## Program List:
 
