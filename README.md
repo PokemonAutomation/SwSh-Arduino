@@ -55,10 +55,10 @@ These programs are similar to BrianuuuSonic's Autocontroller programs. But they 
 -	**FriendDelete** – Mass delete/block all those unwanted friends from the above.
 
 **Egg Hatching:**
--	**EggFetcher/EggFetcher2** – Fetch eggs without hatching them.
+-	**EggFetcher2** – Fetch eggs without hatching them.
 -	**EggHatcher** – Hatch eggs from boxes.
--	**EggCombined** – Fetch and hatch eggs at the same time. (maximum efficiency)
--	**EggSuperCombined** – Mass release breedjects, then run EggCombined.
+-	**EggCombined2** – Fetch and hatch eggs at the same time. (maximum efficiency)
+-	**EggSuperCombined2** – Mass release breedjects, then run EggCombined.
 
 **The Forbidden Programs:**
 -	**FastCodeEntry** – Force your way into raids by entering 8-digit codes in under 1 second.
