@@ -12,7 +12,7 @@ The latest releases and betas are in the discord server. This repo is merely a m
 
 These programs for the Arduino can automate various different things in Pokemon Sword/Shield.
 
-These programs are similar to BrianuuuSonic's Autocontroller programs. But they are more expert-oriented and are more focused on speed and reliability.
+These programs are similar to BrianuuuSonic's Autocontroller programs. But they are generally faster, more reliable, and have a much smaller risk of killing dens.
 
 ## Demo Videos:
  - [7800/hour JPN Date Skipper](https://cdn.discordapp.com/attachments/755635697737531544/755637307167735888/DaySkipperJPN-7.8k.mov)
@@ -37,6 +37,10 @@ These programs are similar to BrianuuuSonic's Autocontroller programs. But they 
 -	**LotoFarmer** – Farm the Loto ID.
 -	**StowOnSideFarmer** – Farm the Stow-on-Side items dealer.
 
+**Soft Reset:**
+-	**SoftReset-Regi** – Soft reset for the Regi golem legendaries.
+-	**SoftReset-SwordsOfJustice** – Soft reset for the Swords of Justice legendaries.
+
 **Den Hunting:**
 -	**BeamReset** – Reset a beam until you see a purple beam.
 -	**EventBeamFinder** – Drop wishing pieces until you find an event den.
@@ -47,11 +51,11 @@ These programs are similar to BrianuuuSonic's Autocontroller programs. But they 
 
 **Hosting:**
 -	**DenRoller** – Roll den to the N'th day, SR and repeat.
--	**AutoHostRolling** – Roll N days, host, SR and repeat.
--	**AutoHostAirplane** – Softlock Hosting: Host, airplane disconnect, repeat.
--	**AutoHostFriendSearch** – Softlock Hosting: Host, friend-search disconnect, repeat.
--	**AutoHostSleep** – Softlock Hosting: Host, sleep disconnect, repeat.
--	**AutoHostMultiGame** – Run AutoHostRolling across multiple game saves. (Up to 16 dens!)
+-	**AutoHost-Rolling** – Roll N days, host, SR and repeat.
+-	**AutoHost-Airplane** – Softlock Hosting: Host, airplane disconnect, repeat.
+-	**AutoHost-FriendSearch** – Softlock Hosting: Host, friend-search disconnect, repeat.
+-	**AutoHost-Sleep** – Softlock Hosting: Host, sleep disconnect, repeat.
+-	**AutoHost-MultiGame** – Run AutoHostRolling across multiple game saves. (Up to 16 dens!)
 -	**FriendDelete** – Mass delete/block all those unwanted friends from the above.
 
 **Egg Hatching:**
