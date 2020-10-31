@@ -20,6 +20,7 @@ These programs are similar to BrianuuuSonic's Autocontroller programs. But they 
  - [1 million watts/hour Watt Farmer](https://cdn.discordapp.com/attachments/755635697737531544/755640509376233522/WattFarmer.mov)
  - [Fast Code Entry - Enter any 8-digit code in half a second.](https://cdn.discordapp.com/attachments/755635697737531544/755642709183561789/FastCodeEntry.mov)
  - [Rolling Auto-Host](https://cdn.discordapp.com/attachments/755635697737531544/755891856172253194/RollingAutoHost.mov)
+ - [Unattended SoftReset - Automatically stop on a shiny.](https://cdn.discordapp.com/attachments/755635697737531544/772244388109090817/ShinyTerrakion.mp4)
 
 ## Program List:
 
@@ -40,6 +41,8 @@ These programs are similar to BrianuuuSonic's Autocontroller programs. But they 
 **Soft Reset:**
 -	**SoftReset-Regi** – Soft reset for the Regi golem legendaries.
 -	**SoftReset-SwordsOfJustice** – Soft reset for the Swords of Justice legendaries.
+-	**SoftResetUnattended-Regi** – Soft reset for the Regis and automatically stop on shiny.
+-	**SoftResetUnattended-SwordsOfJustice** – Soft reset for the Regis and automatically stop on shiny.
 
 **Den Hunting:**
 -	**BeamReset** – Reset a beam until you see a purple beam.
