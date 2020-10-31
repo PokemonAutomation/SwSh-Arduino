@@ -17,10 +17,10 @@ These programs are similar to BrianuuuSonic's Autocontroller programs. But they 
 ## Demo Videos:
  - [7800/hour JPN Date Skipper](https://cdn.discordapp.com/attachments/755635697737531544/755637307167735888/DaySkipperJPN-7.8k.mov)
  - [7500/hour EU Date Skipper](https://cdn.discordapp.com/attachments/755635697737531544/755638422558736434/DaySkipperEU-7.5k.mov)
+ - [Unattended SoftReset - Automatically stop on a shiny.](https://cdn.discordapp.com/attachments/755635697737531544/772244388109090817/ShinyTerrakion.mp4)
  - [1 million watts/hour Watt Farmer](https://cdn.discordapp.com/attachments/755635697737531544/755640509376233522/WattFarmer.mov)
  - [Fast Code Entry - Enter any 8-digit code in half a second.](https://cdn.discordapp.com/attachments/755635697737531544/755642709183561789/FastCodeEntry.mov)
  - [Rolling Auto-Host](https://cdn.discordapp.com/attachments/755635697737531544/755891856172253194/RollingAutoHost.mov)
- - [Unattended SoftReset - Automatically stop on a shiny.](https://cdn.discordapp.com/attachments/755635697737531544/772244388109090817/ShinyTerrakion.mp4)
 
 ## Program List:
 
