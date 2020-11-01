@@ -54,7 +54,7 @@ These programs are similar to BrianuuuSonic's Autocontroller programs. But they 
 
 **Hosting:**
 -	**DenRoller** – Roll den to the N'th day, SR and repeat.
--	**AutoHost-Rolling** – Roll N days, host, SR and repeat.
+-	**AutoHost-Rolling** – Roll N days, host, SR and repeat. Also supports backup save softlocks.
 -	**AutoHost-Airplane** – Softlock Hosting: Host, airplane disconnect, repeat.
 -	**AutoHost-FriendSearch** – Softlock Hosting: Host, friend-search disconnect, repeat.
 -	**AutoHost-Sleep** – Softlock Hosting: Host, sleep disconnect, repeat.
