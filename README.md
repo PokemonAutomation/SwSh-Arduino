@@ -43,6 +43,8 @@ These programs are similar to BrianuuuSonic's Autocontroller programs. But they 
 -	**SoftReset-SwordsOfJustice** – Soft reset for the Swords of Justice legendaries.
 -	**SoftResetUnattended-Regi** – Soft reset for the Regis and automatically stop on shiny.
 -	**SoftResetUnattended-SwordsOfJustice** – Soft reset for the Regis and automatically stop on shiny.
+-	**SoftResetUnattended-StrongSpawn** – Soft reset for the strong spawns and automatically stop on shiny.
+-	**SoftResetUnattended-Regigigas** – Soft reset for Regigigas and automatically stop on shiny.
 
 **Den Hunting:**
 -	**BeamReset** – Reset a beam until you see a purple beam.
@@ -57,7 +59,6 @@ These programs are similar to BrianuuuSonic's Autocontroller programs. But they 
 -	**AutoHost-Rolling** – Roll N days, host, SR and repeat. Also supports backup save softlocks.
 -	**AutoHost-Airplane** – Softlock Hosting: Host, airplane disconnect, repeat.
 -	**AutoHost-FriendSearch** – Softlock Hosting: Host, friend-search disconnect, repeat.
--	**AutoHost-Sleep** – Softlock Hosting: Host, sleep disconnect, repeat.
 -	**AutoHost-MultiGame** – Run AutoHostRolling across multiple game saves. (Up to 16 dens!)
 -	**FriendDelete** – Mass delete/block all those unwanted friends from the above.
 
