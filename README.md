@@ -12,7 +12,7 @@ The latest releases and betas are in the discord server. This repo is merely a m
 
 These programs for the Arduino can automate various different things in Pokemon Sword/Shield.
 
-These programs are similar to BrianuuuSonic's Autocontroller programs. But they are generally faster, more reliable, and have a much smaller risk of killing dens.
+These programs are similar to brianuuuSonic's Autocontroller programs. But they are generally faster, more reliable, and have a much smaller risk of killing dens.
 
 ## Demo Videos:
  - [7800/hour JPN Date Skipper](https://cdn.discordapp.com/attachments/755635697737531544/755637307167735888/DaySkipperJPN-7.8k.mov)
@@ -31,12 +31,14 @@ These programs are similar to BrianuuuSonic's Autocontroller programs. But they 
 -	**SurpriseTrade** – Surprise trade away boxes of Pokémon.
 -	**TradeBot** – Surprise trade with code for giveaways.
 -	**ClothingBuyer** – Buy out all the clothing in a store.
+-	**BallThrower** – Blindly throw balls at the opposing Pokémon until it catches.
 
 **Date-Spam Farmers:**
 -	**WattFarmer** – Farm watts from a wishing piece beam. (6.9 seconds/fetch, 1 million watts/hour)
 -	**BerryFarmer** – Farm berries.
 -	**LotoFarmer** – Farm the Loto ID.
 -	**StowOnSideFarmer** – Farm the Stow-on-Side items dealer.
+-	**DateSpam-DailyHighlightFarmer** - Farm the daily highlight watt trader in Crown Tundra.
 
 **Soft Reset:**
 -	**SoftReset-Regi** – Soft reset for the Regi golem legendaries.
@@ -65,7 +67,7 @@ These programs are similar to BrianuuuSonic's Autocontroller programs. But they 
 **Egg Hatching:**
 -	**EggFetcher2** – Fetch eggs without hatching them.
 -	**EggHatcher** – Hatch eggs from boxes.
--	**EggCombined2** – Fetch and hatch eggs at the same time. (maximum efficiency)
+-	**EggCombined2** – Fetch and hatch eggs at the same time. (fastest - 1700 eggs/day for 5120-step)
 -	**EggSuperCombined2** – Mass release breedjects, then run EggCombined.
 
 **The Forbidden Programs:**
