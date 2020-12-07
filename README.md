@@ -47,6 +47,7 @@ These programs are similar to brianuuuSonic's Autocontroller programs. But they 
 -	**SoftResetUnattended-SwordsOfJustice** – Soft reset for the Regis and automatically stop on shiny.
 -	**SoftResetUnattended-StrongSpawn** – Soft reset for the strong spawns and automatically stop on shiny.
 -	**SoftResetUnattended-Regigigas** – Soft reset for Regigigas and automatically stop on shiny.
+-	**SoftResetUnattended-IoATrade** – Soft reset for Isle of Armor trade and automatically stop on shiny.
 
 **Den Hunting:**
 -	**BeamReset** – Reset a beam until you see a purple beam.
