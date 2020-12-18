@@ -26,7 +26,6 @@ These programs are similar to brianuuuSonic's Autocontroller programs. But they 
 
 **General Tools:**
 -	**TurboA** - Endlessly mash A.
--	**MultiGameFossil** - Revive fossils. Supports multiple saves so you can go afk for longer than 5 hours.
 -	**MassRelease** - Mass release boxes of Pokémon.
 -	**SurpriseTrade** - Surprise trade away boxes of Pokémon.
 -	**TradeBot** - Surprise trade with code for giveaways.
@@ -41,6 +40,7 @@ These programs are similar to brianuuuSonic's Autocontroller programs. But they 
 -	**DateSpam-DailyHighlightFarmer** - Farm the daily highlight watt trader in Crown Tundra.
 
 **Shiny Hunting:**
+-	**MultiGameFossil** - Revive fossils. Supports multiple saves so you can go afk for longer than 5 hours.
 -	**ShinyHunt-Regi** - Hunt for shiny Regi golem legendaries.
 -	**ShinyHunt-SwordsOfJustice** - Hunt for shiny Swords of Justice legendaries.
 -	**ShinyHuntUnattended-Regi** - Hunt for shiny Regis. Stop when a shiny is found.
@@ -62,8 +62,6 @@ These programs are similar to brianuuuSonic's Autocontroller programs. But they 
 **Hosting:**
 -	**DenRoller** - Roll den to the N'th day, SR and repeat.
 -	**AutoHost-Rolling** - Roll N days, host, SR and repeat. Also supports backup save softlocks.
--	**AutoHost-Airplane** - Softlock Hosting: Host, airplane disconnect, repeat.
--	**AutoHost-FriendSearch** - Softlock Hosting: Host, friend-search disconnect, repeat.
 -	**AutoHost-MultiGame** - Run AutoHostRolling across multiple game saves. (Up to 16 dens!)
 -	**FriendDelete** - Mass delete/block all those unwanted friends from the above.
 
