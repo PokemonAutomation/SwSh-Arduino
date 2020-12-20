@@ -75,3 +75,5 @@ These programs are similar to brianuuuSonic's Autocontroller programs. But they 
 -	**FastCodeEntry** - Force your way into raids by entering 8-digit codes in under 1 second.
 -	**GodEggItemDupe** - Mass duplicate items with the God Egg.
 
+**Other:**
+- **PABotBase** - Control your Arduino/Teensy (and therefore your Switch) from a computer.
