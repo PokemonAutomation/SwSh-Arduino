@@ -10,6 +10,8 @@
 #include <mutex>
 #include <set>
 
+namespace PokemonAutomation{
+
 
 class StreamListener{
 public:
@@ -46,5 +48,9 @@ protected:
     std::set<StreamListener*> m_listeners;
 };
 
+
+
+
+}
 
 #endif

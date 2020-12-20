@@ -16,6 +16,7 @@
 #include <unistd.h>
 #include "StreamInterface.h"
 
+namespace PokemonAutomation{
 
 class SerialConnection : public StreamConnection{
 public:
@@ -89,7 +90,7 @@ public:
 
     virtual void stop() final{
         m_exit.store(true, std::memory_order_release);
-        CloseHandle(m_handle);
+        close(m_fd);
         m_listener.join();
     }
 
@@ -117,5 +118,8 @@ private:
     std::mutex m_send_lock;
     std::thread m_listener;
 };
+
+
+}
 
 #endif

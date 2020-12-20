@@ -4,21 +4,31 @@
  * 
  */
 
+#include <ctime>
 #include <iostream>
 #include "Programs.h"
 
+#include "Common/PushButtons.h"
+#include "Common/PokemonRoutines.h"
+
+
+
+
 int main(){
+    using namespace PokemonAutomation;
+
     try{
 
         //  By default, this program runs the logging program.
         device_logger();
 
-        //  You can also runs programs directly from the computer.
+        //  You can also run programs directly from the computer.
 //        program_TurboA();
 //        program_ClothingBuyer();
 //        program_BallThrower();
 //        program_BeamReset();
 //        program_FriendDelete();
+//        program_DateSpam_WattFarmer();
 
 
     }catch (const char* str){

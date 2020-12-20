@@ -104,5 +104,8 @@
     <ClCompile Include="..\..\ClientSource\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\ClientSource\Libraries\Logging.cpp">
+      <Filter>Source Files\Libraries</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -8,7 +8,11 @@
 #include <Windows.h>
 #include "Common/CRC32.h"
 #include "Common/MessageProtocol.h"
+#include "Libraries/Logging.h"
 #include "PABotBaseConnection.h"
+
+namespace PokemonAutomation{
+
 
 PABotBaseConnection::PABotBaseConnection(std::unique_ptr<StreamConnection> connection)
     : m_connection(std::move(connection))
@@ -73,21 +77,21 @@ void PABotBaseConnection::on_recv(const void* data, size_t bytes){
         uint8_t length = ~m_recv_buffer[0];
 
         if (m_recv_buffer[0] == 0){
-            std::cout << "Skipping zero byte." << std::endl;
+            log("Skipping zero byte.");
             m_recv_buffer.pop_front();
             continue;
         }
 
         //  Message is too short.
         if (length < SERIAL_MESSAGE_OVERHEAD){
-            std::cout << "Message is too short: bytes = " << (int)length << std::endl;
+            log("Message is too short: bytes = " + std::to_string(length));
             m_recv_buffer.pop_front();
             continue;
         }
 
         //  Message is too long.
         if (length > PABB_MAX_MESSAGE_SIZE){
-            std::cout << "Message is too long: bytes = " << (int)length << std::endl;
+            log("Message is too long: bytes = " + std::to_string(length));
             m_recv_buffer.pop_front();
             continue;
         }
@@ -109,8 +113,8 @@ void PABotBaseConnection::on_recv(const void* data, size_t bytes){
 
             //  Compare
             if (checksumA != checksumE){
-                std::cout << "Invalid Checksum: bytes = " << (int)length << std::endl;
-                std::cout << checksumA << " / " << checksumE << std::endl;
+                log("Invalid Checksum: bytes = " + std::to_string(length));
+//                std::cout << checksumA << " / " << checksumE << std::endl;
                 m_recv_buffer.pop_front();
                 continue;
             }
@@ -126,3 +130,5 @@ void PABotBaseConnection::on_recv(const void* data, size_t bytes){
     }
 }
 
+
+}

@@ -5,7 +5,7 @@
  * 
  *      Pokemon Automation Bot-Base implements reliable data transmissions over
  *  serial communication. This is done by checksumming messages along with a
- *  protocol that is tolerance to data drops.
+ *  protocol that is tolerant to data drops.
  * 
  *  This file describes the message protocol. The data being transmitted is raw
  *  binary and not is readable text.
@@ -127,8 +127,18 @@
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-#define PABB_PROTOCOL_VERSION       20201217
-#define PABB_PROGRAM_VERSION        2020121703
+//  Protocol Version:
+//
+//      Backwards incompatible changes will increase by 100 or more.
+//      Backwards compatible changes will increase by 1.
+//
+//      (version / 100) must be the same on both server and client.
+//      (version % 100) can be higher on server than client.
+//
+#define PABB_PROTOCOL_VERSION       2020121801
+
+//  Program versioning doesn't matter. It's just for informational purposes.
+#define PABB_PROGRAM_VERSION        2020121900
 
 #define PABB_BAUD_RATE              115200
 #define PABB_RETRANSMIT_DELAY       25

@@ -172,6 +172,7 @@
     <ClCompile Include="..\..\ClientSource\Connection\PABotBase.cpp" />
     <ClCompile Include="..\..\ClientSource\Connection\PABotBaseConnection.cpp" />
     <ClCompile Include="..\..\ClientSource\Connection\Unicode.cpp" />
+    <ClCompile Include="..\..\ClientSource\Libraries\Logging.cpp" />
     <ClCompile Include="..\..\ClientSource\Libraries\MessageConverter.cpp" />
     <ClCompile Include="..\..\ClientSource\Libraries\PokemonRoutines.cpp" />
     <ClCompile Include="..\..\ClientSource\Libraries\PushButtons.cpp" />

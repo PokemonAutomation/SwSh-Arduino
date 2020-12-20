@@ -10,6 +10,8 @@
 #include "Common/PokemonRoutines.h"
 #include "PABotBase.h"
 
+namespace PokemonAutomation{
+
 
 PABotBase* global_connection = nullptr;
 
@@ -34,7 +36,7 @@ PABotBase::~PABotBase(){
 template <typename Params>
 void PABotBase::process_ack(uint8_t type, std::string msg){
     if (msg.size() != sizeof(Params)){
-        std::cout << "Ignoring message with invalid size." << std::endl;
+        log("Ignoring message with invalid size.");
         return;
     }
     const Params* params = (const Params*)msg.c_str();
@@ -42,7 +44,7 @@ void PABotBase::process_ack(uint8_t type, std::string msg){
     std::lock_guard<std::mutex> lg(m_lock);
     auto iter = m_pending_requests.find(seqnum);
     if (iter == m_pending_requests.end()){
-        std::cout << "Unexpected ack message: seqnum = " + std::to_string(seqnum) << std::endl;
+        log("Unexpected ack message: seqnum = " + std::to_string(seqnum));
         return;
     }
     if (iter->second.state == NOT_ACKED){
@@ -55,7 +57,7 @@ void PABotBase::process_ack(uint8_t type, std::string msg){
 template <typename Params>
 void PABotBase::process_command_finished(uint8_t type, std::string msg){
     if (msg.size() != sizeof(Params)){
-        std::cout << "Ignoring message with invalid size." << std::endl;
+        log("Ignoring message with invalid size.");
         return;
     }
     const Params* params = (const Params*)msg.c_str();
@@ -71,8 +73,10 @@ void PABotBase::process_command_finished(uint8_t type, std::string msg){
 
     auto iter = m_pending_requests.find(params->seq_of_original_command);
     if (iter == m_pending_requests.end()){
-        std::cout << "Unexpected command finished message: seqnum = " + std::to_string(seqnum)
-                  << ", command_seqnum = " << std::to_string(params->seq_of_original_command) << std::endl;
+        log(
+            "Unexpected command finished message: seqnum = " + std::to_string(seqnum) +
+            ", command_seqnum = " + std::to_string(params->seq_of_original_command)
+        );
         return;
     }
 
@@ -152,3 +156,6 @@ void PABotBase::end_program_callback(){
     send_request_and_wait<PABB_MSG_REQUEST_END_PROGRAM_CALLBACK, PABB_MSG_ACK>(params, response);
 }
 
+
+
+}

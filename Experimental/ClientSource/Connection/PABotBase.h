@@ -29,6 +29,8 @@
 #include "Connection/PABotBaseConnection.h"
 #include "Libraries/Logging.h"
 
+namespace PokemonAutomation{
+
 
 class PABotBase : public PABotBaseConnection{
 public:
@@ -214,5 +216,7 @@ void PABotBase::send_command_and_wait(SendParams& send_params, RecvParams& recv_
     }
 }
 
+
+}
 
 #endif

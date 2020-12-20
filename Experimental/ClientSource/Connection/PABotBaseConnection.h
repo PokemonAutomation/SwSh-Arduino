@@ -21,6 +21,7 @@
 #include "Common/MessageProtocol.h"
 #include "StreamInterface.h"
 
+namespace PokemonAutomation{
 
 class MessageSnooper{
 public:
@@ -56,5 +57,9 @@ private:
     std::deque<char> m_recv_buffer;
     std::set<MessageSnooper*> m_snoopers;
 };
+
+
+
+}
 
 #endif

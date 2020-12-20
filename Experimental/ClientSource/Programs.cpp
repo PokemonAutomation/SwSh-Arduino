@@ -4,11 +4,16 @@
  * 
  */
 
+#include <iostream>
 #include "Common/PushButtons.h"
 #include "Common/PokemonRoutines.h"
 #include "Common/PokemonProgramIDs.h"
 #include "Connection/SerialConnection.h"
+#include "Libraries/MessageConverter.h"
+#include "Libraries/Logging.h"
 #include "Programs.h"
+
+namespace PokemonAutomation{
 
 
 MessageLogger logger;
@@ -38,7 +43,9 @@ std::unique_ptr<PABotBase> start_connection(bool require_pabotbase, const std::s
 
     std::cout << "Verifying protocol compatibility..." << std::endl;
     uint32_t version = pabotbase->protocol_version();
-    if (version != PABB_PROTOCOL_VERSION){
+    uint32_t version_hi = version / 100;
+    uint32_t version_lo = version % 100;
+    if (version_hi != PABB_PROTOCOL_VERSION / 100 || version_lo < PABB_PROTOCOL_VERSION % 100){
         throw "Incompatible version. Client: " + std::to_string(PABB_PROTOCOL_VERSION) + ", Device: " + std::to_string(version);
     }
     std::cout << std::endl;
@@ -84,6 +91,7 @@ void device_logger(const std::string& device_name){
 //
 const uint16_t CONNECT_CONTROLLER_DELAY         =   3 * TICKS_PER_SECOND;
 const bool     TOLERATE_SYSTEM_UPDATE_MENU_FAST =   true;
+const uint16_t OVERWORLD_TO_MENU_DELAY          =   120;
 const uint16_t HOME_TO_GAME_DELAY               =   3 * TICKS_PER_SECOND;
 const uint16_t GAME_TO_HOME_DELAY_FAST          =   100;
 const uint16_t GAME_TO_HOME_DELAY_SAFE          =   125;
@@ -117,6 +125,8 @@ void program_ClothingBuyer(const std::string& device_name){
     //  entire store, but it will take a lot longer than doing separate runs on
     //  each category individually.
     const bool CATEGORY_ROTATION    =   true;
+
+
 
     //  Start Program
     start_program_flash(CONNECT_CONTROLLER_DELAY);
@@ -172,6 +182,7 @@ void program_BeamReset(const std::string& device_name){
     const bool EXTRA_LINE   =   false;
 
 
+
     //  Start Program
     start_program_flash(CONNECT_CONTROLLER_DELAY);
     grip_menu_connect_go_home();
@@ -217,11 +228,11 @@ void program_FriendDelete(const std::string& device_name){
     //  Instead of deleting friends, block them.
     const bool BLOCK_FRIENDS            =   false;
 
-
     //  Timings: You may need to increase if your internet is slow.
     const uint16_t VIEW_FRIEND_DELAY    =   2 * TICKS_PER_SECOND;   //  Delay from opening a friend to when you can press buttons.
     const uint16_t DELETE_FRIEND_DELAY  =   4 * TICKS_PER_SECOND;   //  Delay to delete the friend.
     const uint16_t FINISH_DELETE_DELAY  =   2 * TICKS_PER_SECOND;   //  Delay after deleting a friend.
+
 
 
     //  Start Program
@@ -245,4 +256,63 @@ void program_FriendDelete(const std::string& device_name){
 
     end_program_callback();
     end_program_loop();
+}
+void program_DateSpam_WattFarmer(const std::string& device_name){
+    std::cout << "Starting PABotBase - DateSpam-WattFarmer..." << std::endl;
+    std::cout << std::endl;
+    std::unique_ptr<PABotBase> pabotbase = start_connection(true, device_name);
+    global_connection = pabotbase.get();
+    
+
+
+    //  Grab watts this many times. You can set this number if you're also date
+    //  skipping to a particular den frame and you don't want to overshoot it.
+    //
+    //  Be aware that this program isn't intended to be an accurate date skipper.
+    //  It will occasionally miss frames causing it to fall short.
+    const uint32_t SKIPS            =   33334;
+
+    //  Save the game every this number of iterations.
+    //  If set to zero, no saving is done.
+    const uint16_t SAVE_ITERATIONS  =   0;
+
+
+
+    start_program_flash(CONNECT_CONTROLLER_DELAY);
+    grip_menu_connect_go_home();
+
+    uint16_t save_count = 0;
+    for (uint32_t c = 0; c < SKIPS; c++){
+//        pabb_send_info_i32(c);
+        log("Frames Skipped: " + std::to_string(c));
+        home_roll_date_enter_game_autorollback(10);
+        pbf_mash_button(BUTTON_B, 90);
+
+        pbf_press_button(BUTTON_A, 5, 5);
+        pbf_mash_button(BUTTON_B, 215);
+
+        if (SAVE_ITERATIONS != 0){
+            save_count++;
+            if (save_count >= SAVE_ITERATIONS){
+                save_count = 0;
+                pbf_mash_button(BUTTON_B, 2 * TICKS_PER_SECOND);
+                pbf_press_button(BUTTON_X, 20, OVERWORLD_TO_MENU_DELAY);
+                pbf_press_button(BUTTON_R, 20, 2 * TICKS_PER_SECOND);
+                pbf_press_button(BUTTON_ZL, 20, 3 * TICKS_PER_SECOND);
+            }
+        }
+
+        //  Tap HOME and quickly spam B. The B spamming ensures that we don't
+        //  accidentally update the system if the system update window pops up.
+        pbf_press_button(BUTTON_HOME, 10, 5);
+        pbf_mash_button(BUTTON_B, GAME_TO_HOME_DELAY_FAST - 15);
+    }
+
+    end_program_callback();
+    end_program_loop();
+}
+
+
+
+
 }

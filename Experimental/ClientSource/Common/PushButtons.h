@@ -89,23 +89,26 @@ void end_program_loop(void);
 ////////////////////////////////////////////////////////////////////////////////
 //  Client Side Extensions
 #ifndef __AVR__
-class PABotBase;
+namespace PokemonAutomation{
+    class PABotBase;
+}
+
 void end_program_callback       ();
 
-void set_leds                   (PABotBase& device, bool on);
-void end_program_callback       (PABotBase& device);
+void set_leds                   (PokemonAutomation::PABotBase& device, bool on);
+void end_program_callback       (PokemonAutomation::PABotBase& device);
 
-uint32_t system_clock           (PABotBase& device);
-void pbf_wait                   (PABotBase& device, uint16_t ticks);
-void pbf_press_button           (PABotBase& device, Button button, uint16_t hold_ticks, uint16_t release_ticks);
-void pbf_press_dpad             (PABotBase& device, DpadPosition position, uint16_t hold_ticks, uint16_t release_ticks);
-void pbf_move_left_joystick     (PABotBase& device, uint8_t x, uint8_t y, uint16_t hold_ticks, uint16_t release_ticks);
-void pbf_move_right_joystick    (PABotBase& device, uint8_t x, uint8_t y, uint16_t hold_ticks, uint16_t release_ticks);
-void pbf_mash_button            (PABotBase& device, Button button, uint16_t ticks);
+uint32_t system_clock           (PokemonAutomation::PABotBase& device);
+void pbf_wait                   (PokemonAutomation::PABotBase& device, uint16_t ticks);
+void pbf_press_button           (PokemonAutomation::PABotBase& device, Button button, uint16_t hold_ticks, uint16_t release_ticks);
+void pbf_press_dpad             (PokemonAutomation::PABotBase& device, DpadPosition position, uint16_t hold_ticks, uint16_t release_ticks);
+void pbf_move_left_joystick     (PokemonAutomation::PABotBase& device, uint8_t x, uint8_t y, uint16_t hold_ticks, uint16_t release_ticks);
+void pbf_move_right_joystick    (PokemonAutomation::PABotBase& device, uint8_t x, uint8_t y, uint16_t hold_ticks, uint16_t release_ticks);
+void pbf_mash_button            (PokemonAutomation::PABotBase& device, Button button, uint16_t ticks);
 
-void start_program_flash        (PABotBase& device, uint16_t ticks);
-void grip_menu_connect_go_home  (PABotBase& device);
-void end_program_loop           (PABotBase& device);
+void start_program_flash        (PokemonAutomation::PABotBase& device, uint16_t ticks);
+void grip_menu_connect_go_home  (PokemonAutomation::PABotBase& device);
+void end_program_loop           (PokemonAutomation::PABotBase& device);
 #endif
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////

@@ -9,6 +9,9 @@
 
 #include <string>
 
+namespace PokemonAutomation{
+
 std::u16string utf8_to_utf16(const std::string& str);
 
+}
 #endif

@@ -10,6 +10,8 @@
 #include <memory>
 #include "Connection/PABotBase.h"
 
+namespace PokemonAutomation{
+
 
 //  Helpers
 std::unique_ptr<PABotBase> start_connection(bool require_pabotbase, const std::string& device_name = "");
@@ -20,12 +22,14 @@ void device_logger          (const std::string& device_name = "");
 
 
 //  Programs
-void program_TurboA         (const std::string& device_name = "");
-void program_ClothingBuyer  (const std::string& device_name = "");
-void program_BallThrower    (const std::string& device_name = "");
-void program_BeamReset      (const std::string& device_name = "");
-void program_FriendDelete   (const std::string& device_name = "");
+void program_TurboA             (const std::string& device_name = "");
+void program_ClothingBuyer      (const std::string& device_name = "");
+void program_BallThrower        (const std::string& device_name = "");
+void program_BeamReset          (const std::string& device_name = "");
+void program_FriendDelete       (const std::string& device_name = "");
+void program_DateSpam_WattFarmer(const std::string& device_name = "");
 
 
+}
 
 #endif

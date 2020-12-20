@@ -6,6 +6,8 @@
 
 #include "Unicode.h"
 
+namespace PokemonAutomation{
+
 
 const uint32_t MAX_CODEPOINT = 0x10ffff;
 const uint32_t REPLACEMENT = 0xfffd;
@@ -89,3 +91,8 @@ std::u16string utf8_to_utf16(const std::string& str){
     }
     return out;
 }
+
+
+
+}
+

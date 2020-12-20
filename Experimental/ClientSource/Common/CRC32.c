@@ -31,7 +31,7 @@ uint32_t pabb_crc32_basic(uint32_t crc, const char* str, size_t length){
 #else
 #define PROGMEM
 #endif
-#if 0
+#ifdef __AVR_ATmega16U2__
 //  4-bit table
 const uint32_t PROGMEM CRC32_TABLE4[] = {
     0x00000000, 0x105ec76f, 0x20bd8ede, 0x30e349b1,

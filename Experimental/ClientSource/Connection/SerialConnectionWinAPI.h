@@ -13,7 +13,7 @@
 #include "Unicode.h"
 #include "StreamInterface.h"
 
-
+namespace PokemonAutomation{
 
 class SerialConnection : public StreamConnection{
 public:
@@ -136,5 +136,9 @@ private:
     std::mutex m_send_lock;
     std::thread m_listener;
 };
+
+
+
+}
 
 #endif

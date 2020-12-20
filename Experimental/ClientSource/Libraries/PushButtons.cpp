@@ -7,6 +7,8 @@
 #include "Common/PushButtons.h"
 #include "Connection/PABotBase.h"
 
+using namespace PokemonAutomation;
+
 void initialize_framework(uint8_t program_id){}
 
 void end_program_callback(){
