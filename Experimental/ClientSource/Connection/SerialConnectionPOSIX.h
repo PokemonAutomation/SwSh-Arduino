@@ -7,14 +7,15 @@
 #ifndef PokemonAutomation_SerialConnectionPOSIX_H
 #define PokemonAutomation_SerialConnectionPOSIX_H
 
-#pragma warning "This file has not been tested like at all. :("
-
 #include <string>
 #include <atomic>
+#include <thread>
 #include <fcntl.h>
 #include <termios.h>
 #include <unistd.h>
 #include "StreamInterface.h"
+
+//#include <iostream>
 
 namespace PokemonAutomation{
 
@@ -34,6 +35,7 @@ public:
         default:
             throw "Unsupported Baud Rate: " + std::to_string(baud_rate);
         }
+//        std::cout << "desired baud = " << baud << std::endl;
 
         m_fd = open(name.c_str(), O_RDWR | O_NOCTTY | O_NDELAY);
         if (m_fd == -1){
@@ -46,32 +48,49 @@ public:
             int error = errno;
             throw "tcgetattr() failed. Error = " + std::to_string(error);
         }
+//        std::cout << "read baud = " << cfgetispeed(&options) << std::endl;
+//        std::cout << "write baud = " << cfgetospeed(&options) << std::endl;
 
         //  Baud Rate
-        cfsetispeed(&options, baud);
-        cfsetospeed(&options, baud);
+        if (cfsetispeed(&options, baud) == -1){
+            int error = errno;
+            throw "cfsetispeed() failed. Error = " + std::to_string(error);
+        }
+        if (cfsetospeed(&options, baud) == -1){
+            int error = errno;
+            throw "cfsetospeed() failed. Error = " + std::to_string(error);
+        }
+//        std::cout << "write baud = " << cfgetispeed(&options) << std::endl;
+//        std::cout << "write baud = " << cfgetospeed(&options) << std::endl;
 
+#if 1
         //  Byte Size
         options.c_cflag &= ~CSIZE;
         options.c_cflag |= CS8;
 
         //  No Parity
-        options.c_cflag &= ~PARENB
-        options.c_cflag &= ~CSTOPB
+        options.c_cflag &= ~PARENB;
+        options.c_cflag &= ~CSTOPB;
         options.c_cflag &= ~CSIZE;
         options.c_cflag |= CS8;
+#endif
 
-        tcsetattr(m_fd, TCSANOW, &options);
+        if (tcsetattr(m_fd, TCSANOW, &options) == -1){
+            int error = errno;
+            throw "tcsetattr() failed. Error = " + std::to_string(error);
+        }
 
         if (tcgetattr(m_fd, &options) == -1){
             int error = errno;
             throw "tcgetattr() failed. Error = " + std::to_string(error);
         }
         if (cfgetispeed(&options) != baud){
-            throw "Unable to set baud rate.";
+//            std::cout << "actual baud = " << cfgetispeed(&options) << std::endl;
+            throw "Unable to set input baud rate.";
         }
         if (cfgetospeed(&options) != baud){
-            throw "Unable to set baud rate.";
+//            std::cout << "actual baud = " << cfgetospeed(&options) << std::endl;
+            throw "Unable to set outpu baud rate.";
         }
 
         //  Start receiver thread.
@@ -97,7 +116,7 @@ public:
 private:
     virtual void send(const void* data, size_t bytes){
         std::lock_guard<std::mutex> lg(m_send_lock);
-        write(m_fd, data, bytes);
+        bytes = write(m_fd, data, bytes);
     }
 
     void recv_loop(){

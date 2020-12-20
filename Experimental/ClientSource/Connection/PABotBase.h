@@ -24,7 +24,9 @@
 #ifndef PokemonAutomation_PABotBase_H
 #define PokemonAutomation_PABotBase_H
 
+#include <string.h>
 #include <map>
+#include <condition_variable>
 #include "Common/ControllerDefs.h"
 #include "Connection/PABotBaseConnection.h"
 #include "Libraries/Logging.h"

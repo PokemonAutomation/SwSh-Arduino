@@ -40,16 +40,16 @@ std::string current_time(){
     tp -= s;
     auto micros = 1000000 * tp.count() * system_clock::duration::period::num / system_clock::duration::period::den;
     time_t tt = system_clock::to_time_t(now);
-    tm utc_tm = *gmtime(&tt);
+//    tm utc_tm = *gmtime(&tt);
     tm local_tm = *localtime(&tt);
 
     std::stringstream ss;
-    ss << utc_tm.tm_year + 1900 << '-';
-    ss << to_string_padded(2, utc_tm.tm_mon + 1) << '-';
-    ss << to_string_padded(2, utc_tm.tm_mday) << ' ';
-    ss << to_string_padded(2, utc_tm.tm_hour) << ':';
-    ss << to_string_padded(2, utc_tm.tm_min) << ':';
-    ss << to_string_padded(2, utc_tm.tm_sec) << '.';
+    ss << local_tm.tm_year + 1900 << '-';
+    ss << to_string_padded(2, local_tm.tm_mon + 1) << '-';
+    ss << to_string_padded(2, local_tm.tm_mday) << ' ';
+    ss << to_string_padded(2, local_tm.tm_hour) << ':';
+    ss << to_string_padded(2, local_tm.tm_min) << ':';
+    ss << to_string_padded(2, local_tm.tm_sec) << '.';
     ss << to_string_padded(6, micros);
 
     return ss.str();
@@ -79,7 +79,7 @@ void MessageLogger::on_send(uint8_t type, const std::string& msg, bool is_retran
         }
 
         //  Request or Command
-        if (type >= 0x30){
+        if (type >= 0x20){
             print = true;
         }
 

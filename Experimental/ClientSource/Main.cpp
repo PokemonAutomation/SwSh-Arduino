@@ -40,5 +40,7 @@ int main(){
     }
     std::cout << std::endl;
 
+#if _WIN32
     system("pause");
+#endif
 }

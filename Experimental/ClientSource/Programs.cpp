@@ -89,7 +89,7 @@ void device_logger(const std::string& device_name){
 //      FrameworkSettings.h
 //      PokemonSettings.h
 //
-const uint16_t CONNECT_CONTROLLER_DELAY         =   3 * TICKS_PER_SECOND;
+const uint16_t CONNECT_CONTROLLER_DELAY         =   5 * TICKS_PER_SECOND;
 const bool     TOLERATE_SYSTEM_UPDATE_MENU_FAST =   true;
 const uint16_t OVERWORLD_TO_MENU_DELAY          =   120;
 const uint16_t HOME_TO_GAME_DELAY               =   3 * TICKS_PER_SECOND;
@@ -111,6 +111,7 @@ void program_TurboA(const std::string& device_name){
 
     while (true){
         pbf_press_button(BUTTON_A, 5, 5);
+//        std::cout << pabotbase->system_clock() << std::endl;
     }
 }
 void program_ClothingBuyer(const std::string& device_name){

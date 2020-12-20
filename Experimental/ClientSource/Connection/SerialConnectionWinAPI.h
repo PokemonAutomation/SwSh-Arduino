@@ -9,8 +9,10 @@
 
 #include <string>
 #include <atomic>
+#include <thread>
 #include <windows.h>
 #include "Unicode.h"
+#include "Libraries/Logging.h"
 #include "StreamInterface.h"
 
 namespace PokemonAutomation{
@@ -64,18 +66,25 @@ public:
             throw "SetCommState() failed. Error = " + std::to_string(error);
         }
 
-#if 0
+#if 1
         COMMTIMEOUTS timeouts{0};
         if (!GetCommTimeouts(m_handle, &timeouts)){
             DWORD error = GetLastError();
             CloseHandle(m_handle);
             throw "GetCommTimeouts() failed. Error = " + std::to_string(error);
         }
-        cout << "ReadIntervalTimeout = " << timeouts.ReadIntervalTimeout << endl;
-        cout << "ReadTotalTimeoutMultiplier = " << timeouts.ReadTotalTimeoutMultiplier << endl;
-        cout << "ReadTotalTimeoutConstant = " << timeouts.ReadTotalTimeoutConstant << endl;
-//        timeouts.ReadIntervalTimeout = (DWORD)-1;
-//        timeouts.ReadTotalTimeoutConstant = 0;
+
+//        std::cout << "ReadIntervalTimeout = " << timeouts.ReadIntervalTimeout << std::endl;
+//        std::cout << "ReadTotalTimeoutMultiplier = " << timeouts.ReadTotalTimeoutMultiplier << std::endl;
+//        std::cout << "ReadTotalTimeoutConstant = " << timeouts.ReadTotalTimeoutConstant << std::endl;
+
+        //  Need to set a read timer. In some cases, a pending ReadFile() call
+        //  will block a WriteFile() call until it returns - leading to a
+        //  deadlock if the device isn't sending any information.
+        timeouts.ReadIntervalTimeout = 0;
+        timeouts.ReadTotalTimeoutMultiplier = 0;
+        timeouts.ReadTotalTimeoutConstant = 1;
+
         if (!SetCommTimeouts(m_handle, &timeouts)){
             DWORD error = GetLastError();
             CloseHandle(m_handle);
@@ -103,22 +112,49 @@ public:
     }
 
 private:
+    void clear_error(){
+        DWORD comm_error;
+        if (ClearCommError(m_handle, &comm_error, nullptr) == 0){
+            DWORD error = GetLastError();
+            log("ClearCommError() failed. Error = " + std::to_string(error));
+        }
+        log("ClearCommError error flag = " + std::to_string(comm_error));
+    }
+
+
     virtual void send(const void* data, size_t bytes){
         std::lock_guard<std::mutex> lg(m_send_lock);
 #if 0
         for (size_t c = 0; c < bytes; c++){
-            cout << "Send: " << (int)((const char*)data)[c] << endl;
+            std::cout << "Send: " << (int)((const char*)data)[c] << std::endl;
         }
 #endif
+
         DWORD written;
-        WriteFile(m_handle, data, (DWORD)bytes, &written, nullptr);
+        if (WriteFile(m_handle, data, (DWORD)bytes, &written, nullptr) == 0 || bytes != written){
+            DWORD error = GetLastError();
+            log(
+                "Failed to write: " + std::to_string(written) +
+                " / " + std::to_string(bytes) +
+                ", error = " + std::to_string(error)
+            );
+            clear_error();
+        }
+
+//        std::cout << "end send()" << std::endl;
     }
 
     void recv_loop(){
+//        std::lock_guard<std::mutex> lg(m_send_lock);
         char buffer[32];
         while (!m_exit.load(std::memory_order_acquire)){
             DWORD read;
-            ReadFile(m_handle, buffer, 32, &read, nullptr);
+            if (ReadFile(m_handle, buffer, 32, &read, nullptr) == 0){
+                DWORD error = GetLastError();
+                log("ReadFile() failed. Error = " + std::to_string(error));
+                clear_error();
+            }
+//            std::cout << "read = " << read << std::endl;
 #if 0
             for (size_t c = 0; c < read; c++){
                 cout << "Recv: " << (int)buffer[c] << endl;

@@ -5,7 +5,6 @@
  */
 
 #include <iostream>
-#include <Windows.h>
 #include "Common/CRC32.h"
 #include "Common/MessageProtocol.h"
 #include "Libraries/Logging.h"
@@ -40,7 +39,7 @@ void PABotBaseConnection::send_zeros(uint8_t bytes){
     char ch = 0;
     for (uint8_t c = 0; c < bytes; c++){
         m_connection->send(&ch, 1);
-        Sleep(10);
+//        Sleep(10);
     }
 }
 uint8_t PABotBaseConnection::get_new_seqnum(){
