@@ -135,7 +135,7 @@
 //      (version / 100) must be the same on both server and client.
 //      (version % 100) can be higher on server than client.
 //
-#define PABB_PROTOCOL_VERSION       2020121801
+#define PABB_PROTOCOL_VERSION       2020122000
 
 //  Program versioning doesn't matter. It's just for informational purposes.
 #define PABB_PROGRAM_VERSION        2020121900
@@ -155,37 +155,42 @@
 #define PABB_MSG_INFO_READY                     0x00
 //  No Parameters
 
-#define PABB_MSG_INFO_INVALID_MESSAGE           0x01
+#define PABB_MSG_SEQNUM_RESET                   0x01
+typedef struct{
+    uint8_t seqnum;
+} PABB_PACK pabb_MsgInfoSeqnumReset;
+
+#define PABB_MSG_INFO_INVALID_MESSAGE           0x02
 typedef struct{
     uint8_t message_length;
 } PABB_PACK pabb_MsgInfoInvalidMessage;
 
-#define PABB_MSG_INFO_CHECKSUM_MISMATCH         0x02
+#define PABB_MSG_INFO_CHECKSUM_MISMATCH         0x03
 typedef struct{
     uint8_t message_length;
 } PABB_PACK pabb_MsgInfoChecksumMismatch;
 
-#define PABB_MSG_INFO_INVALID_TYPE              0x03
+#define PABB_MSG_INFO_INVALID_TYPE              0x04
 typedef struct{
     uint8_t type;
 } PABB_PACK pabb_MsgInfoInvalidType;
 
-#define PABB_MSG_INFO_INVALID_REQUEST           0x04
+#define PABB_MSG_INFO_INVALID_REQUEST           0x05
 typedef struct{
     uint8_t seqnum;
 } PABB_PACK pabb_MsgInfoInvalidRequest;
 
-#define PABB_MSG_INFO_COMMAND_DROPPED           0x05
+#define PABB_MSG_INFO_COMMAND_DROPPED           0x06
 typedef struct{
     uint8_t seqnum;
 } PABB_PACK pabb_MsgInfoCommandDropped;
 
-#define PABB_MSG_INFO_WARNING                   0x06
+#define PABB_MSG_INFO_WARNING                   0x07
 typedef struct{
     uint16_t error_code;
 } PABB_PACK pabb_MsgInfoWARNING;
 
-#define PABB_MSG_INFO_I32                       0x07
+#define PABB_MSG_INFO_I32                       0x08
 typedef struct{
     uint32_t data;
 } PABB_PACK pabb_MsgInfoI32;
@@ -270,7 +275,7 @@ typedef struct{
     bool on;
 } PABB_PACK pabb_set_led;
 
-#define PABB_MSG_REQUEST_END_PROGRAM_CALLBACK   0x25
+#define PABB_MSG_REQUEST_END_PROGRAM_CALLBACK   0x26
 typedef struct{
     uint8_t seqnum;
 } PABB_PACK pabb_end_program_callback;

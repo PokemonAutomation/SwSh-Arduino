@@ -5,8 +5,8 @@
  *      This is the main PABotBase class.
  * 
  *  This class represents a connection to a single PABotBase instance running on
- *  a user specified COM port. You can multiple instances of this class if you
- *  are connecting to multiple devices at once.
+ *  a user specified COM port. You can have multiple instances of this class if
+ *  you are connecting to multiple devices at once.
  * 
  *  This class implements the full communication protocol. So you directly
  *  invoke commands from this class which will be passed on to the Arduino/Teensy.
@@ -66,6 +66,8 @@ public:
     void send_command_and_wait(SendParams& send_params, RecvParams& recv_params);
 
 private:
+    uint8_t get_new_seqnum();
+
     template <typename Params> void process_ack(uint8_t type, std::string msg);
     template <typename Params> void process_command_finished(uint8_t type, std::string msg);
     virtual void on_recv_message(uint8_t type, std::string msg) override;
@@ -83,6 +85,7 @@ private:
         std::condition_variable cv;
     };
 
+    uint8_t m_send_seq;
     std::chrono::milliseconds m_retransmit_delay;
     std::mutex m_lock;
     std::map<uint8_t, WaitingAck> m_pending_requests;

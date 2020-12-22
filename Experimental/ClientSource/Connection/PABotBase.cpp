@@ -21,8 +21,14 @@ PABotBase::PABotBase(
     std::chrono::milliseconds retransmit_delay
 )
     : PABotBaseConnection(std::move(connection))
+    , m_send_seq(1)
     , m_retransmit_delay(retransmit_delay)
-{}
+{
+    //  Send seqnum reset.
+    pabb_MsgInfoSeqnumReset params;
+    pabb_MsgAck response;
+    send_request_and_wait<PABB_MSG_SEQNUM_RESET, PABB_MSG_ACK>(params, response);
+}
 ////////////////////////////////////////////////////////////////////////////////
 PABotBase::~PABotBase(){
     //  Must call this to stop the receiver thread from making any more async
@@ -31,6 +37,10 @@ PABotBase::~PABotBase(){
 
     //  Now the receiver thread is dead. Nobody else is touching this class so
     //  it is safe to destruct.
+}
+
+uint8_t PABotBase::get_new_seqnum(){
+    return m_send_seq++;
 }
 
 template <typename Params>

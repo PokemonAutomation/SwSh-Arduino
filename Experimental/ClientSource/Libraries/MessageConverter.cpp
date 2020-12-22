@@ -42,6 +42,17 @@ int register_message_converters_framework(){
         }
     );
     register_message_converter(
+        PABB_MSG_SEQNUM_RESET,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "PABB_MSG_SEQNUM_RESET - ";
+            if (length != sizeof(pabb_MsgInfoSeqnumReset)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_MsgInfoSeqnumReset*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            return ss.str();
+        }
+    );
+    register_message_converter(
         PABB_MSG_INFO_INVALID_MESSAGE,
         [](const char* message, size_t length){
             std::stringstream ss;
@@ -240,8 +251,8 @@ int register_message_converters_framework(){
         [](const char* message, size_t length){
             std::stringstream ss;
             ss << "PABB_MSG_REQUEST_COMMAND_FINISHED_I32 - ";
-            if (length != sizeof(pabb_MsgRequestCommandFinishedI16)){ ss << "(invalid size)" << std::endl; return ss.str(); }
-            const auto* params = (const pabb_MsgRequestCommandFinishedI16*)message;
+            if (length != sizeof(pabb_MsgRequestCommandFinishedI32)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_MsgRequestCommandFinishedI32*)message;
             ss << "seqnum = " << (unsigned)params->seqnum;
             ss << ", seq_of_original_command = " << (unsigned)params->seq_of_original_command;
             ss << ", return_value = " << params->return_value;

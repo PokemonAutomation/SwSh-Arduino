@@ -24,8 +24,13 @@ std::unique_ptr<PABotBase> start_connection(bool require_pabotbase, const std::s
         std::string name;
         std::cout << "Please enter the name of the serial connection." << std::endl;
         std::cout << std::endl;
+#if _WIN32
         std::cout << "If you don't know what it is, go to Device Manager -> Ports (COM & LPT)" << std::endl;
         std::cout << "The name should be something like, \"COM5\"." << std::endl;
+#else
+        std::cout << "If you don't know what it is, type \"ls /sys/class/tty\" to list them." << std::endl;
+        std::cout << "The name should be something like, \"/dev/ttyUSB0\"." << std::endl;
+#endif
         std::cout << std::endl;
         std::cout << "Device Name: ";
         std::cin >> name;
@@ -75,6 +80,7 @@ void device_logger(const std::string& device_name){
     std::cout << "Starting Device Logger..." << std::endl;
     std::cout << std::endl;
     std::unique_ptr<PABotBase> pabotbase = start_connection(false, device_name);
+    global_connection = pabotbase.get();
 
     //  Wait Forever
     while (true){
@@ -279,7 +285,7 @@ void program_DateSpam_WattFarmer(const std::string& device_name){
 
 
 
-    start_program_flash(CONNECT_CONTROLLER_DELAY);
+//    start_program_flash(CONNECT_CONTROLLER_DELAY);
     grip_menu_connect_go_home();
 
     uint16_t save_count = 0;

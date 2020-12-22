@@ -40,7 +40,11 @@ public:
         m_fd = open(name.c_str(), O_RDWR | O_NOCTTY | O_NDELAY);
         if (m_fd == -1){
             int error = errno;
-            throw "Unable to open serial connection. Error = " + std::to_string(error);
+            std::string str = "Unable to open serial connection. Error = " + std::to_string(error);
+            if (error == EACCES){
+                str += " (permission denied)\nPlease run as sudo.";
+            }
+            throw str;
         }
 
         struct termios options;
@@ -63,16 +67,36 @@ public:
 //        std::cout << "write baud = " << cfgetispeed(&options) << std::endl;
 //        std::cout << "write baud = " << cfgetospeed(&options) << std::endl;
 
+#if 0
+        std::cout << "BRKINT  = " << (options.c_iflag & BRKINT) << std::endl;
+        std::cout << "ICRNL   = " << (options.c_iflag & ICRNL) << std::endl;
+        std::cout << "IMAXBEL = " << (options.c_iflag & IMAXBEL) << std::endl;
+        std::cout << "OPOST   = " << (options.c_oflag & OPOST) << std::endl;
+        std::cout << "ONLCR   = " << (options.c_oflag & ONLCR) << std::endl;
+        std::cout << "ISIG    = " << (options.c_lflag & ISIG) << std::endl;
+        std::cout << "ICANON  = " << (options.c_lflag & ICANON) << std::endl;
+        std::cout << "ECHO    = " << (options.c_lflag & ECHO) << std::endl;
+        std::cout << "ECHOE   = " << (options.c_lflag & ECHOE) << std::endl;
+#endif
 #if 1
-        //  Byte Size
-        options.c_cflag &= ~CSIZE;
-        options.c_cflag |= CS8;
-
-        //  No Parity
+        //  8 bits, no parity, 1 stop bit
         options.c_cflag &= ~PARENB;
         options.c_cflag &= ~CSTOPB;
         options.c_cflag &= ~CSIZE;
         options.c_cflag |= CS8;
+#endif
+#if 1
+        //  Override all of Linux's stupid text defaults.
+        options.c_iflag &= ~BRKINT;
+        options.c_iflag &= ~ICRNL;
+        options.c_iflag &= ~(IXON | IXOFF);
+        options.c_iflag &= ~IMAXBEL;
+        options.c_oflag &= ~OPOST;
+        options.c_oflag &= ~ONLCR;
+        options.c_lflag &= ~ISIG;
+        options.c_lflag &= ~ICANON;
+        options.c_lflag &= ~ECHO;
+        options.c_lflag &= ~ECHOE;
 #endif
 
         if (tcsetattr(m_fd, TCSANOW, &options) == -1){

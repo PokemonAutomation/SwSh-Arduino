@@ -39,8 +39,6 @@ public:
 
 public:
     void send_zeros(uint8_t bytes = PABB_MAX_MESSAGE_SIZE);
-
-    uint8_t get_new_seqnum();
     void send_message(uint8_t type, const std::string& msg, bool is_retransmit);
 
 protected:
@@ -53,7 +51,6 @@ private:
 
 private:
     std::unique_ptr<StreamConnection> m_connection;
-    uint8_t m_send_seq;
     std::deque<char> m_recv_buffer;
     std::set<MessageSnooper*> m_snoopers;
 };

@@ -46,12 +46,12 @@ void reset_game_from_home(bool tolerate_update_menu, uint8_t user_slot, bool gam
 //  This operation is intended to be fast.
 //  If (fast = true), it will run faster, but with a small chance of not making it into the game.
 //  "delay" specifies how long to wait after the final press to re-enter the game.
-uint16_t settings_to_enter_game(bool fast, uint16_t delay);
+void settings_to_enter_game(bool fast, uint16_t delay);
 
 //  From anywhere in the Switch settings except the home menu, return to the game.
 //  Return to the game where you are inside an open den lobby with the cursor over
 //  "Switch Pokemon".
-uint16_t settings_to_enter_game_den_lobby(bool tolerate_update_menu, bool fast);
+void settings_to_enter_game_den_lobby(bool tolerate_update_menu, bool fast);
 
 //  From the Switch home with the cursor over the 1st game and the game closed,
 //  start the specified game. When the function returns, you should be in the
@@ -134,8 +134,8 @@ void resume_game_no_interact                (PokemonAutomation::PABotBase& devic
 void resume_game_back_out                   (PokemonAutomation::PABotBase& device, bool tolerate_update_menu, uint16_t mash_B_time);
 void resume_game_front_of_den_nowatts       (PokemonAutomation::PABotBase& device, bool tolerate_update_menu);
 void reset_game_from_home                   (PokemonAutomation::PABotBase& device, bool tolerate_update_menu, uint8_t user_slot, bool game_slot2);
-uint16_t settings_to_enter_game             (PokemonAutomation::PABotBase& device, bool fast, uint16_t delay);
-uint16_t settings_to_enter_game_den_lobby   (PokemonAutomation::PABotBase& device, bool tolerate_update_menu, bool fast);
+void settings_to_enter_game                 (PokemonAutomation::PABotBase& device, bool fast, uint16_t delay);
+void settings_to_enter_game_den_lobby       (PokemonAutomation::PABotBase& device, bool tolerate_update_menu, bool fast);
 void start_game_from_home                   (PokemonAutomation::PABotBase& device, bool tolerate_update_menu, uint8_t game_slot, uint8_t user_slot, bool backup_save);
 void close_game                             (PokemonAutomation::PABotBase& device);
 void home_to_date_time                      (PokemonAutomation::PABotBase& device, bool fast);

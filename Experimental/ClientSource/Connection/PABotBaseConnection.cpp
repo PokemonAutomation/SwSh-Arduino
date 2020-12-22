@@ -8,6 +8,7 @@
 #include "Common/CRC32.h"
 #include "Common/MessageProtocol.h"
 #include "Libraries/Logging.h"
+#include "Libraries/MessageConverter.h"
 #include "PABotBaseConnection.h"
 
 namespace PokemonAutomation{
@@ -15,7 +16,6 @@ namespace PokemonAutomation{
 
 PABotBaseConnection::PABotBaseConnection(std::unique_ptr<StreamConnection> connection)
     : m_connection(std::move(connection))
-    , m_send_seq(1)
 {
     m_connection->add_listener(*this);
 }
@@ -42,10 +42,8 @@ void PABotBaseConnection::send_zeros(uint8_t bytes){
 //        Sleep(10);
     }
 }
-uint8_t PABotBaseConnection::get_new_seqnum(){
-    return m_send_seq++;
-}
 void PABotBaseConnection::send_message(uint8_t type, const std::string& msg, bool is_retransmit){
+//    log("Sending: " + message_to_string(type, msg));
     for (MessageSnooper* snooper : m_snoopers){
         snooper->on_send(type, msg, is_retransmit);
     }

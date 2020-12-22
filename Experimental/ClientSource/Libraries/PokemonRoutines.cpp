@@ -57,27 +57,25 @@ void reset_game_from_home(PABotBase& device, bool tolerate_update_menu, uint8_t 
     device.send_command_and_wait<PABB_MSG_COMMAND_RESET_GAME_FROM_HOME, PABB_MSG_REQUEST_COMMAND_FINISHED>(params, response);
 }
 
-uint16_t settings_to_enter_game(bool fast, uint16_t delay){
-    return settings_to_enter_game(*global_connection, fast, delay);
+void settings_to_enter_game(bool fast, uint16_t delay){
+    settings_to_enter_game(*global_connection, fast, delay);
 }
-uint16_t settings_to_enter_game(PABotBase& device, bool fast, uint16_t delay){
+void settings_to_enter_game(PABotBase& device, bool fast, uint16_t delay){
     pabb_settings_to_enter_game params;
     params.fast = fast;
     params.delay = delay;
     pabb_MsgRequestCommandFinishedI16 response;
     device.send_command_and_wait<PABB_MSG_COMMAND_SETTINGS_TO_ENTER_GAME, PABB_MSG_REQUEST_COMMAND_FINISHED_I16>(params, response);
-    return response.return_value;
 }
-uint16_t settings_to_enter_game_den_lobby(bool tolerate_update_menu, bool fast){
-    return settings_to_enter_game_den_lobby(*global_connection, tolerate_update_menu, fast);
+void settings_to_enter_game_den_lobby(bool tolerate_update_menu, bool fast){
+    settings_to_enter_game_den_lobby(*global_connection, tolerate_update_menu, fast);
 }
-uint16_t settings_to_enter_game_den_lobby(PABotBase& device, bool tolerate_update_menu, bool fast){
+void settings_to_enter_game_den_lobby(PABotBase& device, bool tolerate_update_menu, bool fast){
     pabb_settings_to_enter_game_den_lobby params;
     params.tolerate_update_menu = tolerate_update_menu;
     params.fast = fast;
     pabb_MsgRequestCommandFinishedI16 response;
     device.send_command_and_wait<PABB_MSG_COMMAND_SETTINGS_TO_ENTER_GAME_DEN_LOBBY, PABB_MSG_REQUEST_COMMAND_FINISHED_I16>(params, response);
-    return response.return_value;
 }
 void start_game_from_home(bool tolerate_update_menu, uint8_t game_slot, uint8_t user_slot, bool backup_save){
     start_game_from_home(*global_connection, tolerate_update_menu, game_slot, user_slot, backup_save);
