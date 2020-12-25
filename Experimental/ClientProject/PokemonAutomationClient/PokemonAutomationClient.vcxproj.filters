@@ -22,6 +22,9 @@
     <Filter Include="Source Files\Libraries">
       <UniqueIdentifier>{387c9d25-acda-4e6c-a9df-551b8aaf5328}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Sandbox">
+      <UniqueIdentifier>{0df18a2c-d69e-4cad-be99-02264f3f2db5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\ClientSource\Common\CRC32.h">

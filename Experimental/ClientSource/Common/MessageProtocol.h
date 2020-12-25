@@ -62,17 +62,22 @@
  *      5.  If you receive a request/command message, you must send the appropriate
  *          ack/response message using the same seqnum.
  * 
- *      6.  If you send a request/command message and don't get a response after
- *          a time limit, you should resend the message with the same seqnum.
- * 
- *      7.  If you receive a duplicate request/command message, ack/respond to it,
- *          but don't actually process the request again. (idempotency)
- * 
- *      8.  If you receive a command message, you must first ack the message itself.
+ *      6.  If you receive a command message, you must first ack the message itself.
  *          Once the command is finished, you must send a request referencing the
  *          command to indicate that it is finished. You will receive an ack for
  *          this short (finishing) command, and if you don't, send it again until
- *          you do.
+ *          you do. If the command finishes immediately, you can skip the ack and
+ *          just send the finish request.
+ * 
+ *      7.  If you send a request/command message and don't get a response after
+ *          a time limit, you should resend the message with the same seqnum.
+ * 
+ *      8.  If you receive a request/command that has a seqnum ahead of what you
+ *          are expecting, it means an earlier request/command was dropped.
+ *          Do not process the request/command since you will lose ordering.
+ * 
+ *      9.  If you receive a request/command that has an old seqnum, it is a
+ *          retransmit. Send an ack for it, but don't process it again. (idempotency)
  * 
  * 
  *  Failure Analysis:
@@ -86,16 +91,20 @@
  *          verifying the length and CRC.
  * 
  *      -   If a request/command is dropped, no ack will be received. The sender
- *          will eventually send the command again. (#6)
+ *          will eventually send the command again. (#7)
  * 
  *      -   If an ack is dropped, the sender will eventually resend the
  *          request/command again. The receiver will see the duplicate
  *          request/command and ack it. But the receiver will not process it
- *          again to preserve idempotency. (#7)
+ *          again to preserve idempotency. (#9)
  * 
- *  The current protocol guarantees that all requests and commands be processed
- *  exactly once. If ordering is important, then the sender should never issue
- *  another request/command before the previous when is acked and finished.
+ *  The current protocol guarantees that all commands are processed in order
+ *  exactly once. Requests are not guaranteed to process in order and may execute
+ *  more than once so they should be idempotent.
+ * 
+ *  The protocol also allows both sides to queue up requests and commands.
+ *  In other words, it is possible to send multiple requests/commands at once
+ *  without waiting for the individual acks.
  * 
  * 
  *  PABotBase Specifics:
@@ -127,6 +136,16 @@
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
+//  This macro isn't part of the protocol. But it specifies the size of the
+//  command queue on the device. This can be used as a hint by the client to
+//  avoid overloading the device. This has no effect on correctness since the
+//  device will automatically drop commands when the command queue fills up or
+//  if it can't process serial messages quickly enough.
+#define PABB_DEVICE_QUEUE_SIZE      4   //  Must be a power-of-two.
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
 //  Protocol Version:
 //
 //      Backwards incompatible changes will increase by 100 or more.
@@ -135,10 +154,10 @@
 //      (version / 100) must be the same on both server and client.
 //      (version % 100) can be higher on server than client.
 //
-#define PABB_PROTOCOL_VERSION       2020122000
+#define PABB_PROTOCOL_VERSION       2020122400
 
 //  Program versioning doesn't matter. It's just for informational purposes.
-#define PABB_PROGRAM_VERSION        2020121900
+#define PABB_PROGRAM_VERSION        2020122400
 
 #define PABB_BAUD_RATE              115200
 #define PABB_RETRANSMIT_DELAY       25
@@ -150,35 +169,41 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  Basic Message Types
 
+//  Requests between 0x40 - 0x7f.
+#define PABB_MSG_REQUEST_THRESHOLD              0x40
+
+//  Requests between 0x80 - 0xff.
+#define PABB_MSG_COMMAND_THRESHOLD              0x80
+
 ////////////////////////////////////////////////////////////////////////////////
 //  Info
 #define PABB_MSG_INFO_READY                     0x00
 //  No Parameters
 
-#define PABB_MSG_SEQNUM_RESET                   0x01
-typedef struct{
-    uint8_t seqnum;
-} PABB_PACK pabb_MsgInfoSeqnumReset;
-
-#define PABB_MSG_INFO_INVALID_MESSAGE           0x02
+#define PABB_MSG_INFO_INVALID_MESSAGE           0x01
 typedef struct{
     uint8_t message_length;
 } PABB_PACK pabb_MsgInfoInvalidMessage;
 
-#define PABB_MSG_INFO_CHECKSUM_MISMATCH         0x03
+#define PABB_MSG_INFO_CHECKSUM_MISMATCH         0x02
 typedef struct{
     uint8_t message_length;
 } PABB_PACK pabb_MsgInfoChecksumMismatch;
 
-#define PABB_MSG_INFO_INVALID_TYPE              0x04
+#define PABB_MSG_INFO_INVALID_TYPE              0x03
 typedef struct{
     uint8_t type;
 } PABB_PACK pabb_MsgInfoInvalidType;
 
-#define PABB_MSG_INFO_INVALID_REQUEST           0x05
+#define PABB_MSG_INFO_INVALID_REQUEST           0x04
 typedef struct{
     uint8_t seqnum;
 } PABB_PACK pabb_MsgInfoInvalidRequest;
+
+#define PABB_MSG_INFO_MISSED_REQUEST            0x05
+typedef struct{
+    uint8_t seqnum;
+} PABB_PACK pabb_MsgInfoMissedRequest;
 
 #define PABB_MSG_INFO_COMMAND_DROPPED           0x06
 typedef struct{
@@ -196,7 +221,7 @@ typedef struct{
 } PABB_PACK pabb_MsgInfoI32;
 
 ////////////////////////////////////////////////////////////////////////////////
-//  Ack/Response
+//  Ack
 #define PABB_MSG_ACK                            0x10
 typedef struct{
     uint8_t seqnum;
@@ -220,65 +245,50 @@ typedef struct{
     uint32_t data;
 } PABB_PACK pabb_MsgAckI32;
 
-#define PABB_MSG_REQUEST_COMMAND_FINISHED       0x18
-typedef struct{
-    uint8_t seqnum;
-    uint8_t seq_of_original_command;
-} PABB_PACK pabb_MsgRequestCommandFinished;
-
-#define PABB_MSG_REQUEST_COMMAND_FINISHED_I8    0x19
-typedef struct{
-    uint8_t seqnum;
-    uint8_t seq_of_original_command;
-    uint8_t return_value;
-} PABB_PACK pabb_MsgRequestCommandFinishedI8;
-
-#define PABB_MSG_REQUEST_COMMAND_FINISHED_I16   0x1a
-typedef struct{
-    uint8_t seqnum;
-    uint8_t seq_of_original_command;
-    uint16_t return_value;
-} PABB_PACK pabb_MsgRequestCommandFinishedI16;
-
-#define PABB_MSG_REQUEST_COMMAND_FINISHED_I32   0x1b
-typedef struct{
-    uint8_t seqnum;
-    uint8_t seq_of_original_command;
-    uint32_t return_value;
-} PABB_PACK pabb_MsgRequestCommandFinishedI32;
-
 ////////////////////////////////////////////////////////////////////////////////
 //  Requests
-#define PABB_MSG_REQUEST_PROTOCOL_VERSION       0x20
+#define PABB_MSG_SEQNUM_RESET                   0x40
+typedef struct{
+    uint8_t seqnum;
+} PABB_PACK pabb_MsgInfoSeqnumReset;
+
+#define PABB_MSG_REQUEST_PROTOCOL_VERSION       0x41
 typedef struct{
     uint8_t seqnum;
 } PABB_PACK pabb_MsgRequestProtocolVersion;
 
-#define PABB_MSG_REQUEST_PROGRAM_VERSION        0x21
+#define PABB_MSG_REQUEST_PROGRAM_VERSION        0x42
 typedef struct{
     uint8_t seqnum;
 } PABB_PACK pabb_MsgRequestProgramVersion;
 
-#define PABB_MSG_REQUEST_PROGRAM_ID             0x22
+#define PABB_MSG_REQUEST_PROGRAM_ID             0x43
 typedef struct{
     uint8_t seqnum;
 } PABB_PACK pabb_MsgRequestProgramID;
 
-#define PABB_MSG_REQUEST_CLOCK                  0x23
+#define PABB_MSG_REQUEST_CLOCK                  0x44
 typedef struct{
     uint8_t seqnum;
 } PABB_PACK pabb_system_clock;
 
-#define PABB_MSG_REQUEST_SET_LED_STATE          0x24
+#define PABB_MSG_REQUEST_SET_LED_STATE          0x45
 typedef struct{
     uint8_t seqnum;
     bool on;
 } PABB_PACK pabb_set_led;
 
-#define PABB_MSG_REQUEST_END_PROGRAM_CALLBACK   0x26
+#define PABB_MSG_REQUEST_END_PROGRAM_CALLBACK   0x46
 typedef struct{
     uint8_t seqnum;
 } PABB_PACK pabb_end_program_callback;
+
+#define PABB_MSG_REQUEST_COMMAND_FINISHED       0x48
+typedef struct{
+    uint8_t seqnum;
+    uint8_t seq_of_original_command;
+    uint32_t finish_time;
+} PABB_PACK pabb_MsgRequestCommandFinished;
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////

@@ -42,17 +42,6 @@ int register_message_converters_framework(){
         }
     );
     register_message_converter(
-        PABB_MSG_SEQNUM_RESET,
-        [](const char* message, size_t length){
-            std::stringstream ss;
-            ss << "PABB_MSG_SEQNUM_RESET - ";
-            if (length != sizeof(pabb_MsgInfoSeqnumReset)){ ss << "(invalid size)" << std::endl; return ss.str(); }
-            const auto* params = (const pabb_MsgInfoSeqnumReset*)message;
-            ss << "seqnum = " << (unsigned)params->seqnum;
-            return ss.str();
-        }
-    );
-    register_message_converter(
         PABB_MSG_INFO_INVALID_MESSAGE,
         [](const char* message, size_t length){
             std::stringstream ss;
@@ -92,6 +81,17 @@ int register_message_converters_framework(){
             ss << "PABB_MSG_INFO_INVALID_REQUEST - ";
             if (length != sizeof(pabb_MsgInfoInvalidRequest)){ ss << "(invalid size)" << std::endl; return ss.str(); }
             const auto* params = (const pabb_MsgInfoInvalidRequest*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            return ss.str();
+        }
+    );
+    register_message_converter(
+        PABB_MSG_INFO_MISSED_REQUEST,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "PABB_MSG_INFO_MISSED_REQUEST - ";
+            if (length != sizeof(pabb_MsgInfoMissedRequest)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_MsgInfoMissedRequest*)message;
             ss << "seqnum = " << (unsigned)params->seqnum;
             return ss.str();
         }
@@ -176,6 +176,17 @@ int register_message_converters_framework(){
         }
     );
     register_message_converter(
+        PABB_MSG_SEQNUM_RESET,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "PABB_MSG_SEQNUM_RESET - ";
+            if (length != sizeof(pabb_MsgInfoSeqnumReset)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_MsgInfoSeqnumReset*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            return ss.str();
+        }
+    );
+    register_message_converter(
         PABB_MSG_REQUEST_PROTOCOL_VERSION,
         [](const char* message, size_t length){
             std::stringstream ss;
@@ -205,57 +216,6 @@ int register_message_converters_framework(){
             if (length != sizeof(pabb_MsgRequestProgramID)){ ss << "(invalid size)" << std::endl; return ss.str(); }
             const auto* params = (const pabb_MsgRequestProgramID*)message;
             ss << "seqnum = " << (unsigned)params->seqnum;
-            return ss.str();
-        }
-    );
-    register_message_converter(
-        PABB_MSG_REQUEST_COMMAND_FINISHED,
-        [](const char* message, size_t length){
-            std::stringstream ss;
-            ss << "PABB_MSG_REQUEST_COMMAND_FINISHED - ";
-            if (length != sizeof(pabb_MsgRequestCommandFinished)){ ss << "(invalid size)" << std::endl; return ss.str(); }
-            const auto* params = (const pabb_MsgRequestCommandFinished*)message;
-            ss << "seqnum = " << (unsigned)params->seqnum;
-            ss << ", seq_of_original_command = " << (unsigned)params->seq_of_original_command;
-            return ss.str();
-        }
-    );
-    register_message_converter(
-        PABB_MSG_REQUEST_COMMAND_FINISHED_I8,
-        [](const char* message, size_t length){
-            std::stringstream ss;
-            ss << "PABB_MSG_REQUEST_COMMAND_FINISHED_I8 - ";
-            if (length != sizeof(pabb_MsgRequestCommandFinishedI8)){ ss << "(invalid size)" << std::endl; return ss.str(); }
-            const auto* params = (const pabb_MsgRequestCommandFinishedI8*)message;
-            ss << "seqnum = " << (unsigned)params->seqnum;
-            ss << ", seq_of_original_command = " << (unsigned)params->seq_of_original_command;
-            ss << ", return_value = " << (unsigned)params->return_value;
-            return ss.str();
-        }
-    );
-    register_message_converter(
-        PABB_MSG_REQUEST_COMMAND_FINISHED_I16,
-        [](const char* message, size_t length){
-            std::stringstream ss;
-            ss << "PABB_MSG_REQUEST_COMMAND_FINISHED_I16 - ";
-            if (length != sizeof(pabb_MsgRequestCommandFinishedI16)){ ss << "(invalid size)" << std::endl; return ss.str(); }
-            const auto* params = (const pabb_MsgRequestCommandFinishedI16*)message;
-            ss << "seqnum = " << (unsigned)params->seqnum;
-            ss << ", seq_of_original_command = " << (unsigned)params->seq_of_original_command;
-            ss << ", return_value = " << params->return_value;
-            return ss.str();
-        }
-    );
-    register_message_converter(
-        PABB_MSG_REQUEST_COMMAND_FINISHED_I32,
-        [](const char* message, size_t length){
-            std::stringstream ss;
-            ss << "PABB_MSG_REQUEST_COMMAND_FINISHED_I32 - ";
-            if (length != sizeof(pabb_MsgRequestCommandFinishedI32)){ ss << "(invalid size)" << std::endl; return ss.str(); }
-            const auto* params = (const pabb_MsgRequestCommandFinishedI32*)message;
-            ss << "seqnum = " << (unsigned)params->seqnum;
-            ss << ", seq_of_original_command = " << (unsigned)params->seq_of_original_command;
-            ss << ", return_value = " << params->return_value;
             return ss.str();
         }
     );
@@ -290,6 +250,19 @@ int register_message_converters_framework(){
             if (length != sizeof(pabb_end_program_callback)){ ss << "(invalid size)" << std::endl; return ss.str(); }
             const auto* params = (const pabb_end_program_callback*)message;
             ss << "seqnum = " << (unsigned)params->seqnum;
+            return ss.str();
+        }
+    );
+    register_message_converter(
+        PABB_MSG_REQUEST_COMMAND_FINISHED,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "PABB_MSG_REQUEST_COMMAND_FINISHED - ";
+            if (length != sizeof(pabb_MsgRequestCommandFinished)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_MsgRequestCommandFinished*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            ss << ", seq_of_original_command = " << (unsigned)params->seq_of_original_command;
+            ss << ", finish_time = " << params->finish_time;
             return ss.str();
         }
     );
@@ -442,18 +415,6 @@ int register_message_converters_pokemon_den_entry(){
         }
     );
     register_message_converter(
-        PABB_MSG_COMMAND_RESUME_GAME_FRONT_OF_DEN_NOWATTS,
-        [](const char* message, size_t length){
-            std::stringstream ss;
-            ss << "resume_game_front_of_den_nowatts() - ";
-            if (length != sizeof(pabb_resume_game_front_of_den_nowatts)){ ss << "(invalid size)" << std::endl; return ss.str(); }
-            const auto* params = (const pabb_resume_game_front_of_den_nowatts*)message;
-            ss << "seqnum = " << (unsigned)params->seqnum;
-            ss << ", tolerate_update_menu = " << params->tolerate_update_menu;
-            return ss.str();
-        }
-    );
-    register_message_converter(
         PABB_MSG_COMMAND_RESET_GAME_FROM_HOME,
         [](const char* message, size_t length){
             std::stringstream ss;
@@ -568,18 +529,6 @@ int register_message_converters_pokemon_date_spam(){
             const auto* params = (const pabb_home_roll_date_enter_game*)message;
             ss << "seqnum = " << (unsigned)params->seqnum;
             ss << ", rollback_year = " << params->rollback_year;
-            ss << ", delay = " << params->delay;
-            return ss.str();
-        }
-    );
-    register_message_converter(
-        PABB_MSG_COMMAND_HOME_ROLL_DATE_ENTER_GAME_AUTOROLLBACK,
-        [](const char* message, size_t length){
-            std::stringstream ss;
-            ss << "home_roll_date_enter_game_autorollback() - ";
-            if (length != sizeof(pabb_home_roll_date_enter_game_autorollback)){ ss << "(invalid size)" << std::endl; return ss.str(); }
-            const auto* params = (const pabb_home_roll_date_enter_game_autorollback*)message;
-            ss << "seqnum = " << (unsigned)params->seqnum;
             ss << ", delay = " << params->delay;
             return ss.str();
         }

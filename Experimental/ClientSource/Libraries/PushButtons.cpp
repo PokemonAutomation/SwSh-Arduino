@@ -38,8 +38,7 @@ void pbf_wait(uint16_t ticks){
 void pbf_wait(PABotBase& device, uint16_t ticks){
     pabb_pbf_wait params;
     params.ticks = ticks;
-    pabb_MsgRequestCommandFinished response;
-    device.send_command_and_wait<PABB_MSG_COMMAND_PBF_WAIT, PABB_MSG_REQUEST_COMMAND_FINISHED>(params, response);
+    device.issue_request<PABB_MSG_COMMAND_PBF_WAIT>(params);
 }
 
 void pbf_press_button(Button button, uint16_t hold_ticks, uint16_t release_ticks){
@@ -50,8 +49,7 @@ void pbf_press_button(PABotBase& device, Button button, uint16_t hold_ticks, uin
     params.button = button;
     params.hold_ticks = hold_ticks;
     params.release_ticks = release_ticks;
-    pabb_MsgRequestCommandFinished response;
-    device.send_command_and_wait<PABB_MSG_COMMAND_PBF_PRESS_BUTTON, PABB_MSG_REQUEST_COMMAND_FINISHED>(params, response);
+    device.issue_request<PABB_MSG_COMMAND_PBF_PRESS_BUTTON>(params);
 }
 
 void pbf_press_dpad(DpadPosition position, uint16_t hold_ticks, uint16_t release_ticks){
@@ -62,8 +60,7 @@ void pbf_press_dpad(PABotBase& device, DpadPosition position, uint16_t hold_tick
     params.dpad = position;
     params.hold_ticks = hold_ticks;
     params.release_ticks = release_ticks;
-    pabb_MsgRequestCommandFinished response;
-    device.send_command_and_wait<PABB_MSG_COMMAND_PBF_PRESS_DPAD, PABB_MSG_REQUEST_COMMAND_FINISHED>(params, response);
+    device.issue_request<PABB_MSG_COMMAND_PBF_PRESS_DPAD>(params);
 }
 
 void pbf_move_left_joystick(uint8_t x, uint8_t y, uint16_t hold_ticks, uint16_t release_ticks){
@@ -75,8 +72,7 @@ void pbf_move_left_joystick(PABotBase& device, uint8_t x, uint8_t y, uint16_t ho
     params.y = y;
     params.hold_ticks = hold_ticks;
     params.release_ticks = release_ticks;
-    pabb_MsgRequestCommandFinished response;
-    device.send_command_and_wait<PABB_MSG_COMMAND_PBF_MOVE_JOYSTICK_L, PABB_MSG_REQUEST_COMMAND_FINISHED>(params, response);
+    device.issue_request<PABB_MSG_COMMAND_PBF_MOVE_JOYSTICK_L>(params);
 }
 void pbf_move_right_joystick(uint8_t x, uint8_t y, uint16_t hold_ticks, uint16_t release_ticks){
     pbf_move_right_joystick(*global_connection, x, y, hold_ticks, release_ticks);
@@ -87,8 +83,7 @@ void pbf_move_right_joystick(PABotBase& device, uint8_t x, uint8_t y, uint16_t h
     params.y = y;
     params.hold_ticks = hold_ticks;
     params.release_ticks = release_ticks;
-    pabb_MsgRequestCommandFinished response;
-    device.send_command_and_wait<PABB_MSG_COMMAND_PBF_MOVE_JOYSTICK_R, PABB_MSG_REQUEST_COMMAND_FINISHED>(params, response);
+    device.issue_request<PABB_MSG_COMMAND_PBF_MOVE_JOYSTICK_R>(params);
 }
 
 void pbf_mash_button(Button button, uint16_t ticks){
@@ -98,8 +93,7 @@ void pbf_mash_button(PABotBase& device, Button button, uint16_t ticks){
     pabb_pbf_mash_button params;
     params.button = button;
     params.ticks = ticks;
-    pabb_MsgRequestCommandFinished response;
-    device.send_command_and_wait<PABB_MSG_COMMAND_MASH_BUTTON, PABB_MSG_REQUEST_COMMAND_FINISHED>(params, response);
+    device.issue_request<PABB_MSG_COMMAND_MASH_BUTTON>(params);
 }
 
 void start_program_flash(uint16_t ticks){
@@ -108,8 +102,7 @@ void start_program_flash(uint16_t ticks){
 void start_program_flash(PABotBase& device, uint16_t ticks){
     pabb_start_program_flash params;
     params.ticks = ticks;
-    pabb_MsgRequestCommandFinished response;
-    device.send_command_and_wait<PABB_MSG_COMMAND_START_PROGRAM_FLASH, PABB_MSG_REQUEST_COMMAND_FINISHED>(params, response);
+    device.issue_request<PABB_MSG_COMMAND_START_PROGRAM_FLASH>(params);
 }
 
 void grip_menu_connect_go_home(void){
@@ -117,8 +110,7 @@ void grip_menu_connect_go_home(void){
 }
 void grip_menu_connect_go_home(PABotBase& device){
     pabb_grip_menu_connect_go_home params;
-    pabb_MsgRequestCommandFinished response;
-    device.send_command_and_wait<PABB_MSG_COMMAND_GRIP_MENU_CONNECT_GO_HOME, PABB_MSG_REQUEST_COMMAND_FINISHED>(params, response);
+    device.issue_request<PABB_MSG_COMMAND_GRIP_MENU_CONNECT_GO_HOME>(params);
 }
 
 void end_program_loop(void){
@@ -126,7 +118,6 @@ void end_program_loop(void){
 }
 void end_program_loop(PABotBase& device){
     pabb_end_program_loop params;
-    pabb_MsgRequestCommandFinished response;
-    device.send_command_and_wait<PABB_MSG_COMMAND_END_PROGRAM_LOOP, PABB_MSG_REQUEST_COMMAND_FINISHED>(params, response);
+    device.issue_request<PABB_MSG_COMMAND_END_PROGRAM_LOOP>(params);
 }
 

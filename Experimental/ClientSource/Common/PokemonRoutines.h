@@ -159,26 +159,20 @@ void rollback_hours_from_home               (PokemonAutomation::PABotBase& devic
 #endif
 
 
-#define PABB_MSG_COMMAND_RESUME_GAME_NO_INTERACT                0x40
+#define PABB_MSG_COMMAND_RESUME_GAME_NO_INTERACT                0x90
 typedef struct{
     uint8_t seqnum;
     bool tolerate_update_menu;
 } PABB_PACK pabb_resume_game_no_interact;
 
-#define PABB_MSG_COMMAND_RESUME_GAME_BACK_OUT                   0x41
+#define PABB_MSG_COMMAND_RESUME_GAME_BACK_OUT                   0x91
 typedef struct{
     uint8_t seqnum;
     bool tolerate_update_menu;
     uint16_t mash_B_time;
 } PABB_PACK pabb_resume_game_back_out;
 
-#define PABB_MSG_COMMAND_RESUME_GAME_FRONT_OF_DEN_NOWATTS       0x42
-typedef struct{
-    uint8_t seqnum;
-    bool tolerate_update_menu;
-} PABB_PACK pabb_resume_game_front_of_den_nowatts;
-
-#define PABB_MSG_COMMAND_RESET_GAME_FROM_HOME                   0x43
+#define PABB_MSG_COMMAND_RESET_GAME_FROM_HOME                   0x92
 typedef struct{
     uint8_t seqnum;
     bool tolerate_update_menu;
@@ -186,21 +180,21 @@ typedef struct{
     bool game_slot2;
 } PABB_PACK pabb_reset_game_from_home;
 
-#define PABB_MSG_COMMAND_SETTINGS_TO_ENTER_GAME                 0x44
+#define PABB_MSG_COMMAND_SETTINGS_TO_ENTER_GAME                 0x93
 typedef struct{
     uint8_t seqnum;
     bool fast;
     uint16_t delay;
 } PABB_PACK pabb_settings_to_enter_game;
 
-#define PABB_MSG_COMMAND_SETTINGS_TO_ENTER_GAME_DEN_LOBBY       0x45
+#define PABB_MSG_COMMAND_SETTINGS_TO_ENTER_GAME_DEN_LOBBY       0x94
 typedef struct{
     uint8_t seqnum;
     bool tolerate_update_menu;
     bool fast;
 } PABB_PACK pabb_settings_to_enter_game_den_lobby;
 
-#define PABB_MSG_COMMAND_START_GAME_FROM_HOME                   0x46
+#define PABB_MSG_COMMAND_START_GAME_FROM_HOME                   0x95
 typedef struct{
     uint8_t seqnum;
     bool tolerate_update_menu;
@@ -209,49 +203,43 @@ typedef struct{
     bool backup_save;
 } PABB_PACK pabb_start_game_from_home;
 
-#define PABB_MSG_COMMAND_CLOSE_GAME                             0x47
+#define PABB_MSG_COMMAND_CLOSE_GAME                             0x96
 typedef struct{
     uint8_t seqnum;
 } PABB_PACK pabb_close_game;
 
-#define PABB_MSG_COMMAND_HOME_TO_DATE_TIME                      0x50
+#define PABB_MSG_COMMAND_HOME_TO_DATE_TIME                      0xa0
 typedef struct{
     uint8_t seqnum;
     bool fast;
 } PABB_PACK pabb_home_to_date_time;
 
-#define PABB_MSG_COMMAND_ROLL_DATE_FORWARD_1                    0x51
+#define PABB_MSG_COMMAND_ROLL_DATE_FORWARD_1                    0xa1
 typedef struct{
     uint8_t seqnum;
     bool fast;
 } PABB_PACK pabb_roll_date_forward_1;
 
-#define PABB_MSG_COMMAND_ROLL_DATE_BACKWARD_N                   0x52
+#define PABB_MSG_COMMAND_ROLL_DATE_BACKWARD_N                   0xa2
 typedef struct{
     uint8_t seqnum;
     uint8_t skips;
     bool fast;
 } PABB_PACK pabb_roll_date_backward_N;
 
-#define PABB_MSG_COMMAND_HOME_ROLL_DATE_ENTER_GAME              0x53
+#define PABB_MSG_COMMAND_HOME_ROLL_DATE_ENTER_GAME              0xa3
 typedef struct{
     uint8_t seqnum;
     bool rollback_year;
     uint16_t delay;
 } PABB_PACK pabb_home_roll_date_enter_game;
 
-#define PABB_MSG_COMMAND_HOME_ROLL_DATE_ENTER_GAME_AUTOROLLBACK 0x54
-typedef struct{
-    uint8_t seqnum;
-    uint16_t delay;
-} PABB_PACK pabb_home_roll_date_enter_game_autorollback;
-
-#define PABB_MSG_COMMAND_TOUCH_DATE_FROM_HOME                   0x55
+#define PABB_MSG_COMMAND_TOUCH_DATE_FROM_HOME                   0xa8
 typedef struct{
     uint8_t seqnum;
 } PABB_PACK pabb_touch_date_from_home;
 
-#define PABB_MSG_COMMAND_ROLLBACK_HOURS_FROM_HOME               0x56
+#define PABB_MSG_COMMAND_ROLLBACK_HOURS_FROM_HOME               0xa9
 typedef struct{
     uint8_t seqnum;
     uint8_t hours;

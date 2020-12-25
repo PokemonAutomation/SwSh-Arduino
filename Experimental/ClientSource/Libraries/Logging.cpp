@@ -9,6 +9,7 @@
 #include <chrono>
 #include <sstream>
 #include <iostream>
+#include "Common/MessageProtocol.h"
 #include "MessageConverter.h"
 #include "Logging.h"
 
@@ -79,13 +80,13 @@ void MessageLogger::on_send(uint8_t type, const std::string& msg, bool is_retran
         }
 
         //  Request or Command
-        if (type >= 0x20){
+        if (type >= PABB_MSG_REQUEST_THRESHOLD){
             print = true;
         }
 
-#ifdef LOG_ALL_MESSAGES
-        print = true;
-#endif
+        if (m_log_everything.load(std::memory_order_relaxed)){
+            print = true;
+        }
 
     }while (false);
     if (!print){
@@ -105,9 +106,9 @@ void MessageLogger::on_recv(uint8_t type, const std::string& msg){
             print = true;
         }
 
-#ifdef LOG_ALL_MESSAGES
-        print = true;
-#endif
+        if (m_log_everything.load(std::memory_order_relaxed)){
+            print = true;
+        }
 
     }while (false);
     if (!print){

@@ -8,10 +8,9 @@
 #include <iostream>
 #include "Programs.h"
 
-#include "Common/PushButtons.h"
-#include "Common/PokemonRoutines.h"
-
-
+namespace PokemonAutomation{
+    void sandbox(const std::string& device_name);
+}
 
 
 int main(){
@@ -30,7 +29,7 @@ int main(){
 //        program_FriendDelete();
 //        program_DateSpam_WattFarmer();
 
-
+//        sandbox("");
     }catch (const char* str){
         std::cout << std::endl;
         std::cout << "Exception: " << str << std::endl;

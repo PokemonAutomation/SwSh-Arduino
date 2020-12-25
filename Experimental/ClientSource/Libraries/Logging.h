@@ -8,12 +8,11 @@
 #define PokemonAutomation_Logging_H
 
 #include <sstream>
+#include <atomic>
 #include <mutex>
 #include "Connection/PABotBaseConnection.h"
 
 namespace PokemonAutomation{
-
-//#define LOG_ALL_MESSAGES
 
 
 extern std::mutex logging_lock;
@@ -25,6 +24,11 @@ std::string current_time();
 
 class MessageLogger : public MessageSnooper{
 public:
+    MessageLogger(bool log_everything = false)
+        : m_log_everything(log_everything)
+    {}
+
+    std::atomic<bool> m_log_everything;
     virtual void on_send(uint8_t type, const std::string& msg, bool is_retransmit) override;
     virtual void on_recv(uint8_t type, const std::string& msg) override;
 };

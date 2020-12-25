@@ -31,6 +31,7 @@ void PABotBaseConnection::safely_stop(){
 
 
 void PABotBaseConnection::add_message_snooper(MessageSnooper& snooper){
+    std::lock_guard<std::mutex> lg(m_snooper_lock);
     m_snoopers.insert(&snooper);
 }
 
@@ -44,8 +45,11 @@ void PABotBaseConnection::send_zeros(uint8_t bytes){
 }
 void PABotBaseConnection::send_message(uint8_t type, const std::string& msg, bool is_retransmit){
 //    log("Sending: " + message_to_string(type, msg));
-    for (MessageSnooper* snooper : m_snoopers){
-        snooper->on_send(type, msg, is_retransmit);
+    {
+        std::lock_guard<std::mutex> lg(m_snooper_lock);
+        for (MessageSnooper* snooper : m_snoopers){
+            snooper->on_send(type, msg, is_retransmit);
+        }
     }
 
     size_t total_bytes = SERIAL_MESSAGE_OVERHEAD + msg.size();
@@ -109,9 +113,11 @@ void PABotBaseConnection::on_recv(const void* data, size_t bytes){
             uint32_t checksumE = ((uint32_t*)(&message[0] + length))[-1];
 
             //  Compare
+//            std::cout << checksumA << " / " << checksumE << std::endl;
             if (checksumA != checksumE){
                 log("Invalid Checksum: bytes = " + std::to_string(length));
 //                std::cout << checksumA << " / " << checksumE << std::endl;
+//                log(message_to_string(message[1], &message[2], length - SERIAL_MESSAGE_OVERHEAD));
                 m_recv_buffer.pop_front();
                 continue;
             }
@@ -120,8 +126,11 @@ void PABotBaseConnection::on_recv(const void* data, size_t bytes){
 
         uint8_t type = message[1];
         std::string body(&message[2], length - SERIAL_MESSAGE_OVERHEAD);
-        for (MessageSnooper* snooper : m_snoopers){
-            snooper->on_recv(type, body);
+        {
+            std::lock_guard<std::mutex> lg(m_snooper_lock);
+            for (MessageSnooper* snooper : m_snoopers){
+                snooper->on_recv(type, body);
+            }
         }
         on_recv_message(type, body);
     }

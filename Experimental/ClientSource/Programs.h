@@ -14,7 +14,11 @@ namespace PokemonAutomation{
 
 
 //  Helpers
-std::unique_ptr<PABotBase> start_connection(bool require_pabotbase, const std::string& device_name = "");
+std::unique_ptr<PABotBase> start_connection(
+    bool require_pabotbase,
+    const std::string& device_name = "",
+    MessageLogger* logger = nullptr
+);
 
 
 //  Device Logger

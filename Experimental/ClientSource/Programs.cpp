@@ -13,12 +13,16 @@
 #include "Libraries/Logging.h"
 #include "Programs.h"
 
+#include "../ClientSource-Internal/SwitchButtons.h"
+
 namespace PokemonAutomation{
 
 
-MessageLogger logger;
-
-std::unique_ptr<PABotBase> start_connection(bool require_pabotbase, const std::string& device_name){
+std::unique_ptr<PABotBase> start_connection(
+    bool require_pabotbase,
+    const std::string& device_name,
+    MessageLogger* logger
+){
     std::unique_ptr<PABotBase> pabotbase;
     if (device_name.empty()){
         std::string name;
@@ -38,11 +42,11 @@ std::unique_ptr<PABotBase> start_connection(bool require_pabotbase, const std::s
         std::cout << std::endl;
         std::cout << "Connecting to device... (" << name << ")" << std::endl;
         pabotbase = std::make_unique<PABotBase>(
-            std::make_unique<SerialConnection>(name, PABB_BAUD_RATE)
+            std::make_unique<SerialConnection>(name, PABB_BAUD_RATE), logger
         );
     }else{
         pabotbase = std::make_unique<PABotBase>(
-            std::make_unique<SerialConnection>(device_name, PABB_BAUD_RATE)
+            std::make_unique<SerialConnection>(device_name, PABB_BAUD_RATE), logger
         );
     }
 
@@ -69,8 +73,8 @@ std::unique_ptr<PABotBase> start_connection(bool require_pabotbase, const std::s
         throw "The device must be running PABotBase for this program to work.";
     }
 
-    std::cout << "Begin Message Logging..." << std::endl;
-    pabotbase->add_message_snooper(logger);
+//    std::cout << "Begin Message Logging..." << std::endl;
+//    pabotbase->add_message_snooper(logger);
 
     return pabotbase;
 }
@@ -81,6 +85,11 @@ void device_logger(const std::string& device_name){
     std::cout << std::endl;
     std::unique_ptr<PABotBase> pabotbase = start_connection(false, device_name);
     global_connection = pabotbase.get();
+
+    std::cout << "Begin Message Logging..." << std::endl;
+    MessageLogger logger;
+    pabotbase->add_message_snooper(logger);
+
 
     //  Wait Forever
     while (true){
@@ -109,6 +118,10 @@ void program_TurboA(const std::string& device_name){
     std::unique_ptr<PABotBase> pabotbase = start_connection(true, device_name);
     global_connection = pabotbase.get();
 
+    std::cout << "Begin Message Logging..." << std::endl;
+    MessageLogger logger;
+    pabotbase->add_message_snooper(logger);
+
 
     //  Start Program
     start_program_flash(CONNECT_CONTROLLER_DELAY);
@@ -125,6 +138,10 @@ void program_ClothingBuyer(const std::string& device_name){
     std::cout << std::endl;
     std::unique_ptr<PABotBase> pabotbase = start_connection(true, device_name);
     global_connection = pabotbase.get();
+
+    std::cout << "Begin Message Logging..." << std::endl;
+    MessageLogger logger;
+    pabotbase->add_message_snooper(logger);
 
 
 
@@ -156,6 +173,10 @@ void program_BallThrower(const std::string& device_name){
     std::unique_ptr<PABotBase> pabotbase = start_connection(true, device_name);
     global_connection = pabotbase.get();
 
+    std::cout << "Begin Message Logging..." << std::endl;
+    MessageLogger logger;
+    pabotbase->add_message_snooper(logger);
+
 
 
     //  Start Program
@@ -178,6 +199,10 @@ void program_BeamReset(const std::string& device_name){
     std::cout << std::endl;
     std::unique_ptr<PABotBase> pabotbase = start_connection(true, device_name);
     global_connection = pabotbase.get();
+
+    std::cout << "Begin Message Logging..." << std::endl;
+    MessageLogger logger;
+    pabotbase->add_message_snooper(logger);
 
 
 
@@ -227,8 +252,12 @@ void program_FriendDelete(const std::string& device_name){
     std::unique_ptr<PABotBase> pabotbase = start_connection(true, device_name);
     global_connection = pabotbase.get();
 
+    std::cout << "Begin Message Logging..." << std::endl;
+    MessageLogger logger;
+    pabotbase->add_message_snooper(logger);
 
-    
+
+
     //  Set to a large number to delete all friends.
     const uint16_t FRIENDS_TO_DELETE    =   3;
 
@@ -269,7 +298,11 @@ void program_DateSpam_WattFarmer(const std::string& device_name){
     std::cout << std::endl;
     std::unique_ptr<PABotBase> pabotbase = start_connection(true, device_name);
     global_connection = pabotbase.get();
-    
+
+    std::cout << "Begin Message Logging..." << std::endl;
+    MessageLogger logger;
+    pabotbase->add_message_snooper(logger);
+
 
 
     //  Grab watts this many times. You can set this number if you're also date

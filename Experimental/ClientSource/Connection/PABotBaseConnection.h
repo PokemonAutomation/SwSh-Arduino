@@ -17,6 +17,7 @@
 #include <memory>
 #include <string>
 #include <deque>
+#include <mutex>
 #include "Settings.h"
 #include "Common/MessageProtocol.h"
 #include "StreamInterface.h"
@@ -52,6 +53,7 @@ private:
 private:
     std::unique_ptr<StreamConnection> m_connection;
     std::deque<char> m_recv_buffer;
+    std::mutex m_snooper_lock;
     std::set<MessageSnooper*> m_snoopers;
 };
 
