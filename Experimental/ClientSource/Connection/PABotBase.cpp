@@ -5,9 +5,9 @@
  */
 
 #include <iostream>
-#include "Common/MessageProtocol.h"
-#include "Common/PushButtons.h"
-#include "Common/PokemonRoutines.h"
+#include "CommonFramework/MessageProtocol.h"
+#include "CommonFramework/PushButtons.h"
+#include "CommonPokemon/PokemonRoutines.h"
 #include "PABotBase.h"
 
 namespace PokemonAutomation{
@@ -259,16 +259,15 @@ uint32_t PABotBase::system_clock(){
     send_request_and_wait<PABB_MSG_REQUEST_CLOCK, PABB_MSG_ACK_I32>(params, response);
     return response.data;
 }
-void PABotBase::set_leds(bool on){
-    pabb_set_led params;
-    params.on = on;
-    pabb_MsgAck response;
-    send_request_and_wait<PABB_MSG_REQUEST_SET_LED_STATE, PABB_MSG_ACK>(params, response);
-}
 void PABotBase::end_program_callback(){
     pabb_end_program_callback params;
     pabb_MsgAck response;
     send_request_and_wait<PABB_MSG_REQUEST_END_PROGRAM_CALLBACK, PABB_MSG_ACK>(params, response);
+}
+void PABotBase::set_leds(bool on){
+    pabb_MsgCommandSetLeds params;
+    params.on = on;
+    issue_request<PABB_MSG_COMMAND_SET_LED_STATE>(params);
 }
 
 

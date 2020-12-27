@@ -149,12 +149,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\ClientSource\Common\ControllerDefs.h" />
-    <ClInclude Include="..\..\ClientSource\Common\CRC32.h" />
-    <ClInclude Include="..\..\ClientSource\Common\MessageProtocol.h" />
-    <ClInclude Include="..\..\ClientSource\Common\PokemonProgramIDs.h" />
-    <ClInclude Include="..\..\ClientSource\Common\PokemonRoutines.h" />
-    <ClInclude Include="..\..\ClientSource\Common\PushButtons.h" />
+    <ClInclude Include="..\..\ClientSource\CommonFramework\ControllerDefs.h" />
+    <ClInclude Include="..\..\ClientSource\CommonFramework\CRC32.h" />
+    <ClInclude Include="..\..\ClientSource\CommonFramework\FrameworkSettings.h" />
+    <ClInclude Include="..\..\ClientSource\CommonFramework\MessageProtocol.h" />
+    <ClInclude Include="..\..\ClientSource\CommonFramework\PushButtons.h" />
+    <ClInclude Include="..\..\ClientSource\CommonPokemon\PokemonProgramIDs.h" />
+    <ClInclude Include="..\..\ClientSource\CommonPokemon\PokemonRoutines.h" />
+    <ClInclude Include="..\..\ClientSource\CommonPokemon\PokemonSettings.h" />
     <ClInclude Include="..\..\ClientSource\Connection\PABotBase.h" />
     <ClInclude Include="..\..\ClientSource\Connection\PABotBaseConnection.h" />
     <ClInclude Include="..\..\ClientSource\Connection\SerialConnection.h" />
@@ -162,22 +164,49 @@
     <ClInclude Include="..\..\ClientSource\Connection\SerialConnectionWinAPI.h" />
     <ClInclude Include="..\..\ClientSource\Connection\StreamInterface.h" />
     <ClInclude Include="..\..\ClientSource\Connection\Unicode.h" />
+    <ClInclude Include="..\..\ClientSource\Libraries\Compiler.h" />
     <ClInclude Include="..\..\ClientSource\Libraries\Logging.h" />
     <ClInclude Include="..\..\ClientSource\Libraries\MessageConverter.h" />
-    <ClInclude Include="..\..\ClientSource\Programs.h" />
-    <ClInclude Include="..\..\ClientSource\Settings.h" />
+    <ClInclude Include="..\..\ClientSource\Libraries\Utilities.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\ClientSource\CommonFramework\CRC32.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientSource\CommonFramework\CRC32.cpp" />
+    <ClCompile Include="..\..\ClientSource\CommonFramework\FrameworkSettings.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientSource\CommonFramework\FrameworkSettings.cpp" />
+    <ClCompile Include="..\..\ClientSource\CommonPokemon\PokemonSettings.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientSource\CommonPokemon\PokemonSettings.cpp" />
     <ClCompile Include="..\..\ClientSource\Connection\PABotBase.cpp" />
     <ClCompile Include="..\..\ClientSource\Connection\PABotBaseConnection.cpp" />
     <ClCompile Include="..\..\ClientSource\Connection\Unicode.cpp" />
-    <ClCompile Include="..\..\ClientSource\Libraries\CRC32.cpp" />
     <ClCompile Include="..\..\ClientSource\Libraries\Logging.cpp" />
     <ClCompile Include="..\..\ClientSource\Libraries\MessageConverter.cpp" />
     <ClCompile Include="..\..\ClientSource\Libraries\PokemonRoutines.cpp" />
     <ClCompile Include="..\..\ClientSource\Libraries\PushButtons.cpp" />
+    <ClCompile Include="..\..\ClientSource\Libraries\Utilities.cpp" />
     <ClCompile Include="..\..\ClientSource\Main.cpp" />
-    <ClCompile Include="..\..\ClientSource\Programs.cpp" />
+    <ClCompile Include="..\..\ClientSource\Programs\BallThrower.cpp" />
+    <ClCompile Include="..\..\ClientSource\Programs\BeamReset.cpp" />
+    <ClCompile Include="..\..\ClientSource\Programs\ClothingBuyer.cpp" />
+    <ClCompile Include="..\..\ClientSource\Programs\DeviceLogger.cpp" />
+    <ClCompile Include="..\..\ClientSource\Programs\FriendDelete.cpp" />
+    <ClCompile Include="..\..\ClientSource\Programs\TurboA.cpp" />
+    <ClCompile Include="..\..\ClientSource\Programs\DateSpam-WattFarmer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

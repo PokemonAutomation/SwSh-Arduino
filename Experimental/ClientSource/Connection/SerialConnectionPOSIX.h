@@ -114,7 +114,7 @@ public:
         }
         if (cfgetospeed(&options) != baud){
 //            std::cout << "actual baud = " << cfgetospeed(&options) << std::endl;
-            throw "Unable to set outpu baud rate.";
+            throw "Unable to set output baud rate.";
         }
 
         //  Start receiver thread.

@@ -13,9 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Source Files\Common">
-      <UniqueIdentifier>{be009e81-0b07-4405-93c5-25f05619464d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Connection">
       <UniqueIdentifier>{b1e2d75e-3719-4f3c-afc7-16b75b40e67a}</UniqueIdentifier>
     </Filter>
@@ -25,26 +22,17 @@
     <Filter Include="Source Files\Sandbox">
       <UniqueIdentifier>{0df18a2c-d69e-4cad-be99-02264f3f2db5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\CommonFramework">
+      <UniqueIdentifier>{e55307b0-d54c-45ba-aa35-58ccb2a33995}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CommonPokemon">
+      <UniqueIdentifier>{be009e81-0b07-4405-93c5-25f05619464d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Programs">
+      <UniqueIdentifier>{357a49c3-7eb8-4075-8df9-d11f7fb85e79}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\ClientSource\Common\CRC32.h">
-      <Filter>Source Files\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ClientSource\Common\MessageProtocol.h">
-      <Filter>Source Files\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ClientSource\Common\PokemonProgramIDs.h">
-      <Filter>Source Files\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ClientSource\Common\PokemonRoutines.h">
-      <Filter>Source Files\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ClientSource\Common\PushButtons.h">
-      <Filter>Source Files\Common</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ClientSource\Common\ControllerDefs.h">
-      <Filter>Source Files\Common</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\ClientSource\Connection\SerialConnection.h">
       <Filter>Source Files\Connection</Filter>
     </ClInclude>
@@ -72,11 +60,35 @@
     <ClInclude Include="..\..\ClientSource\Libraries\Logging.h">
       <Filter>Source Files\Libraries</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ClientSource\Programs.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\ClientSource\Libraries\Compiler.h">
+      <Filter>Source Files\Libraries</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ClientSource\Settings.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="..\..\ClientSource\CommonFramework\CRC32.h">
+      <Filter>Source Files\CommonFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ClientSource\CommonFramework\MessageProtocol.h">
+      <Filter>Source Files\CommonFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ClientSource\CommonFramework\PushButtons.h">
+      <Filter>Source Files\CommonFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ClientSource\CommonFramework\ControllerDefs.h">
+      <Filter>Source Files\CommonFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ClientSource\CommonPokemon\PokemonProgramIDs.h">
+      <Filter>Source Files\CommonPokemon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ClientSource\CommonPokemon\PokemonRoutines.h">
+      <Filter>Source Files\CommonPokemon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ClientSource\CommonFramework\FrameworkSettings.h">
+      <Filter>Source Files\CommonFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ClientSource\CommonPokemon\PokemonSettings.h">
+      <Filter>Source Files\CommonPokemon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ClientSource\Libraries\Utilities.h">
+      <Filter>Source Files\Libraries</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -95,9 +107,6 @@
     <ClCompile Include="..\..\ClientSource\Libraries\PushButtons.cpp">
       <Filter>Source Files\Libraries</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ClientSource\Programs.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\ClientSource\Libraries\PokemonRoutines.cpp">
       <Filter>Source Files\Libraries</Filter>
     </ClCompile>
@@ -107,8 +116,47 @@
     <ClCompile Include="..\..\ClientSource\Libraries\Logging.cpp">
       <Filter>Source Files\Libraries</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\ClientSource\Libraries\CRC32.cpp">
+    <ClCompile Include="..\..\ClientSource\CommonFramework\CRC32.c">
+      <Filter>Source Files\CommonFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientSource\CommonFramework\FrameworkSettings.c">
+      <Filter>Source Files\CommonFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientSource\CommonFramework\FrameworkSettings.cpp">
+      <Filter>Source Files\CommonFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientSource\CommonFramework\CRC32.cpp">
+      <Filter>Source Files\CommonFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientSource\CommonPokemon\PokemonSettings.c">
+      <Filter>Source Files\CommonPokemon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientSource\CommonPokemon\PokemonSettings.cpp">
+      <Filter>Source Files\CommonPokemon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientSource\Libraries\Utilities.cpp">
       <Filter>Source Files\Libraries</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientSource\Programs\DeviceLogger.cpp">
+      <Filter>Source Files\Programs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientSource\Programs\TurboA.cpp">
+      <Filter>Source Files\Programs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientSource\Programs\ClothingBuyer.cpp">
+      <Filter>Source Files\Programs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientSource\Programs\BallThrower.cpp">
+      <Filter>Source Files\Programs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientSource\Programs\BeamReset.cpp">
+      <Filter>Source Files\Programs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientSource\Programs\FriendDelete.cpp">
+      <Filter>Source Files\Programs</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\ClientSource\Programs\DateSpam-WattFarmer.cpp">
+      <Filter>Source Files\Programs</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

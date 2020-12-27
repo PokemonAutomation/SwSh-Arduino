@@ -5,11 +5,24 @@
  */
 
 #include <ctime>
+#include <string>
 #include <iostream>
-#include "Programs.h"
 
 namespace PokemonAutomation{
-    void sandbox(const std::string& device_name);
+
+//  Device Logger
+void device_logger              (const std::string& device_name = "");
+
+//  Sample Programs
+void program_TurboA             (const std::string& device_name = "");
+void program_ClothingBuyer      (const std::string& device_name = "");
+void program_BallThrower        (const std::string& device_name = "");
+void program_BeamReset          (const std::string& device_name = "");
+void program_FriendDelete       (const std::string& device_name = "");
+void program_DateSpam_WattFarmer(const std::string& device_name = "");
+
+void sandbox(const std::string& device_name);
+
 }
 
 
@@ -17,7 +30,6 @@ int main(){
     using namespace PokemonAutomation;
 
     try{
-
         //  By default, this program runs the logging program.
         device_logger();
 

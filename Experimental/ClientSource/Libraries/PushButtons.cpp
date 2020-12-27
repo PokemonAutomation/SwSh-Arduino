@@ -4,7 +4,8 @@
  * 
  */
 
-#include "Common/PushButtons.h"
+#include "CommonFramework/FrameworkSettings.h"
+#include "CommonFramework/PushButtons.h"
 #include "Connection/PABotBase.h"
 
 using namespace PokemonAutomation;
@@ -100,24 +101,30 @@ void start_program_flash(uint16_t ticks){
     start_program_flash(*global_connection, ticks);
 }
 void start_program_flash(PABotBase& device, uint16_t ticks){
-    pabb_start_program_flash params;
-    params.ticks = ticks;
-    device.issue_request<PABB_MSG_COMMAND_START_PROGRAM_FLASH>(params);
+    for (uint16_t c = 0; c < ticks; c += 50){
+        set_leds(device, true);
+        pbf_wait(device, 25);
+        set_leds(device, false);
+        pbf_wait(device, 25);
+    }
 }
 
 void grip_menu_connect_go_home(void){
     grip_menu_connect_go_home(*global_connection);
 }
 void grip_menu_connect_go_home(PABotBase& device){
-    pabb_grip_menu_connect_go_home params;
-    device.issue_request<PABB_MSG_COMMAND_GRIP_MENU_CONNECT_GO_HOME>(params);
+    pbf_press_button(device, BUTTON_L | BUTTON_R, 10, 40);
+    pbf_press_button(device, BUTTON_A, 10, 140);
+    pbf_press_button(device, BUTTON_HOME, 10, SETTINGS_TO_HOME_DELAY);
 }
 
 void end_program_loop(void){
     end_program_loop(*global_connection);
 }
 void end_program_loop(PABotBase& device){
-    pabb_end_program_loop params;
-    device.issue_request<PABB_MSG_COMMAND_END_PROGRAM_LOOP>(params);
+    pbf_wait(device, 15 * TICKS_PER_SECOND);
+    while (true){
+        pbf_press_button(device, BUTTON_ZL, 10, 15 * TICKS_PER_SECOND - 10);
+    }
 }
 

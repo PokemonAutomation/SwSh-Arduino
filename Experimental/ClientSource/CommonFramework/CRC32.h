@@ -10,9 +10,6 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 //  Basic Implementation
 uint32_t pabb_crc32_basic(uint32_t crc, const char* str, size_t length);
@@ -42,7 +39,5 @@ static inline uint32_t pabb_crc32_SSE42(uint32_t crc, const char* str, size_t le
 
 void pabb_crc32_write_to_message(const char* ptr, size_t full_message_length);
 
-#ifdef __cplusplus
-}
-#endif
+
 #endif

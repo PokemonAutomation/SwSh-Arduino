@@ -24,15 +24,15 @@
 #ifndef PokemonAutomation_PABotBase_H
 #define PokemonAutomation_PABotBase_H
 
+//#include <iostream>
 #include <string.h>
 #include <map>
 #include <atomic>
 #include <condition_variable>
-#include "Common/ControllerDefs.h"
+#include "CommonFramework/ControllerDefs.h"
 #include "Connection/PABotBaseConnection.h"
 #include "Libraries/Logging.h"
 
-#include <iostream>
 
 namespace PokemonAutomation{
 
@@ -190,7 +190,7 @@ std::map<uint64_t, PABotBase::PendingRequest>::iterator PABotBase::issue_request
         }
         m_send_seq = seqnum + 1;
         handle = &ret.first->second;
-        handle->is_command = SendType >= PABB_MSG_COMMAND_THRESHOLD;
+        handle->is_command = PABB_MSG_IS_COMMAND(SendType);
         handle->silent_remove = silent_remove;
         handle->message_type = SendType;
         handle->message_body = std::move(message);

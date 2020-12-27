@@ -18,8 +18,8 @@
 #include <string>
 #include <deque>
 #include <mutex>
-#include "Settings.h"
-#include "Common/MessageProtocol.h"
+#include "Libraries/Compiler.h"
+#include "CommonFramework/MessageProtocol.h"
 #include "StreamInterface.h"
 
 namespace PokemonAutomation{

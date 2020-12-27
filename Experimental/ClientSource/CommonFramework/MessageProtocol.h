@@ -111,7 +111,7 @@
  * 
  *      -   PABotBase does not allow concurrent commands. If it receives a
  *          command while one is already running, it drops it and responds
- *          with "PABB_MSG_INFO_COMMAND_DROPPED". (Any command that results
+ *          with "PABB_MSG_ERROR_COMMAND_DROPPED". (Any command that results
  *          in a button press or a wait is a long command.)
  * 
  *      -   PABotBase can still handle other messages while it is running a long
@@ -154,13 +154,13 @@
 //      (version / 100) must be the same on both server and client.
 //      (version % 100) can be higher on server than client.
 //
-#define PABB_PROTOCOL_VERSION       2020122400
+#define PABB_PROTOCOL_VERSION       2020122500
 
 //  Program versioning doesn't matter. It's just for informational purposes.
-#define PABB_PROGRAM_VERSION        2020122400
+#define PABB_PROGRAM_VERSION        2020122500
 
 #define PABB_BAUD_RATE              115200
-#define PABB_RETRANSMIT_DELAY       25
+#define PABB_RETRANSMIT_DELAY       10
 
 #define PABB_MAX_MESSAGE_SIZE       14
 #define SERIAL_MESSAGE_OVERHEAD     (2 + sizeof(uint32_t))
@@ -169,56 +169,53 @@
 ////////////////////////////////////////////////////////////////////////////////
 //  Basic Message Types
 
-//  Requests between 0x40 - 0x7f.
-#define PABB_MSG_REQUEST_THRESHOLD              0x40
+#define PABB_MSG_IS_ERROR(x)        (((x) & 0xf0) == 0x00)  //  Framework errors between 0x00 - 0x0f.
+#define PABB_MSG_IS_ACK(x)          (((x) & 0xf0) == 0x10)  //  Acks between 0x10 - 0x1f.
+#define PABB_MSG_IS_INFO(x)         (((x) & 0xe0) == 0x20)  //  Custon info between 0x20 - 0x3f.
+#define PABB_MSG_IS_REQUEST(x)      (((x) & 0xc0) == 0x40)  //  Requests between 0x40 - 0x7f.
+#define PABB_MSG_IS_COMMAND(x)      ((x) >= 0x80)           //  Commands between 0x80 - 0xff.
 
-//  Requests between 0x80 - 0xff.
-#define PABB_MSG_COMMAND_THRESHOLD              0x80
+#define PABB_MSG_IS_REQUEST_OR_COMMAND(x)   ((x) >= 0x40)
 
 ////////////////////////////////////////////////////////////////////////////////
-//  Info
-#define PABB_MSG_INFO_READY                     0x00
+//  Framework Errors
+#define PABB_MSG_ERROR_READY                    0x00
 //  No Parameters
 
-#define PABB_MSG_INFO_INVALID_MESSAGE           0x01
+#define PABB_MSG_ERROR_INVALID_MESSAGE          0x01
 typedef struct{
     uint8_t message_length;
 } PABB_PACK pabb_MsgInfoInvalidMessage;
 
-#define PABB_MSG_INFO_CHECKSUM_MISMATCH         0x02
+#define PABB_MSG_ERROR_CHECKSUM_MISMATCH        0x02
 typedef struct{
     uint8_t message_length;
 } PABB_PACK pabb_MsgInfoChecksumMismatch;
 
-#define PABB_MSG_INFO_INVALID_TYPE              0x03
+#define PABB_MSG_ERROR_INVALID_TYPE             0x03
 typedef struct{
     uint8_t type;
 } PABB_PACK pabb_MsgInfoInvalidType;
 
-#define PABB_MSG_INFO_INVALID_REQUEST           0x04
+#define PABB_MSG_ERROR_INVALID_REQUEST          0x04
 typedef struct{
     uint8_t seqnum;
 } PABB_PACK pabb_MsgInfoInvalidRequest;
 
-#define PABB_MSG_INFO_MISSED_REQUEST            0x05
+#define PABB_MSG_ERROR_MISSED_REQUEST           0x05
 typedef struct{
     uint8_t seqnum;
 } PABB_PACK pabb_MsgInfoMissedRequest;
 
-#define PABB_MSG_INFO_COMMAND_DROPPED           0x06
+#define PABB_MSG_ERROR_COMMAND_DROPPED          0x06
 typedef struct{
     uint8_t seqnum;
 } PABB_PACK pabb_MsgInfoCommandDropped;
 
-#define PABB_MSG_INFO_WARNING                   0x07
+#define PABB_MSG_ERROR_WARNING                  0x07
 typedef struct{
     uint16_t error_code;
 } PABB_PACK pabb_MsgInfoWARNING;
-
-#define PABB_MSG_INFO_I32                       0x08
-typedef struct{
-    uint32_t data;
-} PABB_PACK pabb_MsgInfoI32;
 
 ////////////////////////////////////////////////////////////////////////////////
 //  Ack
@@ -272,23 +269,35 @@ typedef struct{
     uint8_t seqnum;
 } PABB_PACK pabb_system_clock;
 
-#define PABB_MSG_REQUEST_SET_LED_STATE          0x45
-typedef struct{
-    uint8_t seqnum;
-    bool on;
-} PABB_PACK pabb_set_led;
-
-#define PABB_MSG_REQUEST_END_PROGRAM_CALLBACK   0x46
+#define PABB_MSG_REQUEST_END_PROGRAM_CALLBACK   0x45
 typedef struct{
     uint8_t seqnum;
 } PABB_PACK pabb_end_program_callback;
 
-#define PABB_MSG_REQUEST_COMMAND_FINISHED       0x48
+#define PABB_MSG_REQUEST_COMMAND_FINISHED       0x46
 typedef struct{
     uint8_t seqnum;
     uint8_t seq_of_original_command;
     uint32_t finish_time;
 } PABB_PACK pabb_MsgRequestCommandFinished;
+
+////////////////////////////////////////////////////////////////////////////////
+//  Custom Info
+
+#define PABB_MSG_INFO_I32                       0x20
+typedef struct{
+    uint8_t tag;
+    uint32_t data;
+} PABB_PACK pabb_MsgInfoI32;
+
+////////////////////////////////////////////////////////////////////////////////
+//  Commands
+
+#define PABB_MSG_COMMAND_SET_LED_STATE          0x80
+typedef struct{
+    uint8_t seqnum;
+    bool on;
+} PABB_PACK pabb_MsgCommandSetLeds;
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////

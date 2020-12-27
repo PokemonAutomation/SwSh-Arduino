@@ -5,8 +5,8 @@
  */
 
 #include <iostream>
-#include "Common/CRC32.h"
-#include "Common/MessageProtocol.h"
+#include "CommonFramework/CRC32.h"
+#include "CommonFramework/MessageProtocol.h"
 #include "Libraries/Logging.h"
 #include "Libraries/MessageConverter.h"
 #include "PABotBaseConnection.h"

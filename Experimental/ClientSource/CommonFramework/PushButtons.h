@@ -10,7 +10,7 @@
 #define PokemonAutomation_PushButtons_H
 
 #ifdef __AVR__
-#include "Framework/Master.h"
+#include "DeviceFramework/Master.h"
 #endif
 #include "ControllerDefs.h"
 
@@ -123,13 +123,13 @@ void end_program_loop           (PokemonAutomation::PABotBase& device);
 #endif
 
 
-#define PABB_MSG_COMMAND_PBF_WAIT                   0x80
+#define PABB_MSG_COMMAND_PBF_WAIT                   0x90
 typedef struct{
     uint8_t seqnum;
     uint16_t ticks;
 } PABB_PACK pabb_pbf_wait;
 
-#define PABB_MSG_COMMAND_PBF_PRESS_BUTTON           0x81
+#define PABB_MSG_COMMAND_PBF_PRESS_BUTTON           0x91
 typedef struct{
     uint8_t seqnum;
     Button button;
@@ -137,7 +137,7 @@ typedef struct{
     uint16_t release_ticks;
 } PABB_PACK pabb_pbf_press_button;
 
-#define PABB_MSG_COMMAND_PBF_PRESS_DPAD             0x82
+#define PABB_MSG_COMMAND_PBF_PRESS_DPAD             0x92
 typedef struct{
     uint8_t seqnum;
     DpadPosition dpad;
@@ -145,8 +145,8 @@ typedef struct{
     uint16_t release_ticks;
 } PABB_PACK pabb_pbf_press_dpad;
 
-#define PABB_MSG_COMMAND_PBF_MOVE_JOYSTICK_L        0x83
-#define PABB_MSG_COMMAND_PBF_MOVE_JOYSTICK_R        0x84
+#define PABB_MSG_COMMAND_PBF_MOVE_JOYSTICK_L        0x93
+#define PABB_MSG_COMMAND_PBF_MOVE_JOYSTICK_R        0x94
 typedef struct{
     uint8_t seqnum;
     uint8_t x;
@@ -155,28 +155,12 @@ typedef struct{
     uint16_t release_ticks;
 } PABB_PACK pabb_pbf_move_joystick;
 
-#define PABB_MSG_COMMAND_MASH_BUTTON                0x85
+#define PABB_MSG_COMMAND_MASH_BUTTON                0x95
 typedef struct{
     uint8_t seqnum;
     Button button;
     uint16_t ticks;
 } PABB_PACK pabb_pbf_mash_button;
-
-#define PABB_MSG_COMMAND_START_PROGRAM_FLASH        0x86
-typedef struct{
-    uint8_t seqnum;
-    uint16_t ticks;
-} PABB_PACK pabb_start_program_flash;
-
-#define PABB_MSG_COMMAND_GRIP_MENU_CONNECT_GO_HOME  0x87
-typedef struct{
-    uint8_t seqnum;
-} PABB_PACK pabb_grip_menu_connect_go_home;
-
-#define PABB_MSG_COMMAND_END_PROGRAM_LOOP           0x88
-typedef struct{
-    uint8_t seqnum;
-} PABB_PACK pabb_end_program_loop;
 
 
 #if _WIN32
