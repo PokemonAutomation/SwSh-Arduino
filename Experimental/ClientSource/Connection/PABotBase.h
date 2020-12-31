@@ -29,10 +29,10 @@
 #include <map>
 #include <atomic>
 #include <condition_variable>
+#include <thread>
 #include "CommonFramework/ControllerDefs.h"
 #include "Connection/PABotBaseConnection.h"
 #include "Libraries/Logging.h"
-
 
 namespace PokemonAutomation{
 
