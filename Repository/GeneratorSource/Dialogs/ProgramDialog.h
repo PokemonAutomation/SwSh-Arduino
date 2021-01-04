@@ -4,13 +4,11 @@
  *
  */
 
-#ifndef PokemonAutomation_SelectProgram_H
-#define PokemonAutomation_SelectProgram_H
+#ifndef PokemonAutomation_ProgramDialog_H
+#define PokemonAutomation_ProgramDialog_H
 
 #include <QListWidget>
 #include <QVBoxLayout>
-#include "Dialogs/McuList.h"
-#include "Programs/AllPrograms.h"
 
 class MainWindow;
 
@@ -21,7 +19,8 @@ public:
     ProgramDialog(MainWindow& parent);
 
 public slots:
-    void currentRowChanged(int currentRow);
+    void row_selected(QListWidgetItem* item);
+    void row_changed(int row);
 
 private:
     MainWindow& m_parent;

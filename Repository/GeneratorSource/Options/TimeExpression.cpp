@@ -94,10 +94,19 @@ QString TimeExpression::time_string() const{
         return "<font color=\"red\">" + m_error + "</font>";
     }
     if (m_value < 125 * 60 * 2){
+        if (m_value == 125){
+            return "125 ticks (1 second)";
+        }
         return QString::number(m_value) + " ticks (" + QString::number(m_value / 125.) + " seconds)";
     }
     if (m_value < 125 * 60 * 60 * 2){
+        if (m_value == 125 * 60){
+            return "7500 ticks (1 minute)";
+        }
         return QString::number(m_value) + " ticks (" + QString::number(m_value / (125. * 60)) + " minutes)";
+    }
+    if (m_value == 125 * 60 * 60){
+        return "450000 ticks (1 hour)";
     }
     return QString::number(m_value) + " ticks (" + QString::number(m_value / (125. * 60 * 60)) + " hours)";
 }

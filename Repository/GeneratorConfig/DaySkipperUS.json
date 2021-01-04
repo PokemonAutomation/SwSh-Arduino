@@ -30,8 +30,8 @@
             "02-Declaration": "const uint16_t CORRECTION_SKIPS",
             "03-MinValue": 0,
             "04-MaxValue": 65535,
-            "98-Default": 1000,
-            "99-Current": 1000
+            "98-Default": 500,
+            "99-Current": 500
         }
     ]
 }

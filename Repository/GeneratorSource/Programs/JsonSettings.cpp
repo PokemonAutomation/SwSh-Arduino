@@ -1,4 +1,4 @@
-/*  Program from JSON File.
+/*  Settings from JSON File.
  *
  *  From: https://github.com/Mysticial/Pokemon-Automation-SwSh-Arduino-Scripts
  *
@@ -8,16 +8,16 @@
 #include <QVBoxLayout>
 #include <QLabel>
 #include "Tools/Tools.h"
-#include "JsonProgram.h"
+#include "JsonSettings.h"
 
 
-Program_JsonFile::Program_JsonFile(const QString& filepath)
-    : Program_JsonFile(read_json_file(filepath).object())
+Settings_JsonFile::Settings_JsonFile(const QString& filepath)
+    : Settings_JsonFile(read_json_file(filepath).object())
 {}
-Program_JsonFile::Program_JsonFile(const QJsonObject& obj)
-    : Program(obj)
+Settings_JsonFile::Settings_JsonFile(const QJsonObject& obj)
+    : ConfigSet(obj)
 {
-    for (const auto& item : json_get_array(obj, JSON_PARAMETERS)){
+    for (const auto& item : json_get_array(obj, JSON_OPTIONS)){
         if (!item.isObject()){
             throw "Config Error - Expected and object.";
         }
@@ -25,7 +25,7 @@ Program_JsonFile::Program_JsonFile(const QJsonObject& obj)
     }
 }
 
-bool Program_JsonFile::is_valid() const{
+bool Settings_JsonFile::is_valid() const{
     for (const auto& item : m_options){
         if (!item->is_valid()){
             return false;
@@ -33,20 +33,20 @@ bool Program_JsonFile::is_valid() const{
     }
     return true;
 }
-void Program_JsonFile::restore_defaults(){
+void Settings_JsonFile::restore_defaults(){
     for (const auto& item : m_options){
         item->restore_defaults();
     }
 }
 
-QJsonArray Program_JsonFile::parameters_json() const{
+QJsonArray Settings_JsonFile::options_json() const{
     QJsonArray params;
     for (const auto& item : m_options){
         params += item->to_json();
     }
     return params;
 }
-std::string Program_JsonFile::parameters_cpp() const{
+std::string Settings_JsonFile::options_cpp() const{
     std::string str;
     for (const auto& item : m_options){
         str += item->to_cpp();
@@ -54,7 +54,7 @@ std::string Program_JsonFile::parameters_cpp() const{
     return str;
 }
 
-QWidget* Program_JsonFile::make_options_body(QWidget& parent){
+QWidget* Settings_JsonFile::make_options_body(QWidget& parent){
     QScrollArea* scroll = new QScrollArea(&parent);
     scroll->setWidgetResizable(true);
 
@@ -62,15 +62,8 @@ QWidget* Program_JsonFile::make_options_body(QWidget& parent){
     box->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
 
     QVBoxLayout* layout = new QVBoxLayout(box);
+    layout->setAlignment(Qt::AlignTop);
     box->setLayout(layout);
-
-    if (m_options.empty()){
-        QLabel* label = new QLabel("There are no program-specific options for this program.");
-        label->setAlignment(Qt::AlignCenter);
-        layout->addWidget(label);
-    }else{
-        layout->setAlignment(Qt::AlignTop);
-    }
 
     scroll->setWidget(box);
 
@@ -79,4 +72,8 @@ QWidget* Program_JsonFile::make_options_body(QWidget& parent){
     }
     return scroll;
 }
+
+
+
+
 

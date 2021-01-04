@@ -17,7 +17,8 @@ INCLUDEPATH += ../GeneratorSource/
 SOURCES += \
     ../GeneratorSource/Dialogs/MainWindow.cpp \
     ../GeneratorSource/Dialogs/McuList.cpp \
-    ../GeneratorSource/Dialogs/SelectProgram.cpp \
+    ../GeneratorSource/Dialogs/ProgramDialog.cpp \
+    ../GeneratorSource/Dialogs/SettingsDialog.cpp \
     ../GeneratorSource/Main.cpp \
     ../GeneratorSource/Options/BooleanCheckBox.cpp \
     ../GeneratorSource/Options/ConfigItem.cpp \
@@ -33,7 +34,9 @@ SOURCES += \
     ../GeneratorSource/Options/SwitchDate.cpp \
     ../GeneratorSource/Options/TimeExpression.cpp \
     ../GeneratorSource/Programs/AllPrograms.cpp \
+    ../GeneratorSource/Programs/ConfigSet.cpp \
     ../GeneratorSource/Programs/JsonProgram.cpp \
+    ../GeneratorSource/Programs/JsonSettings.cpp \
     ../GeneratorSource/Programs/Program.cpp \
     ../GeneratorSource/Tools/CommandRunner.cpp \
     ../GeneratorSource/Tools/ExpressionEvaluator.cpp \
@@ -43,7 +46,8 @@ SOURCES += \
 HEADERS += \
     ../GeneratorSource/Dialogs/MainWindow.h \
     ../GeneratorSource/Dialogs/McuList.h \
-    ../GeneratorSource/Dialogs/SelectProgram.h \
+    ../GeneratorSource/Dialogs/ProgramDialog.h \
+    ../GeneratorSource/Dialogs/SettingsDialog.h \
     ../GeneratorSource/Options/BooleanCheckBox.h \
     ../GeneratorSource/Options/ConfigItem.h \
     ../GeneratorSource/Options/Divider.h \
@@ -58,8 +62,11 @@ HEADERS += \
     ../GeneratorSource/Options/SwitchDate.h \
     ../GeneratorSource/Options/TimeExpression.h \
     ../GeneratorSource/Programs/AllPrograms.h \
+    ../GeneratorSource/Programs/ConfigSet.h \
     ../GeneratorSource/Programs/JsonProgram.h \
+    ../GeneratorSource/Programs/JsonSettings.h \
     ../GeneratorSource/Programs/Program.h \
+    ../GeneratorSource/Programs/RightPanel.h \
     ../GeneratorSource/Tools/PersistentSettings.h \
     ../GeneratorSource/Tools/Tools.h
 

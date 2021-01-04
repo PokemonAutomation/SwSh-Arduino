@@ -11,8 +11,9 @@
 #include <QComboBox>
 #include <QMainWindow>
 #include "McuList.h"
-#include "Programs/Program.h"
+#include "Programs/RightPanel.h"
 
+class SettingsDialog;
 class ProgramDialog;
 
 class MainWindow : public QMainWindow{
@@ -21,8 +22,8 @@ class MainWindow : public QMainWindow{
 public:
     MainWindow(QWidget* parent = nullptr);
 
-    void replace_active_program(Program& program);
-
+    const std::string& current_MCU() const;
+    void replace_active_program(RightPanel& panel);
 
 private:
     QWidget* centralwidget;
@@ -30,10 +31,13 @@ private:
     QStatusBar* statusbar;
 
     McuList* m_mcu_list;
+    SettingsDialog* m_settings_list;
     ProgramDialog* m_program_list;
 
     QVBoxLayout* m_program_settings_parent_layout;
     QWidget* m_program_settings_widget;
 };
+
+
 
 #endif

@@ -22,6 +22,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, char*, int n
         &pi
     );
     if (!ret){
+        MessageBoxW(nullptr, L"Unable to open: Binaries/HexGenerator.exe", L"Error", MB_ICONERROR);
         return 1;
     }
     ret = WaitForSingleObject(pi.hProcess, INFINITE);

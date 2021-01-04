@@ -56,11 +56,11 @@ BooleanCheckBoxUI::BooleanCheckBoxUI(QWidget& parent, BooleanCheckBox& value, co
 {
     QHBoxLayout* layout = new QHBoxLayout(this);
     QLabel* text = new QLabel(label, this);
-    layout->addWidget(text);
+    layout->addWidget(text, 3);
     text->setWordWrap(true);
     QCheckBox* box = new QCheckBox(this);
     box->setChecked(m_value.m_current);
-    layout->addWidget(box);
+    layout->addWidget(box, 1);
     connect(
         box, &QCheckBox::stateChanged,
         this, [=](int){ m_value.m_current = box->isChecked(); }

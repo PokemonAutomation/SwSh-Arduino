@@ -15,10 +15,11 @@
 #include <QDesktopServices>
 #include <QUrl>
 #include "Tools/Tools.h"
-#include "SelectProgram.h"
+#include "SettingsDialog.h"
+#include "ProgramDialog.h"
 #include "MainWindow.h"
 
-const QString VERSION = "v0.2.6";
+const QString VERSION = "v0.2.8";
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
@@ -52,10 +53,16 @@ MainWindow::MainWindow(QWidget* parent)
     left->addSpacerItem(new QSpacerItem(10, 10));
     left->addWidget(new QLabel("<b>Device/MCU Type:", this));
     left->addWidget(m_mcu_list = new McuList(*this));
+
     left->addSpacerItem(new QSpacerItem(10, 10));
     left->addWidget(new QLabel("<b>Select a Program:", this));
     m_program_list = new ProgramDialog(*this);
     left->addWidget(m_program_list);
+
+    left->addSpacerItem(new QSpacerItem(10, 10));
+    left->addWidget(new QLabel("<b>Global Settings:", this));
+    m_settings_list = new SettingsDialog(*this);
+    left->addWidget(m_settings_list);
 
 
     QHBoxLayout* support = new QHBoxLayout();
@@ -100,8 +107,6 @@ MainWindow::MainWindow(QWidget* parent)
     );
 
 
-
-
     hbox->addSpacerItem(new QSpacerItem(10, 10));
 
     QVBoxLayout* right = new QVBoxLayout();
@@ -112,14 +117,16 @@ MainWindow::MainWindow(QWidget* parent)
 
 }
 
-
-void MainWindow::replace_active_program(Program& program){
+const std::string& MainWindow::current_MCU() const{
+    return m_mcu_list->get_MCU();
+}
+void MainWindow::replace_active_program(RightPanel& panel){
     if (m_program_settings_widget != nullptr){
         m_program_settings_parent_layout->removeWidget(m_program_settings_widget);
         delete m_program_settings_widget;
         m_program_settings_widget = nullptr;
     }
-    m_program_settings_widget = program.make_ui(*this, *m_mcu_list);
+    m_program_settings_widget = panel.make_ui(*this);
     m_program_settings_parent_layout->addWidget(m_program_settings_widget);
 }
 

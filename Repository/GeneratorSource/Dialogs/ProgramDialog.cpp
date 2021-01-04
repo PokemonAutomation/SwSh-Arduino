@@ -7,7 +7,7 @@
 #include <vector>
 #include "Dialogs/MainWindow.h"
 #include "Programs/AllPrograms.h"
-#include "SelectProgram.h"
+#include "ProgramDialog.h"
 
 
 ProgramDialog::ProgramDialog(MainWindow& parent)
@@ -19,7 +19,8 @@ ProgramDialog::ProgramDialog(MainWindow& parent)
 //    sizeHintForRow(100);
 //    sizeHintForColumn(100);
 
-    connect(this, &QListWidget::currentRowChanged, this, &ProgramDialog::currentRowChanged);
+    connect(this, &QListWidget::itemClicked, this, &ProgramDialog::row_selected);
+    connect(this, &QListWidget::currentRowChanged, this, &ProgramDialog::row_changed);
 
     for (const auto& item : PROGRAM_LIST()){
         addItem(item->name());
@@ -27,9 +28,7 @@ ProgramDialog::ProgramDialog(MainWindow& parent)
 
 }
 
-void ProgramDialog::currentRowChanged(int currentRow){
-//    cout << item->text().toUtf8().constData() << endl;
-    QListWidgetItem* item = this->item(currentRow);
+void ProgramDialog::row_selected(QListWidgetItem* item){
     auto iter = PROGRAM_MAP().find(item->text());
     if (iter == PROGRAM_MAP().end()){
 //        std::cout << item->text().toUtf8().data() << std::endl;
@@ -37,6 +36,9 @@ void ProgramDialog::currentRowChanged(int currentRow){
     }
 
     m_parent.replace_active_program(*iter->second);
+}
+void ProgramDialog::row_changed(int row){
+    row_selected(this->item(row));
 }
 
 

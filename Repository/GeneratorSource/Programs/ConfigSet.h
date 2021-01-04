@@ -1,27 +1,25 @@
-/*  Parent Class for all Programs
+/*  Parent Class for all Configuration Files
  *
  *  From: https://github.com/Mysticial/Pokemon-Automation-SwSh-Arduino-Scripts
  *
  */
 
-#ifndef PokemonAutomation_Program_H
-#define PokemonAutomation_Program_H
+#ifndef PokemonAutomation_ConfigSet_H
+#define PokemonAutomation_ConfigSet_H
 
 #include <QObject>
-#include <QJsonDocument>
 #include <QJsonArray>
-#include "Dialogs/McuList.h"
 #include "RightPanel.h"
 
-class Program : public RightPanel{
+class ConfigSet : public RightPanel{
 public:
-    static const QString JSON_PROGRAM_NAME;
+    static const QString JSON_CONFIG_NAME;
+    static const QString JSON_CONFIG_PATH;
     static const QString JSON_DESCRIPTION;
-    static const QString JSON_PARAMETERS;
+    static const QString JSON_OPTIONS;
 
 public:
-    Program(const QString& name, const QString& description);
-    Program(const QJsonObject& obj);
+    ConfigSet(const QJsonObject& obj);
 
     const QString& name() const{ return m_name; }
     const QString& description() const{ return m_description; }
@@ -35,23 +33,18 @@ public:
     QString save_json() const;
     QString save_cfile() const;
 
-    void save_and_build(const std::string& mcu);
-
     virtual QWidget* make_ui(MainWindow& parent) override;
 
 protected:
-    virtual QWidget* make_options_body(QWidget& parent);
-    virtual QJsonArray parameters_json() const{ return QJsonArray(); }
-    virtual std::string parameters_cpp() const{ return ""; }
+    virtual QWidget* make_options_body(QWidget& parent) = 0;
+    virtual QJsonArray options_json() const{ return QJsonArray(); }
+    virtual std::string options_cpp() const{ return ""; }
     virtual void from_json(const QJsonDocument&){}
 
 private:
     QString m_name;
+    QString m_path;
     QString m_description;
 };
-
-
-
-
 
 #endif
