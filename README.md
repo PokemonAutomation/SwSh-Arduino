@@ -1,7 +1,7 @@
 # Pokemon Automation Sword/Shield Arduino Scripts
 This is a public distribution mirror for the Pokemon Automation discord server's in-house Arduino programs for Pokemon Sword/Shield.
 
- - **Documentation:** [User Manual.pdf](!User%20Manual.pdf)
+ - **Documentation:** [User Manual.pdf](User%20Manual.pdf)
  - **Support Discord:**
 
 [<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)
