@@ -48,16 +48,24 @@ if [ -z "$program" ]; then
     read -p "Please enter the name of the program (without .hex): " program
 fi
 
+device_path=$3
+
+if [ -z "$device_path" ]; then
+    read -p "Please enter the path to your devicd (ex. /dev/ttyACM0): " device_path
+fi
+
 if [ -f "$program.hex" ]; then
     HEXFILE="$program.hex"
-    echo "Flashing $program.hex to $MCU now"
-    echo "dfu-programmer requires elevated privileges. Please enter your password."
-    # start with clearing the board
-    sudo dfu-programmer $MCU erase || true
-    # then flash the hex to the board
-    sudo dfu-programmer $MCU flash $HEXFILE
-    # then reset the board
-    sudo dfu-programmer $MCU reset
+    while true; do  
+        device_present=$(ls ${device_path} >/dev/null 2>&1 );  
+        if [[ $? -eq 0 ]]; then    
+            echo "Flashing $program.hex to $MCU now"
+            avrdude -p "${MCU}" -P "${device_path}" -c avr109 -U flash:w:${HEXFILE}
+            break; 
+        fi; 
+        echo "Device not found, retrying in 1 second..."
+        sleep 1
+    done
 elif [ -f "$program.c" ]; then
     echo "It looks like there is no hex file for $program.c"
     DOBUILD="n"
@@ -76,15 +84,16 @@ elif [ -f "$program.c" ]; then
         
         # then flash
         HEXFILE="$program.hex"
-        echo "Flashing $program.hex to $MCU now"
-        echo "dfu-programmer requires elevated privileges. Please enter your password."
-        # start with clearing the board
-        sudo dfu-programmer $MCU erase || true
-        # then flash the hex to the board
-        sudo dfu-programmer $MCU flash $HEXFILE
-        # then reset the board
-        sudo dfu-programmer $MCU reset
-
+        while true; do  
+            device_present=$(ls ${device_path} >/dev/null 2>&1 );  
+            if [[ $? -eq 0 ]]; then    
+                echo "Flashing $program.hex to $MCU now"
+                avrdude -p "${MCU}" -P "${device_path}" -c avr109 -U flash:w:${HEXFILE}
+                break; 
+            fi; 
+            echo "Device not found, retrying in 1 second..."
+            sleep 1
+        done
     else
         exit
     fi
