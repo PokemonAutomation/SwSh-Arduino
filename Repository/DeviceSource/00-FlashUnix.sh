@@ -3,8 +3,10 @@
 # change directory to library location
 cd "$(dirname "$0")"
 
-# define the MCU, which is the board type
+# Parse Command line arguments for MCU, Program and Device Path
 MCU=$1
+program=$2
+device_path=$3
 
 # do a check for the MCU especially if it wasn't specified
 if [ -z "$MCU" ]; then
@@ -41,35 +43,62 @@ if [ "$MCU" == "1" ]; then MCU="at90usb1286"; fi
 if [ "$MCU" == "2" ]; then MCU="atmega16u2"; fi
 if [ "$MCU" == "3" ]; then MCU="atmega32u4"; fi
 
-# define the program
-program=$2
 
 if [ -z "$program" ]; then
+    echo ""
     read -p "Please enter the name of the program (without .hex): " program
+    echo ""
 fi
 
-device_path=$3
+if [[ -z $device_path ]]; then
+    echo ""
+    read -p "Would you like to attempt auto detecting your device? [y/n]: " autodetect_device
+    autodetect_device="${autodetect_device:-y}"
 
-if [ -z "$device_path" ]; then
-    read -p "Please enter the path to your devicd (ex. /dev/ttyACM0): " device_path
+    if [[ $autodetect_device == "n" ]]; then
+        echo ""
+        read -p "Please enter the path to your devicd (ex. /dev/ttyACM0): " device_path
+        echo ""
+    elif [[ $autodetect_device != "y" ]]; then
+        echo ""
+        echo "Invalid input, defaulting to autodetection"
+        echo ""
+        autodetect_device="y"
+    fi
 fi
 
 if [ -f "$program.hex" ]; then
     HEXFILE="$program.hex"
-    while true; do  
-        device_present=$(ls ${device_path} >/dev/null 2>&1 );  
-        if [[ $? -eq 0 ]]; then    
-            echo "Flashing $program.hex to $MCU now"
-            avrdude -p "${MCU}" -P "${device_path}" -c avr109 -U flash:w:${HEXFILE}
-            break; 
-        fi; 
-        echo "Device not found, retrying in 1 second..."
-        sleep 1
-    done
+    if [[ $autodetect_device == "y" ]]; then
+        while true; do
+            echo "Waiting for device to connect..."
+            found_device_path="$(ls /dev/tty* | grep -i 'acm\|usb')"
+            if [[ ! -z "$found_device_path" ]]; then
+                echo "================================="
+                echo "Device connected at [${found_device_path}]"
+                echo "Attempting to flash $program.hex to $MCU now"
+                echo "================================="
+                avrdude -p "${MCU}" -P "${found_device_path}" -c avr109 -U flash:w:${HEXFILE}
+                break; 
+            fi
+            sleep 1;
+        done
+    else
+        while true; do  
+            device_present=$(ls ${device_path} >/dev/null 2>&1 );  
+            if [[ $? -eq 0 ]]; then    
+                echo "Flashing $program.hex to $MCU now"
+                avrdude -p "${MCU}" -P "${device_path}" -c avr109 -U flash:w:${HEXFILE}
+                break; 
+            fi; 
+            echo "Device not found, retrying in 1 second..."
+            sleep 1
+        done
+    fi
 elif [ -f "$program.c" ]; then
     echo "It looks like there is no hex file for $program.c"
     DOBUILD="n"
-    read -p "Would you like to build it now and then flash it? [y/n]" DOBUILD
+    read -p "Would you like to build it now and then flash it? [y/n]: " DOBUILD
 
     if [ "$DOBUILD" == "y" ]; then
         # build the hex file for that one script
@@ -84,6 +113,21 @@ elif [ -f "$program.c" ]; then
         
         # then flash
         HEXFILE="$program.hex"
+    if [[ $autodetect_device == "y" ]]; then
+        while true; do
+            echo "Waiting for device to connect..."
+            found_device_path="$(ls /dev/tty* | grep -i 'acm\|usb')"
+            if [[ ! -z "$found_device_path" ]]; then
+                echo "================================="
+                echo "Device connected at [${found_device_path}]"
+                echo "Attempting to flash $program.hex to $MCU now"
+                echo "================================="
+                avrdude -p "${MCU}" -P "${found_device_path}" -c avr109 -U flash:w:${HEXFILE}
+                break; 
+            fi
+            sleep 1;
+        done
+    else
         while true; do  
             device_present=$(ls ${device_path} >/dev/null 2>&1 );  
             if [[ $? -eq 0 ]]; then    
@@ -94,6 +138,7 @@ elif [ -f "$program.c" ]; then
             echo "Device not found, retrying in 1 second..."
             sleep 1
         done
+    fi
     else
         exit
     fi
