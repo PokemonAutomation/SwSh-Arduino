@@ -1,4 +1,5 @@
 Repository/DeviceSource/*.hex
 
+**/Linux/
 **/obj/
 **/log/
