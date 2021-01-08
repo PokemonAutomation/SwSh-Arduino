@@ -43,6 +43,9 @@ function run() {
 
 function configure() {
     boxed_msg "Configuration"
+    if [[ -f "${HOME}/.paconfig" ]]; then
+	source "${HOME}/.paconfig"
+    fi
     
     if [[ "$EUID" -ne 0 ]]; then
         SUDO="sudo"
@@ -74,6 +77,8 @@ function configure() {
         if [ "${MCU}" == "1" ]; then MCU="at90usb1286"; fi
         if [ "${MCU}" == "2" ]; then MCU="atmega16u2"; fi
         if [ "${MCU}" == "3" ]; then MCU="atmega32u4"; fi
+    else
+	note "Using Preconfigured MCU [${MCU}]"
     fi
 
     if [ -z "${PROGRAM}" ]; then
@@ -184,7 +189,10 @@ function program_dfu {
 }
 
 function program_avrdude {
-    if [[ -z $DEVICE_PATH ]]; then
+    if [[ $AUTODETECT_DEVICE == "y" ]]; then
+	note "Autodetect enabled..."
+	detect_device
+    elif [[ -z $DEVICE_PATH ]] && [[ -z $autodetect_device ]]; then
         question "Would you like to attempt auto detecting your device? ${WHITE}[y/n]${RESET}" "autodetect_device"
         autodetect_device="${autodetect_device:-y}"
         if [[ $autodetect_device == "n" ]]; then
