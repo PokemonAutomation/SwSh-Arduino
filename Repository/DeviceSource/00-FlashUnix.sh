@@ -18,8 +18,10 @@ MCUBOARDS=("1" "2" "3" "at90usb1286" "atmega16u2" "atmega32u4")
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     PLATFORM="mac"
+    MD5SUM="md5 -q"
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     PLATFORM="linux"
+    MD5SUM="md5sum"
 else
     boxed_msg "${RED}${OSTYPE} is not a recognized platform. Please run only on Mac or Linux${RESET}"
     exit 1
@@ -88,6 +90,19 @@ function configure() {
             logmsg "Nothing to flash, exiting.."
             exit
         fi
+    elif [[ -f "${PROGRAM}.md5sum" ]] && [[ -f "${HEXFILE}" ]]; then
+        prev_chksum=$(cat "${PROGRAM}.md5sum")
+        current_chksum=$($MD5SUM "${PROGRAM}.c")
+        if [[ ${current_chksum} != "${prev_chksum}" ]]; then
+            question "There appear to be changes to ${PROGRAM}.c, would you like to rebuild? ${WHITE}[y/n]${RESET}" "REBUILD"
+            REBUILD="${REBUILD:-n}"
+            if [ "$REBUILD" == "y" ]; then
+                BUILD_HEX="y"
+            else
+                logmsg "Using existing hexfile..."
+            fi
+        fi
+
     fi
 
     # Logic below to determine if we need to us dfu-programmer or not
@@ -111,15 +126,23 @@ function build_hex {
         note "Cleaning Build Environment"
         ./00-CleanupUnix.sh >/dev/null
 
+
         note "Running Build Script"
         sh Scripts/BuildOneUnix.sh "${MCU}" "${PROGRAM}" > /dev/null
+
         retVal=$?
         if [ $retVal -ne 0 ]; then
             boxed_msg "${RED}ERROR - CRITICAL: An error occured while building.\nPlease check logs and perhaps run the cleanup script before trying again.${RESET}"
             exit 1
         else 
             note "${PROGRAM}.hex successfully built!"
-        fi
+            note "Generating checksum for ${PROGRAM}.c"
+            if [[ "$PLATFORM" == "linux" ]]; then
+	    	$MD5SUM "${PROGRAM}.c" | awk '{print $1}' > "${PROGRAM}.md5sum"
+	    else
+		$MD5SUM "${PROGRAM}.c" > "${PROGRAM}.md5sum"
+	    fi
+	fi
 }
 
 function detect_device() {
