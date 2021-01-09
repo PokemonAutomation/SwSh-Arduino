@@ -157,7 +157,7 @@ endif
 # and on an architecture where this non-standard patch is available
 ifneq ($(ARCH), UC3)
 size: SIZE_MCU_FLAG    := $(shell $(CROSS)-size --help | grep -- --mcu > /dev/null && echo --mcu=$(MCU) )
-size: SIZE_FORMAT_FLAG := $(shell $(CROSS)-size --help | grep -- --format=.*avr > /dev/null && echo --format=avr )
+size: SIZE_FORMAT_FLAG := $(shell $(CROSS)-size --help | grep -- --format=.*avr > /dev/null && echo -C )
 endif
 
 # Pre-build informational target, to give compiler and project name information when building

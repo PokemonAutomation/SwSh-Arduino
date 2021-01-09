@@ -1,0 +1,6 @@
+Repository/DeviceSource/*.hex
+
+**/*.md5sum
+**/Linux/
+**/obj/
+**/log/
