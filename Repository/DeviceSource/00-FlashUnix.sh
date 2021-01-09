@@ -114,13 +114,11 @@ function configure() {
     if [[ $PLATFORM == "mac" ]] && [[ ${MCU} == "atmega16u2" ]]; then
         which dfu-programmer >/dev/null 2>&1
         if [[ $? -eq 0 ]]; then
-            question "Mac platform detected, UNO R3 configured, should I use dfu-programmer ${WHITE}[y/n]${RESET}" "use_dfu"
-            use_dfu="${use_dfu:-n}"
-            if [[ "${use_dfu}" == "y" ]]; then
-                PROGRAM_COMMAND="program_dfu ${MCU} ${HEXFILE}"
-            fi
+            question "Mac platform detected, UNO R3 configured. Connect your device and enter DFU mode, then press any key..." "use_dfu"
+            PROGRAM_COMMAND="program_dfu ${MCU} ${HEXFILE}"
         else
-            logmsg "dfu-programmer not installed, defaulting to avrdude"
+            logmsg "dfu-programmer not installed, run \"brew install dfu-programmer\" then rerun this script"
+	    exit 1
         fi
     fi
 }
