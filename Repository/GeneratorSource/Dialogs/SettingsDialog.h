@@ -17,6 +17,7 @@ class SettingsDialog : public QListWidget{
 
 public:
     SettingsDialog(MainWindow& parent);
+    int text_width() const{ return m_text_width; }
 
 //    virtual QSize sizeHint() const override;
 
@@ -26,6 +27,7 @@ public slots:
 
 private:
     MainWindow& m_parent;
+    int m_text_width;
 };
 
 

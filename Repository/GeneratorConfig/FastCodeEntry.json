@@ -4,7 +4,7 @@
     "2-Parameters": [
         {
             "00-Type": "FixedCode",
-            "01-Label": "<b>Trade Code:</b>",
+            "01-Label": "<b>Raid Code:</b>",
             "02-Declaration": "const char* RAID_CODE",
             "03-Digits": 8,
             "98-Default": "9107 3091",

@@ -120,10 +120,20 @@ QWidget* Program::make_ui(MainWindow& parent){
     QVBoxLayout* layout = new QVBoxLayout(box);
     layout->setMargin(0);
 //    layout->setAlignment(Qt::AlignTop);
-    layout->addWidget(new QLabel("<b><font size=4>Name:</font></b> " + m_name));
-    QLabel* text = new QLabel("<b><font size=4>Description:</font></b> " + m_description);
-    layout->addWidget(text);
-    text->setWordWrap(true);
+    layout->addWidget(new QLabel("<font size=4><b>Name:</b></font> " + m_name));
+    {
+        QLabel* text = new QLabel("<font size=4><b>Description:</b></font> " + m_description);
+        layout->addWidget(text);
+        text->setWordWrap(true);
+    }
+    {
+        QString path = GITHUB_REPO + "/blob/master/Documentation/Programs/" + m_name + ".md";
+        QLabel* text = new QLabel("<font size=4><a href=\"" + path + "\">Online Documentation for " + m_name + "</a></font>");
+        layout->addWidget(text);
+        text->setTextFormat(Qt::RichText);
+        text->setTextInteractionFlags(Qt::TextBrowserInteraction);
+        text->setOpenExternalLinks(true);
+    }
     layout->addWidget(make_options_body(*box), Qt::AlignBottom);
 
     QHBoxLayout* row = new QHBoxLayout();

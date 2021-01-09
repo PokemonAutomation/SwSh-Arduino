@@ -1,7 +1,13 @@
 # Version History
 
+### 2021-01-09:
+-  joyrida’s improvements to Mac and Unix build scripts.
+
 ### 2021-01-08:
 -  Minor adjustment to the BallThrower program.
+-  The UI should be able to build even if the PATH is set incorrectly if WinAVR is installed in the default place.
+-  Added an online version of this manual.
+-  The UI will now link to the relevant section of the online manual.
 
 ### 2021-01-07:
 -  Fixed a stability issue in Regidrago shiny hunt.

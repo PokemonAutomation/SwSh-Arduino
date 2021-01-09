@@ -4,7 +4,7 @@ This is a faster JPN day skipper that runs at 7827 skips/hour.
 
 *This skipper is less tolerant to errors compared to the other skippers. Don’t use this skipper unless your system is very stable or if you’re just experimenting.*
 
-This skipper works by looping through all 22,280 days from 2000/1/1 to 2020/12/31 then rewinding and starting over. The speed advantage over the other skippers is that it wastes a lot less time rewinding the year or rolling over the day of the month.
+This skipper works by looping through all 22,280 days from 2000/1/1 to 2060/12/31 then rewinding and starting over. The speed advantage over the other skippers is that it wastes a lot less time rewinding the year or rolling over the day of the month.
 
 However, this slight increase in efficiency comes at a cost. The 7.8k skipper is less tolerant to errors. Unlike the other skippers in this package, the 7.8k skipper cannot always fully recover from every error.
 

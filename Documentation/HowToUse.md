@@ -129,6 +129,7 @@ In the folder "DeviceSource", open the file "makefile" and edit the `MCU` and `T
 Once you have built the .hex file, you must load it into your Arduino or Teensy using FLIP or Teensy Loader respectively. Refer to [brianuuuSonic's video](https://www.youtube.com/watch?v=y2xFf7e_KSU) for how to do this as he explains it fairly well for both Arduino and Teensy on Windows.
 
 For Arduino, you will need FLIP: https://www.microchip.com/developmenttools/ProductDetails/flip
+
 For Teensy, you will need Teensy Loader: https://www.pjrc.com/teensy/loader.html
 
 <img src="images/HowToUse-4.png" width="400"> <img src="images/HowToUse-5.png">

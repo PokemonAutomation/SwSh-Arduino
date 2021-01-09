@@ -10,6 +10,14 @@
 #include "Tools.h"
 #include "PersistentSettings.h"
 
+
+const QString VERSION = "v0.2.9";
+const QString DISCORD = "https://discord.gg/cQ4gWxN";
+const QString GITHUB_REPO = "https://github.com/Mysticial/Pokemon-Automation-SwSh-Arduino-Scripts";
+
+
+
+
 PersistentSettings settings;
 
 

@@ -157,7 +157,7 @@
 #define PABB_PROTOCOL_VERSION       2020122500
 
 //  Program versioning doesn't matter. It's just for informational purposes.
-#define PABB_PROGRAM_VERSION        2020122500
+#define PABB_PROGRAM_VERSION        2021010700
 
 #define PABB_BAUD_RATE              115200
 #define PABB_RETRANSMIT_DELAY       10

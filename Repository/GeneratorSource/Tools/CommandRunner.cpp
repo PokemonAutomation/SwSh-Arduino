@@ -12,11 +12,11 @@
 #if _WIN32
 
 void build_hexfile(const std::string& mcu, const std::string& program_name){
-    if (system("make -v") != 0){
-        QMessageBox box;
-        box.critical(nullptr, "Error", "make not found. Please install WinAVR.");
-        return;
-    }
+//    if (system("make -v") != 0){
+//        QMessageBox box;
+//        box.critical(nullptr, "Error", "make not found. Please install WinAVR.");
+//        return;
+//    }
 
     std::string cmd;
     cmd += "cmd /c \"";

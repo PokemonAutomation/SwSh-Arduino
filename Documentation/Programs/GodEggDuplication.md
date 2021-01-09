@@ -4,7 +4,7 @@ Duplicate Pokémon using the God Egg/MissingNo.
 
 *Keep in mind that the God Egg is considered a form of hacking since there is no known way to obtain it without someone having a hacked Switch.*
 
-***This program is currently developer-only because mass cloning of Pokémon is not something that we condone.***
+***This program is currently not available to the public since we do not condone mass cloning of Pokémon. It is only available to developers for research purposes.***
 
 ## Instructions:
 - Casual mode is off.

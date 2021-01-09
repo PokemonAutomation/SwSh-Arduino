@@ -9,23 +9,29 @@
 #include "Programs/AllPrograms.h"
 #include "ProgramDialog.h"
 
+//#include <iostream>
+//using namespace std;
 
 ProgramDialog::ProgramDialog(MainWindow& parent)
     : m_parent(parent)
+    , m_text_width(0)
 {
 //    setSizeAdjustPolicy(SizeAdjustPolicy::AdjustToContents);
 //    setMinimumWidth();
-    setMaximumWidth(300);
+//    setMaximumWidth(300);
 //    sizeHintForRow(100);
 //    sizeHintForColumn(100);
 
     connect(this, &QListWidget::itemClicked, this, &ProgramDialog::row_selected);
     connect(this, &QListWidget::currentRowChanged, this, &ProgramDialog::row_changed);
 
+    QFontMetrics fm(this->font());
     for (const auto& item : PROGRAM_LIST()){
         addItem(item->name());
+        m_text_width = std::max(m_text_width, fm.width(item->name()));
+//        cout << m_text_width << endl;
     }
-
+//    setMaximumWidth(m_width);
 }
 
 void ProgramDialog::row_selected(QListWidgetItem* item){

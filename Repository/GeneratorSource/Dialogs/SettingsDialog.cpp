@@ -12,8 +12,9 @@
 
 SettingsDialog::SettingsDialog(MainWindow& parent)
     : m_parent(parent)
+    , m_text_width(0)
 {
-    setMaximumWidth(300);
+//    setMaximumWidth(300);
 //    setSizeAdjustPolicy(QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents);
 
     connect(this, &QListWidget::itemClicked, this, &SettingsDialog::row_selected);
@@ -25,10 +26,14 @@ SettingsDialog::SettingsDialog(MainWindow& parent)
         return;
     }
 
+    QFontMetrics fm(this->font());
+//    int width = 0;
     for (const auto& item : list){
         addItem(item->name());
+        m_text_width = std::max(m_text_width, fm.width(item->name()));
     }
 //    updateGeometry();
+//    setMaximumWidth(m_width);
 
     setMaximumHeight(4 + list.size() * (sizeHintForRow(0) + 2));
 }

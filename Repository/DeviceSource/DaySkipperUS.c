@@ -1,4 +1,4 @@
-/*  Pokemon Sword & Shield: EU Date Skipper (7k)
+/*  Pokemon Sword & Shield: US Date Skipper (7k)
  * 
  *  From: https://github.com/Mysticial/Pokemon-Automation-SwSh-Arduino-Scripts
  * 

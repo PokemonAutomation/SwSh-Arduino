@@ -17,6 +17,7 @@ class ProgramDialog : public QListWidget{
 
 public:
     ProgramDialog(MainWindow& parent);
+    int text_width() const{ return m_text_width; }
 
 public slots:
     void row_selected(QListWidgetItem* item);
@@ -24,6 +25,7 @@ public slots:
 
 private:
     MainWindow& m_parent;
+    int m_text_width;
 };
 
 

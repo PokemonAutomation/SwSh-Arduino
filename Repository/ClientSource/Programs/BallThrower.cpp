@@ -37,7 +37,7 @@ void program_BallThrower(const std::string& device_name){
     while (true){
         pbf_press_button(BUTTON_X, 50, 50);
         pbf_press_button(BUTTON_A, 50, 50);
-        pbf_press_button(BUTTON_B, 50, 50);
+        pbf_mash_button(BUTTON_B, 100);
     }
 
 //    pbf_press_button(BUTTON_HOME, 10, GAME_TO_HOME_DELAY_SAFE);

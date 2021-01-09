@@ -15,11 +15,14 @@
 #include <QDesktopServices>
 #include <QUrl>
 #include "Tools/Tools.h"
+#include "Tools/PersistentSettings.h"
 #include "SettingsDialog.h"
 #include "ProgramDialog.h"
 #include "MainWindow.h"
 
-const QString VERSION = "v0.2.8";
+//#include <iostream>
+//using std::cout;
+//using std::endl;
 
 MainWindow::MainWindow(QWidget* parent)
     : QMainWindow(parent)
@@ -64,6 +67,14 @@ MainWindow::MainWindow(QWidget* parent)
     m_settings_list = new SettingsDialog(*this);
     left->addWidget(m_settings_list);
 
+#if 0
+    int width = std::max(m_program_list->text_width(), m_settings_list->text_width());
+#else
+    int width = 300;
+#endif
+//    cout << "Width = " << width << endl;
+    m_program_list->setMaximumWidth(width);
+    m_settings_list->setMaximumWidth(width);
 
     QHBoxLayout* support = new QHBoxLayout();
     left->addLayout(support);
@@ -72,20 +83,30 @@ MainWindow::MainWindow(QWidget* parent)
     QVBoxLayout* links = new QVBoxLayout();
     support->addLayout(links);
 
-    QLabel* discord = new QLabel(this);
-    links->addWidget(discord);
-    discord->setText("<a href=\"https://discord.gg/cQ4gWxN\">Discord Server</a>");
-    discord->setTextFormat(Qt::RichText);
-    discord->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    discord->setOpenExternalLinks(true);
-
-    QLabel* github = new QLabel(this);
-    links->addWidget(github);
-    github->setText("<a href=\"https://github.com/Mysticial/Pokemon-Automation-SwSh-Arduino-Scripts\">GitHub Repository</a>");
-    github->setTextFormat(Qt::RichText);
-    github->setTextInteractionFlags(Qt::TextBrowserInteraction);
-    github->setOpenExternalLinks(true);
-
+    {
+        QLabel* discord = new QLabel(this);
+        links->addWidget(discord);
+        discord->setText("<a href=\"" + DISCORD + "\">Discord Server</a>");
+        discord->setTextFormat(Qt::RichText);
+        discord->setTextInteractionFlags(Qt::TextBrowserInteraction);
+        discord->setOpenExternalLinks(true);
+    }
+    {
+        QLabel* github = new QLabel(this);
+        links->addWidget(github);
+        github->setText("<a href=\"" + GITHUB_REPO + "/blob/master/Documentation/README.md\">Online Documentation</a>");
+        github->setTextFormat(Qt::RichText);
+        github->setTextInteractionFlags(Qt::TextBrowserInteraction);
+        github->setOpenExternalLinks(true);
+    }
+    {
+        QLabel* github = new QLabel(this);
+        links->addWidget(github);
+        github->setText("<a href=\"" + GITHUB_REPO + "\">GitHub Repository</a>");
+        github->setTextFormat(Qt::RichText);
+        github->setTextInteractionFlags(Qt::TextBrowserInteraction);
+        github->setOpenExternalLinks(true);
+    }
 
     QPushButton* about = new QPushButton("About", this);
     support->addWidget(about);

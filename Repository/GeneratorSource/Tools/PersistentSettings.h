@@ -6,6 +6,13 @@
 
 #include <QString>
 
+
+extern const QString VERSION;
+extern const QString DISCORD;
+extern const QString GITHUB_REPO;
+
+
+
 class PersistentSettings{
 public:
     void write() const;

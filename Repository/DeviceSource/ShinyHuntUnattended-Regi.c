@@ -42,7 +42,7 @@ const RegiGolem REGI_NAME           =   Registeel;
 const uint16_t CORRECTION_INTERVAL  =   10;
 
 //  Delay to enter/exit the building.
-const uint16_t TRANSITION_DELAY     =   300;
+const uint16_t TRANSITION_DELAY     =   3 * TICKS_PER_SECOND;
 
 
 //  Rollover Prevention
