@@ -67,21 +67,21 @@ Errors are logged into the respective .log file for the program (for example "Wa
 
 If you are comfortable with shell scripting and you don’t want to keep rebuilding all the programs, you can edit "Scripts/BuildAll.cmd" to build only a subset of the programs.
 
-### Method 3: Run the !BuildAllUnix.sh file. (Mac and Linux)
+### Method 3: Run the 00-BuildAllUnix.sh file. (Mac and Linux)
 
 Now there are scripts for Mac and Linux as well. The steps here are similar to Windows (Method 1).
 
-Go into the folder "DeviceSource", then you need to run the "!BuildAllUnix.sh" script:
+Go into the folder "DeviceSource", then you need to run the "00-BuildAllUnix.sh" script:
 
 Mac:
 1.	Open Terminal
 2.	Type `bash ` (with a trailing space!) Do not hit enter after entering this.
-3.	Drag from finder the "!BuildAllUnix.sh" script into the Terminal Window.
+3.	Drag from finder the "00-BuildAllUnix.sh" script into the Terminal Window.
 4.	Press enter.
 Linux:
 1.	Open a terminal.
-2.	cd into the same path as the "!BuildAllUnix.sh" script.
-3.	Type `bash !BuildAllUnix.sh`
+2.	cd into the same path as the "00-BuildAllUnix.sh" script.
+3.	Type `bash 00-BuildAllUnix.sh`
 4.	Press enter.
 
 This will build every single program and create .hex files for all of them. If will tell you if there are any errors. 
@@ -96,18 +96,18 @@ This is a do-all script that will build a program and then flash it to your devi
 
 This is recommended for the Arduino. If you have Teensy, you should use the Teensy loader application instead.
 
-Go into the folder "DeviceSource", then you need to run the "!FlashUnix.sh" script:
+Go into the folder "DeviceSource", then you need to run the "00-FlashUnix.sh" script:
 
 **Mac:**
 1. Open Terminal
 2. Type `bash ` (with a trailing space!) Do not hit enter after entering this.
-3. Drag from finder the “!FlashUnix.sh” script into the Terminal Window.
+3. Drag from finder the "00-FlashUnix.sh" script into the Terminal Window.
 4. Press enter.
 
 **Linux:**
 1. Open a terminal.
-2. cd into the same path as the "!FlashUnix.sh" script.
-3. Type `bash !FlashUnix.sh`
+2. cd into the same path as the "00-FlashUnix.sh" script.
+3. Type `bash 00-FlashUnix.sh`
 4. Press enter.
 
 Once you run the script, it will prompt you for:
