@@ -26,7 +26,7 @@
         },
         {
             "00-Type": "TimeExpression",
-            "01-Label": "<b>Attack to Catch Delay:</b>",
+            "01-Label": "<b>Attack to Catch Delay:</b><br>Increase this if you seem to be catching Regigigas very often.",
             "02-Declaration": "const uint16_t ATTACK_TO_CATCH_DELAY",
             "03-MinValue": 0,
             "04-MaxValue": 65535,

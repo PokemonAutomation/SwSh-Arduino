@@ -1,5 +1,12 @@
 # Version History
 
+### 2021-01-13:
+-  Fix line endings in the new Unix scripts.
+
+### 2021-01-12:
+-  Faster Regidrago and Regice light patterns.
+-  Fixed a bug in the raid count logging for AutoHost-MultiGame.
+
 ### 2021-01-09:
 -  joyrida’s improvements to Mac and Unix build scripts.
 

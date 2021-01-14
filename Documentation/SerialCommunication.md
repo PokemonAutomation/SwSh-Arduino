@@ -26,7 +26,7 @@ The device logger can display the number remaining skips for the day skippers.
 
 <img src="images/SerialCommunication-0.png" width="800">
 
-There is also a [working prototype program](working prototype program) that automates the Dynamax Adventures. (Details are available in our server.)
+There is also a [working prototype program](https://github.com/ercdndrs/AutoMaxLair) that automates the Dynamax Adventures. (Details are available in our server.)
 
 <img src="images/SerialCommunication-1.jpg" width="800">
 
