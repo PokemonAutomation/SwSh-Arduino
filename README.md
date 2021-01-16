@@ -1,7 +1,8 @@
 # Pokemon Automation Sword/Shield Arduino Scripts
 This is a public distribution mirror for the Pokemon Automation discord server's in-house Arduino programs for Pokemon Sword/Shield.
 
- - **Documentation:** [User Manual.pdf](User%20Manual.pdf)
+ - **Download Latest:** [PASwShScripts-20210113.zip](PASwShScripts-20210113.zip)
+ - **Documentation:** [Online Manual](Documentation/README.md), [pdf](User Manual.pdf)
  - **Support Discord:**
 
 [<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)
@@ -25,55 +26,55 @@ These programs are similar to brianuuuSonic's Autocontroller programs. But they 
 ## Program List:
 
 **General Tools:**
--	**TurboA** - Endlessly mash A.
--	**MassRelease** - Mass release boxes of Pokémon.
--	**SurpriseTrade** - Surprise trade away boxes of Pokémon.
--	**TradeBot** - Surprise trade with code for giveaways.
--	**ClothingBuyer** - Buy out all the clothing in a store.
--	**BallThrower** - Blindly throw balls at the opposing Pokémon until it catches.
+- [**TurboA**](Documentation/Programs/TurboA.md) - Endlessly mash A.
+- [**MassRelease**](Documentation/Programs/MassRelease.md) - Mass release boxes of Pokémon.
+- [**SurpriseTrade**](Documentation/Programs/SurpriseTrade.md) - Surprise trade away boxes of Pokémon.
+- [**TradeBot**](Documentation/Programs/TradeBot.md) - Surprise trade with a code for hosting giveaways.
+- [**ClothingBuyer**](Documentation/Programs/ClothingBuyer.md) - Buy out all the clothing in a store.
+- [**BallThrower**](Documentation/Programs/BallThrower.md) - Blindly throw balls at the opposing Pokémon until it catches.
 
 **Date-Spam Farmers:**
--	**WattFarmer** - Farm watts from a wishing piece beam. (6.9 seconds/fetch, 1 million watts/hour)
--	**BerryFarmer** - Farm berries.
--	**LotoFarmer** - Farm the Loto ID.
--	**StowOnSideFarmer** - Farm the Stow-on-Side items dealer.
--	**DateSpam-DailyHighlightFarmer** - Farm the daily highlight watt trader in Crown Tundra.
+- [**DateSpam-WattFarmer**](Documentation/Programs/DateSpam-WattFarmer.md) - Farm watts. (6.9 seconds/fetch, 1 million watts/hour)
+- [**DateSpam-BerryFarmer**](Documentation/Programs/DateSpam-BerryFarmer.md) - Farm berries.
+- [**DateSpam-LotoFarmer**](Documentation/Programs/DateSpam-LotoFarmer.md) - Farm the Loto ID.
+- [**DateSpam-StowOnSideFarmer**](Documentation/Programs/DateSpam-StowOnSideFarmer.md) - Farm the Stow-on-Side items dealer.
+- [**DateSpam-DailyHighlightFarmer**](Documentation/Programs/DateSpam-DailyHighlightFarmer.md) - Farm the daily highlight watt trader in Crown Tundra.
 
 **Shiny Hunting:**
--	**MultiGameFossil** - Revive fossils. Supports multiple saves so you can go afk for longer than 5 hours.
--	**ShinyHunt-Regi** - Hunt for shiny Regi golem legendaries.
--	**ShinyHunt-SwordsOfJustice** - Hunt for shiny Swords of Justice legendaries.
--	**ShinyHuntUnattended-Regi** - Hunt for shiny Regis. Stop when a shiny is found.
--	**ShinyHuntUnattended-SwordsOfJustice** - Hunt for shiny SOJs. Stop when a shiny is found.
--	**ShinyHuntUnattended-StrongSpawn** - Hunt for shiny strong spawns. Stop when a shiny is found.
--	**ShinyHuntUnattended-Regigigas** - Hunt for shiny Regigigas. Stop when a shiny is found.
--	**ShinyHuntUnattended-Regigigas2** - A new version of the Regigigas program that is faster.
--	**ShinyHuntUnattended-IoATrade** - Hunt for shiny Isle of Armor trade. Stop when a shiny is found.
-
+- [**MultiGameFossil**](Documentation/Programs/MultiGameFossil.md) - Revive fossils. Supports multiple saves so you can go afk for longer than 5 hours.
+- [**ShinyHunt-Regi**](Documentation/Programs/ShinyHunt-Regi.md) - Hunt for shiny Regi golem legendaries.
+- [**ShinyHunt-SwordsOfJustice**](Documentation/Programs/ShinyHunt-SwordsOfJustice.md) - Hunt for shiny Swords of Justice legendaries.
+- [**ShinyHuntUnattended-Regi**](Documentation/Programs/ShinyHuntUnattended-Regi.md) - Hunt for shiny Regis. Stop when a shiny is found.
+- [**ShinyHuntUnattended-SwordsOfJustice**](Documentation/Programs/ShinyHuntUnattended-SwordsOfJustice.md) - Hunt for shiny SOJs. Stop when a shiny is found.
+- [**ShinyHuntUnattended-StrongSpawn**](Documentation/Programs/ShinyHuntUnattended-StrongSpawn.md) - Hunt for shiny strong spawns. Stop when a shiny is found.
+- [**ShinyHuntUnattended-Regigigas**](Documentation/Programs/ShinyHuntUnattended-Regigigas.md) - Hunt for shiny Regigigas. Stop when a shiny is found.
+- [**ShinyHuntUnattended-Regigigas2**](Documentation/Programs/ShinyHuntUnattended-Regigigas2.md) - A new version of the Regigigas program that is faster.
+- [**ShinyHuntUnattended-IoATrade**](Documentation/Programs/ShinyHuntUnattended-IoATrade.md) - Hunt for shiny Isle of Armor trade. Stop when a shiny is found.
 
 **Den Hunting:**
--	**BeamReset** - Reset a beam until you see a purple beam.
--	**EventBeamFinder** - Drop wishing pieces until you find an event den.
--	**DaySkipperJPN** - A day skipper for Japanese date format. (7600 skips/hour)
--	**DaySkipperEU** - A day skipper for EU date format that. (~7500 skips/hour)
--	**DaySkipperUS** - A day skipper for US date format that. (~7100 skips/hour)
--	**DaySkipperJPN-7.8k** - An even faster, but less reliable Japanese date skipper. (~7800 skips/hour)
+- [**BeamReset**](Documentation/Programs/BeamReset.md) - Reset a beam until you see a purple beam.
+- [**EventBeamFinder**](Documentation/Programs/EventBeamFinder.md) - Drop wishing pieces until you find an event den.
+- [**DaySkipperJPN**](Documentation/Programs/DaySkipperJPN.md) - A day skipper for Japanese date format. (7600 skips/hour)
+- [**DaySkipperEU**](Documentation/Programs/DaySkipperEU.md) - A day skipper for EU date format that.  (~7500 skips/hour)
+- [**DaySkipperUS**](Documentation/Programs/DaySkipperUS.md) - A day skipper for US date format that.  (~7100 skips/hour)
+- [**DaySkipperJPN-7.8k**](Documentation/Programs/DaySkipperJPN-7.8k.md) - A faster, but less reliable Japanese date skipper. (7800 skips/hour) 
 
 **Hosting:**
--	**DenRoller** - Roll den to the N'th day, SR and repeat.
--	**AutoHost-Rolling** - Roll N days, host, SR and repeat. Also supports backup save softlocks.
--	**AutoHost-MultiGame** - Run AutoHostRolling across multiple game saves. (Up to 16 dens!)
--	**FriendDelete** - Mass delete/block all those unwanted friends from the above.
+- [**DenRoller**](Documentation/Programs/DenRoller.md) - Roll den to the N'th day, SR and repeat.
+- [**AutoHost-Rolling**](Documentation/Programs/AutoHost-Rolling.md) - Roll N days, host, SR and repeat. Also supports hard-locks and soft-locks.
+- [**AutoHost-MultiGame**](Documentation/Programs/AutoHost-MultiGame.md) - Run AutoHost-Rolling across multiple game saves. (Up to 16 dens!)
+- [**FriendDelete**](Documentation/Programs/FriendDelete.md) - Mass delete/block all those unwanted friends from the above.
 
 **Egg Hatching:**
--	**EggFetcher2** - Fetch eggs without hatching them.
--	**EggHatcher** - Hatch eggs from boxes.
--	**EggCombined2** - Fetch and hatch eggs at the same time. (fastest - 1700 eggs/day for 5120-step)
--	**EggSuperCombined2** - Mass release breedjects, then run EggCombined.
+- [**EggFetcher2**](Documentation/Programs/EggFetcher2.md) - Fetch eggs without hatching them.
+- [**EggHatcher**](Documentation/Programs/EggHatcher.md) - Hatch eggs from boxes.
+- [**EggCombined2**](Documentation/Programs/EggCombined2.md) - Fetch and hatch eggs at the same time. (fastest – 1700 eggs/day for 5120-step)
+- [**EggSuperCombined2**](Documentation/Programs/EggSuperCombined2.md) - Mass release breedjects, then run EggCombined2.
 
 **The Forbidden Programs:**
--	**FastCodeEntry** - Force your way into raids by entering 8-digit codes in under 1 second.
--	**GodEggItemDupe** - Mass duplicate items with the God Egg.
+- [**FastCodeEntry**](Documentation/Programs/FastCodeEntry.md) - Force your way into raids by entering 8-digit codes in under 1 second.
+- [**GodEggItemDupe**](Documentation/Programs/GodEggItemDupe.md) - Mass duplicate items with the God Egg.
 
 **Other:**
-- **PABotBase** - Control your Arduino/Teensy (and therefore your Switch) from a computer.
+- [**PABotBase**](Documentation/Programs/PABotBase.md) - Control your Arduino/Teensy (and therefore your Switch) from a computer.
+
