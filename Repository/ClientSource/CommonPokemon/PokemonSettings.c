@@ -10,7 +10,7 @@
  * 
  */
 
-#include "CommonFramework/ControllerDefs.h"
+#include "DeviceSource/CommonFramework/ControllerDefs.h"
 #include "PokemonSettings.h"
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -5,7 +5,7 @@
  */
 
 #include <memory>
-#include "Connection/PABotBase.h"
+#include "ClientSource/Connection/PABotBase.h"
 
 namespace PokemonAutomation{
 

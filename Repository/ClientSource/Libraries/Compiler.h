@@ -7,7 +7,7 @@
 
 //  Disable specific warnings.
 
-#if _WIN32
+#if _MSC_VER
 
 #pragma warning(disable:4100)   //  Unreferenced Formal Parameter
 #pragma warning(disable:4127)   //  Conditional expresstion is constant

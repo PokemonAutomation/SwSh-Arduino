@@ -124,8 +124,8 @@
             "02-Declaration": "const uint16_t DELAY_TO_SELECT_MOVE",
             "03-MinValue": 0,
             "04-MaxValue": 65535,
-            "98-Default": "15 * TICKS_PER_SECOND",
-            "99-Current": "15 * TICKS_PER_SECOND"
+            "98-Default": "32 * TICKS_PER_SECOND",
+            "99-Current": "32 * TICKS_PER_SECOND"
         }
     ]
 }

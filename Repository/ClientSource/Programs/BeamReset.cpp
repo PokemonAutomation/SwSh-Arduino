@@ -8,11 +8,11 @@
  */
 
 #include <iostream>
-#include "CommonFramework/FrameworkSettings.h"
-#include "CommonFramework/PushButtons.h"
-#include "CommonPokemon/PokemonSettings.h"
-#include "CommonPokemon/PokemonRoutines.h"
-#include "Libraries/Utilities.h"
+#include "ClientSource/CommonFramework/FrameworkSettings.h"
+#include "ClientSource/CommonFramework/PushButtons.h"
+#include "ClientSource/CommonPokemon/PokemonSettings.h"
+#include "ClientSource/CommonPokemon/PokemonRoutines.h"
+#include "ClientSource/Libraries/Utilities.h"
 
 namespace PokemonAutomation{
 
@@ -36,7 +36,7 @@ void program_BeamReset(const std::string& device_name){
 
     std::cout << "Begin Message Logging..." << std::endl;
     MessageLogger logger;
-    pabotbase->add_message_snooper(logger);
+    pabotbase->set_sniffer(&logger);
 
 
     //  Start Program

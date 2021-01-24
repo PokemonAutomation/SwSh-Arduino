@@ -5,10 +5,10 @@
  */
 
 #include <iostream>
-#include "CommonFramework/PushButtons.h"
-#include "CommonPokemon/PokemonSettings.h"
-#include "CommonPokemon/PokemonRoutines.h"
-#include "Connection/PABotBase.h"
+#include "ClientSource/CommonFramework/PushButtons.h"
+#include "ClientSource/CommonPokemon/PokemonSettings.h"
+#include "ClientSource/CommonPokemon/PokemonRoutines.h"
+#include "ClientSource/Connection/PABotBase.h"
 
 using namespace PokemonAutomation;
 

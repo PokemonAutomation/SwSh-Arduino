@@ -5,9 +5,10 @@
  */
 
 #include <iostream>
-#include "CommonPokemon/PokemonProgramIDs.h"
-#include "Connection/SerialConnection.h"
-#include "Libraries/MessageConverter.h"
+#include "SharedCpp/PrettyPrint.h"
+#include "ClientSource/CommonPokemon/PokemonProgramIDs.h"
+#include "ClientSource/Connection/SerialConnection.h"
+#include "ClientSource/Libraries/MessageConverter.h"
 //#include "Libraries/Logging.h"
 #include "Utilities.h"
 
@@ -37,7 +38,6 @@ std::unique_ptr<PABotBase> start_connection(
         std::cin >> name;
         std::cout << std::endl;
         std::cout << std::endl;
-        std::cout << "Connecting to device... (" << name << ")" << std::endl;
         pabotbase = std::make_unique<PABotBase>(
             std::make_unique<SerialConnection>(name, PABB_BAUD_RATE), logger
         );
@@ -46,6 +46,9 @@ std::unique_ptr<PABotBase> start_connection(
             std::make_unique<SerialConnection>(device_name, PABB_BAUD_RATE), logger
         );
     }
+
+    std::cout << "Connecting to device..." << std::endl;
+    pabotbase->connect();
 
 
     //  Make sure the device is using the same protocol version as us.
@@ -67,7 +70,7 @@ std::unique_ptr<PABotBase> start_connection(
     std::cout << "Program Version:  " << program_version << std::endl;
 
     uint32_t wallclock = pabotbase->system_clock();
-    std::cout << "Device Up Time:   " << wallclock << " ticks (" << (double)wallclock / TICKS_PER_SECOND << " seconds)" << std::endl;
+    std::cout << "Device Up Time:   " << ticks_to_time(wallclock) << std::endl;
     std::cout << std::endl;
 
 
@@ -77,7 +80,7 @@ std::unique_ptr<PABotBase> start_connection(
     }
 
 //    std::cout << "Begin Message Logging..." << std::endl;
-//    pabotbase->add_message_snooper(logger);
+//    pabotbase->set_sniffer(logger);
 
     return pabotbase;
 }

@@ -4,9 +4,9 @@
  * 
  */
 
-#include "CommonFramework/FrameworkSettings.h"
-#include "CommonFramework/PushButtons.h"
-#include "Connection/PABotBase.h"
+#include "ClientSource/CommonFramework/FrameworkSettings.h"
+#include "ClientSource/CommonFramework/PushButtons.h"
+#include "ClientSource/Connection/PABotBase.h"
 
 using namespace PokemonAutomation;
 

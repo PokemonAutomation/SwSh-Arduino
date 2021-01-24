@@ -51,7 +51,7 @@ The purpose of these mini grabber cables is to grip the holes of the Teensy and 
 
 <img src="images/SerialCommunication-4.jpg" width="300">
 
-**Other Options:**
+**Other Options: UART Cables**
 
 The Adafruit UART cable is reliable and beginner-friendly, but it is also quite expensive. If you are experienced (or confident), here are some cheaper alternatives which also work. These may require a trivial amount of extra wiring.
 - https://www.amazon.com/gp/product/B07D6LLX19/ (2 for $8)
@@ -60,13 +60,19 @@ The Adafruit UART cable is reliable and beginner-friendly, but it is also quite 
 
 Anything with the CP210x controllers should work. But the ones above have been explicitly tested.
 
+**Other Options: Mini Grabbers for Teensy**
+
+For Teensy users, the mini grabber cables suggested above seems to be out-of-stock more often than not. You can use two-sided mini-grabber cables instead (which are much easier to find), but they lead to a messier setup.
+
+An alternative to mini grabbers are solderless headers: (https://www.adafruit.com/product/3662)
+
 ### Arduino Uno R3
 
 <img src="images/SerialCommunication-5.jpg" width="800">
 
 Make the following connections:
-- UART cable green (TX) to Arduino pin1 (TX)
-- UART cable white (RX) to Arduino pin0 (RX)
+- UART cable green (TX) to Arduino pin1 (TX -> 1)
+- UART cable white (RX) to Arduino pin0 (RX <- 0)
 - UART cable black (GND) to Arduino GND (anyone one is fine)
 - UART cable red (VCC) – leave unconnected
 

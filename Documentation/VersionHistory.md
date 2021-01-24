@@ -1,5 +1,15 @@
 # Version History
 
+### 2021-01-21:
+-  Added an alternate launch script because the main one keeps getting nuked by virus scanners.
+-  The UI now shows full file paths.
+
+### 2021-01-18:
+-  UI will now log errors to a file.
+
+### 2021-01-14:
+-  Fix incorrect default `DELAY_TO_SELECT_MOVE` value for the auto-hosts in the UI.
+
 ### 2021-01-13:
 -  Fix line endings in the new Unix scripts.
 

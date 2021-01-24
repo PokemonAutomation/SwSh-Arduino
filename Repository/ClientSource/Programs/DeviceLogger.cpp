@@ -8,7 +8,7 @@
  */
 
 #include <iostream>
-#include "Libraries/Utilities.h"
+#include "ClientSource/Libraries/Utilities.h"
 
 namespace PokemonAutomation{
 
@@ -21,7 +21,7 @@ void device_logger(const std::string& device_name){
 
     std::cout << "Begin Message Logging..." << std::endl;
     MessageLogger logger;
-    pabotbase->add_message_snooper(logger);
+    pabotbase->set_sniffer(&logger);
 
 
     //  Wait Forever

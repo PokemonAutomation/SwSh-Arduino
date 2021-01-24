@@ -4,7 +4,7 @@
  * 
  */
 
-#include "CommonFramework/ControllerDefs.h"
+#include "ClientSource/CommonFramework/ControllerDefs.h"
 #include "FrameworkSettings.h"
 
 ////////////////////////////////////////////////////////////////////////////////

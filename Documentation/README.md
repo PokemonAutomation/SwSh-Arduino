@@ -1,6 +1,6 @@
 # Pokémon Automation Sword/Shield Scripts
 
-**Version:** 2021-01-09
+**Version:** 2021-01-14
 
 **GitHub Repo:** https://github.com/Mysticial/Pokemon-Automation-SwSh-Arduino-Scripts
 

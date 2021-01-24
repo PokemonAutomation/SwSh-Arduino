@@ -24,18 +24,23 @@
 #ifndef PokemonAutomation_PABotBase_H
 #define PokemonAutomation_PABotBase_H
 
-//#include <iostream>
 #include <string.h>
 #include <map>
 #include <atomic>
 #include <condition_variable>
 #include <thread>
-#include "CommonFramework/ControllerDefs.h"
-#include "Connection/PABotBaseConnection.h"
-#include "Libraries/Logging.h"
+#include "ClientSource/CommonFramework/ControllerDefs.h"
+#include "ClientSource/Connection/PABotBaseConnection.h"
+#include "ClientSource/Libraries/Logging.h"
+
+#include <iostream>
+using std::cout;
+using std::endl;
 
 
 namespace PokemonAutomation{
+
+struct CancelledException{};
 
 
 class PABotBase : public PABotBaseConnection{
@@ -50,8 +55,18 @@ public:
     );
     ~PABotBase();
 
+    void connect();
+    void stop();
+
+    enum class State{
+        RUNNING,
+        STOPPING,
+        STOPPED,
+    };
+    State state() const{ return m_state.load(std::memory_order_acquire); }
+
 public:
-    //  Basic Requests (not thread-safe)
+    //  Basic Requests
     uint32_t    protocol_version        ();
     uint32_t    program_version         ();
     uint8_t     program_id              ();
@@ -64,9 +79,11 @@ public:
 
 
 public:
-    //  For Command Implementations (not thread-safe)
+    //  For Command Implementations
 
     //  Asynchronous request dispatch.
+    template <uint8_t SendType, typename SendParams>
+    bool try_issue_request(SendParams& send_params);
     template <uint8_t SendType, typename SendParams>
     void issue_request(SendParams& send_params);
 
@@ -75,12 +92,7 @@ public:
         uint8_t SendType, uint8_t RecvType,
         typename SendParams, typename RecvParams
     >
-    void send_request_and_wait(SendParams& send_params, RecvParams& recv_params);
-    template <
-        uint8_t SendType, uint8_t RecvType,
-        typename SendParams, typename RecvParams
-    >
-    void send_command_and_wait(SendParams& send_params, RecvParams& recv_params);
+    void issue_and_wait(SendParams& send_params, RecvParams& recv_params);
 
 
 private:
@@ -107,10 +119,15 @@ private:
     template <typename Params> void process_command_finished(uint8_t type, std::string msg);
     virtual void on_recv_message(uint8_t type, std::string msg) override;
     template <uint8_t SendType, typename SendParams>
-    std::map<uint64_t, PendingRequest>::iterator issue_request(SendParams& send_params, bool silent_remove);
+    bool issue_request(
+        std::map<uint64_t, PendingRequest>::iterator& iter,
+        SendParams& send_params,
+        bool blocking, bool silent_remove
+    );
     void remove_request(std::map<uint64_t, PendingRequest>::iterator iter);
 
     void sender_thread();
+
 
 private:
     uint64_t m_send_seq;
@@ -118,8 +135,7 @@ private:
     std::map<uint64_t, PendingRequest> m_pending_requests;
     std::mutex m_lock;
     std::condition_variable m_cv;
-//    bool m_active_wait;
-    std::atomic<bool> m_stop;
+    std::atomic<State> m_state;
     std::thread m_sender_thread;
 };
 
@@ -140,7 +156,11 @@ extern PABotBase* global_connection;
 
 
 template <uint8_t SendType, typename SendParams>
-std::map<uint64_t, PABotBase::PendingRequest>::iterator PABotBase::issue_request(SendParams& send_params, bool silent_remove){
+bool PABotBase::issue_request(
+    std::map<uint64_t, PendingRequest>::iterator& iter,
+    SendParams& send_params,
+    bool blocking, bool silent_remove
+){
     //  Issue a request or a command and return.
     //
     //  If it cannot be issued (because we're over the limits), this function
@@ -159,68 +179,92 @@ std::map<uint64_t, PABotBase::PendingRequest>::iterator PABotBase::issue_request
     //  the function waits for the command to finish before returning.
     //
 
-//    std::cout << "issue_blocking_request(): " << std::endl;
-    uint64_t seqnum = m_send_seq;
+    std::unique_lock<std::mutex> lg(m_lock);
+
+    uint64_t seqnum;
+    while (true){
+        if (m_state.load(std::memory_order_acquire) != State::RUNNING){
+            throw CancelledException();
+        }
+
+        seqnum = m_send_seq;
+
+        //  Command queue is not full.
+        bool queue_ok = !PABB_MSG_IS_COMMAND(SendType) || m_pending_requests.size() < MAX_PENDING_REQUESTS;
+
+        //  Oldest outstanding message isn't too old.
+        bool seq_ok = m_pending_requests.empty() || seqnum - m_pending_requests.begin()->first < MAX_SEQNUM_GAP;
+
+        if (queue_ok && seq_ok){
+            break;
+        }
+
+        if (!blocking){
+            return false;
+        }
+
+        m_cv.wait(lg);
+    }
+
     send_params.seqnum = (uint8_t)seqnum;
 
-    std::string message((const char*)&send_params, sizeof(SendParams));
-    std::pair<std::map<uint64_t, PendingRequest>::iterator, bool> ret;
-    PendingRequest* handle;
-    while (true){
-        std::unique_lock<std::mutex> lg(m_lock);
-
-        //  Wait until:
-        //      1.  The queue is small enough.
-        //      2.  The oldest outstanding message isn't too old.
-        m_cv.wait(
-            lg,
-            [&]{
-//                std::cout << "issue_request - m_pending_requests.size(): " << m_pending_requests.size() << std::endl;
-                return m_pending_requests.size() < MAX_PENDING_REQUESTS &&
-                    (m_pending_requests.empty() || seqnum - m_pending_requests.begin()->first < MAX_SEQNUM_GAP);
-            }
-        );
-
-        ret = m_pending_requests.emplace(
-            std::piecewise_construct,
-            std::forward_as_tuple(seqnum),
-            std::forward_as_tuple()
-        );
-        if (!ret.second){
-            throw "Duplicate sequence number: " + std::to_string(seqnum);
-        }
-        m_send_seq = seqnum + 1;
-        handle = &ret.first->second;
-        handle->is_command = PABB_MSG_IS_COMMAND(SendType);
-        handle->silent_remove = silent_remove;
-        handle->message_type = SendType;
-        handle->message_body = std::move(message);
-        handle->first_sent = std::chrono::system_clock::now();
-        break;
+    std::pair<std::map<uint64_t, PendingRequest>::iterator, bool> ret = m_pending_requests.emplace(
+        std::piecewise_construct,
+        std::forward_as_tuple(seqnum),
+        std::forward_as_tuple()
+    );
+    if (!ret.second){
+        throw "Duplicate sequence number: " + std::to_string(seqnum);
     }
+    m_send_seq = seqnum + 1;
+    PendingRequest* handle = &ret.first->second;
+    handle->is_command = PABB_MSG_IS_COMMAND(SendType);
+    handle->silent_remove = silent_remove;
+    handle->message_type = SendType;
+    handle->message_body = std::string((const char*)&send_params, sizeof(SendParams));
+    handle->first_sent = std::chrono::system_clock::now();
+
 
     //  Send message.
     send_message(SendType, handle->message_body, false);
 //    handle->last_sent = std::chrono::system_clock::now();
 
-    return ret.first;
+    iter = ret.first;
+    return true;
 }
 
 template <uint8_t SendType, typename SendParams>
+bool PABotBase::try_issue_request(SendParams& send_params){
+    std::map<uint64_t, PendingRequest>::iterator iter;
+    return issue_request<SendType>(iter, send_params, false, true);
+}
+template <uint8_t SendType, typename SendParams>
 void PABotBase::issue_request(SendParams& send_params){
-    issue_request<SendType>(send_params, true);
+    std::map<uint64_t, PendingRequest>::iterator iter;
+    issue_request<SendType>(iter, send_params, true, true);
 }
 
 template <
     uint8_t SendType, uint8_t RecvType,
     typename SendParams, typename RecvParams
 >
-void PABotBase::send_request_and_wait(SendParams& send_params, RecvParams& recv_params){
-    auto iter = issue_request<SendType>(send_params, false);
+void PABotBase::issue_and_wait(SendParams& send_params, RecvParams& recv_params){
+    std::map<uint64_t, PendingRequest>::iterator iter;
+    issue_request<SendType>(iter, send_params, true, false);
+
+    AckState end_state = PABB_MSG_IS_COMMAND(SendType)
+        ? AckState::FINISHED
+        : AckState::ACKED;
 
     //  Wait for ack.
     std::unique_lock<std::mutex> lg(m_lock);
-    m_cv.wait(lg, [&]{ return iter->second.state == AckState::ACKED; });
+    while (iter->second.state != end_state){
+        if (m_state.load(std::memory_order_acquire) != State::RUNNING){
+            remove_request(iter);
+            throw CancelledException();
+        }
+        m_cv.wait(lg);
+    }
 
     //  Verify return payload.
     uint8_t type = iter->second.ack_type;
@@ -233,30 +277,6 @@ void PABotBase::send_request_and_wait(SendParams& send_params, RecvParams& recv_
     }
     memcpy(&recv_params, body.c_str(), body.size());
     remove_request(iter);
-}
-template <
-    uint8_t SendType, uint8_t RecvType,
-    typename SendParams, typename RecvParams
->
-void PABotBase::send_command_and_wait(SendParams& send_params, RecvParams& recv_params){
-    auto iter = issue_request<SendType>(send_params, false);
-
-    //  Wait until it's finished.
-    std::unique_lock<std::mutex> lg(m_lock);
-    m_cv.wait(lg, [&]{ return iter->second.state == AckState::FINISHED; });
-
-    //  Verify return payload.
-    uint8_t type = iter->second.ack_type;
-    if (type != RecvType){
-        throw "Received incorrect response type: " + std::to_string(type);
-    }
-    const std::string& body = iter->second.ack_body;
-    if (body.size() != sizeof(RecvParams)){
-        throw "Received incorrect response size: " + std::to_string(body.size());
-    }
-    memcpy(&recv_params, body.c_str(), body.size());
-    remove_request(iter);
-    return;
 }
 
 

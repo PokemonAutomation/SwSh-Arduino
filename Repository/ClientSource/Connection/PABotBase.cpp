@@ -5,11 +5,13 @@
  */
 
 #include <iostream>
-#include "CommonFramework/MessageProtocol.h"
-#include "CommonFramework/PushButtons.h"
-#include "CommonPokemon/PokemonRoutines.h"
+#include <emmintrin.h>
+#include "ClientSource/CommonFramework/MessageProtocol.h"
+#include "ClientSource/CommonFramework/PushButtons.h"
+#include "ClientSource/CommonPokemon/PokemonRoutines.h"
 #include "PABotBase.h"
 
+////////////////////////////////////////////////////////////////////////////////
 namespace PokemonAutomation{
 
 
@@ -25,23 +27,35 @@ PABotBase::PABotBase(
     , m_send_seq(1)
     , m_retransmit_delay(retransmit_delay)
 //    , m_active_wait(false)
-    , m_stop(false)
+    , m_state(State::RUNNING)
     , m_sender_thread(&PABotBase::sender_thread, this)
 {
-    if (logger){
-        add_message_snooper(*logger);
+    set_sniffer(logger);
+}
+PABotBase::~PABotBase(){
+    stop();
+    while (m_state.load(std::memory_order_acquire) != State::STOPPED){
+        _mm_pause();
     }
-
+}
+void PABotBase::connect(){
     //  Send seqnum reset.
     pabb_MsgInfoSeqnumReset params;
     pabb_MsgAck response;
-    send_request_and_wait<PABB_MSG_SEQNUM_RESET, PABB_MSG_ACK>(params, response);
+    issue_and_wait<PABB_MSG_SEQNUM_RESET, PABB_MSG_ACK>(params, response);
 }
-////////////////////////////////////////////////////////////////////////////////
-PABotBase::~PABotBase(){
+void PABotBase::stop(){
+//    cout << "stop" << endl;
+
+    //  Make sure only one thread can get in here.
+    State expected = State::RUNNING;
+    if (!m_state.compare_exchange_strong(expected, State::STOPPING)){
+        return;
+    }
+
+    //  Wake everyone up.
     {
         std::lock_guard<std::mutex> lg(m_lock);
-        m_stop.store(true, std::memory_order_release);
         m_cv.notify_all();
     }
     m_sender_thread.join();
@@ -52,6 +66,7 @@ PABotBase::~PABotBase(){
 
     //  Now the receiver thread is dead. Nobody else is touching this class so
     //  it is safe to destruct.
+    m_state.store(State::STOPPED, std::memory_order_release);
 }
 
 void PABotBase::wait_for_all_requests(){
@@ -95,21 +110,21 @@ uint64_t PABotBase::infer_full_seqnum(uint8_t seqnum) const{
 template <typename Params>
 void PABotBase::process_ack(uint8_t type, std::string msg){
     if (msg.size() != sizeof(Params)){
-        log("Ignoring message with invalid size.");
+        m_sniffer->log("Ignoring message with invalid size.");
         return;
     }
     const Params* params = (const Params*)msg.c_str();
     uint8_t seqnum = params->seqnum;
     std::lock_guard<std::mutex> lg(m_lock);
     if (m_pending_requests.empty()){
-        log("Unexpected ack message: seqnum = " + std::to_string(seqnum));
+        m_sniffer->log("Unexpected ack message: seqnum = " + std::to_string(seqnum));
         return;
     }
 
     uint64_t full_seqnum = infer_full_seqnum(seqnum);
     auto iter = m_pending_requests.find(full_seqnum);
     if (iter == m_pending_requests.end()){
-        log("Unexpected ack message: seqnum = " + std::to_string(seqnum));
+        m_sniffer->log("Unexpected ack message: seqnum = " + std::to_string(seqnum));
         return;
     }
 
@@ -131,17 +146,17 @@ void PABotBase::process_ack(uint8_t type, std::string msg){
         }
         return;
     case AckState::ACKED:
-        log("Duplicate ack message: seqnum = " + std::to_string(seqnum));
+        m_sniffer->log("Duplicate ack message: seqnum = " + std::to_string(seqnum));
         return;
     case AckState::FINISHED:
-        log("Ack on command finish: seqnum = " + std::to_string(seqnum));
+        m_sniffer->log("Ack on command finish: seqnum = " + std::to_string(seqnum));
         return;
     }
 }
 template <typename Params>
 void PABotBase::process_command_finished(uint8_t type, std::string msg){
     if (msg.size() != sizeof(Params)){
-        log("Ignoring message with invalid size.");
+        m_sniffer->log("Ignoring message with invalid size.");
         return;
     }
     const Params* params = (const Params*)msg.c_str();
@@ -154,14 +169,14 @@ void PABotBase::process_command_finished(uint8_t type, std::string msg){
 
     std::lock_guard<std::mutex> lg(m_lock);
     if (m_pending_requests.empty()){
-        log("Unexpected command finished message: seqnum = " + std::to_string(seqnum));
+        m_sniffer->log("Unexpected command finished message: seqnum = " + std::to_string(seqnum));
         return;
     }
 
     uint64_t full_seqnum = infer_full_seqnum(params->seq_of_original_command);
     auto iter = m_pending_requests.find(full_seqnum);
     if (iter == m_pending_requests.end()){
-        log("Unexpected command finished message: seqnum = " + std::to_string(seqnum));
+        m_sniffer->log("Unexpected command finished message: seqnum = " + std::to_string(seqnum));
         return;
     }
 
@@ -178,7 +193,7 @@ void PABotBase::process_command_finished(uint8_t type, std::string msg){
         }
         return;
     case AckState::FINISHED:
-        log("Duplicate ack on command finish: seqnum = " + std::to_string(seqnum));
+        m_sniffer->log("Duplicate ack on command finish: seqnum = " + std::to_string(seqnum));
         return;
     }
 }
@@ -207,8 +222,9 @@ void PABotBase::on_recv_message(uint8_t type, std::string msg){
 }
 
 void PABotBase::sender_thread(){
+//    cout << "sender_thread()" << endl;
     auto last_sent = std::chrono::system_clock::now();
-    while (!m_stop.load(std::memory_order_acquire)){
+    while (m_state.load(std::memory_order_acquire) == State::RUNNING){
         std::unique_lock<std::mutex> lg(m_lock);
 
         auto now = std::chrono::system_clock::now();
@@ -218,6 +234,7 @@ void PABotBase::sender_thread(){
         }
 
 //        std::cout << "sender_thread - m_pending_requests.size(): " << m_pending_requests.size() << std::endl;
+//        cout << "m_pending_requests.size()" << endl;
 
         //  Retransmit
         //      Iterate through all pending requests and retransmit them in
@@ -232,37 +249,38 @@ void PABotBase::sender_thread(){
         }
         last_sent = std::chrono::system_clock::now();
     }
+//    cout << "sender_thread() - exit" << endl;
 }
 
 
 uint32_t PABotBase::protocol_version(){
     pabb_MsgRequestProtocolVersion params;
     pabb_MsgAckI32 response;
-    send_request_and_wait<PABB_MSG_REQUEST_PROTOCOL_VERSION, PABB_MSG_ACK_I32>(params, response);
+    issue_and_wait<PABB_MSG_REQUEST_PROTOCOL_VERSION, PABB_MSG_ACK_I32>(params, response);
     return response.data;
 }
 uint32_t PABotBase::program_version(){
     pabb_MsgRequestProgramVersion params;
     pabb_MsgAckI32 response;
-    send_request_and_wait<PABB_MSG_REQUEST_PROGRAM_VERSION, PABB_MSG_ACK_I32>(params, response);
+    issue_and_wait<PABB_MSG_REQUEST_PROGRAM_VERSION, PABB_MSG_ACK_I32>(params, response);
     return response.data;
 }
 uint8_t PABotBase::program_id(){
     pabb_MsgRequestProgramID params;
     pabb_MsgAckI8 response;
-    send_request_and_wait<PABB_MSG_REQUEST_PROGRAM_ID, PABB_MSG_ACK_I8>(params, response);
+    issue_and_wait<PABB_MSG_REQUEST_PROGRAM_ID, PABB_MSG_ACK_I8>(params, response);
     return response.data;
 }
 uint32_t PABotBase::system_clock(){
     pabb_system_clock params;
     pabb_MsgAckI32 response;
-    send_request_and_wait<PABB_MSG_REQUEST_CLOCK, PABB_MSG_ACK_I32>(params, response);
+    issue_and_wait<PABB_MSG_REQUEST_CLOCK, PABB_MSG_ACK_I32>(params, response);
     return response.data;
 }
 void PABotBase::end_program_callback(){
     pabb_end_program_callback params;
     pabb_MsgAck response;
-    send_request_and_wait<PABB_MSG_REQUEST_END_PROGRAM_CALLBACK, PABB_MSG_ACK>(params, response);
+    issue_and_wait<PABB_MSG_REQUEST_END_PROGRAM_CALLBACK, PABB_MSG_ACK>(params, response);
 }
 void PABotBase::set_leds(bool on){
     pabb_MsgCommandSetLeds params;

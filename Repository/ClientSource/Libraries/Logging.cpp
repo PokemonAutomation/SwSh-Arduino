@@ -9,7 +9,7 @@
 #include <chrono>
 #include <sstream>
 #include <iostream>
-#include "CommonFramework/MessageProtocol.h"
+#include "ClientSource/CommonFramework/MessageProtocol.h"
 #include "MessageConverter.h"
 #include "Logging.h"
 
@@ -71,7 +71,9 @@ void log(const std::string& msg){
 
 
 
-
+void MessageLogger::log(std::string msg){
+    PokemonAutomation::log(msg);
+}
 void MessageLogger::on_send(uint8_t type, const std::string& msg, bool is_retransmit){
     bool print = false;
     do{

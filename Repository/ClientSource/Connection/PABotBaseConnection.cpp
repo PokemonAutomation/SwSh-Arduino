@@ -5,17 +5,19 @@
  */
 
 #include <iostream>
-#include "CommonFramework/CRC32.h"
-#include "CommonFramework/MessageProtocol.h"
-#include "Libraries/Logging.h"
-#include "Libraries/MessageConverter.h"
+#include "ClientSource/CommonFramework/CRC32.h"
+#include "ClientSource/CommonFramework/MessageProtocol.h"
+#include "ClientSource/Libraries/Logging.h"
+#include "ClientSource/Libraries/MessageConverter.h"
 #include "PABotBaseConnection.h"
 
 namespace PokemonAutomation{
 
+MessageSniffer null_sniffer;
 
 PABotBaseConnection::PABotBaseConnection(std::unique_ptr<StreamConnection> connection)
     : m_connection(std::move(connection))
+    , m_sniffer(&null_sniffer)
 {
     m_connection->add_listener(*this);
 }
@@ -30,9 +32,11 @@ void PABotBaseConnection::safely_stop(){
 }
 
 
-void PABotBaseConnection::add_message_snooper(MessageSnooper& snooper){
-    std::lock_guard<std::mutex> lg(m_snooper_lock);
-    m_snoopers.insert(&snooper);
+void PABotBaseConnection::set_sniffer(MessageSniffer* sniffer){
+    if (sniffer == nullptr){
+        sniffer = &null_sniffer;
+    }
+    m_sniffer = sniffer;
 }
 
 
@@ -45,12 +49,7 @@ void PABotBaseConnection::send_zeros(uint8_t bytes){
 }
 void PABotBaseConnection::send_message(uint8_t type, const std::string& msg, bool is_retransmit){
 //    log("Sending: " + message_to_string(type, msg));
-    {
-        std::lock_guard<std::mutex> lg(m_snooper_lock);
-        for (MessageSnooper* snooper : m_snoopers){
-            snooper->on_send(type, msg, is_retransmit);
-        }
-    }
+    m_sniffer->on_send(type, msg, is_retransmit);
 
     size_t total_bytes = SERIAL_MESSAGE_OVERHEAD + msg.size();
     if (total_bytes > PABB_MAX_MESSAGE_SIZE){
@@ -78,21 +77,21 @@ void PABotBaseConnection::on_recv(const void* data, size_t bytes){
         uint8_t length = ~m_recv_buffer[0];
 
         if (m_recv_buffer[0] == 0){
-            log("Skipping zero byte.");
+            m_sniffer->log("Skipping zero byte.");
             m_recv_buffer.pop_front();
             continue;
         }
 
         //  Message is too short.
         if (length < SERIAL_MESSAGE_OVERHEAD){
-            log("Message is too short: bytes = " + std::to_string(length));
+            m_sniffer->log("Message is too short: bytes = " + std::to_string(length));
             m_recv_buffer.pop_front();
             continue;
         }
 
         //  Message is too long.
         if (length > PABB_MAX_MESSAGE_SIZE){
-            log("Message is too long: bytes = " + std::to_string(length));
+            m_sniffer->log("Message is too long: bytes = " + std::to_string(length));
             m_recv_buffer.pop_front();
             continue;
         }
@@ -115,7 +114,7 @@ void PABotBaseConnection::on_recv(const void* data, size_t bytes){
             //  Compare
 //            std::cout << checksumA << " / " << checksumE << std::endl;
             if (checksumA != checksumE){
-                log("Invalid Checksum: bytes = " + std::to_string(length));
+                m_sniffer->log("Invalid Checksum: bytes = " + std::to_string(length));
 //                std::cout << checksumA << " / " << checksumE << std::endl;
 //                log(message_to_string(message[1], &message[2], length - SERIAL_MESSAGE_OVERHEAD));
                 m_recv_buffer.pop_front();
@@ -126,12 +125,7 @@ void PABotBaseConnection::on_recv(const void* data, size_t bytes){
 
         uint8_t type = message[1];
         std::string body(&message[2], length - SERIAL_MESSAGE_OVERHEAD);
-        {
-            std::lock_guard<std::mutex> lg(m_snooper_lock);
-            for (MessageSnooper* snooper : m_snoopers){
-                snooper->on_recv(type, body);
-            }
-        }
+        m_sniffer->on_recv(type, body);
         on_recv_message(type, body);
     }
 }

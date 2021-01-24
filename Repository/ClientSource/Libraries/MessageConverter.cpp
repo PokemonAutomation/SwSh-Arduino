@@ -7,11 +7,11 @@
 #include <set>
 #include <map>
 #include <sstream>
-#include "Libraries/Compiler.h"
-#include "CommonFramework/MessageProtocol.h"
-#include "CommonFramework/PushButtons.h"
-#include "CommonPokemon/PokemonRoutines.h"
-#include "CommonPokemon/PokemonProgramIDs.h"
+#include "ClientSource/Libraries/Compiler.h"
+#include "ClientSource/CommonFramework/MessageProtocol.h"
+#include "ClientSource/CommonFramework/PushButtons.h"
+#include "ClientSource/CommonPokemon/PokemonRoutines.h"
+#include "ClientSource/CommonPokemon/PokemonProgramIDs.h"
 #include "MessageConverter.h"
 
 namespace PokemonAutomation{

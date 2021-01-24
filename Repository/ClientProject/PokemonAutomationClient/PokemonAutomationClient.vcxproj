@@ -88,7 +88,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\..\ClientSource</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -104,7 +104,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\..\ClientSource</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
@@ -121,7 +121,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\..\ClientSource</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -137,7 +137,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)\..\ClientSource</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
@@ -163,11 +163,12 @@
     <ClInclude Include="..\..\ClientSource\Connection\SerialConnectionPOSIX.h" />
     <ClInclude Include="..\..\ClientSource\Connection\SerialConnectionWinAPI.h" />
     <ClInclude Include="..\..\ClientSource\Connection\StreamInterface.h" />
-    <ClInclude Include="..\..\ClientSource\Connection\Unicode.h" />
     <ClInclude Include="..\..\ClientSource\Libraries\Compiler.h" />
     <ClInclude Include="..\..\ClientSource\Libraries\Logging.h" />
     <ClInclude Include="..\..\ClientSource\Libraries\MessageConverter.h" />
     <ClInclude Include="..\..\ClientSource\Libraries\Utilities.h" />
+    <ClInclude Include="..\..\SharedCpp\PrettyPrint.h" />
+    <ClInclude Include="..\..\SharedCpp\Unicode.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\ClientSource\CommonFramework\CRC32.c">
@@ -193,7 +194,6 @@
     <ClCompile Include="..\..\ClientSource\CommonPokemon\PokemonSettings.cpp" />
     <ClCompile Include="..\..\ClientSource\Connection\PABotBase.cpp" />
     <ClCompile Include="..\..\ClientSource\Connection\PABotBaseConnection.cpp" />
-    <ClCompile Include="..\..\ClientSource\Connection\Unicode.cpp" />
     <ClCompile Include="..\..\ClientSource\Libraries\Logging.cpp" />
     <ClCompile Include="..\..\ClientSource\Libraries\MessageConverter.cpp" />
     <ClCompile Include="..\..\ClientSource\Libraries\PokemonRoutines.cpp" />
@@ -207,6 +207,8 @@
     <ClCompile Include="..\..\ClientSource\Programs\FriendDelete.cpp" />
     <ClCompile Include="..\..\ClientSource\Programs\TurboA.cpp" />
     <ClCompile Include="..\..\ClientSource\Programs\DateSpam-WattFarmer.cpp" />
+    <ClCompile Include="..\..\SharedCpp\PrettyPrint.cpp" />
+    <ClCompile Include="..\..\SharedCpp\Unicode.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

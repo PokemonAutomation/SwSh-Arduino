@@ -11,8 +11,8 @@
 #include <atomic>
 #include <thread>
 #include <windows.h>
-#include "Unicode.h"
-#include "Libraries/Logging.h"
+#include "SharedCpp/Unicode.h"
+#include "ClientSource/Libraries/Logging.h"
 #include "StreamInterface.h"
 
 namespace PokemonAutomation{
@@ -21,12 +21,7 @@ class SerialConnection : public StreamConnection{
 public:
     //  UTF-8
     SerialConnection(const std::string& name, uint32_t baud_rate)
-        : SerialConnection(utf8_to_utf16(name), baud_rate)
-    {}
-
-    //  UTF-16
-    SerialConnection(const std::u16string& name, uint32_t baud_rate)
-        : SerialConnection(std::wstring(name.begin(), name.end()), baud_rate)
+        : SerialConnection(utf8_to_wstr(name), baud_rate)
     {}
     SerialConnection(const std::wstring& name, uint32_t baud_rate)
         : m_exit(false)
