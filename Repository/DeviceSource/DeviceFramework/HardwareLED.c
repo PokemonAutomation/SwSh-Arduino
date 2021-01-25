@@ -8,54 +8,51 @@
 #include "DeviceSettings.h"
 #include "HardwareLED.h"
 
-#if (defined __AVR_ATmega32U4__) || (defined __AVR_AT90USB1286__)
+#if 0
+#elif (BOARD == BOARD_UNO)
+const int leds = (1 << 4) | (1 << 5);
+#elif (BOARD == BOARD_PRO_MICRO)
+const int leds = (1 << 5);
+#elif (BOARD == BOARD_TEENSY2)
+const int leds = (1 << 6);
+#endif
+
+#if (defined __AVR_ATmega32U4__) || (defined __AVR_AT90USB1286__) || (defined __AVR_ATmega16U2__)
 void setup_leds(void){
-    switch (BOARD_TYPE){
-    case BOARD_TYPE_TEENSY2:
-        DDRD |= (1<<6);
-        onboard_led(false);
-        return;
-    }
-}
-void onboard_led(bool on){
-    switch (BOARD_TYPE){
-    case BOARD_TYPE_TEENSY2:
-        if (on){
-            PORTD |= (1<<6);
-        }else{
-            PORTD &= ~(1<<6);
-        }
-        return;
-    }
+        #if (BOARD == BOARD_PRO_MICRO) 
+            DDRD |= leds;
+            onboard_led(false);
+            return;
+        #elif (BOARD == BOARD_TEENSY2)
+            DDRD |= leds;
+            onboard_led(false);
+            return;
+        #elif (BOARD == BARD_UNO)
+            DDRD  |= leds;
+            PORTD |= leds;
+            return;
+        #endif
 }
 
-#elif defined __AVR_ATmega16U2__
-void setup_leds(void){
-    switch (BOARD_TYPE){
-    case BOARD_TYPE_UNO:{
-        const int leds = (1 << 4) | (1 << 5);
-        DDRD  |= leds;
-        PORTD |= leds;
-        return;
-    }
-    }
-}
 void onboard_led(bool on){
-    switch (BOARD_TYPE){
-    case BOARD_TYPE_UNO:{
-        const int leds = (1 << 4) | (1 << 5);
+    #if (BOARD == BOARD_UNO)
         if (on){
-            PORTD &= ~leds;
+                PORTD &= ~leds;
         }else{
-            PORTD |= leds;
+                PORTD |= leds;
         }
         return;
-    }
-    }
+    #else
+        if (on){
+                PORTD |= leds;
+        }else{
+                PORTD &= ~leds;
+        }
+        return;
+    #endif
 }
 
 #else
 void setup_leds(void){}
 void onboard_led(bool on){}
 #endif
-

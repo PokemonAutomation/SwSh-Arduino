@@ -8,22 +8,6 @@
 #include "DeviceFramework/HardwareLED.h"
 #include "DeviceFramework/DeviceSettings.h"
 
-////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////
-//  Board Type (for LEDs)
-
-//  "BOARD_TYPE = BOARD_TYPE_UNKNOWN" will disable all LEDs.
-
-#if 0
-#elif defined __AVR_ATmega16U2__
-const int BOARD_TYPE = BOARD_TYPE_UNO;
-#elif defined __AVR_ATmega32U4__
-const int BOARD_TYPE = BOARD_TYPE_TEENSY2;
-#elif defined __AVR_AT90USB1286__
-const int BOARD_TYPE = BOARD_TYPE_TEENSY2;
-#else
-const int BOARD_TYPE = BOARD_TYPE_UNKNOWN;
-#endif
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -47,4 +31,5 @@ void end_program_callback(void){
 
     onboard_led(true);
 }
+
 
