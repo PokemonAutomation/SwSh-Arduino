@@ -1,6 +1,13 @@
 Repository/DeviceSource/*.hex
+Repository/Settings.json
 
+**/GeneratorSource/Settings.json
+**/HexGenerator.pro.user
+**/.qmake.stash
+**/*.DS_Store
 **/*.md5sum
 **/Linux/
 **/obj/
 **/log/
+**/builds
+
