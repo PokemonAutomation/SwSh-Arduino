@@ -14,6 +14,7 @@ extern const QString GITHUB_REPO;
 extern const QString SETTINGS_NAME;
 extern const QString CONFIG_FOLDER_NAME;
 extern const QString SOURCE_FOLDER_NAME;
+extern const QString LOG_FOLDER_NAME;
 
 
 class PersistentSettings{

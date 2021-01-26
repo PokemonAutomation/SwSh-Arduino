@@ -22,6 +22,25 @@ if [ -f "$program.hex" ]; then
     rm $program.hex
 fi
 
+# Allows running a cleanup. Adding for the MacOS port of the GUI
+# while maintaining compatibility with the CLI scripts
+
+gui=$3
+if [[ $gui == "gui" ]]; then 
+      obj_files=obj/*.o
+      if [[ ! -z $obj_files ]]; then
+            echo "Existing build found. Checking MCU compatibility."
+            if [[ ! -f "obj/build-$MCU" ]]; then
+                  echo "Incompatible MCU, cleaning..."
+                  bash 00-CleanupUnix.sh
+            else
+                  echo "Existing build is compatible."
+            fi
+      else
+            echo "No build found, continuing..."
+      fi
+fi
+
 # then call make
 make MCU="$MCU" TARGET="$program"
 
@@ -32,3 +51,8 @@ rm $program.bin > /dev/null 2>&1
 rm $program.lss > /dev/null 2>&1
 rm $program.sym > /dev/null 2>&1
 rm $program.elf > /dev/null 2>&1
+
+# Also putting this behind the gui-wall
+if [[ $gui == "gui" ]]; then 
+      mv "$program.hex" "../$program-$MCU.hex"
+fi
