@@ -24,6 +24,7 @@ const QString GITHUB_REPO = "https://github.com/Mysticial/Pokemon-Automation-SwS
 const QString SETTINGS_NAME = "Settings.json";
 const QString CONFIG_FOLDER_NAME = "GeneratorConfig";
 const QString SOURCE_FOLDER_NAME = "DeviceSource";
+const QString LOG_FOLDER_NAME = "Logs";
 
 
 PersistentSettings settings;
@@ -38,6 +39,11 @@ void PersistentSettings::determine_paths(){
 //        if (info.exists() && info.isFile()){
 //            return;
 //        }
+        QDir basedir(path);
+
+        if (!QDir(path + LOG_FOLDER_NAME).exists()){
+            basedir.mkdir(LOG_FOLDER_NAME);
+        }
         if (QDir(path + CONFIG_FOLDER_NAME).exists()){
             return;
         }
@@ -75,4 +81,5 @@ void PersistentSettings::write() const{
     root.insert("MCU", QJsonValue((int)mcu_index));
     write_json_file("Settings.json", QJsonDocument(root));
 }
+
 
