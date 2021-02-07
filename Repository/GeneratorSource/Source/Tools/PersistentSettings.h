@@ -27,7 +27,7 @@ private:
 
 public:
     QString path;
-    size_t mcu_index = 0;
+    size_t board_index = 0;
 
 };
 

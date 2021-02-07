@@ -8,7 +8,8 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QDir>
-#include "SharedCpp/QtJsonTools.h"
+#include "Common/Qt/QtJsonTools.h"
+#include "Common/Qt/StringException.h"
 #include "Tools.h"
 #include "PersistentSettings.h"
 
@@ -17,7 +18,7 @@ using std::cout;
 using std::endl;
 
 
-const QString VERSION = "v0.3.2";
+const QString VERSION = "v0.3.4";
 const QString DISCORD = "https://discord.gg/cQ4gWxN";
 const QString GITHUB_REPO = "https://github.com/Mysticial/Pokemon-Automation-SwSh-Arduino-Scripts";
 
@@ -65,20 +66,20 @@ void PersistentSettings::load(){
 
         QJsonObject root = doc.object();
 
-        mcu_index = json_get_int(root, "MCU");
-        if (mcu_index >= 3){
-            mcu_index = 0;
+        board_index = json_get_int(root, "Board");
+        if (board_index >= 4){
+            board_index = 0;
         }
 
     }catch (const StringException& str){
-        std::cout << ("Error Parsing " + SETTINGS_NAME + ": " + str.message).toUtf8().data() << std::endl;
+        std::cout << ("Error Parsing " + SETTINGS_NAME + ": " + str.message()).toUtf8().data() << std::endl;
     }
 }
 
 
 void PersistentSettings::write() const{
     QJsonObject root;
-    root.insert("MCU", QJsonValue((int)mcu_index));
+    root.insert("Board", QJsonValue((int)board_index));
     write_json_file("Settings.json", QJsonDocument(root));
 }
 

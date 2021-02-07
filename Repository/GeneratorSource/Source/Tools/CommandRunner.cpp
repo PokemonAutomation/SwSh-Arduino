@@ -7,25 +7,21 @@
 #include <iostream>
 #include <QFile>
 #include <QMessageBox>
-#include "SharedCpp/Unicode.h"
+#include "Common/Clientside/Unicode.h"
 #include "Tools/PersistentSettings.h"
 #include "Tools.h"
 
 #if _WIN32
 #include <Windows.h>
 
-int build_hexfile(const std::string& mcu, const QString& program_name){
-//    if (system("make -v") != 0){
-//        QMessageBox box;
-//        box.critical(nullptr, "Error", "make not found. Please install WinAVR.");
-//        return;
-//    }
-
-    QString hex_file = settings.path + program_name + ("-" + mcu + ".hex").c_str();
-    QString log_file = settings.path + LOG_FOLDER_NAME + "/" + program_name + ("-" + mcu).c_str() + ".log";
-
+int build_hexfile(
+    const std::string& board,
+    const QString& program_name,
+    const QString& hex_file,
+    const QString& log_file
+){
     QFile file(hex_file);
-   file.remove();
+    file.remove();
 
     using PokemonAutomation::utf8_to_wstr;
     QString module;
@@ -39,7 +35,7 @@ int build_hexfile(const std::string& mcu, const QString& program_name){
     ZeroMemory(&si, sizeof(si));
     si.cb = sizeof(si);
     ZeroMemory(&pi, sizeof(pi));
-    QString command = module + " " + mcu.c_str() + " " + program_name + " > " + log_file + ".log 2>&1";
+    QString command = module + " " + board.c_str() + " " + program_name + " > \"" + log_file + "\" 2>&1";
     bool ret = CreateProcessW(
         nullptr,
         &utf8_to_wstr(command.toUtf8().data())[0],
@@ -72,19 +68,15 @@ int build_hexfile(const std::string& mcu, const QString& program_name){
 #include <unistd.h>
 #include <limits.h>
 
-int build_hexfile(const std::string& mcu, const QString& program_name){
-//    if (system("make -v") != 0){
-//        QMessageBox box;
-//        box.critical(nullptr, "Error", "make not found. Please install WinAVR.");
-//        return;
-//    }
-
-    QString hex_file = settings.path + program_name + ("-" + mcu + ".hex").c_str();
-    QString log_file = settings.path + LOG_FOLDER_NAME + "/" + program_name + ("-" + mcu).c_str() + ".log";
-
+int build_hexfile(
+    const std::string& board,
+    const QString& program_name,
+    const QString& hex_file,
+    const QString& log_file
+){
     QString module_dir = settings.path + SOURCE_FOLDER_NAME;
     QString module = "./Scripts/BuildOneUnix.sh ";
-    QString command =  module + mcu.c_str() + " " + program_name + " gui > " + log_file + " 2>&1";
+    QString command =  module + board.c_str() + " " + program_name + " gui > " + log_file + " 2>&1";
 
     // Since most macs will have the avr tools installed in /usr/local/bin, add it to the path now
     QString path = "/usr/local/bin:";

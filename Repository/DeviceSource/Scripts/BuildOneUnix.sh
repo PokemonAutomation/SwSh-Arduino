@@ -4,17 +4,17 @@
 
 # get the MCU from the first argument
 # define the MCU 
-MCU=$1
+board=$1
 
-if [ -z "$MCU" ]; then
-      read -p 'No MCU Type given, please enter: ' MCU
+if [ -z "$board" ]; then
+      read -p 'No MCU Type given, please enter: ' board
 fi
 
 # get the program from the second argument
 program=$2
 
 if [ -z "$program" ]; then
-      read -p 'No program given, please enter: ' MCU
+      read -p 'No program given, please enter: ' program
 fi
 
 # delete the existing hex program if it exists
@@ -42,7 +42,7 @@ if [[ $gui == "gui" ]]; then
 fi
 
 # then call make
-make MCU="$MCU" TARGET="$program"
+make BOARD_TYPE="$board" TARGET="$program"
 
 # then we can clean up the map, eep, bin, lss, sym, tmp
 rm $program.map > /dev/null 2>&1
@@ -54,5 +54,5 @@ rm $program.elf > /dev/null 2>&1
 
 # Also putting this behind the gui-wall
 if [[ $gui == "gui" ]]; then 
-      mv "$program.hex" "../$program-$MCU.hex"
+      mv "$program.hex" "../$program-$board.hex"
 fi
