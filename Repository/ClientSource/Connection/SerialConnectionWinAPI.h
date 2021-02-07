@@ -11,7 +11,7 @@
 #include <atomic>
 #include <thread>
 #include <windows.h>
-#include "SharedCpp/Unicode.h"
+#include "Common/Clientside/Unicode.h"
 #include "ClientSource/Libraries/Logging.h"
 #include "StreamInterface.h"
 
@@ -27,7 +27,7 @@ public:
         : m_exit(false)
     {
         m_handle = CreateFileW(
-            name.c_str(),
+            (L"\\\\.\\" + name).c_str(),
             GENERIC_READ | GENERIC_WRITE,
             0, 0,
             OPEN_EXISTING,

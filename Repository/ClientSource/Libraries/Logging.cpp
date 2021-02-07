@@ -9,7 +9,8 @@
 #include <chrono>
 #include <sstream>
 #include <iostream>
-#include "ClientSource/CommonFramework/MessageProtocol.h"
+#include "Common/DeviceFramework/MessageProtocol.h"
+#include "Common/DeviceFramework/PushButtons.h"
 #include "MessageConverter.h"
 #include "Logging.h"
 
@@ -86,6 +87,12 @@ void MessageLogger::on_send(uint8_t type, const std::string& msg, bool is_retran
         if (PABB_MSG_IS_COMMAND(type)){
             print = true;
         }
+        if (type == PABB_MSG_REQUEST_CLOCK){
+            print = false;
+        }
+        if (type == PABB_MSG_CONTROLLER_STATE){
+            print = false;
+        }
 
         if (m_log_everything.load(std::memory_order_relaxed)){
             print = true;
@@ -95,10 +102,14 @@ void MessageLogger::on_send(uint8_t type, const std::string& msg, bool is_retran
     if (!print){
         return;
     }
+    std::string str = message_to_string(type, msg);
+    if (str.empty()){
+        return;
+    }
     if (is_retransmit){
-        log("Re-Send: " + message_to_string(type, msg));
+        log("Re-Send: " + str);
     }else{
-        log("Sending: " + message_to_string(type, msg));
+        log("Sending: " + str);
     }
 }
 void MessageLogger::on_recv(uint8_t type, const std::string& msg){

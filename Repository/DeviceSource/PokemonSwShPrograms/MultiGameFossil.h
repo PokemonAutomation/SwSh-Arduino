@@ -5,7 +5,7 @@
  */
 
 #include <avr/pgmspace.h>
-#include "CommonFramework/ControllerDefs.h"
+#include "Common/DeviceFramework/SwitchControllerDefs.h"
 
 
 typedef enum{

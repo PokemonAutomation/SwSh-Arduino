@@ -1,11 +1,24 @@
-@echo off
+::@echo off
 
-set MCU=%1
+set board=%1
 set program=%2
 
 cd /D "%~dp0"
 cd "../DeviceSource"
 
+
+if [%board%] == [ArduinoUnoR3] (
+    set MCU=atmega16u2
+)
+if [%board%] == [ProMicro] (
+    set MCU=atmega32u4
+)
+if [%board%] == [Teensy2] (
+    set MCU=atmega32u4
+)
+if [%board%] == [TeensyPP2] (
+    set MCU=at90usb1286
+)
 
 :: Check MCU Compatibility
 if exist "obj\*.o" (
@@ -39,18 +52,11 @@ echo.
 if %errorlevel% NEQ 0 (
     echo make not found. Please install WinAVR.
     echo.
-    pause
+::    pause
     exit
 )
 
-make MCU="%MCU%" TARGET="%program%"
-
-if not exist "%program%.hex" (
-    echo.
-    echo Build failed. Please scroll up to see the error.
-    echo.
-    pause
-)
+make BOARD_TYPE="%board%" TARGET="%program%"
 
 del "%program%.map"
 del "%program%.eep"
@@ -59,6 +65,6 @@ del "%program%.lss"
 del "%program%.sym"
 del "%program%.tmp"
 
-mv "%program%.hex" "../%program%-%MCU%.hex"
+move "%program%.hex" "../%program%-%board%.hex"
 
 ::pause

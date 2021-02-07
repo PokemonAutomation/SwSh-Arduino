@@ -4,7 +4,7 @@
  * 
  */
 
-#include "CommonFramework/ControllerDefs.h"
+#include "Common/DeviceFramework/SwitchControllerDefs.h"
 
 
 //  Fetch this many times.

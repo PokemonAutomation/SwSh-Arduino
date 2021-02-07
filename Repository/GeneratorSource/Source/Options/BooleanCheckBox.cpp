@@ -8,7 +8,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QCheckBox>
-#include "SharedCpp/QtJsonTools.h"
+#include "Common/Qt/QtJsonTools.h"
 #include "Tools/Tools.h"
 #include "BooleanCheckBox.h"
 
@@ -26,47 +26,33 @@ int BooleanCheckBox_init = register_option(
 
 BooleanCheckBox::BooleanCheckBox(const QJsonObject& obj)
     : SingleStatementOption(obj)
-    , m_default(json_get_bool(obj, JSON_DEFAULT))
-    , m_current(json_get_bool(obj, JSON_CURRENT))
-{}
+    , BooleanCheckBoxOption(SingleStatementOption::m_label, false)
+{
+    load_default(json_get_bool(obj, JSON_DEFAULT));
+    load_current(json_get_bool(obj, JSON_CURRENT));
+}
 void BooleanCheckBox::restore_defaults(){
-    m_current = m_default;
+    BooleanCheckBoxOption::restore_defaults();
 }
 QJsonObject BooleanCheckBox::to_json() const{
     QJsonObject root = SingleStatementOption::to_json();
-    root.insert(JSON_DEFAULT, m_default);
-    root.insert(JSON_CURRENT, m_current);
+    root.insert(JSON_DEFAULT, write_default());
+    root.insert(JSON_CURRENT, write_current());
     return root;
 }
 std::string BooleanCheckBox::to_cpp() const{
     std::string str;
     str += m_declaration.toUtf8().data();
     str += " = ";
-    str += m_current ? "true" : "false";
+    str += value() ? "true" : "false";
     str += ";\r\n";
     return str;
 }
 QWidget* BooleanCheckBox::make_ui(QWidget& parent){
-    return new BooleanCheckBoxUI(parent, *this, m_label);
+    return new BooleanCheckBoxUI(parent, *this);
 }
 
 
-BooleanCheckBoxUI::BooleanCheckBoxUI(QWidget& parent, BooleanCheckBox& value, const QString& label)
-    : QWidget(&parent)
-    , m_value(value)
-{
-    QHBoxLayout* layout = new QHBoxLayout(this);
-    QLabel* text = new QLabel(label, this);
-    layout->addWidget(text, 3);
-    text->setWordWrap(true);
-    QCheckBox* box = new QCheckBox(this);
-    box->setChecked(m_value.m_current);
-    layout->addWidget(box, 1);
-    connect(
-        box, &QCheckBox::stateChanged,
-        this, [=](int){ m_value.m_current = box->isChecked(); }
-    );
-}
-BooleanCheckBoxUI::~BooleanCheckBoxUI(){
-
-}
+BooleanCheckBoxUI::BooleanCheckBoxUI(QWidget& parent, BooleanCheckBox& value)
+    : BooleanCheckBoxOptionUI(parent, value)
+{}

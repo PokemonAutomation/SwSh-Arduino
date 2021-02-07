@@ -12,7 +12,7 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QPushButton>
-#include "UI/McuList.h"
+#include "UI/BoardList.h"
 #include "RightPanel.h"
 
 class Program : public RightPanel{
@@ -40,7 +40,7 @@ public:
     QString save_json() const;
     QString save_cfile() const;
 
-    void save_and_build(const std::string& mcu);
+    void save_and_build(const std::string& board);
 
     virtual QWidget* make_ui(MainWindow& parent) override;
 

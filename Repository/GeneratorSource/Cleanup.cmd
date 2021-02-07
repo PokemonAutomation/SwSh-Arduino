@@ -1,3 +1,5 @@
+cd %~dp0
+
 del .qmake.stash
 del *.log
 del Makefile*

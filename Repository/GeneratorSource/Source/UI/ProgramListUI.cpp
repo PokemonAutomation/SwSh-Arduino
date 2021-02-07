@@ -5,7 +5,8 @@
  */
 
 #include <vector>
-#include "SharedCpp/QtJsonTools.h"
+#include "Common/Qt/StringException.h"
+#include "Common/Qt/QtJsonTools.h"
 #include "UI/MainWindow.h"
 #include "Panels/PanelList.h"
 #include "ProgramListUI.h"

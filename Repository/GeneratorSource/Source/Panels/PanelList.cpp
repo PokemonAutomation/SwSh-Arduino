@@ -7,7 +7,8 @@
 #include <QFile>
 #include <QTextStream>
 #include <QMessageBox>
-#include "SharedCpp/QtJsonTools.h"
+#include "Common/Qt/StringException.h"
+#include "Common/Qt/QtJsonTools.h"
 #include "JsonSettings.h"
 #include "JsonProgram.h"
 #include "Tools/PersistentSettings.h"
@@ -45,7 +46,7 @@ const std::vector<std::unique_ptr<ConfigSet>>& SETTINGS_LIST(){
             QString path = settings.path + CONFIG_FOLDER_NAME + "/" + line + ".json";
             list.emplace_back(new Settings_JsonFile(path));
         }catch (const StringException& str){
-            cout << "Error: " << str.message.toUtf8().data() << endl;
+            cout << "Error: " << str.message().toUtf8().data() << endl;
         }
     }
     file.close();
@@ -93,7 +94,7 @@ const std::vector<std::unique_ptr<Program>>& PROGRAM_LIST(){
             QString path = settings.path + CONFIG_FOLDER_NAME + "/" + line + ".json";
             list.emplace_back(new Program_JsonFile(path));
         }catch (const StringException& str){
-            cout << "Error: " << str.message.toUtf8().data() << endl;
+            cout << "Error: " << str.message().toUtf8().data() << endl;
         }
     }
     file.close();

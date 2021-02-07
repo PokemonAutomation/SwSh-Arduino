@@ -4,7 +4,7 @@
  * 
  */
 
-#include "CommonFramework/ControllerDefs.h"
+#include "Common/DeviceFramework/SwitchControllerDefs.h"
 
 
 extern const uint8_t   BOXES_TO_HATCH;

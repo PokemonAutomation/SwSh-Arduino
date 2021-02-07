@@ -1,6 +1,6 @@
 ﻿{
     "0-ConfigName": "FrameworkSettings",
-    "1-ConfigPath": "CommonFramework",
+    "1-ConfigPath": "../Common/DeviceFramework",
     "2-Description": "Global Framework Settings",
     "3-Options": [
         {

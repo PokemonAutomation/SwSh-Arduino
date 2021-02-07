@@ -149,14 +149,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\ClientSource\CommonFramework\ControllerDefs.h" />
-    <ClInclude Include="..\..\ClientSource\CommonFramework\CRC32.h" />
-    <ClInclude Include="..\..\ClientSource\CommonFramework\FrameworkSettings.h" />
-    <ClInclude Include="..\..\ClientSource\CommonFramework\MessageProtocol.h" />
-    <ClInclude Include="..\..\ClientSource\CommonFramework\PushButtons.h" />
-    <ClInclude Include="..\..\ClientSource\CommonPokemon\PokemonProgramIDs.h" />
-    <ClInclude Include="..\..\ClientSource\CommonPokemon\PokemonRoutines.h" />
-    <ClInclude Include="..\..\ClientSource\CommonPokemon\PokemonSettings.h" />
+    <ClInclude Include="..\..\ClientSource\Connection\BotBase.h" />
     <ClInclude Include="..\..\ClientSource\Connection\PABotBase.h" />
     <ClInclude Include="..\..\ClientSource\Connection\PABotBaseConnection.h" />
     <ClInclude Include="..\..\ClientSource\Connection\SerialConnection.h" />
@@ -167,31 +160,18 @@
     <ClInclude Include="..\..\ClientSource\Libraries\Logging.h" />
     <ClInclude Include="..\..\ClientSource\Libraries\MessageConverter.h" />
     <ClInclude Include="..\..\ClientSource\Libraries\Utilities.h" />
-    <ClInclude Include="..\..\SharedCpp\PrettyPrint.h" />
-    <ClInclude Include="..\..\SharedCpp\Unicode.h" />
+    <ClInclude Include="..\..\Common\Clientside\PrettyPrint.h" />
+    <ClInclude Include="..\..\Common\Clientside\Unicode.h" />
+    <ClInclude Include="..\..\Common\DeviceFramework\CRC32.h" />
+    <ClInclude Include="..\..\Common\DeviceFramework\FrameworkSettings.h" />
+    <ClInclude Include="..\..\Common\DeviceFramework\MessageProtocol.h" />
+    <ClInclude Include="..\..\Common\DeviceFramework\PushButtons.h" />
+    <ClInclude Include="..\..\Common\DeviceFramework\SwitchControllerDefs.h" />
+    <ClInclude Include="..\..\Common\Pokemon\PokemonProgramIDs.h" />
+    <ClInclude Include="..\..\Common\Pokemon\PokemonRoutines.h" />
+    <ClInclude Include="..\..\Common\Pokemon\PokemonSettings.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\ClientSource\CommonFramework\CRC32.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\ClientSource\CommonFramework\CRC32.cpp" />
-    <ClCompile Include="..\..\ClientSource\CommonFramework\FrameworkSettings.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\ClientSource\CommonFramework\FrameworkSettings.cpp" />
-    <ClCompile Include="..\..\ClientSource\CommonPokemon\PokemonSettings.c">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
-    </ClCompile>
-    <ClCompile Include="..\..\ClientSource\CommonPokemon\PokemonSettings.cpp" />
     <ClCompile Include="..\..\ClientSource\Connection\PABotBase.cpp" />
     <ClCompile Include="..\..\ClientSource\Connection\PABotBaseConnection.cpp" />
     <ClCompile Include="..\..\ClientSource\Libraries\Logging.cpp" />
@@ -207,8 +187,29 @@
     <ClCompile Include="..\..\ClientSource\Programs\FriendDelete.cpp" />
     <ClCompile Include="..\..\ClientSource\Programs\TurboA.cpp" />
     <ClCompile Include="..\..\ClientSource\Programs\DateSpam-WattFarmer.cpp" />
-    <ClCompile Include="..\..\SharedCpp\PrettyPrint.cpp" />
-    <ClCompile Include="..\..\SharedCpp\Unicode.cpp" />
+    <ClCompile Include="..\..\Common\Clientside\PrettyPrint.cpp" />
+    <ClCompile Include="..\..\Common\Clientside\Unicode.cpp" />
+    <ClCompile Include="..\..\Common\DeviceFramework\CRC32.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\DeviceFramework\CRC32.cpp" />
+    <ClCompile Include="..\..\Common\DeviceFramework\FrameworkSettings.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\DeviceFramework\FrameworkSettings.cpp" />
+    <ClCompile Include="..\..\Common\Pokemon\PokemonSettings.c">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Pokemon\PokemonSettings.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

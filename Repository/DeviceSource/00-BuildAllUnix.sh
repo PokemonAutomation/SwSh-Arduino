@@ -4,52 +4,44 @@
 cd "$(dirname "$0")"
 
 # define the MCU, which is the board type
-MCU=$1
 
-if [ -z "$MCU" ]; then
-    MCUBOARDS=("1" "2" "3" "at90usb1286" "atmega16u2" "atmega32u4")
-    echo "Please select your board type by either number or name:"
-    echo "1 - at90usb1286  (for Teensy 2.0++)"
-    echo "2 - atmega16u2   (for Arduino UNO R3)"
-    echo "3 - atmega32u4   (for Arduino Micro, and Teensy 2.0)"
-    
-    CONTINUE=false
-    read -p "Enter your board type: " MCU
-
-    while true ; do
-        for i in "${MCUBOARDS[@]}"; do
-            if [[ "$MCU" = "$i" ]]; then
-                CONTINUE=true
-            fi
-        done
-
-        # break if we got continue to be true
-        if [ "$CONTINUE" = true ]; then
-            break
-        fi
-
-        # otherwise, we've got to ask again (and again)
-        read -p "Invalid board, try again: " MCU
-
-    done
-
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    PLATFORM="mac"
+elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    PLATFORM="linux"
+else
+    boxed_msg "${RED}${OSTYPE} is not a recognized platform. Please run only on Mac or Linux${RESET}"
+    exit 1
 fi
 
-# if the boards were given by integer, we can update them here
-if [ "$MCU" == "1" ]; then MCU="at90usb1286"; fi
-if [ "$MCU" == "2" ]; then MCU="atmega16u2"; fi
-if [ "$MCU" == "3" ]; then MCU="atmega32u4"; fi
+BOARD=$1
+FZF="Scripts/fzf-${PLATFORM}"
 
-# say what we're building for convenience
-echo "Ready to build for board: $MCU"
-echo ""
+function run() {
+    if [[ -z "$BOARD" ]]; then
+        board_prompt
+    fi
 
-# and send off to build
-bash Scripts/BuildAllUnix.sh "$MCU" 1> /dev/null
+    # if the boards were given by integer, we can update them here
 
-# let them know we finished
-echo -e "\033[1mFinished building hex files for board: $MCU \033[0m"
-echo "Please make sure the hex files were properly built or updated."
-echo "You can now close this window if you wish."
-echo ""
-# really done
+
+    # say what we're building for convenience
+    echo "Ready to build for board: $BOARD"
+    echo ""
+
+    # and send off to build
+    bash Scripts/BuildAllUnix.sh "$BOARD" 1> /dev/null
+
+    # let them know we finished
+    echo -e "\033[1mFinished building hex files for board: $BOARD \033[0m"
+    echo "Please make sure the hex files were properly built or updated."
+    echo "You can now close this window if you wish."
+    echo ""
+    # really done
+}
+
+function board_prompt() {
+    BOARD=$(cat Scripts/Boards.txt | $FZF --height=15% --prompt="Choose your Board: ")
+}
+
+run

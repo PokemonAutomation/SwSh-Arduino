@@ -16,7 +16,8 @@ using std::endl;
 #include <QLabel>
 #include <QPushButton>
 #include <QMessageBox>
-#include "SharedCpp/QtJsonTools.h"
+#include "Common/Qt/StringException.h"
+#include "Common/Qt/QtJsonTools.h"
 #include "Tools/Tools.h"
 #include "Tools/PersistentSettings.h"
 #include "UI/MainWindow.h"
@@ -105,7 +106,7 @@ private:
     QPushButton* m_button;
 };
 
-void Program::save_and_build(const std::string& mcu){
+void Program::save_and_build(const std::string& board){
 //        cout << "asdf" << endl;
     if (!is_valid()){
         QMessageBox box;
@@ -129,7 +130,7 @@ void Program::save_and_build(const std::string& mcu){
             save_json();
             save_cfile();
         }catch (const StringException& str){
-            QString error = str.message;
+            QString error = str.message();
             run_on_main_thread([=]{
                 QMessageBox box;
                 box.critical(nullptr, "Error", error);
@@ -138,13 +139,11 @@ void Program::save_and_build(const std::string& mcu){
         }
 
         //  Build
-        QString base_name = settings.path + m_name;
-        if (build_hexfile(mcu, m_name) != 0){
+        QString hex_file = settings.path + m_name + ("-" + board + ".hex").c_str();
+        QString log_file = settings.path + LOG_FOLDER_NAME + "/" + m_name + ("-" + board).c_str() + ".log";
+        if (build_hexfile(board, m_name, hex_file, log_file) != 0){
             return;
         }
-
-        QString hex_file = base_name + "-" + mcu.c_str() + ".hex";
-        QString log_file = base_name + "-" + mcu.c_str() + ".log";
 
         //  Report results.
         run_on_main_thread([=]{
@@ -223,7 +222,7 @@ QWidget* Program::make_ui(MainWindow& parent){
         connect(
             m_build_button, &QPushButton::clicked,
             this, [&](bool){
-                save_and_build(parent.current_MCU());
+                save_and_build(parent.current_board());
             }
         );
         layout->addWidget(m_build_button);

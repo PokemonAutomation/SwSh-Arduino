@@ -39,8 +39,6 @@ private:
 
 
 class EnumDropdownUI : public QWidget{
-    Q_OBJECT
-
 public:
     EnumDropdownUI(QWidget& parent, EnumDropdown& value, const QString& label);
     ~EnumDropdownUI();

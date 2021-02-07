@@ -1,3 +1,5 @@
+cd %~dp0
+
 rd /s /q ".vs\"
 rd /s /q "Debug\"
 rd /s /q "Release\"

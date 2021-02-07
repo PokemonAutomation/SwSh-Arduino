@@ -4,7 +4,7 @@
  * 
  */
 
-#include "CommonFramework/ControllerDefs.h"
+#include "Common/DeviceFramework/SwitchControllerDefs.h"
 
 
 //  Fetch this many times. This puts a limit on how many eggs you can get so

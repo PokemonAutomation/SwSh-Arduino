@@ -4,7 +4,8 @@
  *
  */
 
-#include "SharedCpp/QtJsonTools.h"
+#include "Common/Qt/StringException.h"
+#include "Common/Qt/QtJsonTools.h"
 #include "Tools/Tools.h"
 #include "ConfigItem.h"
 

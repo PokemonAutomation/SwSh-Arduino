@@ -8,10 +8,10 @@
 #include <map>
 #include <sstream>
 #include "ClientSource/Libraries/Compiler.h"
-#include "ClientSource/CommonFramework/MessageProtocol.h"
-#include "ClientSource/CommonFramework/PushButtons.h"
-#include "ClientSource/CommonPokemon/PokemonRoutines.h"
-#include "ClientSource/CommonPokemon/PokemonProgramIDs.h"
+#include "Common/DeviceFramework/MessageProtocol.h"
+#include "Common/DeviceFramework/PushButtons.h"
+#include "Common/Pokemon/PokemonRoutines.h"
+#include "Common/Pokemon/PokemonProgramIDs.h"
 #include "MessageConverter.h"
 
 namespace PokemonAutomation{
@@ -226,17 +226,6 @@ int register_message_converters_framework_requests(){
         }
     );
     register_message_converter(
-        PABB_MSG_REQUEST_END_PROGRAM_CALLBACK,
-        [](const char* message, size_t length){
-            std::stringstream ss;
-            ss << "end_program_callback() - ";
-            if (length != sizeof(pabb_end_program_callback)){ ss << "(invalid size)" << std::endl; return ss.str(); }
-            const auto* params = (const pabb_end_program_callback*)message;
-            ss << "seqnum = " << (unsigned)params->seqnum;
-            return ss.str();
-        }
-    );
-    register_message_converter(
         PABB_MSG_REQUEST_COMMAND_FINISHED,
         [](const char* message, size_t length){
             std::stringstream ss;
@@ -246,6 +235,28 @@ int register_message_converters_framework_requests(){
             ss << "seqnum = " << (unsigned)params->seqnum;
             ss << ", seq_of_original_command = " << (unsigned)params->seq_of_original_command;
             ss << ", finish_time = " << params->finish_time;
+            return ss.str();
+        }
+    );
+    register_message_converter(
+        PABB_MSG_REQUEST_STOP,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "PABB_MSG_REQUEST_STOP - ";
+            if (length != sizeof(pabb_MsgRequestStop)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_MsgRequestStop*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            return ss.str();
+        }
+    );
+    register_message_converter(
+        PABB_MSG_COMMAND_END_PROGRAM_CALLBACK,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "end_program_callback() - ";
+            if (length != sizeof(pabb_end_program_callback)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_end_program_callback*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
             return ss.str();
         }
     );
@@ -362,20 +373,48 @@ int register_message_converters_push_button_framework(){
             return ss.str();
         }
     );
-    return 0;
-}
-int register_message_converters_pokemon_den_entry(){
     register_message_converter(
-        PABB_MSG_COMMAND_RESET_GAME_FROM_HOME,
+        PABB_MSG_CONTROLLER_STATE,
         [](const char* message, size_t length){
             std::stringstream ss;
-            ss << "reset_game_from_home() - ";
-            if (length != sizeof(pabb_reset_game_from_home)){ ss << "(invalid size)" << std::endl; return ss.str(); }
-            const auto* params = (const pabb_reset_game_from_home*)message;
+            ss << "controller_state() - ";
+            if (length != sizeof(pabb_controller_state)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_controller_state*)message;
             ss << "seqnum = " << (unsigned)params->seqnum;
-            ss << ", tolerate_update_menu = " << params->tolerate_update_menu;
-            ss << ", user_slot = " << params->user_slot;
-            ss << ", game_slot2 = " << params->game_slot2;
+            ss << ", button = " << params->button;
+            ss << ", dpad = " << (int)params->dpad;
+            ss << ", LJ = (" << (int)params->left_joystick_x << "," << (int)params->left_joystick_y << ")";
+            ss << ", RJ = (" << (int)params->right_joystick_x << "," << (int)params->right_joystick_y << ")";
+            return ss.str();
+        }
+    );
+    return 0;
+}
+int register_message_converters_pokemon_game_entry(){
+    register_message_converter(
+        PABB_MSG_COMMAND_MASH_A,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "mash_A() - ";
+            if (length != sizeof(pabb_mashA)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_mashA*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            ss << ", ticks = " << params->ticks;
+            return ss.str();
+        }
+    );
+    register_message_converter(
+        PABB_MSG_COMMAND_FAST_RESET_GAME,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "fast_reset_game() - ";
+            if (length != sizeof(pabb_fast_reset_game)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_fast_reset_game*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            ss << ", start_game_mash = " << params->start_game_mash;
+            ss << ", start_game_wait = " << params->start_game_wait;
+            ss << ", enter_game_mash = " << params->enter_game_mash;
+            ss << ", enter_game_wait = " << params->enter_game_wait;
             return ss.str();
         }
     );
@@ -393,17 +432,16 @@ int register_message_converters_pokemon_den_entry(){
         }
     );
     register_message_converter(
-        PABB_MSG_COMMAND_START_GAME_FROM_HOME,
+        PABB_MSG_COMMAND_ENTER_GAME,
         [](const char* message, size_t length){
             std::stringstream ss;
             ss << "start_game_from_home() - ";
-            if (length != sizeof(pabb_start_game_from_home)){ ss << "(invalid size)" << std::endl; return ss.str(); }
-            const auto* params = (const pabb_start_game_from_home*)message;
+            if (length != sizeof(pabb_enter_game)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_enter_game*)message;
             ss << "seqnum = " << (unsigned)params->seqnum;
-            ss << ", tolerate_update_menu = " << params->tolerate_update_menu;
-            ss << ", game_slot = " << (unsigned)params->game_slot;
-            ss << ", user_slot = " << (unsigned)params->user_slot;
             ss << ", backup_save = " << params->backup_save;
+            ss << ", enter_game_mash = " << params->enter_game_mash;
+            ss << ", enter_game_wait = " << params->enter_game_wait;
             return ss.str();
         }
     );
@@ -483,7 +521,35 @@ int register_message_converters_pokemon_date_spam(){
     );
     return 0;
 }
-int register_message_converters_pokemon_other(){
+int register_message_converters_pokemon_mass_release(){
+    register_message_converter(
+        PABB_MSG_COMMAND_RELEASE,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "release() - ";
+            if (length != sizeof(pabb_release)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_release*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            return ss.str();
+        }
+    );
+    register_message_converter(
+        PABB_MSG_COMMAND_RELEASE_BOXES,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "release_boxes() - ";
+            if (length != sizeof(pabb_release_boxes)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_release_boxes*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            ss << ", boxes = " << (unsigned)params->boxes;
+            ss << ", box_scroll_delay = " << (unsigned)params->box_scroll_delay;
+            ss << ", box_change_delay = " << (unsigned)params->box_change_delay;
+            return ss.str();
+        }
+    );
+    return 0;
+}
+int register_message_converters_pokemon_code_entry(){
     register_message_converter(
         PABB_MSG_COMMAND_ENTER_8DIGITS,
         [](const char* message, size_t length){
@@ -515,6 +581,207 @@ int register_message_converters_pokemon_other(){
     );
     return 0;
 }
+int register_message_converters_pokemon_autohosting(){
+    register_message_converter(
+        PABB_MSG_COMMAND_CONNECT_TO_INTERNET,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "connect_to_internet() - ";
+            if (length != sizeof(pabb_connect_to_internet)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_connect_to_internet*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            ss << ", open_ycomm_delay = " << params->open_ycomm_delay;
+            ss << ", connect_to_internet_delay = " << params->connect_to_internet_delay;
+            return ss.str();
+        }
+    );
+    register_message_converter(
+        PABB_MSG_COMMAND_ACCEPT_FRS_WHILE_WAITING,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "accept_FRs_while_waiting() - ";
+            if (length != sizeof(pabb_accept_FRs_while_waiting)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_accept_FRs_while_waiting*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            ss << ", slot = " << (unsigned)params->slot;
+            ss << ", wait_time = " << params->wait_time;
+            ss << ", game_to_home_delay_safe = " << params->game_to_home_delay_safe;
+            ss << ", auto_fr_duration = " << params->auto_fr_duration;
+            ss << ", tolerate_system_update_window_slow = " << params->tolerate_system_update_window_slow;
+            return ss.str();
+        }
+    );
+    return 0;
+}
+int register_message_converters_pokemon_misc(){
+    register_message_converter(
+        PABB_MSG_COMMAND_IOA_BACKOUT,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "IoA_backout() - ";
+            if (length != sizeof(pabb_IoA_backout)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_IoA_backout*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            ss << ", pokemon_to_menu_delay = " << params->pokemon_to_menu_delay;
+            return ss.str();
+        }
+    );
+    return 0;
+}
+int register_message_converters_pokemon_skippers(){
+    register_message_converter(
+        PABB_MSG_COMMAND_SKIPPER_INIT_VIEW,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "skipper_init_view() - ";
+            if (length != sizeof(pabb_skipper_init_view)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_skipper_init_view*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            return ss.str();
+        }
+    );
+    register_message_converter(
+        PABB_MSG_COMMAND_SKIPPER_AUTO_RECOVERY,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "skipper_auto_recovery() - ";
+            if (length != sizeof(pabb_skipper_auto_recovery)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_skipper_auto_recovery*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            return ss.str();
+        }
+    );
+    register_message_converter(
+        PABB_MSG_COMMAND_SKIPPER_ROLLBACK_YEAR_FULL,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "skipper_rollback_year_full() - ";
+            if (length != sizeof(pabb_skipper_rollback_year_full)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_skipper_rollback_year_full*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            ss << ", date_us = " << params->date_us;
+            return ss.str();
+        }
+    );
+    register_message_converter(
+        PABB_MSG_COMMAND_SKIPPER_ROLLBACK_YEAR_SYNC,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "skipper_rollback_year_sync() - ";
+            if (length != sizeof(pabb_skipper_rollback_year_sync)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_skipper_rollback_year_sync*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            return ss.str();
+        }
+    );
+    register_message_converter(
+        PABB_MSG_COMMAND_SKIPPER_INCREMENT_DAY,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "skipper_increment_day() - ";
+            if (length != sizeof(pabb_skipper_increment_day)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_skipper_increment_day*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            ss << ", date_us = " << params->date_us;
+            return ss.str();
+        }
+    );
+    register_message_converter(
+        PABB_MSG_COMMAND_SKIPPER_INCREMENT_MONTH,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "skipper_increment_month() - ";
+            if (length != sizeof(pabb_skipper_increment_month)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_skipper_increment_month*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            ss << ", days = " << (unsigned)params->days;
+            return ss.str();
+        }
+    );
+    register_message_converter(
+        PABB_MSG_COMMAND_SKIPPER_INCREMENT_ALL,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "skipper_increment_all() - ";
+            if (length != sizeof(pabb_skipper_increment_all)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_skipper_increment_all*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            return ss.str();
+        }
+    );
+    register_message_converter(
+        PABB_MSG_COMMAND_SKIPPER_INCREMENT_ALL_ROLLBACK,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "skipper_increment_all_rollback() - ";
+            if (length != sizeof(pabb_skipper_increment_all_rollback)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_skipper_increment_all_rollback*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            return ss.str();
+        }
+    );
+    return 0;
+}
+int register_message_converters_eggs(){
+    register_message_converter(
+        PABB_MSG_COMMAND_EGG_FETCHER_LOOP,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "eggfetcher_loop() - ";
+            if (length != sizeof(pabb_eggfetcher_loop)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_eggfetcher_loop*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            return ss.str();
+        }
+    );
+    register_message_converter(
+        PABB_MSG_COMMAND_MOVE_WHILE_MASHING_B,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "move_while_mashing_B() - ";
+            if (length != sizeof(pabb_move_while_mashing_B)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_move_while_mashing_B*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            ss << ", duration = " << params->duration;
+            return ss.str();
+        }
+    );
+    register_message_converter(
+        PABB_MSG_COMMAND_SPIN_AND_MASH_A,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "spin_and_mash_A() - ";
+            if (length != sizeof(pabb_spin_and_mash_A)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_spin_and_mash_A*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            ss << ", duration = " << params->duration;
+            return ss.str();
+        }
+    );
+    register_message_converter(
+        PABB_MSG_COMMAND_TRAVEL_TO_SPIN_LOCATION,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "travel_to_spin_location() - ";
+            if (length != sizeof(pabb_travel_to_spin_location)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_travel_to_spin_location*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            return ss.str();
+        }
+    );
+    register_message_converter(
+        PABB_MSG_COMMAND_TRAVEL_BACK_TO_LADY,
+        [](const char* message, size_t length){
+            std::stringstream ss;
+            ss << "travel_back_to_lady() - ";
+            if (length != sizeof(pabb_travel_back_to_lady)){ ss << "(invalid size)" << std::endl; return ss.str(); }
+            const auto* params = (const pabb_travel_back_to_lady*)message;
+            ss << "seqnum = " << (unsigned)params->seqnum;
+            return ss.str();
+        }
+    );
+    return 0;
+}
 
 int init_MessageLogger =
     register_message_converters_framework_errors() +
@@ -522,9 +789,14 @@ int init_MessageLogger =
     register_message_converters_framework_requests() +
     register_message_converters_custom_info() +
     register_message_converters_push_button_framework() +
-    register_message_converters_pokemon_den_entry() +
+    register_message_converters_pokemon_game_entry() +
     register_message_converters_pokemon_date_spam() +
-    register_message_converters_pokemon_other();
+    register_message_converters_pokemon_mass_release() +
+    register_message_converters_pokemon_code_entry() +
+    register_message_converters_pokemon_autohosting() +
+    register_message_converters_pokemon_misc() +
+    register_message_converters_pokemon_skippers() +
+    register_message_converters_eggs();
 
 
 std::string message_to_string(uint8_t type, const std::string& message){
@@ -545,7 +817,8 @@ std::string message_to_string(uint8_t type, const char* message, size_t length){
 std::string program_name(uint8_t id){
     switch (id){
     case PABB_PID_UNSPECIFIED:              return "Unspecified/Unknown";
-    case PABB_PID_PABOTBASE:                return "PABotBase";
+    case PABB_PID_PABOTBASE_12KB:           return "PABotBase-12KB";
+    case PABB_PID_PABOTBASE_31KB:           return "PABotBase-31KB";
     case PABB_PID_CUSTOM_PROGRAM:           return "Custom Program";
     case PABB_PID_SANDBOX:                  return "Sandbox";
 

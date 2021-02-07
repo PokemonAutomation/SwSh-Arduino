@@ -18,8 +18,8 @@
 
 #   Set MCU and TARGET here:
 
-ifeq ($(MCU),)
-MCU := at90usb1286
+ifeq ($(BOARD_TYPE),)
+BOARD_TYPE := Teensy2
 endif
 ifeq ($(TARGET),)
 TARGET := TurboA
@@ -38,24 +38,45 @@ OPTIMIZATION = s
 #TARGET       = TurboA
 SRC          = $(TARGET).c
 LUFA_PATH    = ./LUFA
-CC_FLAGS     = -DUSE_LUFA_CONFIG_HEADER -I./ -ILUFA/ -Wno-unused-function -Werror
+CC_FLAGS     = -DUSE_LUFA_CONFIG_HEADER -I./ -I../ -ILUFA/ -Wno-unused-function -Werror
 
 
+
+
+#   Board
+ifeq ($(BOARD_TYPE), ArduinoUnoR3)
+MCU := atmega16u2
+SRC += DeviceFramework/Board-atmega16u2-ArduinoUnoR3.c
+endif
+ifeq ($(BOARD_TYPE), ProMicro)
+MCU := atmega32u4
+SRC += DeviceFramework/Board-atmega32u4-ProMicro.c
+endif
+ifeq ($(BOARD_TYPE), Teensy2)
+MCU := atmega32u4
+SRC += DeviceFramework/Board-atmega32u4-Teensy2.c
+endif
+ifeq ($(BOARD_TYPE), TeensyPP2)
+MCU := at90usb1286
+SRC += DeviceFramework/Board-at90usb1286-Teensy2.c
+endif
 
 #   Framework
 SRC += $(LUFA_SRC_USB)
-SRC += CommonFramework/FrameworkSettings.c
+SRC += ../Common/DeviceFramework/FrameworkSettings.c
 SRC += DeviceFramework/DeviceSettings.c
-SRC += DeviceFramework/HardwareLED.c
-ifneq ("$(wildcard DeviceFramework/PushButtons.c)","")
-SRC += CommonFramework/CRC32.c
-SRC += DeviceFramework/uart.c
-SRC += DeviceFramework/HardwareUSB.c
-SRC += DeviceFramework/HardwareSerial.c
-SRC += DeviceFramework/SwitchController.c
-SRC += DeviceFramework/PushButtons.c
-SRC += DeviceFramework/SwitchButtons.c
-SRC += PokemonSwShLibraries/CodeEntry.c
+#SRC += DeviceFramework/HardwareLED.c
+SRC += PokemonSwShLibraries/PokemonCallbacks.c
+ifneq ("$(wildcard ../../Internal/DeviceSource/DeviceFramework/PushButtons.c)","")
+CC_FLAGS += -I../../Internal
+SRC += ../Common/DeviceFramework/CRC32.c
+SRC += ../../Internal/DeviceSource/DeviceFramework/uart.c
+SRC += ../../Internal/DeviceSource/DeviceFramework/HardwareUSB.c
+SRC += ../../Internal/DeviceSource/DeviceFramework/HardwareSerial.c
+SRC += ../../Internal/DeviceSource/DeviceFramework/SwitchController.c
+SRC += ../../Internal/DeviceSource/DeviceFramework/PushButtons.c
+SRC += ../../Internal/DeviceSource/DeviceFramework/SwitchButtons.c
+SRC += ../../Internal/DeviceSource/PokemonSwShLibraries/CodeEntry.c
 else
 LD_FLAGS += obj/obj-$(MCU)/CRC32.o
 LD_FLAGS += obj/obj-$(MCU)/uart.o
@@ -68,14 +89,14 @@ LD_FLAGS += obj/obj-$(MCU)/CodeEntry.o
 endif
 
 #   Pokemon Sword/Shield
-SRC += CommonPokemon/PokemonSettings.c
-ifneq ("$(wildcard PokemonSwShLibraries/PokemonRoutines.c)","")
-SRC += PokemonSwShLibraries/PokemonRoutines.c
+SRC += ../Common/Pokemon/PokemonSettings.c
+ifneq ("$(wildcard ../../Internal/DeviceSource/PokemonSwShLibraries/PokemonRoutines.c)","")
+SRC += ../../Internal/DeviceSource/PokemonSwShLibraries/PokemonRoutines.c
 else
 LD_FLAGS += obj/obj-$(MCU)/PokemonRoutines.o
 endif
-ifneq ("$(wildcard PokemonSwShPrograms/$(TARGET)_Core.c)","")
-SRC += PokemonSwShPrograms/$(TARGET)_Core.c
+ifneq ("$(wildcard ../../Internal/DeviceSource/PokemonSwShPrograms/$(TARGET)_Core.c)","")
+SRC += ../../Internal/DeviceSource/PokemonSwShPrograms/$(TARGET)_Core.c
 else ifneq ("$(wildcard obj/obj-$(MCU)/$(TARGET)_Core.o)","")
 LD_FLAGS += obj/obj-$(MCU)/$(TARGET)_Core.o
 endif

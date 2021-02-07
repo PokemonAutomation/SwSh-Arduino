@@ -4,7 +4,7 @@
  * 
  */
 
-#include "CommonFramework/ControllerDefs.h"
+#include "Common/DeviceFramework/SwitchControllerDefs.h"
 
 
 //  Grab watts this many times. You can set this number if you're also date

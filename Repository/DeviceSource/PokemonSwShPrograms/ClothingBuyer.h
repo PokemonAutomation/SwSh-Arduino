@@ -4,7 +4,7 @@
  * 
  */
 
-#include "CommonFramework/ControllerDefs.h"
+#include "Common/DeviceFramework/SwitchControllerDefs.h"
 
 
 //  Rotate categories. This will allow the program to eventually buy out the

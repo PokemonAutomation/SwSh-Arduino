@@ -17,7 +17,7 @@
 
 //  The maximum number of skips to perform.
 //  The actual # of skips will be lower if any errors are made.
-const uint32_t skips            =   10;
+const uint32_t SKIPS            =   10;
 
 //  The current year in real life.
 const uint16_t REAL_LIFE_YEAR   =   2021;
@@ -29,4 +29,4 @@ const uint16_t REAL_LIFE_YEAR   =   2021;
 
 //  Run auto-recovery every this # of skips. Zero disables the auto-corrections.
 //  At 500, the overhead is approximately 0.5%.
-const uint16_t CORRECTION_SKIPS      =   500;
+const uint16_t CORRECTION_SKIPS      =   1000;

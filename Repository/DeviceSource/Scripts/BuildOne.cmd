@@ -1,17 +1,17 @@
 ::echo off
 
-set MCU=%1
+set board=%1
 set program=%2
 
-if [%MCU%] == [] (
-    set /p MCU="MCU Type: "
+if [%board%] == [] (
+    set /p board="Board Type: "
 )
 if [%program%] == [] (
     set /p program="Program Name: "
 )
 
 del "%program%.hex"
-make MCU="%MCU%" TARGET="%program%"
+make BOARD_TYPE="%board%" TARGET="%program%"
 
 ::if %errorlevel% NEQ 0 (
 ::   echo Build Failed. Error %errorlevel%
@@ -25,3 +25,5 @@ del "%program%.bin"
 del "%program%.lss"
 del "%program%.sym"
 del "%program%.tmp"
+
+::pause

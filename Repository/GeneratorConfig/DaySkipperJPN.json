@@ -5,7 +5,7 @@
         {
             "00-Type": "SimpleInteger",
             "01-Label": "<b>Number of Frame Skips:</b>",
-            "02-Declaration": "const uint32_t skips",
+            "02-Declaration": "const uint32_t SKIPS",
             "03-MinValue": 0,
             "04-MaxValue": 2147483647,
             "98-Default": 10,

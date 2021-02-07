@@ -1,6 +1,6 @@
 ﻿{
     "0-ConfigName": "PokemonSettings",
-    "1-ConfigPath": "CommonPokemon",
+    "1-ConfigPath": "../Common/Pokemon",
     "2-Description": "Global Pokémon Settings",
     "3-Options": [
         {

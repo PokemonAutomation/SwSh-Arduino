@@ -5,8 +5,9 @@
  */
 
 #include <iostream>
-#include "SharedCpp/PrettyPrint.h"
-#include "ClientSource/CommonPokemon/PokemonProgramIDs.h"
+#include "Common/Clientside/PrettyPrint.h"
+#include "Common/DeviceFramework/PushButtons.h"
+#include "Common/Pokemon/PokemonProgramIDs.h"
 #include "ClientSource/Connection/SerialConnection.h"
 #include "ClientSource/Libraries/MessageConverter.h"
 //#include "Libraries/Logging.h"
@@ -69,13 +70,13 @@ std::unique_ptr<PABotBase> start_connection(
     uint32_t program_version = pabotbase->program_version();
     std::cout << "Program Version:  " << program_version << std::endl;
 
-    uint32_t wallclock = pabotbase->system_clock();
+    uint32_t wallclock = system_clock(*pabotbase);
     std::cout << "Device Up Time:   " << ticks_to_time(wallclock) << std::endl;
     std::cout << std::endl;
 
 
     //  If we're running an actual program, the device needs to be running PABotBase to work.
-    if (require_pabotbase && program_id != PABB_PID_PABOTBASE){
+    if (require_pabotbase && (int)program_id_to_botbase_level(program_id) >= (int)PABB_PID_PABOTBASE_12KB){
         throw "The device must be running PABotBase for this program to work.";
     }
 

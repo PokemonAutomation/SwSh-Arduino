@@ -8,10 +8,10 @@
  */
 
 #include <iostream>
-#include "ClientSource/CommonFramework/FrameworkSettings.h"
-#include "ClientSource/CommonFramework/PushButtons.h"
-#include "ClientSource/CommonPokemon/PokemonSettings.h"
-#include "ClientSource/CommonPokemon/PokemonRoutines.h"
+#include "Common/DeviceFramework/FrameworkSettings.h"
+#include "Common/DeviceFramework/PushButtons.h"
+#include "Common/Pokemon/PokemonSettings.h"
+#include "Common/Pokemon/PokemonRoutines.h"
 #include "ClientSource/Libraries/Utilities.h"
 
 namespace PokemonAutomation{
@@ -46,11 +46,12 @@ void program_DateSpam_WattFarmer(const std::string& device_name){
     start_program_flash(CONNECT_CONTROLLER_DELAY);
     grip_menu_connect_go_home();
 
+    uint8_t year = MAX_YEAR;
     uint16_t save_count = 0;
     for (uint32_t c = 0; c < SKIPS; c++){
 //        pabb_send_info_i32(c);
         log("Frames Skipped: " + std::to_string(c));
-        home_roll_date_enter_game_autorollback();
+        home_roll_date_enter_game_autorollback(&year);
         pbf_mash_button(BUTTON_B, 90);
 
         pbf_press_button(BUTTON_A, 5, 5);

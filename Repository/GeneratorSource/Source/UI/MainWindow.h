@@ -10,7 +10,7 @@
 #include <QVBoxLayout>
 #include <QComboBox>
 #include <QMainWindow>
-#include "McuList.h"
+#include "BoardList.h"
 #include "Panels/RightPanel.h"
 
 class ProgramListUI;
@@ -22,7 +22,7 @@ class MainWindow : public QMainWindow{
 public:
     MainWindow(QWidget* parent = nullptr);
 
-    const std::string& current_MCU() const;
+    const std::string& current_board() const;
     void change_panel(RightPanel& panel);
 
 private:
@@ -30,7 +30,7 @@ private:
     QMenuBar* m_menubar;
 //    QStatusBar* m_statusbar;
 
-    McuList* m_mcu_list;
+    BoardList* m_mcu_list;
     ProgramListUI* m_program_list;
     SettingsListUI* m_settings_list;
 

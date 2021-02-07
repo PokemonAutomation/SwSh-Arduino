@@ -19,7 +19,7 @@
 #include <deque>
 #include <mutex>
 #include "ClientSource/Libraries/Compiler.h"
-#include "ClientSource/CommonFramework/MessageProtocol.h"
+#include "Common/DeviceFramework/MessageProtocol.h"
 #include "StreamInterface.h"
 
 namespace PokemonAutomation{

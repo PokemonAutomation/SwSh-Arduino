@@ -4,28 +4,26 @@
 cd "$(dirname "$0")" || exit
 
 # Parse Command line arguments for MCU, Program and Device Path
-MCU=$1
+BOARD=$1
 PROGRAM=$2
 DEVICE_PATH=$3
 
-SUDO=""
-BUILD_HEX=""
-PLATFORM=""
-HEXFILE=""
-PROGRAM_COMMAND="program_avrdude ${MCU} ${HEXFILE}" # Default to using avrdude
-
-MCUBOARDS=("1" "2" "3" "at90usb1286" "atmega16u2" "atmega32u4")
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     PLATFORM="mac"
-    MD5SUM="md5 -q"
 elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
     PLATFORM="linux"
-    MD5SUM="md5sum"
 else
     boxed_msg "${RED}${OSTYPE} is not a recognized platform. Please run only on Mac or Linux${RESET}"
     exit 1
 fi
+
+SUDO=""
+BUILD_HEX=""
+HEXFILE=""
+PROGRAM_COMMAND="program_avrdude ${MCU} ${HEXFILE}" # Default to using avrdude
+BOARDS=(ArduinoUnoR3 ProMicro Teensy2 TeensyPP2)
+FZF="Scripts/fzf-${PLATFORM}"
 
 function run() {
 
@@ -38,76 +36,26 @@ function run() {
     boxed_msg "Flashing ${PROGRAM}.hex ..."
     $PROGRAM_COMMAND
 
-    boxed_msg "Finished flashing ${HEXFILE} to ${MCU}!"
+    boxed_msg "Finished flashing ${HEXFILE} to ${BOARD}!"
 }
 
 function configure() {
     boxed_msg "Configuration"
-    if [[ -f "${HOME}/.paconfig" ]]; then
-	source "${HOME}/.paconfig"
-    fi
-    
-    if [[ "$EUID" -ne 0 ]]; then
-        SUDO="sudo"
-        note "Using sudo for flashing device, you may need to provide your password!"
-    fi
-    
-    if [ -z "${MCU}" ]; then
-        echo -e "${YELLOW}Please select your board type by either number or name:${RESET}"
-        echo -e "${YELLOW}1 - at90usb1286  (for Teensy 2.0++)${RESET}"
-        echo -e "${YELLOW}2 - atmega16u2   (for Arduino UNO R3)${RESET}"
-        echo -e "${YELLOW}3 - atmega32u4   (for Arduino Micro, and Teensy 2.0)${RESET}"
-        
-        question "Enter your board type" "MCU"
 
-        while true ; do
-            found=0
-            for i in "${MCUBOARDS[@]}"; do
-                if [[ "${MCU}" = "$i" ]]; then
-                    found=1
-                fi
-            done
-            if [[ $found ]]; then
-                break
-            else
-                question "Invalid selection, please re-enter board selection" MCU
-            fi
-        done
-        # change the board type to the correct name if numbers were given
-        if [ "${MCU}" == "1" ]; then MCU="at90usb1286"; fi
-        if [ "${MCU}" == "2" ]; then MCU="atmega16u2"; fi
-        if [ "${MCU}" == "3" ]; then MCU="atmega32u4"; fi
-    else
-	note "Using Preconfigured MCU [${MCU}]"
-    fi
-
-    if [ -z "${PROGRAM}" ]; then
-        question "Please enter the name of the program (without .hex)" "PROGRAM"
-        HEXFILE="${PROGRAM}.hex"
-    fi
+    [[ -f "${HOME}/.paconfig" ]] && source "${HOME}/.paconfig"
+    [[ "$EUID" -ne 0 ]] && SUDO="sudo"
+    [[ -z "${BOARD}" ]] && board_prompt || note "Using Preconfigured BOARD [${BOARD}]"
+    [[ -z "${PROGRAM}" ]] && prog_prompt
     
-    if [[ ! -f "${HEXFILE}" ]] && [[ -f "${PROGRAM}.c" ]]; then
-        question "${HEXFILE} for ${PROGRAM} not found, build it now? ${WHITE}[y/n]${RESET}" "DOBUILD"
-        DOBUILD="${DOBUILD:-n}"
+    if [[ ! -f ${HEXFILE} ]]; then
+        question "Build ${PROGRAM}? ${WHITE}[Y/n]${RESET}" "DOBUILD"
+        DOBUILD="${DOBUILD:-y}"
         if [ "$DOBUILD" == "y" ]; then
             BUILD_HEX="y"
         else
             logmsg "Nothing to flash, exiting.."
             exit
         fi
-    elif [[ -f "${PROGRAM}.md5sum" ]] && [[ -f "${HEXFILE}" ]]; then
-        prev_chksum=$(cat "${PROGRAM}.md5sum")
-        current_chksum=$($MD5SUM "${PROGRAM}.c")
-        if [[ ${current_chksum} != "${prev_chksum}" ]]; then
-            question "There appear to be changes to ${PROGRAM}.c, would you like to rebuild? ${WHITE}[y/n]${RESET}" "REBUILD"
-            REBUILD="${REBUILD:-n}"
-            if [ "$REBUILD" == "y" ]; then
-                BUILD_HEX="y"
-            else
-                logmsg "Using existing hexfile..."
-            fi
-        fi
-
     fi
 
     # Logic below to determine if we need to us dfu-programmer or not
@@ -131,7 +79,7 @@ function build_hex {
 
 
         note "Running Build Script"
-        sh Scripts/BuildOneUnix.sh "${MCU}" "${PROGRAM}" > /dev/null
+        sh Scripts/BuildOneUnix.sh "${BOARD}" "${PROGRAM}" > /dev/null 2>&1
 
         retVal=$?
         if [ $retVal -ne 0 ]; then
@@ -139,13 +87,8 @@ function build_hex {
             exit 1
         else 
             note "${PROGRAM}.hex successfully built!"
-            note "Generating checksum for ${PROGRAM}.c"
-            if [[ "$PLATFORM" == "linux" ]]; then
-	    	$MD5SUM "${PROGRAM}.c" | awk '{print $1}' > "${PROGRAM}.md5sum"
-	    else
-		$MD5SUM "${PROGRAM}.c" > "${PROGRAM}.md5sum"
-	    fi
-	fi
+        fi
+    
 }
 
 function detect_device() {
@@ -170,15 +113,15 @@ function detect_device() {
 }
 
 function program_dfu {
-    # start with clearing the board
+    # start with clearing the BOARD
     ${SUDO} dfu-programmer "${MCU}" erase || true
-    # then flash the hex to the board
+    # then flash the hex to the BOARD
     ${SUDO} dfu-programmer "${MCU}" flash "${HEXFILE}"
     if [[ $? -ne 0 ]]; then
         boxed_msg "${RED}Flash Error: Check the output above for more info.${RESET}"
         exit 1
     fi
-    # then reset the board
+    # then reset the BOARD
     ${SUDO} dfu-programmer "${MCU}" reset
     if [[ $? -ne 0 ]]; then
         boxed_msg "${RED}Device Reset Error: Check the output above for more info.${RESET}"
@@ -188,8 +131,8 @@ function program_dfu {
 
 function program_avrdude {
     if [[ $AUTODETECT_DEVICE == "y" ]]; then
-	note "Autodetect enabled..."
-	detect_device
+        note "Autodetect enabled..."
+        detect_device
     elif [[ -z $DEVICE_PATH ]] && [[ -z $autodetect_device ]]; then
         question "Would you like to attempt auto detecting your device? ${WHITE}[y/n]${RESET}" "autodetect_device"
         autodetect_device="${autodetect_device:-y}"
@@ -228,6 +171,32 @@ function note() {
     msg=$1
     div='** '
     echo -e "${YELLOW}${div}${msg}${RESET}"
+}
+
+function board_prompt() {
+    BOARD=$(cat Scripts/Boards.txt | $FZF --height=15% --prompt="Choose your Board: ")
+    case $BOARD in
+        "ArduinoUnoR3")
+            MCU=atmega16u2
+            ;;
+        "ProMicro") 
+            MCU=atmega32u4
+            ;;
+        "Teensy2") 
+            MCU=atmega32u4
+            ;;
+        "TeensyPP2")
+            MCU=at90usb1286
+            ;;
+        *)
+            note "Invalid Board"
+            exit 1
+    esac
+}
+
+function prog_prompt() {
+    PROGRAM=$(ls -1 *.c 2> /dev/null | sed 's/\.c//g' | $FZF --height=15% --prompt="Program to Flash: " )
+    HEXFILE="${PROGRAM}.hex"
 }
 
 ## Color Helpers

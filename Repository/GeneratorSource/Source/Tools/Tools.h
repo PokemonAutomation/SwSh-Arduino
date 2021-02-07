@@ -19,23 +19,18 @@
 extern const QString STRING_POKEMON;
 
 
-//  Expression Evaluator
-uint32_t parse_ticks_i32(const QString& expression);
-
-
-//  Json
-
-
 
 bool valid_switch_date(const QDate& date);
 
-bool validate_code(size_t digits, const QString& code);
-QString sanitize_code(size_t digits, const QString& code);
 
 
 //  Build the .hex
-
-int build_hexfile(const std::string& mcu, const QString& program_name);
+int build_hexfile(
+    const std::string& board,
+    const QString& program_name,
+    const QString& hex_file,
+    const QString& log_file
+);
 
 
 

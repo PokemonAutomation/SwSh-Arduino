@@ -6,16 +6,17 @@
 
 #include <iostream>
 #include <emmintrin.h>
-#include "ClientSource/CommonFramework/MessageProtocol.h"
-#include "ClientSource/CommonFramework/PushButtons.h"
-#include "ClientSource/CommonPokemon/PokemonRoutines.h"
+#include "Common/DeviceFramework/MessageProtocol.h"
+#include "Common/DeviceFramework/PushButtons.h"
+#include "Common/Pokemon/PokemonRoutines.h"
+#include "Common/Pokemon/PokemonProgramIDs.h"
 #include "PABotBase.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 namespace PokemonAutomation{
 
 
-PABotBase* global_connection = nullptr;
+
 
 
 PABotBase::PABotBase(
@@ -26,7 +27,7 @@ PABotBase::PABotBase(
     : PABotBaseConnection(std::move(connection))
     , m_send_seq(1)
     , m_retransmit_delay(retransmit_delay)
-//    , m_active_wait(false)
+    , m_last_ack(std::chrono::system_clock::now())
     , m_state(State::RUNNING)
     , m_sender_thread(&PABotBase::sender_thread, this)
 {
@@ -49,9 +50,15 @@ void PABotBase::stop(){
 
     //  Make sure only one thread can get in here.
     State expected = State::RUNNING;
-    if (!m_state.compare_exchange_strong(expected, State::STOPPING)){
+    if (!m_state.compare_exchange_strong(expected, State::NO_COMMANDS)){
         return;
     }
+
+    //  Send a stop request, but don't wait for a response that we may never
+    //  receive.
+    pabb_MsgRequestStop params;
+    try_issue_request<PABB_MSG_REQUEST_STOP>(params);
+    m_state.store(State::STOPPING, std::memory_order_release);
 
     //  Wake everyone up.
     {
@@ -128,6 +135,8 @@ void PABotBase::process_ack(uint8_t type, std::string msg){
         return;
     }
 
+    m_last_ack.store(std::chrono::system_clock::now(), std::memory_order_release);
+
     switch (iter->second.state){
     case AckState::NOT_ACKED:
 //        std::cout << "acked: " << full_seqnum << std::endl;
@@ -161,6 +170,7 @@ void PABotBase::process_command_finished(uint8_t type, std::string msg){
     }
     const Params* params = (const Params*)msg.c_str();
     uint8_t seqnum = params->seqnum;
+    uint8_t command_seqnum = params->seq_of_original_command;
 
     //  Send the ack first.
     pabb_MsgAck ack;
@@ -169,14 +179,20 @@ void PABotBase::process_command_finished(uint8_t type, std::string msg){
 
     std::lock_guard<std::mutex> lg(m_lock);
     if (m_pending_requests.empty()){
-        m_sniffer->log("Unexpected command finished message: seqnum = " + std::to_string(seqnum));
+        m_sniffer->log(
+            "Unexpected command finished message: seqnum = " + std::to_string(seqnum) +
+            ", command_seqnum = " + std::to_string(command_seqnum)
+        );
         return;
     }
 
-    uint64_t full_seqnum = infer_full_seqnum(params->seq_of_original_command);
+    uint64_t full_seqnum = infer_full_seqnum(command_seqnum);
     auto iter = m_pending_requests.find(full_seqnum);
     if (iter == m_pending_requests.end()){
-        m_sniffer->log("Unexpected command finished message: seqnum = " + std::to_string(seqnum));
+        m_sniffer->log(
+            "Unexpected command finished message: seqnum = " + std::to_string(seqnum) +
+            ", command_seqnum = " + std::to_string(command_seqnum)
+        );
         return;
     }
 
@@ -253,6 +269,164 @@ void PABotBase::sender_thread(){
 }
 
 
+
+
+bool PABotBase::try_issue_request_unprotected(
+    std::map<uint64_t, PendingRequest>::iterator& iter,
+    uint8_t send_type, char* send_params, size_t send_bytes,
+    bool silent_remove, size_t queue_limit
+){
+    State state = m_state.load(std::memory_order_acquire);
+    if (state == State::STOPPING){
+        throw CancelledException();
+    }
+
+    bool is_command = PABB_MSG_IS_COMMAND(send_type);
+    if (state == State::NO_COMMANDS && is_command){
+        throw CancelledException();
+    }
+
+    //  Command queue is full.
+    if (is_command && m_pending_requests.size() >= queue_limit){
+//        cout << "Command queue is full" << endl;
+        return false;
+    }
+
+    //  Too many pending requests.
+    if (m_pending_requests.size() >= MAX_SEQNUM_GAP){
+        return false;
+    }
+
+    uint64_t seqnum = m_send_seq;
+
+//    //  Oldest outstanding message is too old.
+//    if (!m_pending_requests.empty() && seqnum - m_pending_requests.begin()->first >= MAX_SEQNUM_GAP){
+//        cout << "Outstanding too old: seqnum = " << seqnum << ", oldest = " << m_pending_requests.begin()->first << endl;
+//        return false;
+//    }
+
+    send_params[0] = (uint8_t)seqnum;
+
+    std::pair<std::map<uint64_t, PendingRequest>::iterator, bool> ret = m_pending_requests.emplace(
+        std::piecewise_construct,
+        std::forward_as_tuple(seqnum),
+        std::forward_as_tuple()
+    );
+    if (!ret.second){
+        throw "Duplicate sequence number: " + std::to_string(seqnum);
+    }
+    m_send_seq = seqnum + 1;
+    PendingRequest* handle = &ret.first->second;
+    handle->is_command = PABB_MSG_IS_COMMAND(send_type);
+    handle->silent_remove = silent_remove;
+    handle->message_type = send_type;
+    handle->message_body = std::string(send_params, send_bytes);
+    handle->first_sent = std::chrono::system_clock::now();
+
+    //  Send message.
+    send_message(send_type, handle->message_body, false);
+//    handle->last_sent = std::chrono::system_clock::now();
+
+    iter = ret.first;
+    return true;
+}
+bool PABotBase::issue_request(
+    std::map<uint64_t, PendingRequest>::iterator& iter,
+    uint8_t send_type, char* send_params, size_t send_bytes,
+    bool silent_remove
+){
+    //  Issue a request or a command and return.
+    //
+    //  If it cannot be issued (because we're over the limits), this function
+    //  will wait until it can be issued.
+    //
+    //  The "silent_remove" parameter determines what to do when the
+    //  ack (for a request) or a finish (for a command) is received.
+    //
+    //  If (silent_remove = true), the receiving thread will remove the request
+    //  from the map and do nothing else. This is for async commands.
+    //
+    //  If (silent_remove = false), the receiving thread will not remove the
+    //  request. Instead, it will notify whatever thread is waiting for the
+    //  result. That waiting thread will process the return value (if any) and
+    //  remove the request from the map. This is for synchronous commands where
+    //  the function waits for the command to finish before returning.
+    //
+    if (send_bytes > PABB_MAX_MESSAGE_SIZE){
+        throw "Message is too long.";
+    }
+
+    std::unique_lock<std::mutex> lg(m_lock);
+    while (true){
+        if (try_issue_request_unprotected(
+            iter,
+            send_type, send_params, send_bytes,
+            silent_remove, MAX_PENDING_REQUESTS
+        )){
+            return true;
+        }
+        m_cv.wait(lg);
+    }
+}
+
+
+bool PABotBase::try_issue_request(
+    uint8_t send_type, char* send_params, size_t send_bytes
+){
+    std::map<uint64_t, PendingRequest>::iterator iter;
+    std::lock_guard<std::mutex> lg(m_lock);
+    return try_issue_request_unprotected(iter, send_type, send_params, send_bytes, true, MAX_PENDING_REQUESTS);
+}
+void PABotBase::issue_request(
+    uint8_t send_type, char* send_params, size_t send_bytes
+){
+    std::map<uint64_t, PendingRequest>::iterator iter;
+    issue_request(iter, send_type, send_params, send_bytes, true);
+}
+void PABotBase::issue_and_wait(
+    uint8_t send_type, char* send_params, size_t send_bytes,
+    uint8_t recv_type, char* recv_params, size_t recv_bytes
+){
+    std::map<uint64_t, PendingRequest>::iterator iter;
+//    issue_request<SendType>(iter, send_params, true, false);
+    issue_request(iter, send_type, send_params, send_bytes, false);
+
+    const bool is_command = PABB_MSG_IS_COMMAND(send_type);
+    AckState end_state = is_command
+        ? AckState::FINISHED
+        : AckState::ACKED;
+
+    //  Wait for ack.
+    std::unique_lock<std::mutex> lg(m_lock);
+    while (iter->second.state != end_state){
+        State state = m_state.load(std::memory_order_acquire);
+        if (state == State::STOPPING){
+            remove_request(iter);
+            throw CancelledException();
+        }
+        if (state == State::NO_COMMANDS && is_command){
+            remove_request(iter);
+            throw CancelledException();
+        }
+        m_cv.wait(lg);
+    }
+
+    //  Verify return payload.
+    uint8_t type = iter->second.ack_type;
+    if (type != recv_type){
+        throw "Received incorrect response type: " + std::to_string(type);
+    }
+    const std::string& body = iter->second.ack_body;
+    if (body.size() != recv_bytes){
+        throw "Received incorrect response size: " + std::to_string(body.size());
+    }
+    memcpy(recv_params, body.c_str(), body.size());
+    remove_request(iter);
+}
+
+
+
+
 uint32_t PABotBase::protocol_version(){
     pabb_MsgRequestProtocolVersion params;
     pabb_MsgAckI32 response;
@@ -270,22 +444,6 @@ uint8_t PABotBase::program_id(){
     pabb_MsgAckI8 response;
     issue_and_wait<PABB_MSG_REQUEST_PROGRAM_ID, PABB_MSG_ACK_I8>(params, response);
     return response.data;
-}
-uint32_t PABotBase::system_clock(){
-    pabb_system_clock params;
-    pabb_MsgAckI32 response;
-    issue_and_wait<PABB_MSG_REQUEST_CLOCK, PABB_MSG_ACK_I32>(params, response);
-    return response.data;
-}
-void PABotBase::end_program_callback(){
-    pabb_end_program_callback params;
-    pabb_MsgAck response;
-    issue_and_wait<PABB_MSG_REQUEST_END_PROGRAM_CALLBACK, PABB_MSG_ACK>(params, response);
-}
-void PABotBase::set_leds(bool on){
-    pabb_MsgCommandSetLeds params;
-    params.on = on;
-    issue_request<PABB_MSG_COMMAND_SET_LED_STATE>(params);
 }
 
 

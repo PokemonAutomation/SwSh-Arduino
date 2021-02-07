@@ -12,9 +12,6 @@
     <Filter Include="Source Files\Sandbox">
       <UniqueIdentifier>{0df18a2c-d69e-4cad-be99-02264f3f2db5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\SharedCpp">
-      <UniqueIdentifier>{227cd5ac-1fca-4f18-a5c4-e517dd526f05}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\ClientSource">
       <UniqueIdentifier>{7780f63a-fbdc-48fd-89db-0af6151f132a}</UniqueIdentifier>
     </Filter>
@@ -27,11 +24,17 @@
     <Filter Include="Source Files\ClientSource\Connection">
       <UniqueIdentifier>{b1e2d75e-3719-4f3c-afc7-16b75b40e67a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\ClientSource\CommonPokemon">
-      <UniqueIdentifier>{be009e81-0b07-4405-93c5-25f05619464d}</UniqueIdentifier>
+    <Filter Include="Source Files\Common">
+      <UniqueIdentifier>{227cd5ac-1fca-4f18-a5c4-e517dd526f05}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\ClientSource\CommonFramework">
-      <UniqueIdentifier>{e55307b0-d54c-45ba-aa35-58ccb2a33995}</UniqueIdentifier>
+    <Filter Include="Source Files\Common\Clientside">
+      <UniqueIdentifier>{8d23dd57-0446-4723-8b44-05293f49c650}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\DeviceFramework">
+      <UniqueIdentifier>{10ade231-7f71-4505-a596-091dfe263106}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Common\Pokemon">
+      <UniqueIdentifier>{ca670832-1439-443e-a6b2-6bf5b48ad8d3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -62,38 +65,41 @@
     <ClInclude Include="..\..\ClientSource\Libraries\Compiler.h">
       <Filter>Source Files\ClientSource\Libraries</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\ClientSource\CommonFramework\CRC32.h">
-      <Filter>Source Files\ClientSource\CommonFramework</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ClientSource\CommonFramework\MessageProtocol.h">
-      <Filter>Source Files\ClientSource\CommonFramework</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ClientSource\CommonFramework\PushButtons.h">
-      <Filter>Source Files\ClientSource\CommonFramework</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ClientSource\CommonFramework\ControllerDefs.h">
-      <Filter>Source Files\ClientSource\CommonFramework</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ClientSource\CommonPokemon\PokemonProgramIDs.h">
-      <Filter>Source Files\ClientSource\CommonPokemon</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ClientSource\CommonPokemon\PokemonRoutines.h">
-      <Filter>Source Files\ClientSource\CommonPokemon</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ClientSource\CommonFramework\FrameworkSettings.h">
-      <Filter>Source Files\ClientSource\CommonFramework</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\ClientSource\CommonPokemon\PokemonSettings.h">
-      <Filter>Source Files\ClientSource\CommonPokemon</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\ClientSource\Libraries\Utilities.h">
       <Filter>Source Files\ClientSource\Libraries</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\SharedCpp\PrettyPrint.h">
-      <Filter>Source Files\SharedCpp</Filter>
+    <ClInclude Include="..\..\Common\Clientside\PrettyPrint.h">
+      <Filter>Source Files\Common\Clientside</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\SharedCpp\Unicode.h">
-      <Filter>Source Files\SharedCpp</Filter>
+    <ClInclude Include="..\..\Common\Clientside\Unicode.h">
+      <Filter>Source Files\Common\Clientside</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DeviceFramework\FrameworkSettings.h">
+      <Filter>Source Files\Common\DeviceFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DeviceFramework\MessageProtocol.h">
+      <Filter>Source Files\Common\DeviceFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DeviceFramework\PushButtons.h">
+      <Filter>Source Files\Common\DeviceFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DeviceFramework\CRC32.h">
+      <Filter>Source Files\Common\DeviceFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Pokemon\PokemonRoutines.h">
+      <Filter>Source Files\Common\Pokemon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Pokemon\PokemonSettings.h">
+      <Filter>Source Files\Common\Pokemon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\Pokemon\PokemonProgramIDs.h">
+      <Filter>Source Files\Common\Pokemon</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\ClientSource\Connection\BotBase.h">
+      <Filter>Source Files\ClientSource\Connection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Common\DeviceFramework\SwitchControllerDefs.h">
+      <Filter>Source Files\Common\DeviceFramework</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -117,24 +123,6 @@
     </ClCompile>
     <ClCompile Include="..\..\ClientSource\Libraries\Logging.cpp">
       <Filter>Source Files\ClientSource\Libraries</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ClientSource\CommonFramework\CRC32.c">
-      <Filter>Source Files\ClientSource\CommonFramework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ClientSource\CommonFramework\FrameworkSettings.c">
-      <Filter>Source Files\ClientSource\CommonFramework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ClientSource\CommonFramework\FrameworkSettings.cpp">
-      <Filter>Source Files\ClientSource\CommonFramework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ClientSource\CommonFramework\CRC32.cpp">
-      <Filter>Source Files\ClientSource\CommonFramework</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ClientSource\CommonPokemon\PokemonSettings.c">
-      <Filter>Source Files\ClientSource\CommonPokemon</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\ClientSource\CommonPokemon\PokemonSettings.cpp">
-      <Filter>Source Files\ClientSource\CommonPokemon</Filter>
     </ClCompile>
     <ClCompile Include="..\..\ClientSource\Libraries\Utilities.cpp">
       <Filter>Source Files\ClientSource\Libraries</Filter>
@@ -160,11 +148,29 @@
     <ClCompile Include="..\..\ClientSource\Programs\DateSpam-WattFarmer.cpp">
       <Filter>Source Files\ClientSource\Programs</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\SharedCpp\PrettyPrint.cpp">
-      <Filter>Source Files\SharedCpp</Filter>
+    <ClCompile Include="..\..\Common\Clientside\PrettyPrint.cpp">
+      <Filter>Source Files\Common\Clientside</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\SharedCpp\Unicode.cpp">
-      <Filter>Source Files\SharedCpp</Filter>
+    <ClCompile Include="..\..\Common\Clientside\Unicode.cpp">
+      <Filter>Source Files\Common\Clientside</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\DeviceFramework\FrameworkSettings.c">
+      <Filter>Source Files\Common\DeviceFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\DeviceFramework\CRC32.c">
+      <Filter>Source Files\Common\DeviceFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\DeviceFramework\CRC32.cpp">
+      <Filter>Source Files\Common\DeviceFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\DeviceFramework\FrameworkSettings.cpp">
+      <Filter>Source Files\Common\DeviceFramework</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Pokemon\PokemonSettings.c">
+      <Filter>Source Files\Common\Pokemon</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\Pokemon\PokemonSettings.cpp">
+      <Filter>Source Files\Common\Pokemon</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

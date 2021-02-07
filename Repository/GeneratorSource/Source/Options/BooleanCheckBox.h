@@ -7,9 +7,10 @@
 #ifndef PokemonAutomation_BooleanCheckBox_H
 #define PokemonAutomation_BooleanCheckBox_H
 
+#include "Common/Qt/Options/BooleanCheckBoxOption.h"
 #include "SingleStatementOption.h"
 
-class BooleanCheckBox : public SingleStatementOption{
+class BooleanCheckBox : public SingleStatementOption, public BooleanCheckBoxOption{
 public:
     static const QString OPTION_TYPE;
 
@@ -26,20 +27,13 @@ public:
 
 private:
     friend class BooleanCheckBoxUI;
-    bool m_default;
-    bool m_current;
 };
 
 
 
-class BooleanCheckBoxUI : public QWidget{
-    Q_OBJECT
-
+class BooleanCheckBoxUI : public BooleanCheckBoxOptionUI{
 public:
-    BooleanCheckBoxUI(QWidget& parent, BooleanCheckBox& value, const QString& label);
-    ~BooleanCheckBoxUI();
-private:
-    BooleanCheckBox& m_value;
+    BooleanCheckBoxUI(QWidget& parent, BooleanCheckBox& value);
 };
 
 

@@ -7,9 +7,10 @@
 #ifndef PokemonAutomation_TimeOption_H
 #define PokemonAutomation_TimeOption_H
 
+#include "Common/Qt/Options/TimeExpressionOption.h"
 #include "SingleStatementOption.h"
 
-class TimeExpression : public SingleStatementOption{
+class TimeExpression : public SingleStatementOption, public TimeExpressionOption<uint32_t>{
 public:
     static const QString OPTION_TYPE;
     static const QString JSON_MIN_VALUE;
@@ -19,44 +20,19 @@ public:
     TimeExpression(const QJsonObject& obj);
 
     virtual const QString& type() const override{ return OPTION_TYPE; }
-    bool is_valid() const override{ return m_error.isEmpty(); }
+    bool is_valid() const override;
     virtual void restore_defaults() override;
 
     virtual QJsonObject to_json() const override;
     virtual std::string to_cpp() const override;
 
     virtual QWidget* make_ui(QWidget& parent) override;
-
-public:
-    bool set_value(const QString& str);
-    QString time_string() const;
-
-private:
-    bool update();
-
-private:
-    friend class ExpressionUI;
-    int32_t m_min_value;
-    int32_t m_max_value;
-    QString m_default;
-    QString m_current;
-
-//    uint32_t m_limit;
-
-    int32_t m_value;
-    QString m_error;
 };
 
 
-class ExpressionUI : public QWidget{
-    Q_OBJECT
-
+class TimeExpressionUI : public TimeExpressionOptionUI<uint32_t>{
 public:
-    ExpressionUI(QWidget& parent, TimeExpression& value, const QString& label);
-    ~ExpressionUI();
-
-private:
-    TimeExpression& m_value;
+    TimeExpressionUI(QWidget& parent, TimeExpression& value);
 };
 
 

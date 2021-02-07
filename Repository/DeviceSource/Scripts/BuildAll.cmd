@@ -1,8 +1,21 @@
 
-set MCU=%1
+set board=%1
 
-if [%MCU%] == [] (
-    set /p MCU="MCU Type: "
+if [%board%] == [] (
+    set /p board="Board Type: "
+)
+
+if [%board%] == [ArduinoUnoR3] (
+    set MCU=atmega16u2
+)
+if [%board%] == [ProMicro] (
+    set MCU=atmega32u4
+)
+if [%board%] == [Teensy2] (
+    set MCU=atmega32u4
+)
+if [%board%] == [TeensyPP2] (
+    set MCU=at90usb1286
 )
 
 :: Just in case the PATH is messed up, but is installed in the usual place.
@@ -106,7 +119,7 @@ if not exist obj\ (
 
 for %%p in (%programs%) do (
     set first=%%p
-    @call Scripts\BuildOne.cmd %MCU% %%p > %%p.log  2>&1
+    @call Scripts\BuildOne.cmd %board% %%p > %%p.log  2>&1
     goto :done
 )
 :done
@@ -115,7 +128,7 @@ for %%p in (%programs%) do (
     if exist %%p.c (
         if [%%p] NEQ [%first%] (
             echo > %%p.tmp
-            START /B Scripts\BuildOne.cmd %MCU% %%p > %%p.log 2>&1
+            START /B Scripts\BuildOne.cmd %board% %%p > %%p.log 2>&1
         )
     )
 )

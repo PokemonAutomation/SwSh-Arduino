@@ -6,8 +6,8 @@
  * 
  */
 
-#include "CommonFramework/ControllerDefs.h"
-#include "CommonPokemon/PokemonSettings.h"
+#include "Common/DeviceFramework/SwitchControllerDefs.h"
+#include "Common/Pokemon/PokemonSettings.h"
 #include "PokemonSwShPrograms/AutoHost-Rolling.h"
 
 

@@ -36,8 +36,6 @@ private:
 
 
 class FixedCodeUI : public QWidget{
-    Q_OBJECT
-
 public:
     FixedCodeUI(QWidget& parent, FixedCode& value, const QString& label);
     ~FixedCodeUI();

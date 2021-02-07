@@ -6,7 +6,7 @@
  * 
  */
 
-#include "CommonFramework/ControllerDefs.h"
+#include "Common/DeviceFramework/SwitchControllerDefs.h"
 #include "PokemonSwShPrograms/ShinyHunt-Regi.h"
 
 const uint16_t WAIT_TIME    =   15 * TICKS_PER_SECOND;

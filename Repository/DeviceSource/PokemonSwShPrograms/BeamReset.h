@@ -4,7 +4,7 @@
  * 
  */
 
-#include "CommonFramework/ControllerDefs.h"
+#include "Common/DeviceFramework/SwitchControllerDefs.h"
 
 //  Wait in the Home menu for this long before resetting the game.
 extern const uint16_t DELAY_BEFORE_RESET;

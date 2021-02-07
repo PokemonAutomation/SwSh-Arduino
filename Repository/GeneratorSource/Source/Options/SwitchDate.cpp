@@ -9,7 +9,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QDateEdit>
-#include "SharedCpp/QtJsonTools.h"
+#include "Common/Qt/QtJsonTools.h"
 #include "Tools/Tools.h"
 #include "SwitchDate.h"
 
@@ -27,19 +27,21 @@ int SwitchDate_init = register_option(
 
 SwitchDate::SwitchDate(const QJsonObject& obj)
     : SingleStatementOption(obj)
-    , m_default(json_get_date(obj, JSON_DEFAULT))
-    , m_current(json_get_date(obj, JSON_CURRENT))
-{}
+    , SwitchDateOption(SingleStatementOption::m_label, QDate(2000, 1, 1))
+{
+    load_default(json_get_value(obj, JSON_DEFAULT));
+    load_current(json_get_value(obj, JSON_CURRENT));
+}
 bool SwitchDate::is_valid() const{
-    return valid_switch_date(m_current);
+    return SwitchDateOption::is_valid();
 }
 void SwitchDate::restore_defaults(){
-    m_current = m_default;
+    SwitchDateOption::restore_defaults();
 }
 QJsonObject SwitchDate::to_json() const{
     QJsonObject root = SingleStatementOption::to_json();
-    root.insert(JSON_DEFAULT, json_write_date(m_default));
-    root.insert(JSON_CURRENT, json_write_date(m_current));
+    root.insert(JSON_DEFAULT, write_default());
+    root.insert(JSON_CURRENT, write_current());
     return root;
 }
 std::string SwitchDate::to_cpp() const{
@@ -55,33 +57,12 @@ std::string SwitchDate::to_cpp() const{
     return str;
 }
 QWidget* SwitchDate::make_ui(QWidget& parent){
-    return new SwitchDateUI(parent, *this, m_label);
+    return new SwitchDateUI(parent, *this);
 }
 
-SwitchDateUI::SwitchDateUI(QWidget& parent, SwitchDate& value, const QString& label)
-    : QWidget(&parent)
-    , m_value(value)
-{
-    QHBoxLayout* layout = new QHBoxLayout(this);
-    QLabel* text = new QLabel(label, this);
-    layout->addWidget(text, 1);
-    text->setWordWrap(true);
-
-    QDateEdit* date_edit = new QDateEdit(m_value.m_current);
-    layout->addWidget(date_edit, 1);
-    date_edit->setMinimumDate(QDate(2000, 1, 1));
-    date_edit->setMaximumDate(QDate(2060, 12, 31));
-
-    connect(
-        date_edit, &QDateEdit::dateChanged,
-        this, [=](const QDate& date){
-            m_value.m_current = date;
-        }
-    );
-}
-SwitchDateUI::~SwitchDateUI(){
-
-}
+SwitchDateUI::SwitchDateUI(QWidget& parent, SwitchDate& value)
+    : SwitchDateOptionUI(parent, value)
+{}
 
 
 

@@ -4,12 +4,12 @@
  * 
  */
 
-#include "CommonFramework/ControllerDefs.h"
+#include "Common/DeviceFramework/SwitchControllerDefs.h"
 
 
 //  The maximum number of skips to perform.
 //  The actual # of skips will be lower if any errors are made.
-extern const uint32_t skips;
+extern const uint32_t SKIPS;
 
 
 ////////////////////////////////////////////////////////////////////////////////

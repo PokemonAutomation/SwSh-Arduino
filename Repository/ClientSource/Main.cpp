@@ -48,6 +48,9 @@ int main(){
     }catch (const std::string& str){
         std::cout << std::endl;
         std::cout << "Exception: " << str << std::endl;
+    }catch (...){
+        std::cout << std::endl;
+        std::cout << "Unknown Exception" << std::endl;
     }
     std::cout << std::endl;
 

@@ -9,7 +9,7 @@
 #include <QLabel>
 #include <QDoubleValidator>
 #include <QLineEdit>
-#include "SharedCpp/QtJsonTools.h"
+#include "Common/Qt/QtJsonTools.h"
 #include "Tools/Tools.h"
 #include "FloatingPoint.h"
 
@@ -29,23 +29,27 @@ int FloatingPoint_init = register_option(
 
 FloatingPoint::FloatingPoint(const QJsonObject& obj)
     : SingleStatementOption(obj)
-    , m_min_value(json_get_double(obj, JSON_MIN_VALUE))
-    , m_max_value(json_get_double(obj, JSON_MAX_VALUE))
-    , m_default(json_get_double(obj, JSON_DEFAULT))
-    , m_current(json_get_double(obj, JSON_CURRENT))
-{}
+    , FloatingPointOption(
+        SingleStatementOption::m_label,
+        json_get_double(obj, JSON_MIN_VALUE),
+        json_get_double(obj, JSON_MAX_VALUE),
+        json_get_double(obj, JSON_DEFAULT)
+    )
+{
+    m_current = json_get_double(obj, JSON_CURRENT);
+}
 bool FloatingPoint::is_valid() const{
-    return m_min_value <= m_current && m_current <= m_max_value;
+    return FloatingPointOption::is_valid();
 }
 void FloatingPoint::restore_defaults(){
-    m_current = m_default;
+    FloatingPointOption::restore_defaults();
 }
 QJsonObject FloatingPoint::to_json() const{
     QJsonObject root = SingleStatementOption::to_json();
-    root.insert(JSON_MIN_VALUE, m_min_value);
-    root.insert(JSON_MAX_VALUE, m_max_value);
-    root.insert(JSON_DEFAULT, m_default);
-    root.insert(JSON_CURRENT, m_current);
+    root.insert(JSON_MIN_VALUE, QJsonValue(m_min_value));
+    root.insert(JSON_MAX_VALUE, QJsonValue(m_max_value));
+    root.insert(JSON_DEFAULT, write_default());
+    root.insert(JSON_CURRENT, write_current());
     return root;
 }
 std::string FloatingPoint::to_cpp() const{
@@ -57,39 +61,13 @@ std::string FloatingPoint::to_cpp() const{
     return str;
 }
 QWidget* FloatingPoint::make_ui(QWidget& parent){
-    return new FloatingPointUI(parent, *this, m_label);
+    return new FloatingPointUI(parent, *this);
 }
 
-FloatingPointUI::FloatingPointUI(QWidget& parent, FloatingPoint& value, const QString& label)
-    : QWidget(&parent)
-    , m_value(value)
-{
-    QHBoxLayout* layout = new QHBoxLayout(this);
-    QLabel* text = new QLabel(label, this);
-    layout->addWidget(text, 1);
-    text->setWordWrap(true);
-    QLineEdit* box = new QLineEdit(QString::number(m_value.m_current, 'f', 2), this);
-//    box->setInputMask("999999999");
-    QDoubleValidator* validator = new QDoubleValidator(value.m_min_value, value.m_max_value, 2, this);
-    box->setValidator(validator);
-    layout->addWidget(box, 1);
-    connect(
-        box, &QLineEdit::textChanged,
-        this, [=](const QString& text){
-            double read = text.toDouble();
-            double fixed = read;
-//            fixed = std::max(fixed, m_value.m_min_value);
-            fixed = std::min(fixed, m_value.m_max_value);
-            if (read != fixed){
-                box->setText(QString::number(fixed, 'f', 2));
-            }
-            m_value.m_current = fixed;
-            QPalette *palette = new QPalette();
-            palette->setColor(QPalette::Text, m_value.is_valid() ? Qt::black : Qt::red);
-            box->setPalette(*palette);
-        }
-    );
-}
-FloatingPointUI::~FloatingPointUI(){
+FloatingPointUI::FloatingPointUI(QWidget& parent, FloatingPoint& value)
+    : FloatingPointOptionUI(parent, value)
+{}
 
-}
+
+
+

@@ -5,8 +5,8 @@
  */
 
 #include <iostream>
-#include "ClientSource/CommonFramework/CRC32.h"
-#include "ClientSource/CommonFramework/MessageProtocol.h"
+#include "Common/DeviceFramework/CRC32.h"
+#include "Common/DeviceFramework/MessageProtocol.h"
 #include "ClientSource/Libraries/Logging.h"
 #include "ClientSource/Libraries/MessageConverter.h"
 #include "PABotBaseConnection.h"
@@ -51,7 +51,7 @@ void PABotBaseConnection::send_message(uint8_t type, const std::string& msg, boo
 //    log("Sending: " + message_to_string(type, msg));
     m_sniffer->on_send(type, msg, is_retransmit);
 
-    size_t total_bytes = SERIAL_MESSAGE_OVERHEAD + msg.size();
+    size_t total_bytes = PABB_MESSAGE_OVERHEAD + msg.size();
     if (total_bytes > PABB_MAX_MESSAGE_SIZE){
         throw "Message is too long.";
     }
@@ -83,7 +83,7 @@ void PABotBaseConnection::on_recv(const void* data, size_t bytes){
         }
 
         //  Message is too short.
-        if (length < SERIAL_MESSAGE_OVERHEAD){
+        if (length < PABB_MESSAGE_OVERHEAD){
             m_sniffer->log("Message is too short: bytes = " + std::to_string(length));
             m_recv_buffer.pop_front();
             continue;
@@ -116,7 +116,7 @@ void PABotBaseConnection::on_recv(const void* data, size_t bytes){
             if (checksumA != checksumE){
                 m_sniffer->log("Invalid Checksum: bytes = " + std::to_string(length));
 //                std::cout << checksumA << " / " << checksumE << std::endl;
-//                log(message_to_string(message[1], &message[2], length - SERIAL_MESSAGE_OVERHEAD));
+//                log(message_to_string(message[1], &message[2], length - PABB_MESSAGE_OVERHEAD));
                 m_recv_buffer.pop_front();
                 continue;
             }
@@ -124,7 +124,7 @@ void PABotBaseConnection::on_recv(const void* data, size_t bytes){
         m_recv_buffer.erase(m_recv_buffer.begin(), m_recv_buffer.begin() + length);
 
         uint8_t type = message[1];
-        std::string body(&message[2], length - SERIAL_MESSAGE_OVERHEAD);
+        std::string body(&message[2], length - PABB_MESSAGE_OVERHEAD);
         m_sniffer->on_recv(type, body);
         on_recv_message(type, body);
     }

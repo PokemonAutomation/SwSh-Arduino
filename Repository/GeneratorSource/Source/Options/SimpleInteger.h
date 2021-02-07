@@ -7,9 +7,10 @@
 #ifndef PokemonAutomation_SimpleInteger_H
 #define PokemonAutomation_SimpleInteger_H
 
+#include "Common/Qt/Options/SimpleIntegerOption.h"
 #include "SingleStatementOption.h"
 
-class SimpleInteger : public SingleStatementOption{
+class SimpleInteger : public SingleStatementOption, public SimpleIntegerOption<uint32_t>{
 public:
     static const QString OPTION_TYPE;
     static const QString JSON_MIN_VALUE;
@@ -26,24 +27,11 @@ public:
     virtual std::string to_cpp() const override;
 
     virtual QWidget* make_ui(QWidget& parent) override;
-
-private:
-    friend class SimpleIntegerUI;
-    int32_t m_min_value;
-    int32_t m_max_value;
-    int32_t m_default;
-    int32_t m_current;
 };
 
-class SimpleIntegerUI : public QWidget{
-    Q_OBJECT
-
+class SimpleIntegerUI : public SimpleIntegerOptionUI<uint32_t>{
 public:
-    SimpleIntegerUI(QWidget& parent, SimpleInteger& value, const QString& label);
-    ~SimpleIntegerUI();
-
-private:
-    SimpleInteger& m_value;
+    SimpleIntegerUI(QWidget& parent, SimpleInteger& value);
 };
 
 #endif

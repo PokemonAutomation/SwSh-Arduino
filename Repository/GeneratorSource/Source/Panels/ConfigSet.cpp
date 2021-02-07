@@ -10,7 +10,8 @@
 #include <QLabel>
 #include <QPushButton>
 #include <QMessageBox>
-#include "SharedCpp/QtJsonTools.h"
+#include "Common/Qt/StringException.h"
+#include "Common/Qt/QtJsonTools.h"
 #include "Tools/Tools.h"
 #include "Tools/PersistentSettings.h"
 #include "UI/MainWindow.h"
@@ -89,7 +90,7 @@ QWidget* ConfigSet::make_ui(MainWindow& parent){
                     box.information(nullptr, "Success!", "Settings saved to:\n" + json + "\n" + cfile);
                 }catch (const StringException& str){
                     QMessageBox box;
-                    box.critical(nullptr, "Error", str.message);
+                    box.critical(nullptr, "Error", str.message());
                     return;
                 }
             }

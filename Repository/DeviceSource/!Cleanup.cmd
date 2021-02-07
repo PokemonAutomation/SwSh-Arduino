@@ -1,5 +1,7 @@
 ::  Clean the build. Delete all build artifacts.
 
+cd %~dp0
+
 del *.log
 del *.d
 del *.elf

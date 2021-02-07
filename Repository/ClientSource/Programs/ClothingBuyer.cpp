@@ -8,10 +8,10 @@
  */
 
 #include <iostream>
-#include "ClientSource/CommonFramework/FrameworkSettings.h"
-#include "ClientSource/CommonFramework/PushButtons.h"
-#include "ClientSource/CommonPokemon/PokemonSettings.h"
-#include "ClientSource/CommonPokemon/PokemonRoutines.h"
+#include "Common/DeviceFramework/FrameworkSettings.h"
+#include "Common/DeviceFramework/PushButtons.h"
+#include "Common/Pokemon/PokemonSettings.h"
+#include "Common/Pokemon/PokemonRoutines.h"
 #include "ClientSource/Libraries/Utilities.h"
 
 namespace PokemonAutomation{

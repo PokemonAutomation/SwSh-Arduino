@@ -140,7 +140,7 @@
         },
         {
             "00-Type": "TimeExpression",
-            "01-Label": "<b>Open Offline Den Delay:</b><br>Delay from \"Invite Others\" to when the clock starts ticking.",
+            "01-Label": "<b>Open Online Den Delay:</b><br>Delay from \"Invite Others\" to when the clock starts ticking.",
             "02-Declaration": "const uint16_t OPEN_ONLINE_DEN_LOBBY_DELAY",
             "03-MinValue": 0,
             "04-MaxValue": 65535,

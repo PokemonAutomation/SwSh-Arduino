@@ -28,8 +28,6 @@ private:
 
 
 class DividerUI : public QWidget{
-    Q_OBJECT
-
 public:
     DividerUI(QWidget& parent, const QString& label);
     ~DividerUI();

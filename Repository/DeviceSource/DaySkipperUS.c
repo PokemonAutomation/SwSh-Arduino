@@ -17,7 +17,7 @@
 
 //  The maximum number of skips to perform.
 //  The actual # of skips will be lower if any errors are made.
-const uint32_t skips            =   10;
+const uint32_t SKIPS            =   10;
 
 //  The current year in real life.
 const uint16_t REAL_LIFE_YEAR   =   2021;

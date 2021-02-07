@@ -21,10 +21,10 @@
 
 //  The maximum number of skips to perform.
 //  The actual # of skips will be lower if any errors are made.
-const uint32_t skips = 10;
+const uint32_t SKIPS = 10;
 
 //  If you don't want to start on 1/1/2000, you can set this instead.
-const Date start_date = {2000, 1, 1};  //  {year, month, day}
+const Date START_DATE = {2000, 1, 1};  //  {year, month, day}
 
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -54,8 +54,6 @@ private:
 };
 
 class FossilTableUI : public QWidget{
-    Q_OBJECT
-
 public:
     FossilTableUI(QWidget& parent, FossilTable& value, const QString& label);
     ~FossilTableUI();

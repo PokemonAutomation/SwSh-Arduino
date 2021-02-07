@@ -47,8 +47,6 @@ private:
 
 
 class RandomCodeUI : public QWidget{
-    Q_OBJECT
-
 public:
     RandomCodeUI(QWidget& parent, RandomCode& value, const QString& label);
     virtual ~RandomCodeUI();

@@ -6,7 +6,7 @@
  * 
  */
 
-#include "CommonFramework/ControllerDefs.h"
+#include "Common/DeviceFramework/SwitchControllerDefs.h"
 #include "PokemonSwShPrograms/EggSuperCombined2.h"
 
 

@@ -8,6 +8,7 @@
  */
 
 #include <iostream>
+#include "Common/DeviceFramework/PushButtons.h"
 #include "ClientSource/Libraries/Utilities.h"
 
 namespace PokemonAutomation{

@@ -16,7 +16,7 @@
 #include <QUrl>
 #include "Tools/Tools.h"
 #include "Tools/PersistentSettings.h"
-#include "SettingsListUI.h"
+#include "SettingListUI.h"
 #include "ProgramListUI.h"
 #include "MainWindow.h"
 
@@ -54,8 +54,8 @@ MainWindow::MainWindow(QWidget* parent)
 
 
     left->addSpacerItem(new QSpacerItem(10, 10));
-    left->addWidget(new QLabel("<b>Device/MCU Type:", this));
-    left->addWidget(m_mcu_list = new McuList(*this));
+    left->addWidget(new QLabel("<b>Board Type:", this));
+    left->addWidget(m_mcu_list = new BoardList(*this));
 
     left->addSpacerItem(new QSpacerItem(10, 10));
     left->addWidget(new QLabel("<b>Select a Program:", this));
@@ -68,7 +68,10 @@ MainWindow::MainWindow(QWidget* parent)
     left->addWidget(m_settings_list);
 
 #if 0
-    int width = std::max(m_program_list->text_width(), m_settings_list->text_width());
+    int width = std::max(
+        m_program_list->text_width(),
+        m_settings_list->text_width()
+    );
 #else
     int width = 300;
 #endif
@@ -137,8 +140,8 @@ MainWindow::MainWindow(QWidget* parent)
     right->addWidget(new QLabel("<b><font size=5>Program Settings:</font></b>", this));
 }
 
-const std::string& MainWindow::current_MCU() const{
-    return m_mcu_list->get_MCU();
+const std::string& MainWindow::current_board() const{
+    return m_mcu_list->get_board();
 }
 void MainWindow::change_panel(RightPanel& panel){
     if (m_right_panel_widget != nullptr){

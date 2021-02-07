@@ -8,8 +8,9 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
-#include "SharedCpp/QtJsonTools.h"
-#include "Tools/Tools.h"
+#include "Common/Qt/StringException.h"
+#include "Common/Qt/QtJsonTools.h"
+#include "Common/Qt/CodeValidator.h"
 #include "FixedCode.h"
 
 const QString FixedCode::OPTION_TYPE = "FixedCode";
@@ -70,7 +71,7 @@ QString FixedCodeUI::sanitized_code(const QString& text){
     try{
         message = "Code: " + sanitize_code(m_value.m_digits, text);
     }catch (const StringException& str){
-        message = "<font color=\"red\">" + str.message + "</font>";
+        message = "<font color=\"red\">" + str.message() + "</font>";
     }
     return message;
 }

@@ -9,7 +9,6 @@
 
 #include <sstream>
 #include <atomic>
-#include <mutex>
 #include "ClientSource/Connection/PABotBaseConnection.h"
 
 namespace PokemonAutomation{

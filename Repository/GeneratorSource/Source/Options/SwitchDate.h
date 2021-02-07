@@ -8,9 +8,10 @@
 #define PokemonAutomation_SwitchDate_H
 
 #include <QDate>
+#include "Common/Qt/Options/SwitchDateOption.h"
 #include "SingleStatementOption.h"
 
-class SwitchDate : public SingleStatementOption{
+class SwitchDate : public SingleStatementOption, public SwitchDateOption{
 public:
     static const QString OPTION_TYPE;
 
@@ -28,19 +29,11 @@ public:
 
 private:
     friend class SwitchDateUI;
-    QDate m_default;
-    QDate m_current;
 };
 
-class SwitchDateUI : public QWidget{
-    Q_OBJECT
-
+class SwitchDateUI : public SwitchDateOptionUI{
 public:
-    SwitchDateUI(QWidget& parent, SwitchDate& value, const QString& label);
-    ~SwitchDateUI();
-
-private:
-    SwitchDate& m_value;
+    SwitchDateUI(QWidget& parent, SwitchDate& value);
 };
 
 #endif

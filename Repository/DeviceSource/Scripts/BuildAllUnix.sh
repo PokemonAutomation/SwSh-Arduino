@@ -3,16 +3,8 @@
 # NOTE: this script is a helper script that *should not be called directly*
 # please use the scripts provided in the root of this directory
 
-# define the MCU 
-MCU=$1
+board=$1
 
-if [ -z "$MCU" ]; then
-      read -p 'NO MCU Type given, please enter: ' MCU
-fi
-
-# TODO: adjust the path
-
-# declare empty programs array
 declare -a PROGRAMS=()
 
 # standard program list
@@ -97,8 +89,8 @@ for p in "${PROGRAMS[@]}"; do
     first="$p"
     echo "$first"
 
-    echo "sh Scripts/BuildOneUnix.sh $MCU $p"
-    sh Scripts/BuildOneUnix.sh $MCU $p
+    echo "sh Scripts/BuildOneUnix.sh $board $p"
+    sh Scripts/BuildOneUnix.sh $board $p
 
     retVal=$?
     if [ $retVal -ne 0 ]; then
@@ -108,7 +100,7 @@ for p in "${PROGRAMS[@]}"; do
         rm obj/*.d obj/*.o
         echo "WARNING: Attempting build again..." 1>&2
 
-        sh Scripts/BuildOneUnix.sh $MCU $p
+        sh Scripts/BuildOneUnix.sh $board $p
         retVal=$?
 
         # one last check, if it errors again, we'll exit
@@ -128,7 +120,7 @@ done
 for p in "${PROGRAMS[@]}"; do
     if [ "$p" != "$first" ]; then
         # send it off and pipe it to a log file
-        sh Scripts/BuildOneUnix.sh $MCU $p 2>&1 | tee "log/$p.log" &
+        sh Scripts/BuildOneUnix.sh $board $p 2>&1 | tee "log/$p.log" &
     fi
 done
 

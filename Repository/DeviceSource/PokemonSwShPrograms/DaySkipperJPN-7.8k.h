@@ -4,12 +4,12 @@
  * 
  */
 
-#include "CommonFramework/ControllerDefs.h"
+#include "Common/DeviceFramework/SwitchControllerDefs.h"
 
 
 //  The maximum number of skips to perform.
 //  The actual # of skips will be lower if any errors are made.
-extern const uint32_t skips;
+extern const uint32_t SKIPS;
 
 //  If you don't want to start on 1/1/2000, you can set this instead.
 typedef struct{
@@ -17,7 +17,7 @@ typedef struct{
     uint8_t month;
     uint8_t day;
 } Date;
-extern const Date start_date;
+extern const Date START_DATE;
 
 
 ////////////////////////////////////////////////////////////////////////////////
