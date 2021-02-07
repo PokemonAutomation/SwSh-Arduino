@@ -33,7 +33,7 @@ The program will clone each Pokémon in your party. Then it repeats the process 
 
 ## Strongly Recommended:
 - Have the Oval Charm.
-- Have a fully upgraded bike.
+- The Ditto and the God Egg should have different OTs.
 
 ## Safety Recommendations:
 - Don't leave any Pokémon you care about in the game. This program releases Pokémon and has been observed to fail in a way that saves the game.

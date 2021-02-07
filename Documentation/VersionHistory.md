@@ -1,5 +1,12 @@
 # Version History
 
+### 2021-01-30:
+- Replace MCU selection with board selection.
+- Added support for the Pro Micro board.
+
+### 2021-01-25:
+- Fixed incorrect counting for Regigigas hunting serial logging.
+
 ### 2021-01-21:
 -  Added an alternate launch script because the main one keeps getting nuked by virus scanners.
 -  The UI now shows full file paths.

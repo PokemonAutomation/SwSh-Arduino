@@ -110,6 +110,15 @@ This project was originally started by Mysticial back in March 2020 as a stand-a
 
 As of this writing, Pokémon Automation's Arduino programs have been developed independently. With the exception of the LUFA library and the low-level USB descriptors, this project shares no code with and bears no resemblance to any other Arduino Switch programs.
 
+## Contributors
+- Mysticial - Project founder.
+- SakuraKim - Release management, development, and R&D.
+- denvoros - Build scripts, Mac support, and AI R&D.
+- MrDonders - R&D
+- joyrida - Build scripts and Mac support.
+
+And countless users and testers in the Pokémon Automation Discord Server.
+
 ## License
 
 You are free to use and distribute this original package for personal use only.

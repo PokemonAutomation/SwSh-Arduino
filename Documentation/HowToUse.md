@@ -52,10 +52,11 @@ The program should be fairly self-explanatory. Once you have selected the option
 
 ### Method 2: Run the BuildAll-xxxx.cmd file. (Windows only)
 
-Go into the folder “DeviceSource” and you will find 3 BuildAll scripts corresponding to the 3 different MCU types.
-- !BuildAll-at90usb1286.cmd (for Teensy++ 2.0)
-- !BuildAll-atmega16u2.cmd (for Arduino UNO R3)
-- !BuildAll-atmega32u4.cmd (for Arduino Micro, and Teensy 2.0)
+Go into the folder “DeviceSource” and you will find 3 BuildAll scripts corresponding to the 4 different board types.
+- !BuildAll-ArduinoUnoR3.cmd
+- !BuildAll-ProMicro.cmd
+- !BuildAll-Teensy2.0.cmd
+- !BuildAll-Teensy++2.0.cmd
 
 If you double-click on it, it will build every single program in the package. It should look similar to this:
 
@@ -65,7 +66,7 @@ Depending on how fast your computer is, it may take several seconds or longer to
 
 Errors are logged into the respective .log file for the program (for example "WattFarmer.log"). If you don’t see any .log files, it’s because you have file extensions disabled. In that case, the file will just be named "WattFarmer".
 
-If you are comfortable with shell scripting and you don’t want to keep rebuilding all the programs, you can edit "Scripts/BuildAll.cmd" to build only a subset of the programs.
+If you are comfortable with shell scripting and you don't want to keep rebuilding all the programs, you can edit "Scripts/BuildAll.cmd" to build only a subset of the programs.
 
 ### Method 3: Run the 00-BuildAllUnix.sh file. (Mac and Linux)
 
@@ -111,7 +112,7 @@ Go into the folder "DeviceSource", then you need to run the "00-FlashUnix.sh" sc
 4. Press enter.
 
 Once you run the script, it will prompt you for:
-- The MCU type.
+- The board type.
 - Which program to compile and load.
 
 It will automatically build the program and flash it to your device.
@@ -120,7 +121,7 @@ It will automatically build the program and flash it to your device.
 
 This method is almost identical to brianuuuSonic's AutoController v3.1.0 programs. Edit the makefile and run `make` to build the .hex file.
 
-In the folder "DeviceSource", open the file "makefile" and edit the `MCU` and `TARGET` manually. Then save the file and run `make` from the command line.
+In the folder "DeviceSource", open the file "makefile" and edit the `BOARD_TYPE` and `TARGET` manually. Then save the file and run `make` from the command line.
 
 <img src="images/HowToUse-3.png" width="800">
 
