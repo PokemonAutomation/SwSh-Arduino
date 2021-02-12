@@ -4,7 +4,7 @@
 
 New to Pokémon automation? This is what this guide is for!
 
-This guide will walk you through the entire process of automation your game.
+This guide will walk you through the entire process of automating your game.
 This includes everything from what hardware to purchase, to setting it all up, to running them on your Switch.
 
 But before we begin, we must first introduce some background and terminology.
@@ -62,13 +62,15 @@ Thus you now have tool-assisted gameplay. This can be useful for many things - s
 
 <img src="images/serial-programs-0.png" height="400">
 
+**Important:** As of this writing, only Windows is supported for the serial programs. We do intend to port it to Mac and Linux at some point in the future. Furthermore, your Windows computer needs to be sufficiently powerful to handle video capture.
+
 **For reasons involving latency, many of the "fast" programs cannot run reliably over a serial connection. These programs partially remain on the device. For this reason, PABotBase has a library of subroutines that handle these timing-sensitive operations. Unfortunately, this library is too large to fit onto the Arduino Uno R3. Therefore, the Arduino Uno R3 cannot run all the programs in our serial programs package even though the device is supposed to be just a proxy.*
 
 ## Full Feedback
 
 Full feedback extends serial connectivity with video recogition to produce programs that respond to and adapt to game events. At this point, the program is imitating a human player who can see the screen and hear sounds.
 
-As of this writing, the only full-feedback program that we have is the [AutoMaxLair prototype](https://github.com/ercdndrs/AutoMaxLair). Development is ongoing to build the generic framework that is needed productionize the AutoMaxLair and to build new programs utilizing feedback.
+As of this writing, the only full-feedback program that we have is the [AutoMaxLair prototype](https://github.com/ercdndrs/AutoMaxLair). Development is ongoing to build the generic framework that is needed to productionize the AutoMaxLair and to build new programs utilizing feedback.
 
 <img src="images/automaxlair-prototype.jpg" height="400">
 
@@ -80,7 +82,7 @@ These are the list of the devices that we support. Click on the links for the se
 
 - [Teensy 2.0 and Teensy++ 2.0](Hardware-Teensy2.md)
 - [Pro Micro](Hardware-ProMicro.md)
-- [Arduino Uno R3](Hardware-ArduinoUnoR3.md)
+- [Arduino Uno R3](Hardware-ArduinoUnoR3.md) (not recommended)
 
 For first time users, we recommend the Teensy 2.0. It is a somewhat expensive, but is by far the most user-friendly. You get what you pay for.
 

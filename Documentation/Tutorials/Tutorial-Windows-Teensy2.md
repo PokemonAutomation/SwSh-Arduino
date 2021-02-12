@@ -74,7 +74,12 @@ At this point, two green arrows should show up in Teensy Loader.
 
 3. Plug the Teensy into your Switch (or the dock that's attached to it).
 
-The program should now begin running. It will flash its light for a few seconds, then it will connect to the Switch and navigate its way back into the game. After a brief pause, it will start mashing A. To stop the program, simply unplug the Teensy at any time.
+The program should now begin running. It will flash its light for a few seconds, then it will connect to the Switch and navigate its way back into the game. After a brief pause, it will start mashing A.
+
+**Usage Notes:**
+
+- To stop the program, simply unplug the Teensy at any time.
+- Do not change video output or mess with the HDMI. These can cause the program to Switch to freeze for multiple seconds and break the program. If you want turn off the TV, do it *before* you start the program.
 
 ## Other Programs
 
@@ -85,46 +90,6 @@ You can find the manual for a program by clicking on the "Online Documentation" 
 
 # Serial Programs
 
-Now that you know how to use the native programs for your Teensy, you are ready to move onto the serial programs!
-
-***Be aware that you will need a regular Switch (not Switch Lite) for proper video capture and video feedback. The Switch Lite does not output video.***
-
-## Step 1: Acquire the Hardware
-
-Follow the [hardware guide](Hardware-Teensy2.md) all the way to the end. (all 3 sections)
-
-Strictly speaking, the final section on video capture isn't needed if you don't run any programs that require video feedback.
-But the serial programs are much easier to use if you have video capture. If you're this far into the tutorial, you're probably going to have video capture anyway.
-
-## Step 2: Setup video capture.
-
-(coming soon)
-
-## Step 3: Download the SerialPrograms package.
-
-(coming soon)
-
-## Step 4: Flash PABotBase into your Teensy.
-
-(coming soon)
-
-## Step 5: Setup the serial port and video capture device.
-
-(coming soon)
-
-## Step 6: Play around with the keyboard controls.
-
-(coming soon)
-
-## Step 7: Run a program.
-
-(coming soon)
-
-## Notes
-
-Since the SerialPrograms use a prebuilt PABotBase .hex binary, you don't actually need to install WinAVR to use it. So if you intend to use only the serial programs, you can skip installing the toolchain.
-
-Many of the programs in SerialPrograms are identical to the native ones that don't require serial. However, you don't need to start them in the grip menu.
-The purpose of the grip menu is to disconnect your manual controller so that the device can take over as the primary controller. But if you're using the keyboard to control your Switch, the device is likely already the primary controller. So you can actually start the program in the Switch Home menu or even inside the game.
+Main Article: [Tutorial - Windows - Serial](Tutorial-Windows-Serial.md)
 
 

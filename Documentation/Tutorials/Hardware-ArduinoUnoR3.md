@@ -87,6 +87,6 @@ These red CP210x boards seem to be the most popular in our server due to their c
 
 # Video Hardware:
 
-(coming soon)
+Main Section: [Video Hardware](Hardware-Video.md)
 
 
