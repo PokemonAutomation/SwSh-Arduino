@@ -54,6 +54,9 @@ To use any of the serial or feedback programs, you will need additional hardware
 
 There are many ways to set this up with varying cost and difficulty. Here we will present some simple options that do not require soldering. If you are experienced with electronics, feel free to do your own thing.
 
+It is worth noting that the most difficult part of the serial setup is connecting to the holes on the Teensy.
+This can be made much easier by purchasing a Teensy with pins, but this is not recommended unless you plan on keeping the Teensy in a breadboard as it is too easy to damage or short the pins.
+
 ## Option 1: UART Cable + Mini-Grabber Cables
 
 This option is the easiest to setup, however the mini grabber cables that are needed are rarely in stock.

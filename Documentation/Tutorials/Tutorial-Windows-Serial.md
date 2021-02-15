@@ -136,16 +136,26 @@ PABotBase is the only program that will accept commands over serial, so you will
 Many of the programs in SerialPrograms are identical to the native ones that don't require serial. However, you don't need to start them in the grip menu.
 The purpose of the grip menu is to disconnect your manual controller so that the device can take over as the primary controller. But if you're using the keyboard to control your Switch, the device is likely already the primary controller. So you can actually start the program in the Switch Home menu or even inside the game.
 
-### Multiple video capture cards are finicky.
+### Multiple Switch Considerations
 
 If you have played with the Switch Viewer program, you will notice that it supports multiple Switches. This is a precursor to future releases that may have programs that utilize multiple Switches simultaneously.
 
-However, we have found that setting up the hardware to handle multiple capture cards is quite tricky. Sometimes they work, sometimes they don't. And it's difficult to troubleshoot.
+However, we have found that setting up the hardware to handle multiple serial ports and capture cards can be tricky. Sometimes they work, sometimes they don't. And it's often difficult to troubleshoot. This is regardless of whether you are running multiple Switches under the same instance or if you are running multiple instances of one Switch each.
+
+**Serial ports and Cameras can only be used at once place at a time.**
+
+Both serial ports and cameras (capture cards) can only be used by one application at a time. Therefore you cannot view the same video capture from both OBS and SerialPrograms simultaneously. If you want to do this, use the OBS Virtual Camera.
+
+The single-use limitation also applies within the same application. When viewing multiple Switch setups simultaneously, both the serial ports and cameras can only be used at one place at a time. If you try to use the same serial port on a second setup, it won't connect. If you try to use the same camera on a second setup, it won't display.
+
+**Capture Cards don't always play well with USB hubs.**
+
+Capture cards are very hit-and-miss when you try to put multiple of them on the same USB hub.
 
 Some general observations:
 1. Capture cards draw a lot of power. If you put them with other high-powered USB devices drawing power from the same source, the card may not function.
 2. Capture cards use a lot of USB bandwidth. If you put multiple capture cards on the same USB hub, you may saturate the bandwidth on that hub.
-3. For some unknown reason (even when both the above do not apply), it is difficult to get more than 1 or 2 capture cards on the same physical USB port (by means of a hub) on the computer to work simultaneously. You will need to spread them out. Thus for a 4-Switch setup, your computer will need at least 4 USB ports - one for each capture card. But within each port, you can use a hub to connect *one* capture card and other devices as well. (such as the UART serial connections)
+3. For some unknown reason (even when both the above do not apply), it can be difficult to get multiple capture cards on the same physical USB port (by means of a hub) on the computer to work simultaneously. You may need to spread them out. Thus for a 4-Switch setup, your computer will need at least 4 USB ports - one for each capture card. But within each port, you can use a hub to connect *one* capture card and other devices as well. (such as the UART serial connections)
 
 
 

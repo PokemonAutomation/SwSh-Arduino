@@ -1,5 +1,16 @@
 # Version History
 
+### 2021-02-14:
+- Officially added SerialPrograms to the project.
+
+### 2021-02-13:
+- Increased default delete time for FriendDelete.
+- Removed the PDF manual. Use the online documentation instead.
+
+### 2021-02-12:
+- TradeBot now has an option to handle the extra line of text in German.
+- EggCombined2 and EggSuperCombined2 now support rollover prevention.
+
 ### 2021-01-30:
 - Replace MCU selection with board selection.
 - Added support for the Pro Micro board.

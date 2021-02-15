@@ -66,10 +66,12 @@ If everything worked correctly, it should look like this:
 <img src="images/tutorial-windows-uno-4.png" height="400">
 
 If you get an error, then it usually means one of the following:
-- The ATmega16u2 driver hasn't been correctly installed.
-- Your Arduino cannot enter DFU mode.
+1. The ATmega16u2 driver hasn't been correctly installed.
+2. Your Arduino cannot enter DFU mode.
+3. Your computer allowing the Arduino to enter DFU mode.
 
-If the latter, then your board is defective and cannot be used to run programs in this package.
+If it is #2, then your board is defective and cannot be used to run programs in this package.
+If it is #3, we still do not know the cause. There are reports that an Arduino works on one computer, but not another.
 
 Many people get stuck at this point if an error occurs.
 

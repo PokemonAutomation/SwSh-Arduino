@@ -1,6 +1,6 @@
 # Pokémon Automation Sword/Shield Scripts
 
-**Version:** 2021-01-14
+**Version:** 2021-02-14
 
 **GitHub Repo:** https://github.com/Mysticial/Pokemon-Automation-SwSh-Arduino-Scripts
 
@@ -80,18 +80,18 @@ Functionally, there is a lot of overlap with brianuuuSonic's AutoController prog
 
 | **Program** | **PA's SwSh Scripts (this package)** | **brianuuuSonic's Autocontroller** |
 | --- | --- | --- |
-| [Day Skipper (JPN)](Programs/DaySkipperJPN-7.8k.md) | 7827 skips/hour (7.8k)<br>7619 skips/hour (original) | 6500 skips/hour (fast mode)<br>6134 skips/hour (default mode) |
-| [Day Skipper (EU)](Programs/DaySkipperEU.md) | 7541 skips/hour (year 2020)<br>7533 skips/hour (year 2021) | 5006 skips/hour (fast mode)<br>4786 skips/hour (default mode) |
-| [Day Skipper (US)](Programs/DaySkipperUS.md) | 7180 skips/hour (year 2020)<br>7173 skips/hour (year 2021) | 5006 skips/hour (fast mode)<br>4786 skips/hour (default mode) | 
-| [Watt Farming](Programs/DateSpam-WattFarmer.md) | 6.9 seconds/fetch | 9.1 seconds/fetch|
-| [Berry Farming](Programs/DateSpam-BerryFarmer.md) | 13.1 seconds/fetch | 16.0 seconds/fetch|
-| [Loto ID](Programs/DateSpam-LotoFarmer.md) | 18.4 seconds/attempt | 20.5 seconds/ attempt|
-| [Den Rolling](Programs/DenRoller.md) | 16.4 seconds/skip | 18.0 seconds/skip|
-| [Sustained Egg Hatching<br>(5120 step)](Programs/EggCombined2.md) | 1700 eggs/day<br>(2-3 touches/day) | 1300 eggs/day<br>(~6 touches/day)
-| [8-Digit Code Entry](Programs/FastCodeEntry.md) | ~0.5 seconds | up to 6.3 seconds |
+| [Day Skipper (JPN)](NativePrograms/DaySkipperJPN-7.8k.md) | 7827 skips/hour (7.8k)<br>7619 skips/hour (original) | 6500 skips/hour (fast mode)<br>6134 skips/hour (default mode) |
+| [Day Skipper (EU)](NativePrograms/DaySkipperEU.md) | 7541 skips/hour (year 2020)<br>7533 skips/hour (year 2021) | 5006 skips/hour (fast mode)<br>4786 skips/hour (default mode) |
+| [Day Skipper (US)](NativePrograms/DaySkipperUS.md) | 7180 skips/hour (year 2020)<br>7173 skips/hour (year 2021) | 5006 skips/hour (fast mode)<br>4786 skips/hour (default mode) | 
+| [Watt Farming](NativePrograms/DateSpam-WattFarmer.md) | 6.9 seconds/fetch | 9.1 seconds/fetch|
+| [Berry Farming](NativePrograms/DateSpam-BerryFarmer.md) | 13.1 seconds/fetch | 16.0 seconds/fetch|
+| [Loto ID](NativePrograms/DateSpam-LotoFarmer.md) | 18.4 seconds/attempt | 20.5 seconds/ attempt|
+| [Den Rolling](NativePrograms/DenRoller.md) | 16.4 seconds/skip | 18.0 seconds/skip|
+| [Sustained Egg Hatching<br>(5120 step)](NativePrograms/EggCombined2.md) | 1700 eggs/day<br>(2-3 touches/day) | 1300 eggs/day<br>(~6 touches/day)
+| [8-Digit Code Entry](NativePrograms/FastCodeEntry.md) | ~0.5 seconds | up to 6.3 seconds |
 
 Performance and efficiency goes beyond the raw benchmarks shown above. For example:
-- [PA's fossil program](Programs/MultiGameFossil.md) can revive fossils across multiple game saves to allow overnight runs without the program finishing and the Switch idling. This allows fossils to be run 24/7.
+- [PA's fossil program](NativePrograms/MultiGameFossil.md) can revive fossils across multiple game saves to allow overnight runs without the program finishing and the Switch idling. This allows fossils to be run 24/7.
 - PA has combined egg fetching+hatching that is almost as fast as manual hatching. More importantly, it can be run 24/7 with little user planning and intervention.
 
 The programs here also emphasize reliability. For example:
