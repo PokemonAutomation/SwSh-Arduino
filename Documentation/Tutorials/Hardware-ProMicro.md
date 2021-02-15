@@ -77,7 +77,34 @@ Note that the mini grabber clips may not fit through the holes on the Pro Micro.
 
 ## Option 2: UART Cable + Solderless Hammer Headers
 
-(coming soon)
+This option is cleaner, but is more involved.
+
+<img src="images/pro-micro-hammer-0.jpg" height="400">
+
+**Required Hardware:**
+1. Everything from the [previous section](#basic-hardware).
+2. A [USB-to-TTL UART cable or board](https://www.adafruit.com/product/954). It is recommended to get one with the CP210x controller. Avoid the ones with PLxxxx controllers since many of them are knock-offs that do not work.
+3. [Solderless Hammer Headers](https://www.adafruit.com/product/3662)
+4. A box cutter or a wire cutter.
+5. Pliers. (you will likely need two of them)
+
+**Hardware Setup:**
+
+1. Use your box cutter or wire cutter to cut out 2 pairs of pins from the strip of solderless headers. ***Be very careful not to cut yourself.***
+2. Insert a pair of hammer headers into the TX and RX holes on the Pro Micro.
+3. Insert a hammer header into the GND hole on the Pro Micro. (Since you can't easily split the pair of pins, you can do GND and the pin adjacent to it.)
+
+<img src="images/pro-micro-hammers-0.jpg" height="200"> <img src="images/pro-micro-hammers-1.jpg" height="200">
+
+You will need a LOT of force to push the hammer headers into the holes. Recommend using pliers to pull the pins out of the plastic holds and inserting the long side into the Pro Micro. Then put the covers back on and use pliers to squeeze it in.
+
+Now that the pins are setup, you can make the connections.
+- UART cable green (TX) to Pro Micro RX1
+- UART cable white (RX) to Pro Micro TX0
+- UART cable black (GND) to Pro Micro GND (any one is fine)
+- UART cable red (VCC) – leave unconnected
+
+<img src="images/pro-micro-hammer-1.jpg" height="400">
 
 ## Bulk Alternatives to UART Cable
 
@@ -90,7 +117,7 @@ These red CP210x boards seem to be the most popular in our server due to their c
 
 <img src="images/uart-red-cp210x.jpg" height="400">
 
-**[Picture of Pro Micro setup using the red CP210x UART.]**
+<img src="images/pro-micro-red-uart.jpg" height="400">
 
 
 # Video Hardware:

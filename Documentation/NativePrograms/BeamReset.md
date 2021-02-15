@@ -20,7 +20,7 @@ Red beams will show up faster. Purple beams are slower and will appear after the
 
 ## Options:
 
-This program uses [`TOLERATE_SYSTEM_UPDATE_MENU_FAST`](../Appendix/GlobalSettings.md#tolerate-system-update-menu-fast) to bypass the system update window.
+This program uses [`TOLERATE_SYSTEM_UPDATE_MENU_SLOW`](../Appendix/GlobalSettings.md#tolerate-system-update-menu-slow) to bypass the system update window.
 
 ### Delay Before Reset:
 ```

@@ -2,6 +2,7 @@
 
 ### 2021-02-14:
 - Officially added SerialPrograms to the project.
+- BeamReset now uses `TOLERATE_SYSTEM_UPDATE_MENU_SLOW` instead of `TOLERATE_SYSTEM_UPDATE_MENU_FAST`.
 
 ### 2021-02-13:
 - Increased default delete time for FriendDelete.
