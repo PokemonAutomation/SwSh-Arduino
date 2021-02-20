@@ -3,7 +3,7 @@ This is a public distribution mirror for the Pokemon Automation discord server's
 
  - **Latest Native Programs:** [PASwShNativePrograms-20210206.zip](PASwShScripts-20210206.zip?raw=true)
  - **Latest Serial Programs:** coming soon...
- - **Documentation:** [Online Manual](Documentation/README.md), [pdf](User%20Manual.pdf)
+ - **Documentation:** [Online Manual](Documentation/README.md)
  - **Support Discord:**
 
 [<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)
