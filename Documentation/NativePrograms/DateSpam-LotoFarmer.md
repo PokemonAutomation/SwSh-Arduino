@@ -37,3 +37,16 @@ const uint16_t MASH_B_DURATION  =   8 * TICKS_PER_SECOND;
 ```
 Mash B this long to exit the dialog after attempt. You shouldn’t need to touch this. But for some languages (like German), you may need to increase this by a 1 or 2 seconds.
 
+
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+- [Program List](/Documentation/ProgramList.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

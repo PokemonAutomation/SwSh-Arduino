@@ -101,3 +101,16 @@ const uint8_t TIME_ROLLBACK_HOURS   =   1;
 ```
 Every this many hours, rollback the time by this many hours. This keeps the time constant to prevent the weather from changing. It also allows you to target time-specific marks. Set this to zero to disable this feature.
 
+
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+- [Program List](/Documentation/ProgramList.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

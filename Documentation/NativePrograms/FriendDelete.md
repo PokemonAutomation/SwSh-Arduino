@@ -64,3 +64,16 @@ The default sorting order of your friends list is:
 
 However, you can trick it to sort all best friends first by enabling local communication (such as by going offline in Pokémon). This suppresses the online status of your friends when you first load it - thus forcing it to sort only by best friend status. As long as you don't press Y on your friends list or re-enter the friends list while online, it won't re-sort based on online status.
 
+
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+- [Program List](/Documentation/ProgramList.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

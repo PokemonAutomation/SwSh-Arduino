@@ -1,5 +1,8 @@
 # Hardware and Recommendations
 
+***This section of the guide is now deprecated. [Go see the new one!](Tutorials/README.md)***
+
+
 If you are new to automation and are interested in getting started, you will need some hardware.
 
 **Required Hardware:**

@@ -26,43 +26,8 @@ If you have questions, feel free to join our Discord server (linked above) for h
 - [Table of Contents](#table-of-contents)
 - [What are these Programs?](#what-are-these-programs)
 - [**Program List**](ProgramList.md)
+- [**Setup Guide and Tutorials**](Tutorials/README.md)
 - [Version History](VersionHistory.md)
-
-[**Hardware and Recommendations:**](Hardware.md)
-- [Arduino or Teensy?](Hardware.md#arduino-or-teensy)
-
-[**How to Use:**](HowToUse.md)
-- [Configuring the Programs](HowToUse.md#configuring-the-programs)
-- [Building the Hex Files](HowToUse.md#building-the-hex-files)
-  - [Method 1: Use the hex generator UI. (Windows only)](HowToUse.md#method-1-use-the-hex-generator-ui-windows-only)
-  - [Method 2: Run the BuildAll-xxxx.cmd file. (Windows only)](HowToUse.md#method-2-run-the-buildall-xxxxcmd-file-windows-only)
-  - [Method 3: Run the !BuildAllUnix.sh file. (Mac and Linux)](HowToUse.md#method-3-run-the-buildallunixsh-file-mac-and-linux)
-  - [Method 4: Run the !FlashUnix.sh file. (Mac and Linux)](HowToUse.md#method-4-run-the-flashunixsh-file-mac-and-linux)
-  - [Method 5: Use the makefile.](HowToUse.md#method-5-use-the-makefile)
-- [Load the Program](HowToUse.md#load-the-program)
-- [Run the Program](HowToUse.md#run-the-program)
-- [While a Program is Running](HowToUse.md#while-a-program-is-running)
-  
-[**Serial Communication:**](SerialCommunication.md)
-- [Application Examples](SerialCommunication.md#application-examples)
-- [Hardware and Setup](SerialCommunication.md#hardware-and-setup)
-  - [Arduino Uno R3](SerialCommunication.md#arduino-uno-r3)
-  - [Teensy 2.0](SerialCommunication.md#teensy-20)
-  - [Teensy++ 2.0](SerialCommunication.md#teensy-20-1)
-- [Software Setup](SerialCommunication.md#software-setup)
-
-**Appendix:**
-- [Change Grip/Order Menu](Appendix/ChangeGripOrderMenu.md)
-- [Raid Code](Appendix/RaidCode.md)
-- [User Slot Number](Appendix/UserSlotNumber.md)
-- [Maximizing Switch Stability](Appendix/MaximizingSwitchStability.md)
-- [Unattended Shiny-Hunting Programs](Appendix/UnattendedShinyHuntingPrograms.md)
-  - [Calibration](Appendix/UnattendedShinyHuntingPrograms.md#calibration)
-- [Day Skippers](Appendix/DaySkippers.md)
-  - [Common Usage Errors](Appendix/DaySkippers.md#common-usage-errors)
-  - [How Many Skips are Remaining?](Appendix/DaySkippers.md#how-many-skips-are-remaining)
-  - [Errors and Auto-Corrections](Appendix/DaySkippers.md#errors-and-auto-corrections)
-- [Global Settings](Appendix/GlobalSettings.md)
 
 
 ## What are these Programs?
@@ -75,6 +40,8 @@ The categories which these programs cover are:
 - Auto-hosting
 - Egg hatching
 - Other misc. tools
+
+***The latest versions now support computer connectivity by means of serial connection and video capture. See the [program list](ProgramList.md) for more details!***
 
 Functionally, there is a lot of overlap with brianuuuSonic's AutoController programs. While the AutoController programs are more user-friendly for beginners, the programs here (by PA) are focused on speed, reliability, and ease of large-scale unattended automation.
 

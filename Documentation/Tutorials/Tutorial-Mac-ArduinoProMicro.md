@@ -10,13 +10,17 @@ Follow the hardware guide for the "Basic Hardware" section:
 - [Pro Micro](Hardware-ProMicro.md)
 - [Arduino Uno R3](Hardware-ArduinoUnoR3.md)
 
-## Step 2: Install ???
+## Step 2: Install Homebrew and AVR
+
+1. Install homebrew.
+2. Run `brew tap osx-cross/avr` to install AVR.
+3. If the above doesn't work, try running `brew install avr-gcc` as well.
 
 ## Step 3: Download the Arduino Programs
 
 Download the latest version of our Arduino programs from the [main page](https://github.com/Mysticial/Pokemon-Automation-SwSh-Arduino-Scripts).
 
-(The link should look like something like `PASwShScripts-20210206.zip`)
+(The link should look like something like `PASwShNativePrograms-yyyymmdd.zip`)
 
 If you get a virus or malware warning, ignore it. These are known false positives. If you don't trust us, the source code is in this repo.
 
@@ -78,9 +82,20 @@ You can find the manual for a program by clicking on the "Online Documentation" 
 
 # Serial Programs
 
-(coming soon)
+Not yet available for Mac. Stay tuned.
 
 
 
 
 
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

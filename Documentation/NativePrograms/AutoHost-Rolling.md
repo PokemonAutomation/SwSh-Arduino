@@ -183,3 +183,16 @@ Try with the defaults first. If things don’t work, then try increasing these t
 
 
 
+
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+- [Program List](/Documentation/ProgramList.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

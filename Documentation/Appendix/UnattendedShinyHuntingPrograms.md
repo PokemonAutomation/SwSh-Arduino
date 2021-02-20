@@ -70,3 +70,14 @@ Thus, you will need to check your calibration every day or so to make sure it st
 These failure cases mean that if you come back and see your Switch trapped in the summary screen, it doesn’t guarantee that the encounter is shiny. This is actually quite common depending on the program and the quality of the calibration.
 
 
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

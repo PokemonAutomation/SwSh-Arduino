@@ -31,3 +31,16 @@ This program uses [`TOLERATE_SYSTEM_UPDATE_MENU_FAST`](../Appendix/GlobalSetting
 const uint16_t WAIT_TIME_IN_DEN = 5 * TICKS_PER_SECOND;
 ```
 View the den for this duration before moving on.
+
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+- [Program List](/Documentation/ProgramList.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

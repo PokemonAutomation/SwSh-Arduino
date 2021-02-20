@@ -22,3 +22,16 @@ None since the Virtual Console isn't a program. But here are the basic setup ins
 If you don't know the keyboard/button mappings, you can view that by clicking on the "Keyboard Layout" button in the bottom-left section of the program.
 
 
+
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+- [Program List](/Documentation/ProgramList.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

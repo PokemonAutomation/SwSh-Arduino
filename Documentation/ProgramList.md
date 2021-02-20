@@ -72,7 +72,15 @@ In addition to the programs listed under here, nearly all the native programs (a
 - [**Friend Search Disconnect**](SerialPrograms/FriendSearchDisconnect.md) - Disconnect from the internet with friend-search. Useful for activating Y-COMM glitch from a computer.
 
 
+<hr>
 
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)
 
 
 

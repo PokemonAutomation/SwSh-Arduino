@@ -1,7 +1,5 @@
 # Getting Started
 
-**(This is the new version of the documentation. It is currently still a work-in-progress.)**
-
 New to Pokémon automation? This is what this guide is for!
 
 This guide will walk you through the entire process of automating your game.
@@ -45,7 +43,7 @@ Basic programs have no computer control and no feedback. These programs are comp
 
 The hardware required for basic programs is the simplest. All you need is the device and an adapter/cable to connect it to the Switch.
 
-The list of programs that can be run with the basic setup [is here](../ProgramList.md).
+The list of programs that can be run with the basic setup [is here](../ProgramList.md#native-programs).
 
 ## Serial Programs
 
@@ -54,7 +52,7 @@ Serial programs run on the computer with the device acting as a proxy.
 
 Since serial programs reside on the computer, they are less limited* by the memory limitations of the device. This allows serial programs to be much more sophisticated. Furthermore, a computer can control multiple devices (and therefore Switches) simultaneously. Thus you can have multi-Switch programs.
 
-Serial connectivity will allow you run the SerialPrograms package. **[link coming soon]**
+Serial connectivity will allow you to run the SerialPrograms package which has most of the basic programs as well as the [serial programs](../ProgramList.md#serial-programs).
 
 When combined with video capture, you can play your Switch on your computer and easily fire off programs with just a few clicks.
 
@@ -106,3 +104,14 @@ Which tutorial you use will depend on what operating system you are using and wh
 - [Teensy 2.0 and Teensy++ 2.0](Tutorial-Mac-Teensy2.md)
 - [Pro Micro and Arduino Uno R3](Tutorial-Mac-ArduinoProMicro.md)
 
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

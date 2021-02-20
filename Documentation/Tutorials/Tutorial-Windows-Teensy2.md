@@ -22,7 +22,7 @@ Direct download link: https://www.pjrc.com/teensy/teensy.exe
 
 Download the latest version of our Arduino programs from the [main page](https://github.com/Mysticial/Pokemon-Automation-SwSh-Arduino-Scripts).
 
-(The link should look like something like `PASwShScripts-20210206.zip`)
+(The link should look like something like `PASwShNativePrograms-yyyymmdd.zip`)
 
 If you get a virus or malware warning, ignore it. These are known false positives. If you don't trust us, the source code is in this repo.
 
@@ -93,3 +93,14 @@ You can find the manual for a program by clicking on the "Online Documentation" 
 Main Article: [Tutorial - Windows - Serial](Tutorial-Windows-Serial.md)
 
 
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

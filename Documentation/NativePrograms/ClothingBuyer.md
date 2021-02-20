@@ -25,3 +25,16 @@ This program uses [`TOLERATE_SYSTEM_UPDATE_MENU_FAST`](../Appendix/GlobalSetting
 const bool CATEGORY_ROTATION    =   true;
 ```
 When set to true, the program will change categories. This allows the program to eventually buy out the entire store, but will make it less efficient when there are categories that are already bought out.
+
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+- [Program List](/Documentation/ProgramList.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

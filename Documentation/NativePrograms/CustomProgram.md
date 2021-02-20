@@ -1,8 +1,9 @@
-# PABotBase
+# CustomProgram
 
-Pokémon Automation Bot Base (PABotBase) is the program used by all the [serial programs](../ProgramList.md#serial-programs).
+This is a template for writing your own programs. To build your own program, you can start by editing this one. Then rename it later.
 
-You shouldn't have to compile this program yourself since the SerialPrograms package has this precompiled.
+(explanation coming soon!)
+
 
 
 

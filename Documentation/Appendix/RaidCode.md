@@ -34,3 +34,14 @@ For example: “12344444”, “78966666”, etc... The purpose of repeating the
 
 When using a random raid code, the contents of `RAID_CODE` are used to generate a starting seed for the RNG. If you don’t know what that means, just ignore it and leave it as is.
 
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

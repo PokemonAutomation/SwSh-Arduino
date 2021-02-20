@@ -35,3 +35,14 @@ This guide will not go into detail on how to use OBS. There should be plenty of 
 
 <img src="images/obs.png" height="600">
 
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

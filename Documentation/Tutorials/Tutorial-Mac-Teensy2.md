@@ -8,7 +8,11 @@ At this time, the HexGenerator program on Windows is not yet available for Mac o
 
 Follow the [hardware guide](Hardware-Teensy2.md) for the "Basic Hardware" section.
 
-## Step 2: Install ???
+## Step 2: Install Homebrew and AVR
+
+1. Install homebrew.
+2. Run `brew tap osx-cross/avr` to install AVR.
+3. If the above doesn't work, try running `brew install avr-gcc` as well.
 
 ## Step 3: Download Teensy Loader
 
@@ -20,7 +24,7 @@ Direct download link: https://www.pjrc.com/teensy/teensy.dmg
 
 Download the latest version of our Arduino programs from the [main page](https://github.com/Mysticial/Pokemon-Automation-SwSh-Arduino-Scripts).
 
-(The link should look like something like `PASwShScripts-20210206.zip`)
+(The link should look like something like `PASwShNativePrograms-yyyymmdd.zip`)
 
 If you get a virus or malware warning, ignore it. These are known false positives. If you don't trust us, the source code is in this repo.
 
@@ -40,6 +44,13 @@ Normally you will see a bunch of options that can configured. But TurboA has not
 See the documentation for the respective program for a description of all the options.
 
 ## Step 6: Generate a .hex file.
+
+1. Open Terminal
+2. Type `bash ` (with a trailing space!) Do not hit enter after entering this.
+3. Drag from finder the "00-BuildAllUnix.sh" script into the Terminal Window.
+4. Press enter.
+
+This will build every single program in the package. As of this writing, there is no easy method to build that is more targeted. If you are confortable with makefiles and command lines, you can directly use the makefile.
 
 ## Step 7: Flash the .hex into the Teensy.
 
@@ -82,17 +93,28 @@ The program should now begin running. It will flash its light for a few seconds,
 
 ## Other Programs
 
-You now know how to run TurboA - the most basic of the programs. You can choose any of the other programs and repeat steps 6-8.
+You now know how to run TurboA - the most basic of the programs. You can choose any of the other programs and repeat steps 5-8.
 
 It is important to read the manual for a program before you use it. Each program has a different set of instructions and startup conditions.
 You can find the manual for a program by clicking on the "Online Documentation" link.
 
 # Serial Programs
 
-(coming soon)
+Not yet available for Mac. Stay tuned.
 
 
 
 
 
 
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

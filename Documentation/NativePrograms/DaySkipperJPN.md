@@ -64,3 +64,16 @@ const uint16_t CORRECTION_SKIPS      =   1000;
 Perform an auto-recovery every this number of skips. This is the recovery routine that recovers from trapping errors. You shouldn’t need to touch this value.
 
 
+
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+- [Program List](/Documentation/ProgramList.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

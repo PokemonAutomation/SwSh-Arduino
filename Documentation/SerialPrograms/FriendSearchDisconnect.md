@@ -25,3 +25,15 @@ To activate Y-COMM glitch using this program:
 5. As soon as you match with someone, click "Start Program...".
 
 The program will disconnect from the internet and return to the game.
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+- [Program List](/Documentation/ProgramList.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

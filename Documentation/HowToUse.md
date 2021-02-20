@@ -1,5 +1,8 @@
 # How to Use
 
+***This section of the guide is now deprecated. [Go see the new one!](Tutorials/README.md)***
+
+
 Once you have your hardware, you will need to setup the software. The process for getting a program running on your Switch roughly breaks down to the following. 
 1. Install the build tools.
 2. Configure and compile the program to create a ".hex" file. This .hex file is the program that you will load into your Arduino or Teensy.

@@ -16,7 +16,9 @@ Complete the "Serial Hardware" and "Video Hardware" sections for your device.
 
 ## Step 2: Download the SerialPrograms package.
 
-(coming soon)
+Download the latest version of the serial programs from the [main page](https://github.com/Mysticial/Pokemon-Automation-SwSh-Arduino-Scripts).
+
+(The link should look like something like `PASwShSerialPrograms-yyyymmdd.zip`)
 
 ## Step 3: Flash PABotBase into your Device.
 
@@ -106,6 +108,8 @@ To view the keyboard/controller mapping, click on "Keyboard Layout" in the botto
 The joystick mappings should be fairly standard for FPS and 3D adventure games. The remaining buttons are somewhat arbitrary and not necessarily intuitive.
 As of this writing, there is no support for changing the key mapping.
 
+The playability of this will depend drastically on the quality of your capture card. Some capture cards have very low video latency. Other cards may be to slow to play on the computer in real time. Regardless, even if it is slow, you can use the program for remote access to setup and run programs while you are away.
+
 **Note:** Since `Shift` is mapped to the B button, you will need to disable Sticky Keys in the system. Alternatively, you can press `CTRL` for B. Some buttons have multiple keyboard keys that can be used to invoke it, but they are undocumented at this time.
 
 ## Step 7: Run a program.
@@ -162,3 +166,14 @@ Some general observations:
 
 
 
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

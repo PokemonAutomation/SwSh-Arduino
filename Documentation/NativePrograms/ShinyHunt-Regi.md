@@ -41,3 +41,16 @@ This is useful if your game is holding a den and you do not want an unintentiona
 Prevent the den from rolling over by periodically touching the date at this interval.
 
 Set this value to zero to disable the feature.
+
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+- [Program List](/Documentation/ProgramList.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

@@ -63,3 +63,14 @@ Therefore, the recommendation is:
 If you want to get fancy, you can experiment with `UNCATCHABLE_PROMPT_DELAY` as well.
 
 
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

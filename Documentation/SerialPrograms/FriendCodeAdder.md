@@ -28,3 +28,15 @@ After each friend code, the program will back out to the Switch Home before re-e
 - If the friend code has already been requested but not accepted, nothing happens. The program will safely back out and move on to the next code.
 
 This program runs slightly slower on the Arduino Uno R3. Due to the memory constraints of the Arduino, it uses a smaller (but slower) version of the fast code entry subroutine.
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+- [Program List](/Documentation/ProgramList.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

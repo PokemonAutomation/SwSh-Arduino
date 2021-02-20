@@ -118,3 +118,16 @@ Every this many hours, rollback the time by this many hours. This keeps the time
 This feature will also prevent any unintentional day-skips that will destroy any dens that are on the save file.
 
 
+
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+- [Program List](/Documentation/ProgramList.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

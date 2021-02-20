@@ -1,7 +1,5 @@
 # TurboA
 
-Back to: [Program List](../ProgramList.md)
-
 TurboA does exactly what its name implies - it endlessly presses A. The purpose of this program is to grind the Digging Duo and Cram-o-matic.
 
 <img src="images/TurboA.png" width="800">
@@ -29,3 +27,16 @@ This program uses [`TOLERATE_SYSTEM_UPDATE_MENU_FAST`](../Appendix/GlobalSetting
 
 This program has no program-specific configuration options.
 
+
+
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+- [Program List](/Documentation/ProgramList.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)

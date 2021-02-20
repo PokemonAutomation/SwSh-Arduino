@@ -1,5 +1,8 @@
 # Version History
 
+### 2021-02-20:
+- Added CustomProgram to let you write your own programs!
+
 ### 2021-02-15:
 - Adjust serial connection delays and timeouts.
 - Fixed some program hangs.
@@ -669,5 +672,15 @@ The friend-deleter isn't super-well tested since it's a pain-in-the-ass to test.
 -  AutoHostRolling: Roll N days, host raid, reset. Repeat.
 
 
+
+<hr>
+
+**Back to:**
+- [Project Home](/README.md)
+- [Documentation Home](/Documentation/README.md)
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)
 
 

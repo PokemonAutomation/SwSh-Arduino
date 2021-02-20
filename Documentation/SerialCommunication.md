@@ -1,5 +1,8 @@
 # Serial Communication
 
+***This section of the guide is now deprecated. [Go see the new one!](Tutorials/README.md)***
+
+
 *Serial communication is an optional extension to the programs here. It requires additional hardware.*
 
 Starting from version 20201216, this package has had support for some sort of serial connection.
