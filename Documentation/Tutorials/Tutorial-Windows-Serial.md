@@ -32,14 +32,14 @@ Flash the appropriate one to your device.
 2. Connect your device (Teensy/Pro Micro/Arduino) to the Switch or its dock.
 3. Connect the UART to your computer.
 
-**[image of physical setup]**
-
 ## Step 5: Setup the video capture.
 
 1. Connect an HDMI cable from your Switch dock to your video capture card.
 2. Connect your capture card to your computer.
 
-**[image of physical setup]**
+Here is an example of a setup after steps 4 and 5.
+
+<img src="images/serial-setup.jpg" height="600">
 
 ## Step 6: Open up SerialPrograms.
 
@@ -51,7 +51,7 @@ Flash the appropriate one to your device.
 
 If everything worked correctly, it should look like this. Note that you will not hear any sound. (see next section)
 
-<img src="images/serial-programs-setup.png" height="600">
+<img src="images/serial-programs-setup.png">
 
 **Troubleshooting:**
 
@@ -105,6 +105,8 @@ To view the keyboard/controller mapping, click on "Keyboard Layout" in the botto
 
 The joystick mappings should be fairly standard for FPS and 3D adventure games. The remaining buttons are somewhat arbitrary and not necessarily intuitive.
 As of this writing, there is no support for changing the key mapping.
+
+**Note:** Since `Shift` is mapped to the B button, you will need to disable Sticky Keys in the system. Alternatively, you can press `CTRL` for B. Some buttons have multiple keyboard keys that can be used to invoke it, but they are undocumented at this time.
 
 ## Step 7: Run a program.
 

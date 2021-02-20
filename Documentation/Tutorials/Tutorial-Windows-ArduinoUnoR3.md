@@ -35,7 +35,7 @@ Once you have downloaded the package, unzip to somewhere you can access later.
 ## Step 5: Generate a .hex file.
 
 1. Open the package from previous section and double-click on `HexGenerator-Windows.cmd` to run it.
-2. In the "Board Type" drop-down, change it to "Pro Micro" depending on which board you have.
+2. In the "Board Type" drop-down, change it to "Arduino Uno R3" depending on which board you have.
 3. In the program list, click on "Turbo A".
 
 <img src="images/tutorial-windows-uno-0.png" height="400">
@@ -46,7 +46,7 @@ After a while, you should get a confirmation box saying it was successful. You s
 
 <img src="images/tutorial-windows-uno-1.png" height="400">
 
-## Step 6: Flash the .hex into the Pro Micro.
+## Step 6: Flash the .hex into the Arduino.
 
 1. Run the FLIP program that you downloaded earlier.
 2. `Device` -> `Select`. Select `ATmega16U2` and click OK.
@@ -104,6 +104,13 @@ The program should now begin running. It will flash its light for a few seconds,
 
 - To stop the program, simply unplug the Arduino at any time.
 - Do not change video output or mess with the HDMI. These can cause the program to Switch to freeze for multiple seconds and break the program. If you want turn off the TV, do it *before* you start the program.
+
+## Other Programs
+
+You now know how to run TurboA - the most basic of the programs. You can choose any of the other programs and repeat steps 5-7.
+
+It is important to read the manual for a program before you use it. Each program has a different set of instructions and startup conditions.
+You can find the manual for a program by clicking on the "Online Documentation" link.
 
 # Serial Programs
 

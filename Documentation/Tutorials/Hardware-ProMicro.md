@@ -48,6 +48,10 @@ To use any of the serial or feedback programs, you will need additional hardware
 
 There are many ways to set this up with varying cost and difficulty. Here we will present some simple options that do not require soldering. If you are experienced with electronics, feel free to do your own thing.
 
+Here are the two options covered in this tutorial:
+- [**Option 1:** UART Cable + Mini-Grabber Cables](#option-1-uart-cable--mini-grabber-cables)
+- [**Option 2:** UART Cable + Solderless Hammer Headers](#option-2-uart-cable--solderless-hammer-headers)
+
 ## Option 1: UART Cable + Mini-Grabber Cables
 
 This option is the easiest to setup, however the mini grabber cables that are needed are rarely in stock.
@@ -87,6 +91,8 @@ This option is cleaner, but is more involved.
 3. [Solderless Hammer Headers](https://www.adafruit.com/product/3662)
 4. A box cutter or a wire cutter.
 5. Pliers. (you will likely need two of them)
+
+<img src="images/uart-adafruit.jpg" height="200"> <img src="images/hammer-headers.jpg" height="200">
 
 **Hardware Setup:**
 

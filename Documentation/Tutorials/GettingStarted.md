@@ -103,5 +103,6 @@ Which tutorial you use will depend on what operating system you are using and wh
 - [Arduion Uno R3](Tutorial-Windows-ArduinoUnoR3.md)
 
 **Mac:**
-- (coming soon)
+- [Teensy 2.0 and Teensy++ 2.0](Tutorial-Mac-Teensy2.md)
+- [Pro Micro and Arduino Uno R3](Tutorial-Mac-ArduinoProMicro.md)
 

@@ -15,7 +15,9 @@ Demo Video: https://cdn.discordapp.com/attachments/755635697737531544/8103604267
 <img src="images/friend-code-adder-1.png" height="600">
 
 3. Select the [user slot](../Appendix/UserSlotNumber.md) for the user you wish to add the friend codes to.
-4. Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md). If the device is the primary or the only controller attached to the Switch, you can also start the program in the Home menu with the cursor over the first game.
+4. Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md). (also see below)
+
+Note that this program will break if the Switch is in local connection when it enters the user profile. This will happen if the game is running and is in the overworld (where Y-COMM is accessible). If this is the case, you do actually need to start in the grip menu because that forces the Switch out of local connection mode. Therefore, unlike the other serial programs, you cannot take the shortcut of starting this program in the Switch Home or inside a game.
 
 ## Notes:
 
@@ -24,3 +26,5 @@ After each friend code, the program will back out to the Switch Home before re-e
 - If the friend code has not been added, it will be requested. The program will then back out the Switch Home.
 - If the friend code is already a friend, nothing bad will happen. The program will toggle the best friend status twice and then back out - thus leaving everything unchanged.
 - If the friend code has already been requested but not accepted, nothing happens. The program will safely back out and move on to the next code.
+
+This program runs slightly slower on the Arduino Uno R3. Due to the memory constraints of the Arduino, it uses a smaller (but slower) version of the fast code entry subroutine.

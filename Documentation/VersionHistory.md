@@ -1,5 +1,9 @@
 # Version History
 
+### 2021-02-15:
+- Adjust serial connection delays and timeouts.
+- Fixed some program hangs.
+
 ### 2021-02-14:
 - Officially added SerialPrograms to the project.
 - BeamReset now uses `TOLERATE_SYSTEM_UPDATE_MENU_SLOW` instead of `TOLERATE_SYSTEM_UPDATE_MENU_FAST`.
