@@ -37,11 +37,11 @@ These programs run on a computer and control your Switch over serial connection.
 - [Tool-Assisted Raid Entry](https://cdn.discordapp.com/attachments/755635697737531544/809314697476046898/Serial_-_FCE.mov)
 - [Setting up a program remotely without touching your Switch.](https://cdn.discordapp.com/attachments/755635697737531544/809314602638770176/Serial_-_Regi_Setup.mov)
 
-**Affiliated Projects:**
-
-- [AutoMaxLair by MrDonders](https://github.com/ercdndrs/AutoMaxLair)
-
 ## Program List:
 
 [See main article.](Documentation/ProgramList.md)
+
+## Affiliated Projects:
+
+- [AutoMaxLair by MrDonders](https://github.com/ercdndrs/AutoMaxLair)
 
