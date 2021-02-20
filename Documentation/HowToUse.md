@@ -79,6 +79,7 @@ Mac:
 2.	Type `bash ` (with a trailing space!) Do not hit enter after entering this.
 3.	Drag from finder the "00-BuildAllUnix.sh" script into the Terminal Window.
 4.	Press enter.
+
 Linux:
 1.	Open a terminal.
 2.	cd into the same path as the "00-BuildAllUnix.sh" script.
