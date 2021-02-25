@@ -3,7 +3,7 @@
 Farm items from max raids that can be one-hit-KO'ed. ***This program requires at least 2 Switches each with serial connections.***
 
 Use Cases:
-- Farm Exp Candies off of Shedinja.
+- Farm Exp Candies off of a Shedinja raid.
 - Farm Dynite Ore off of a baby Crown Tundra or promo den.
 
 This program is not restricted to raids that can be OHKO'ed, by adjusting the appropriate timings, it can be used to farm any raid that can be finished in one turn. For example, 3-star Delibird can be one-turned using a team of Zacians for a faster method of farming Dynite Ore.

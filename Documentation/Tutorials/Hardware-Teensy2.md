@@ -11,9 +11,9 @@ There are 3 levels of hardware setups here. How far you get into this tutorial w
 
 # Basic Hardware:
 
-The basic Teensy hardware setup will look like this:
+The basic Teensy hardware setup will look something like this:
 
-<img src="images/teensy-basic.jpg" height="400">
+<img src="images/teensy-basic.jpg" height="350"> <img src="images/basic-setup.jpg" height="350">
 
 **Required Hardware:**
 

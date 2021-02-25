@@ -23,6 +23,8 @@ But any programs running with this setup are still "blind" in that they cannot s
 Thus this leads to the final component, "feedback". Feedback is where the program can utilize video and/or sound information from the Switch.
 This is done using a capture device such as a capture card that is used by streamers.
 
+<img src="images/basic-setup.jpg" height="600">
+
 
 # Choose your Automation Level
 
@@ -58,7 +60,7 @@ When combined with video capture, you can play your Switch on your computer and 
 
 Thus you now have tool-assisted gameplay. This can be useful for many things - such as getting into a crowded Max Raid that has a complicated raid code.
 
-<img src="images/serial-programs-0.png" height="400">
+<img src="images/serial-setup.jpg" height="330"> <img src="images/serial-programs-0.png" height="330">
 
 **Important:** As of this writing, only Windows is supported for the serial programs. We do intend to port it to Mac and Linux at some point in the future. Furthermore, your Windows computer needs to be sufficiently powerful to handle video capture.
 

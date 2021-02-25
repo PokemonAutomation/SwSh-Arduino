@@ -71,6 +71,9 @@ In addition to the programs listed under here, nearly all the native programs (a
 - [**Friend Code Adder**](SerialPrograms/FriendCodeAdder.md) - Easily add friend codes. Just copy-paste into the textbox!
 - [**Friend Search Disconnect**](SerialPrograms/FriendSearchDisconnect.md) - Disconnect from the internet with friend-search. Useful for activating Y-COMM glitch from a computer.
 
+**Multi-Switch Programs:**
+- [**Raid Item Farmer (OHKO)**](SerialPrograms/RaidItemFarmerOHKO.md) - Also known as the "Candy Farmer". Self-host a max raid for items. The raid must be cleared in one hit.
+
 
 <hr>
 
