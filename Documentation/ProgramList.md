@@ -62,7 +62,7 @@ Serial programs run on a computer which controls the device/microcontroller over
 
 In addition to the programs listed under here, nearly all the native programs (above) are also available over serial. They will be omitted for brevity.
 
-**Hardware Setup and Testing:**
+**Virtual Consoles:**
 - [**Virtual Console**](SerialPrograms/VirtualConsole.md) - Play your Switch on your computer. Also displays logging information for native programs.
 - [**Switch Viewer**](SerialPrograms/SwitchViewer.md) - A multi-Switch version of the Virtual Console. Use this to figure out your serial/camera mappings.
 

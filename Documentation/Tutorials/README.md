@@ -47,6 +47,8 @@ The hardware required for basic programs is the simplest. All you need is the de
 
 The list of programs that can be run with the basic setup [is here](../ProgramList.md#native-programs).
 
+<img src="../NativePrograms/images/DateSpam-LotoFarmer.png" width="800">
+
 ## Serial Programs
 
 The next step up is to add serial connectivity between the device and a computer. This allows your computer to control your device and therefore your Switch.
@@ -100,7 +102,7 @@ Which tutorial you use will depend on what operating system you are using and wh
 **Windows:**
 - [Teensy 2.0 and Teensy++ 2.0](Tutorial-Windows-Teensy2.md)
 - [Pro Micro](Tutorial-Windows-ProMicro.md)
-- [Arduion Uno R3](Tutorial-Windows-ArduinoUnoR3.md)
+- [Arduino Uno R3](Tutorial-Windows-ArduinoUnoR3.md)
 
 **Mac:**
 - [Teensy 2.0 and Teensy++ 2.0](Tutorial-Mac-Teensy2.md)
