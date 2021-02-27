@@ -7,7 +7,6 @@ Repository/Settings.json
 **/*.DS_Store
 **/*.md5sum
 **/Linux/
-**/obj/
 **/log/
 **/builds
 
