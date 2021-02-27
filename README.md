@@ -1,8 +1,8 @@
 # Pokemon Automation Sword/Shield Arduino Scripts
 This is a public distribution mirror for the Pokemon Automation discord server's in-house Arduino programs for Pokemon Sword/Shield.
 
- - **Latest Native Programs:** [PASwShNativePrograms-20210206.zip](PASwShScripts-20210206.zip?raw=true)
- - **Latest Serial Programs:** coming soon...
+ - **Latest Native Programs:** [PASwSh-NativePrograms-202102024a.zip](PASwSh-NativePrograms-202102024a.zip?raw=true)
+ - **Latest Serial Programs:** [PASwSh-SerialPrograms-202102024a.zip](PASwSh-SerialPrograms-202102024a.zip?raw=true)
  - **Documentation:** [Online Manual](Documentation/README.md)
  - **Support Discord:**
 
