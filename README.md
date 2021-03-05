@@ -41,7 +41,3 @@ These programs run on a computer and control your Switch over serial connection.
 
 [See main article.](Documentation/ProgramList.md)
 
-## Affiliated Projects:
-
-- [AutoMaxLair by MrDonders](https://github.com/ercdndrs/AutoMaxLair)
-
