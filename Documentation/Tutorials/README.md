@@ -72,7 +72,7 @@ Thus you now have tool-assisted gameplay. This can be useful for many things - s
 
 Full feedback extends serial connectivity with video recogition to produce programs that respond to and adapt to game events. At this point, the program is imitating a human player who can see the screen and hear sounds.
 
-As of this writing, the only full-feedback program that we have is the [AutoMaxLair prototype](https://github.com/ercdndrs/AutoMaxLair). Development is ongoing to build the generic framework that is needed to productionize the AutoMaxLair and to build new programs utilizing feedback.
+As of this writing, the only full-feedback program that we have is the [AutoMaxLair prototype](https://github.com/PokemonAutomation/AutoMaxLair). Development is ongoing to build the generic framework that is needed to productionize the AutoMaxLair and to build new programs utilizing feedback.
 
 <img src="images/automaxlair-prototype.jpg" height="400">
 
