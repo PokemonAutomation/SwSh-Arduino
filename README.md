@@ -1,8 +1,8 @@
 # Pokemon Automation Sword/Shield Arduino Scripts
 This is a public distribution mirror for the Pokemon Automation discord server's in-house Arduino programs for Pokemon Sword/Shield.
 
- - **Latest Native Programs:** [PASwSh-NativePrograms-202102024a.zip](PASwSh-NativePrograms-202102024a.zip?raw=true)
- - **Latest Serial Programs:** [PASwSh-SerialPrograms-202102024a.zip](PASwSh-SerialPrograms-202102024a.zip?raw=true)
+ - **Latest Native Programs:** [PASwSh-NativePrograms-20210306.zip](PASwSh-NativePrograms-20210306.zip?raw=true)
+ - **Latest Serial Programs:** [PASwSh-SerialPrograms-20210306.zip](PASwSh-SerialPrograms-20210306.zip?raw=true)
  - **Documentation:** [Online Manual](Documentation/README.md)
  - **Support Discord:**
 
@@ -34,6 +34,8 @@ These programs are flashed directly to the microcontroller and are run natively 
 These programs run on a computer and control your Switch over serial connection.
 
 - [Friend Code Adder](https://cdn.discordapp.com/attachments/755635697737531544/810360426784227348/FriendCodeAdder.mov)
+- [Multi-Switch Candy Farming](https://cdn.discordapp.com/attachments/755635697737531544/814164114305581106/Candy_Farmer.mov)
+- [Purple Beam Finder](https://cdn.discordapp.com/attachments/755635697737531544/817957563287076864/PurpleBeamFinder.mp4)
 - [Tool-Assisted Raid Entry](https://cdn.discordapp.com/attachments/755635697737531544/809314697476046898/Serial_-_FCE.mov)
 - [Setting up a program remotely without touching your Switch.](https://cdn.discordapp.com/attachments/755635697737531544/809314602638770176/Serial_-_Regi_Setup.mov)
 
