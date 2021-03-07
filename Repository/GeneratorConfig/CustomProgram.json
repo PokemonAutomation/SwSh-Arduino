@@ -1,6 +1,0 @@
-﻿{
-    "0-ProgramName": "CustomProgram",
-    "1-Description": "Write your own program by editing \"DeviceSource/PokemonSwShPrograms/CustomProgram_Core.c\".<br>(This example is just a copy of TurboA.)",
-    "2-Parameters": [
-    ]
-}

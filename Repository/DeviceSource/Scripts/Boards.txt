@@ -1,4 +1,0 @@
-ArduinoUnoR3
-Teensy2
-ProMicro
-TeensyPP2
