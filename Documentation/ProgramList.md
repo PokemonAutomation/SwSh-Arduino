@@ -72,7 +72,7 @@ In addition to the programs listed under here, nearly all the native programs (a
 - [**Friend Search Disconnect**](SerialPrograms/FriendSearchDisconnect.md) - Disconnect from the internet with friend-search. Useful for activating Y-COMM glitch from a computer.
 
 **Feedback Programs:**
- - [**Purple Beam Finder**](SerialPrograms/PurpleBeamFinder.md) - Smart version of [BeamReset](../NativePrograms/BeamReset.md) that automatically stops and notifies you on a purple beam.
+ - [**Purple Beam Finder**](SerialPrograms/PurpleBeamFinder.md) - Smart version of [BeamReset](NativePrograms/BeamReset.md) that automatically stops and notifies you on a purple beam.
 
 **Multi-Switch Programs:**
 - [**Raid Item Farmer (OHKO)**](SerialPrograms/RaidItemFarmerOHKO.md) - Also known as the "Candy Farmer". Self-host a max raid for items. The raid must be cleared in one hit.
