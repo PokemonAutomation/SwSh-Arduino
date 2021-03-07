@@ -1,6 +1,10 @@
 # Getting Started
 
-New to Pokémon automation? This is what this guide is for!
+Quick Links for those who don't want to read:
+- [Hardware Tutorials](#choose-your-hardware)
+- [Software Tutorials](#tutorials)
+
+**New to Pokémon automation? This is what this guide is for!**
 
 This guide will walk you through the entire process of automating your game.
 This includes everything from what hardware to purchase, to setting it all up, to running them on your Switch.
