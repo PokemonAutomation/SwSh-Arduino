@@ -10,6 +10,8 @@ This is a public distribution mirror for the Pokemon Automation discord server's
 
 The latest releases and betas are in the discord server. This repo is merely a mirror that isn't always up-to-date.
 
+<img src="Documentation/images/server-banner.png" width="800">
+
 -----
 
 These programs for the Arduino can automate various different things in Pokemon Sword/Shield.
