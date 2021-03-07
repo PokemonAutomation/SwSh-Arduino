@@ -13,6 +13,7 @@ Demo Video: https://cdn.discordapp.com/attachments/755635697737531544/8179575632
 - Casual mode is off.
 - Your text speed must be set to SLOW.
 - You must stand in front of an empty den with watts collected.
+- There must be no purple beams visible in the background. (or it may detect that instead.)
 - You must be saved in the above position.
 - Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
