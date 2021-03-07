@@ -15,7 +15,7 @@ This program runs at 6.9 seconds per fetch. This is about 1 million watts/hour a
 - Airplane mode must be off.
 - You must be standing in front of a wishing piece den with watts collected.
 - Your location should be safe from getting attacked by wild Pokémon.
--	Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
+- Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
 This program will not work if the system update window is present. Instead, it will safely enter a do-nothing loop within the settings.
 
@@ -23,7 +23,7 @@ This program will not work if the system update window is present. Instead, it w
 
 More on: [Serial Communication](../SerialCommunication.md)
 
-This program outputs the number of watt fetch attempts. This can be read using the Device Logger.
+This program outputs the number of watt fetch attempts. This can be read by the serial programs.
 
 ## Stability Recommendations:
 

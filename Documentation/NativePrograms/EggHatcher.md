@@ -20,7 +20,7 @@ This program will tolerate early hatching eggs as long as they don't hatch immed
 - You must be on your bike.
 - You must be in the overworld. (not in the menu)
 - There is nothing in front of you that can be interacted with.
--	Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
+- Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
 ## Box Setup:
 - Place entire boxes filled with eggs consecutively*.

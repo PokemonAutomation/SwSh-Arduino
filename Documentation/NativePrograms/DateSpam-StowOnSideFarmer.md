@@ -12,7 +12,7 @@ This program runs at 13.9 seconds per purchase.
 - You must have system time unsynced.
 - The VS (Y-COMM) glitch must be active.
 - You must be standing in front of the Stow-on-Side bargains dealer.
--	Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
+- Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
 This program will not work if the system update window is present. Instead, it will safely enter a do-nothing loop within the settings.
 
@@ -20,7 +20,7 @@ This program will not work if the system update window is present. Instead, it w
 
 More on: [Serial Communication](../SerialCommunication.md)
 
-This program outputs the number of purchase attempts. This can be read using the Device Logger.
+This program outputs the number of purchase attempts. This can be read by the serial programs.
 
 ## Options:
 This program does not have the ability to avoid the system update window. Should the window appear while the program is running, the program will enter a safe do-nothing loop within the Switch settings.

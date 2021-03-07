@@ -13,7 +13,7 @@ This program runs at 13.1 seconds per fetch.
 - The VS (Y-COMM) glitch must be active.
 - You must be standing in front of a berry tree.
 - Your location should be safe from getting attacked by wild Pokémon.
--	Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
+- Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
 This program will not work if the system update window is present. Instead, it will safely enter a do-nothing loop within the settings.
 
@@ -21,7 +21,7 @@ This program will not work if the system update window is present. Instead, it w
 
 More on: [Serial Communication](../SerialCommunication.md)
 
-This program outputs the number of berry fetch attempts. This can be read using the Device Logger.
+This program outputs the number of berry fetch attempts. This can be read by the serial programs.
 
 ## Stability Recommendations:
 

@@ -35,7 +35,7 @@ As mentioned in the introduction, this program has an extremely complicated setu
 - You must be stocked up on potions and revives so that you can heal and actually defeat Regigigas.
 - You must be saved in front of the Regigigas den.
 - You must be in the overworld. (not inside the menu)
--	Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
+- Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
 <img src="images/ShinyHuntUnattended-Regigigas-0.png" width="800">
 
@@ -63,7 +63,7 @@ Make only small changes at a time, no more than +/- 50 ticks at a time. Most Swi
 
 More on: [Serial Communication](../SerialCommunication.md)
 
-This program outputs the number of attempted encounters. This can be read using the Device Logger.
+This program outputs the number of attempted encounters. This can be read by the serial programs.
 
 ## Options:
 

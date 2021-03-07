@@ -55,17 +55,21 @@ If you care about your den, get rid of all your wishing pieces. They are easy to
 - Your location should be safe from getting attacked by wild Pokémon.
 - You must be in the overworld.
 - You must be saved in the above position.
--	Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
+- Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
 *If starting the game requires checking the internet (because it is digital on a non-primary Switch), you will need to open up `PokemonSettings.c` and change `START_GAME_REQUIRES_INTERNET` to true.*
 
 By default, the program will start the raid at 2:00. Everybody needs to be ready by then or the raid may fail. This can be changed by modifying `LOBBY_WAIT_DELAY`.
 
+The serial version of this program utilizes video feedback to:
+1. Start the raid early when the lobby is full and all players are ready.
+2. Wait for any players who don't ready up by the start time.
+
 ## Serial Output:
 
 More on: [Serial Communication](../SerialCommunication.md)
 
-This program outputs the number of raids hosted. This can be read using the Device Logger.
+This program outputs the number of raids hosted. This can be read by the serial programs.
 
 ## Options:
 

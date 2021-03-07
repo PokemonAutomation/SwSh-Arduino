@@ -9,25 +9,25 @@ The exact speed will depend on the real life year. For the year 2020, it will ru
 When the program finishes skipping, it will continue to enter/exit the date change menu every 15 seconds without changing the date. This prevents the time from advancing naturally and potentially passing midnight which would result in an extra (unintended) day skip.
 
 ## Instructions:
-•	The language/region for the Switch must have a date layout of dd/mm/year/hour/min.
-•	You must have system time unsynced.
-•	The VS (Y-COMM) glitch must be active.
-•	Make sure you are in a Pokémon center. (The Isle of Armor dojo is not reliable!)
-•	Start the script anywhere in the Date/Time menu except the time zone menu. It will automatically find the right place.
+- The language/region for the Switch must have a date layout of dd/mm/year/hour/min.
+- You must have system time unsynced.
+- The VS (Y-COMM) glitch must be active.
+- Make sure you are in a Pokémon center. (The Isle of Armor dojo is not reliable!)
+- Start the script anywhere in the Date/Time menu except the time zone menu. It will automatically find the right place.
 
 Unlike the JPN date skipper, you do not need to set the starting the date. However you do need to set the current year correctly.
 
 **Most people use the following workflow:**
-1.	Undock the Switch if it is docked.
-2.	Change the Switch region to EU.
-3.	Enter the game and go to a Pokémon center.
-4.	Connect to the internet and start a link battle.
-5.	When someone is found, turn on airplane mode and keep it on.
-6.	Mash B to clear all the messages.
-7.	Confirm that the VS glitch is active by leaving and re-entering the game. The screen should flash when you re-enter the game.
-8.	Go into settings and date time.
-9.	Dock the Switch if desired.
-10.	Start the program.
+1. Undock the Switch if it is docked.
+2. Change the Switch region to EU.
+3. Enter the game and go to a Pokémon center.
+4. Connect to the internet and start a link battle.
+5. When someone is found, turn on airplane mode and keep it on.
+6. Mash B to clear all the messages.
+7. Confirm that the VS glitch is active by leaving and re-entering the game. The screen should flash when you re-enter the game.
+8. Go into settings and date time.
+9. Dock the Switch if desired.
+10. Start the program.
 
 *If the game is a digital copy and the Switch is not the primary, you will not be able to turn on airplane mode for longer skips that take multiple hours. This is because the Switch will periodically check online to see if it’s allowed to keep running the game. Airplane mode prevents this which causes the game to halt.*
 
@@ -37,7 +37,7 @@ Unlike the JPN date skipper, you do not need to set the starting the date. Howev
 
 More on: [Serial Communication](../SerialCommunication.md)
 
-This program outputs the number of remaining skips. This can be read using the Device Logger.
+This program outputs the number of remaining skips. This can be read by the serial programs.
 
 ## Day Skipper Appendix:
 

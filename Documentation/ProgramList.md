@@ -71,9 +71,19 @@ In addition to the programs listed under here, nearly all the native programs (a
 - [**Friend Code Adder**](SerialPrograms/FriendCodeAdder.md) - Easily add friend codes. Just copy-paste into the textbox!
 - [**Friend Search Disconnect**](SerialPrograms/FriendSearchDisconnect.md) - Disconnect from the internet with friend-search. Useful for activating Y-COMM glitch from a computer.
 
+**Feedback Programs:**
+ - [**Purple Beam Finder**](SerialPrograms/PurpleBeamFinder.md) - Smart version of [BeamReset](../NativePrograms/BeamReset.md) that automatically stops and notifies you on a purple beam.
+
 **Multi-Switch Programs:**
 - [**Raid Item Farmer (OHKO)**](SerialPrograms/RaidItemFarmerOHKO.md) - Also known as the "Candy Farmer". Self-host a max raid for items. The raid must be cleared in one hit.
 
+**Auto-Host Enhancements:**
+- [**AutoHost-Rolling**](NativePrograms/AutoHost-Rolling.md)
+- [**AutoHost-MultiGame**](NativePrograms/AutoHost-MultiGame.md)
+
+Both of the native auto-hosts can utilize feedback to:
+1. Start raids early when the lobby is full and everyone is ready.
+2. Wait for anyone who hasn't readied up by the start time.
 
 <hr>
 

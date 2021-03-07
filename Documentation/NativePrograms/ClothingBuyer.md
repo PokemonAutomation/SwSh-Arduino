@@ -12,7 +12,7 @@ Preliminary testing suggests that this program takes an hour to buy out the enti
 - Casual mode is off.
 - Your text speed must be set to fast.
 - You are in the menu for buying clothing. (Anywhere is fine.)
--	Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
+- Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
 Note that this program does not stop since it does not know when it is done. Therefore you must stop it manually and check to see if it there is anything left to buy.
 

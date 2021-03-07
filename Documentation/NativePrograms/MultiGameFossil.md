@@ -25,7 +25,7 @@ Thus with 2 games with empty boxes, you can run fossils for 10 hours continuousl
 - If you are reviving from one game version only (Sword or Shield), it must be the 1st slot in the games list.
 - If you are reviving from both Sword and Shield, they must be in slots 1 and 2 of the games list.
 - You must have no games running.
--	Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
+- Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
 *If starting the game requires checking the internet (because it is digital on a non-primary Switch), you will need to open up `PokemonSettings.c` and change [`START_GAME_REQUIRES_INTERNET`](../Appendix/GlobalSettings.md#start-game-requires-internet) to true.*
 

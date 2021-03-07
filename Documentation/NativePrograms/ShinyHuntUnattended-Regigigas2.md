@@ -31,7 +31,7 @@ When correctly calibrated:
 - You must be saved in front of the Regigigas den.
 - The `REVERSAL_PP` parameter must be set to no more than the amount of PP of your second move.
 - You must be in the overworld. (not inside the menu)
--	Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
+- Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
 **Additional Recommendations (to normalize timings):**
 - Your lead Pokémon is not shiny.
@@ -66,7 +66,7 @@ Make only small changes at a time, no more than +/- 50 ticks at a time. Most Swi
 
 More on: [Serial Communication](../SerialCommunication.md)
 
-This program outputs the number of attempted encounters. This can be read using the Device Logger.
+This program outputs the number of attempted encounters. This can be read by the serial programs.
 
 ## Options:
 

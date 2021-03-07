@@ -12,7 +12,7 @@ Use this program to roll for a specific Pokémon in your den.
 - Your location should be safe from getting attacked by wild Pokémon.
 - You must be in the overworld.
 - You must be saved in the above position.
-- Start the program in the Change Grip/Order Menu.
+- Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
 *If starting the game requires checking the internet (because it is digital on a non-primary Switch), you will need to open up `PokemonSettings.c` and change `START_GAME_REQUIRES_INTERNET` to true.*
 

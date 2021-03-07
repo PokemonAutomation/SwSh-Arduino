@@ -19,7 +19,7 @@ Duplicate Pokémon using the God Egg/MissingNo.
 - You must be on your bike.
 - You must be in the overworld. (not in the menu)
 - There is nothing in front of you that can be interacted with.
--	Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
+- Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
 *If you are playing in Japanese or Italian, you need to [set a flag](../Appendix/GlobalSettings.md#japanese-egg-fetching) or this program will not work.*
 

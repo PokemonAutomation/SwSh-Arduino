@@ -7,7 +7,7 @@ The purpose of this program is to keep your Switch awake during remote access. T
 ## Instructions
 
 1. Navigate to the Switch Home.
-2. Click  "Start Program".
+2. Click "Start Program".
 
 The program will press B every 15 seconds.
 

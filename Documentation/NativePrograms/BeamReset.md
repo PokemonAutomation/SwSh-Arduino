@@ -10,7 +10,7 @@ Drop a wishing piece in, check if it’s red or purple. Pause, then reset.
 - You must stand in front of an empty den with watts collected.
 - You must be facing the center of the den.
 - You must be saved in the above position.
--	Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
+- Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
 On each beam, the program will go in-and-out of the game several times to flash the beam and grab your attention. Then it will wait in the Home menu for 5 seconds before it resets the game. If you like the beam, you must stop the program during these 5 seconds.
 

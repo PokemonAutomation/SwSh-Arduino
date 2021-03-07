@@ -14,6 +14,7 @@ Demo Video: https://cdn.discordapp.com/attachments/755635697737531544/8141641143
 
 ## Instructions
 
+- Casual mode is off.
 - The hosting Switch is the upper-left Switch.
 - There are no other Switches nearby that can produce stamps. (watch out for auto-hosts!)
 - Hosting Switch: The first move of the lead Pokémon must be faster than the raid Pokémon.

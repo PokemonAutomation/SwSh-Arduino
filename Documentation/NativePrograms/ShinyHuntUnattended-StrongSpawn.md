@@ -41,7 +41,7 @@ Before you do any extended run, it is important to check your calibration (next 
 **Run Program Instructions:**
 - Airplane mode must be off.
 - The game must be closed.
--	Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
+- Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
 If done correctly, the program will start up the game and you will immediately get attacked by your desired strong spawn. If it is not-shiny, it runs away and resets the game. If it is shiny, it traps itself in the summary page.
 
@@ -77,7 +77,7 @@ Because you will get attacked the moment you enter the game, changing the lead w
 
 More on: [Serial Communication](../SerialCommunication.md)
 
-This program outputs the number of attempted encounters. This can be read using the Device Logger.
+This program outputs the number of attempted encounters. This can be read by the serial programs.
 
 ## Options:
 

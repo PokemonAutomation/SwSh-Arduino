@@ -26,18 +26,21 @@ If you care about your den, get rid of all your wishing pieces. They are easy to
 - If you are hosting from one game version only (Sword or Shield), it must be the 1st slot in the games list.
 - If you are hosting from both Sword and Shield, they must be in slots 1 and 2 of the games list.
 - You must have no games running.
--	Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
+- Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
 *If starting the game requires checking the internet (because it is digital on a non-primary Switch), you will need to open up `PokemonSettings.c` and change `START_GAME_REQUIRES_INTERNET` to true.*
 
 *If any den has uncatchable Pokémon (like Mewtwo or Zeraora), you need to set a flag to bypass that extra prompt. See Uncatchable Pokémon Prompt.*
 
+The serial version of this program utilizes video feedback to:
+1. Start the raid early when the lobby is full and all players are ready.
+2. Wait for any players who don't ready up by the start time.
 
 ## Serial Output:
 
 More on: [Serial Communication](../SerialCommunication.md)
 
-This program outputs the number of raids hosted. This can be read using the Device Logger.
+This program outputs the number of raids hosted. This can be read by the serial programs.
 
 ## Game List:
 

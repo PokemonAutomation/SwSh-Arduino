@@ -36,7 +36,7 @@ Unlike the JPN date skipper, you do not need to set the starting the date. Howev
 
 More on: [Serial Communication](../SerialCommunication.md)
 
-This program outputs the number of remaining skips. This can be read using the Device Logger.
+This program outputs the number of remaining skips. This can be read by the serial programs.
 
 ## Day Skipper Appendix:
 

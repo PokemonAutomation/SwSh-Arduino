@@ -12,7 +12,7 @@ Drop wishing pieces between two dens until you find an event den.
 - You must be on your bike.
 - You must be in the overworld. (not in the menu)
 - There is nothing in front of you that can be interacted with.
--	Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
+- Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
 The program will travel back-and-forth between the two dens closest to the Bridge Field daycare center. Each time, it will drop a wishing piece and enter the den to let you view it.
 

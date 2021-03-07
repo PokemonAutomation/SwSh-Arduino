@@ -14,7 +14,7 @@ This program is similar to brianuuuSonic's BoxSurpriseTrade, but is also toleran
 - You should be backed into a corner where you cannot travel down or right.
 - Your location should be safe from getting attacked by wild Pokémon.
 - If you wish to surprise trade online, be connected to the internet before you start the program. Thus you will need to be fast when starting the program or you will be disconnected.
--	Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
+- Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
 Once started, this program will surprise trade the specified number of boxes consecutively starting from the current box.
 

@@ -40,7 +40,7 @@ While the 7.8k skipper can recover from minor errors, major errors will cause it
 
 More on: [Serial Communication](../SerialCommunication.md)
 
-This program outputs the number of remaining skips. This can be read using the Device Logger.
+This program outputs the number of remaining skips. This can be read by the serial programs.
 
 ## Day Skipper Appendix:
 

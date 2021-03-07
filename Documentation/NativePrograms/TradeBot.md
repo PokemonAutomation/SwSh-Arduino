@@ -17,16 +17,16 @@ This program is experimental and is more suited for high-demand and high-quantit
 - You should be backed into a corner where you cannot travel down or right.
 - Your location should be safe from getting attacked by wild Pokémon.
 - If you wish to trade online, be connected to the internet before you start the program. Thus you will need to be fast when starting the program or you will be disconnected.
--	Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
+- Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
 Once started, this program will trade the specified number of boxes consecutively starting from the current box.
 
 When the program reaches the end of a box, it will pause for a longer period before moving the next box. This is to ensure that any errors from a preceding trade will have cleared out.
 
 ## Box Setup:
--	Place boxes* of Pokémon to be traded consecutively.
--	You must be on the first box.
--	Do not have any untradable Pokémon in these boxes. (no fused Pokémon)
+- Place boxes* of Pokémon to be traded consecutively.
+- You must be on the first box.
+- Do not have any untradable Pokémon in these boxes. (no fused Pokémon)
 
 ## Safety Recommendations:
 - It goes without saying that this is a very dangerous program. Don’t run this program unattended unless the game is completely free of Pokémon you want to keep.

@@ -34,7 +34,7 @@ Once you have downloaded the package, unzip to somewhere you can access later.
 
 This step isn't needed for the TurboA example here, but is for nearly every other program.
 
-1. Navigate into the `DeviceSource` folder.
+1. Navigate into the `NativePrograms` folder.
 2. Open `TurboA` with a text editor.
 
 Normally you will see a bunch of options that can configured. But TurboA has nothing.

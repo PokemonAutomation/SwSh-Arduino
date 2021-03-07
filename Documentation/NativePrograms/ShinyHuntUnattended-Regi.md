@@ -30,7 +30,7 @@ This Regi program involves the (error prone) process of solving the light puzzle
 - You must be standing in front the statue with no lights activated.
 - For Regieleki and Regidrago, you must be locked into your choice. (No extra prompt talking to statue.)
 - You must be in the overworld. (not inside the menu)
--	Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
+- Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
 **Additional Recommendations (to normalize timings):**
 
@@ -58,7 +58,7 @@ Make only small changes at a time, no more than +/- 50 ticks at a time. Most Swi
 
 More on: [Serial Communication](../SerialCommunication.md)
 
-This program outputs the number of attempted encounters. This can be read using the Device Logger.
+This program outputs the number of attempted encounters. This can be read by the serial programs.
 
 ## Options:
 

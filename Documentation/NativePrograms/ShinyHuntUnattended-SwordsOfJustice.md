@@ -32,7 +32,7 @@ If you come back and see it trapped, it doesn’t guarantee that the encounter i
 - You must have previously defeated or ran away from the Sword of Justice so that it is no longer present.
 - You must be standing exactly on the spawn point of the Sword of Justice.
 - You must be in the overworld. (not inside the menu)
--	Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
+- Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
 **Additional Recommendations:**
 
@@ -84,7 +84,7 @@ If the variation is so high such that it will run from more than 50% of the shin
 
 More on: [Serial Communication](../SerialCommunication.md)
 
-This program outputs the number of attempted encounters. This can be read using the Device Logger.
+This program outputs the number of attempted encounters. This can be read by the serial programs.
 
 ## Options:
 

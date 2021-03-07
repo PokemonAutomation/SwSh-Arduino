@@ -33,7 +33,7 @@ When the program finishes skipping, it will continue to enter/exit the date chan
 
 More on: [Serial Communication](../SerialCommunication.md)
 
-This program outputs the number of remaining skips. This can be read using the Device Logger.
+This program outputs the number of remaining skips. This can be read by the serial programs.
 
 ## Day Skipper Appendix:
 

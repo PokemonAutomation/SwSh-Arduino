@@ -6,20 +6,20 @@ TurboA does exactly what its name implies - it endlessly presses A. The purpose 
 
 ## Instructions
 
--	Casual mode is off.
--	You are standing in front of what you want to mash A in front of.
--	Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
+- Casual mode is off.
+- You are standing in front of what you want to mash A in front of.
+- Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
 ## Required Parameters
 
--	None. It is safe to run this program as is without changing anything.
+- None. It is safe to run this program as is without changing anything.
 
 Once the program starts, it will enter the game and start mashing A at approximately 14 times/second. 
 Stand in front of either the Digging Duo. For the Cram-o-matic, make sure you have already selected your ingredients. When running this on the Cram-o-matic, you need to keep an eye to make sure you stop the program when you run out of ingredients. Otherwise, it will keep churning through different items depending on what you have next in your inventory.
 Useful Tips:
 
--	It takes about 16 hours and 3 million watts to dig the common fossils from 0 -> 960+.
--	Rare fossils are 1/5’th the rarity of the common fossils.
+- It takes about 16 hours and 3 million watts to dig the common fossils from 0 -> 960+.
+- Rare fossils are 1/5’th the rarity of the common fossils.
 
 ## Options:
 
