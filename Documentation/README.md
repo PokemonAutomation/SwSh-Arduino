@@ -2,7 +2,7 @@
 
 **Version:** 2021-02-14
 
-**GitHub Repo:** https://github.com/Mysticial/Pokemon-Automation-SwSh-Arduino-Scripts
+**GitHub Repo:** https://github.com/PokemonAutomation/SwSh-Arduino
 
 **Discord Server:** 
 
