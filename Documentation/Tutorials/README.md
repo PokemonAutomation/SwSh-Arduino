@@ -1,7 +1,7 @@
 # Getting Started
 
-Quick Links for those who don't want to read:
-- [Hardware Tutorials](#choose-your-hardware)
+Shortcuts for those who don't want to read:
+- [Hardware Setup](#choose-your-hardware)
 - [Software Tutorials](#tutorials)
 
 **New to Pokémon automation? This is what this guide is for!**
