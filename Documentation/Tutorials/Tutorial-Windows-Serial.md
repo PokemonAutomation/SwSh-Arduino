@@ -137,10 +137,10 @@ This tutorial assumes that the device is running PABotBase. In reality SerialPro
 
 PABotBase is the only program that will accept commands over serial, so you will not be able to control the other programs. However, logging from the program will appear in the output window. Therefore SerialPrograms supercedes the DeviceLogger that was released in the native programs.
 
-### Programs do not need to start in the grip menu.
+### Programs do not always need to start in the grip menu.
 
-Many of the programs in SerialPrograms are identical to the native ones that don't require serial. However, you don't need to start them in the grip menu.
-The purpose of the grip menu is to disconnect your manual controller so that the device can take over as the primary controller. But if you're using the keyboard to control your Switch, the device is likely already the primary controller. So you can actually start the program in the Switch Home menu or even inside the game.
+Many of the programs in SerialPrograms are identical to the native ones that don't require serial. However, you don't always need to start them in the grip menu.
+The purpose of the grip menu is to disconnect your manual controller so that the device can take over as the primary controller. But if you're using the keyboard to control your Switch, the device is likely already the primary controller. Therefore, some programs will work anyway if you can start them in the Switch Home menu or inside the game.
 
 ### Multiple Switch Considerations
 
