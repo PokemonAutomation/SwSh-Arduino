@@ -1,5 +1,22 @@
 # Version History
 
+### 2021-03-08:
+- For serial programs, auto-hosts will be close the game as soon as the raid starts. This reduces freezes.
+
+### 2021-03-07:
+- Fixed some application hangs in SerialPrograms.
+- Improved stability of Regieleki shiny hunt.
+
+### 2021-03-06:
+- Fixed a bug in PABotBase that can cause the controller to freeze.
+- Fixed an issue in the HexGenerator that prevented you from saving settings.
+- Added Purple Beam Finder. A smart version of BeamReset that will automatically stop on a purple beam and make noise to notify you!
+- Autohosts now support feedback. If the lobby is full and everyone is ready, the raid will start early. If someone is not ready, it will wait instead of crashing the raid. Video feedback is still optional. Without it, the autohosts behave the same as before.
+
+### 2021-02-25:
+- Officially added SerialPrograms to the public releases.
+- Added OHKO den farmer for Exp Candy farming.
+
 ### 2021-02-20:
 - Added CustomProgram to let you write your own programs!
 
