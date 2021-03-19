@@ -16,9 +16,9 @@ Complete the "Serial Hardware" and "Video Hardware" sections for your device.
 
 ## Step 2: Download the SerialPrograms package.
 
-Download the latest version of the serial programs from the [main page](https://github.com/Mysticial/Pokemon-Automation-SwSh-Arduino-Scripts).
+Download the latest version of the serial programs from the [main page](../../README.md).
 
-(The link should look like something like `PASwShSerialPrograms-yyyymmdd.zip`)
+(The link should look like something like `PASwSh-SerialPrograms-yyyymmdd.zip`)
 
 ## Step 3: Flash PABotBase into your Device.
 
