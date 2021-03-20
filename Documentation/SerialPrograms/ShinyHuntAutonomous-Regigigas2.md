@@ -20,6 +20,7 @@ This program will automatically hunt for Regigigas and automatically stop on a s
 - You must have system time unsynced.
 - Casual mode is off.
 - Your text speed must be set to fast.
+- Your lead Pokémon must not be shiny. (this will cause false positive detections))
 - *The first move on your lead Pokémon must be able to OHKO the Regigigas. (see below)*
 - You must be saved in front of the Regigigas den.
 - The `REVERSAL_PP` parameter must be set to no more than the amount of PP of your second move.
