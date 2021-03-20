@@ -126,7 +126,6 @@ This is the list of games to use as described above.
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 - [Program List](/Documentation/ProgramList.md)
 
 **Discord Server:** 

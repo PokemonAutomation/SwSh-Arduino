@@ -10,7 +10,6 @@ You shouldn't have to compile this program yourself since the SerialPrograms pac
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 - [Program List](/Documentation/ProgramList.md)
 
 **Discord Server:** 

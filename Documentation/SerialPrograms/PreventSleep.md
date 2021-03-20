@@ -21,7 +21,6 @@ This doesn't *require* that you be in the Switch Home menu, but it does require 
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 - [Program List](/Documentation/ProgramList.md)
 
 **Discord Server:** 

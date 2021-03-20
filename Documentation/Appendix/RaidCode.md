@@ -40,7 +40,6 @@ When using a random raid code, the contents of `RAID_CODE` are used to generate 
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 
 **Discord Server:** 
 

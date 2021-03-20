@@ -38,7 +38,6 @@ You can refresh the list of serial ports and camera either by changing programs 
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 - [Program List](/Documentation/ProgramList.md)
 
 **Discord Server:** 

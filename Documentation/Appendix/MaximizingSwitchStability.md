@@ -20,7 +20,6 @@ Empirical evidence seems to suggest that completely isolating the Switch from ou
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 
 **Discord Server:** 
 

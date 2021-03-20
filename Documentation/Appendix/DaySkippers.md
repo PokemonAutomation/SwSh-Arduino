@@ -78,7 +78,6 @@ While errors will still cause the skipper to fall short of the target, they will
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 
 **Discord Server:** 
 

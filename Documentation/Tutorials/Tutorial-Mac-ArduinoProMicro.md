@@ -94,7 +94,6 @@ Not yet available for Mac. Stay tuned.
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 
 **Discord Server:** 
 

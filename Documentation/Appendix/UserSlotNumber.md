@@ -13,7 +13,6 @@ The left-most user is slot 1. The next one over is slot 2, etc... The Switch all
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 
 **Discord Server:** 
 

@@ -80,7 +80,6 @@ This option doesn't increase the speed of the cloning. It merely gives you more 
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 - [Program List](/Documentation/ProgramList.md)
 
 **Discord Server:** 

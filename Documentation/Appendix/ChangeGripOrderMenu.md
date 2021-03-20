@@ -14,7 +14,6 @@ When you enter grip menu, all external controllers will be disconnected. That wa
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 
 **Discord Server:** 
 

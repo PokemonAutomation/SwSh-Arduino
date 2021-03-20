@@ -3,6 +3,7 @@
 Shortcuts for those who don't want to read:
 - [Hardware Setup](#choose-your-hardware)
 - [Software Tutorials](#tutorials)
+- [Serial Connection for Windows](Tutorial-Windows-Serial.md)
 
 **New to Pokémon automation? This is what this guide is for!**
 
@@ -118,7 +119,6 @@ Which tutorial you use will depend on what operating system you are using and wh
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 
 **Discord Server:** 
 

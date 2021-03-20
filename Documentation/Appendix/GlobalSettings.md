@@ -69,7 +69,6 @@ If you want to get fancy, you can experiment with `UNCATCHABLE_PROMPT_DELAY` as 
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 
 **Discord Server:** 
 

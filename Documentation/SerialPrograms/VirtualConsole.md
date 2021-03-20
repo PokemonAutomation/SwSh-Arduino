@@ -29,7 +29,6 @@ If you don't know the keyboard/button mappings, you can view that by clicking on
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 - [Program List](/Documentation/ProgramList.md)
 
 **Discord Server:** 

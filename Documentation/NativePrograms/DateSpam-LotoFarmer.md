@@ -44,7 +44,6 @@ Mash B this long to exit the dialog after attempt. You shouldn’t need to touch
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 - [Program List](/Documentation/ProgramList.md)
 
 **Discord Server:** 

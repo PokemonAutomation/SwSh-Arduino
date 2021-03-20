@@ -71,7 +71,6 @@ Perform an auto-recovery every this number of skips. This is the recovery routin
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 - [Program List](/Documentation/ProgramList.md)
 
 **Discord Server:** 

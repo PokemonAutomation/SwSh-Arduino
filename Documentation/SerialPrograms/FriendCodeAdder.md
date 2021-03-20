@@ -34,7 +34,6 @@ This program runs slightly slower on the Arduino Uno R3. Due to the memory const
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 - [Program List](/Documentation/ProgramList.md)
 
 **Discord Server:** 

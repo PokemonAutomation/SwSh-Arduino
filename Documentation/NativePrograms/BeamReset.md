@@ -42,7 +42,6 @@ Talking to the den has an extra line in German. Set this to true if this is the 
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 - [Program List](/Documentation/ProgramList.md)
 
 **Discord Server:** 

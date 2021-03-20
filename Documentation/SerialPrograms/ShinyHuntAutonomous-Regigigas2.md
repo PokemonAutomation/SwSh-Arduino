@@ -14,6 +14,7 @@ This program will automatically hunt for Regigigas and automatically stop on a s
 **Demo Video:** https://cdn.discordapp.com/attachments/755635697737531544/822702343606632458/2021-03-20_00-22-46.mp4
 
 <img src="images/ShinyHuntAutonomous-Regigigas2.jpg" width="800">
+<img src="images/ShinyHuntAutonomous-Regigigas2-Square.jpg" width="800">
 
 
 ## Instructions:
@@ -67,7 +68,6 @@ Prevent the den from rolling over by periodically touching the date at this inte
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 - [Program List](/Documentation/ProgramList.md)
 
 **Discord Server:** 

@@ -55,7 +55,6 @@ This guide will not go into detail on how to use OBS. There should be plenty of 
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 
 **Discord Server:** 
 

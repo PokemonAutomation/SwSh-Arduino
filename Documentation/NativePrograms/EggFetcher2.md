@@ -57,7 +57,6 @@ Make this many attempts to fetch an egg. The only reason to set this option is t
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 - [Program List](/Documentation/ProgramList.md)
 
 **Discord Server:** 

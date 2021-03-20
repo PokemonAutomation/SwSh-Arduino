@@ -89,7 +89,6 @@ Total animation time for hatching 5 eggs when there are no shinies.
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 - [Program List](/Documentation/ProgramList.md)
 
 **Discord Server:** 

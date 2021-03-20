@@ -97,7 +97,6 @@ Main Section: [Video Hardware](Hardware-Video.md)
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 
 **Discord Server:** 
 

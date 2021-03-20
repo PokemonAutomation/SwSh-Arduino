@@ -196,7 +196,6 @@ Try with the defaults first. If things don’t work, then try increasing these t
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 - [Program List](/Documentation/ProgramList.md)
 
 **Discord Server:** 

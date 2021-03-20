@@ -11,7 +11,6 @@ This is a template for writing your own programs. To build your own program, you
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 - [Program List](/Documentation/ProgramList.md)
 
 **Discord Server:** 

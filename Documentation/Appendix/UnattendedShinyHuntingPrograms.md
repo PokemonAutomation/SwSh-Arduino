@@ -76,7 +76,6 @@ These failure cases mean that if you come back and see your Switch trapped in th
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 
 **Discord Server:** 
 

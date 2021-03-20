@@ -41,7 +41,6 @@ The program will skip non-digit characters. So the space or hyphen separator is 
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 - [Program List](/Documentation/ProgramList.md)
 
 **Discord Server:** 

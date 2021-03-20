@@ -72,7 +72,6 @@ This feature will also prevent any unintentional day-skips that will destroy any
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 - [Program List](/Documentation/ProgramList.md)
 
 **Discord Server:** 

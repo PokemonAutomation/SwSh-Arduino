@@ -44,7 +44,6 @@ When set to true, the program will dodge the system update window. Do not set th
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 - [Program List](/Documentation/ProgramList.md)
 
 **Discord Server:** 

@@ -71,7 +71,6 @@ However, you can trick it to sort all best friends first by enabling local commu
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 - [Program List](/Documentation/ProgramList.md)
 
 **Discord Server:** 

@@ -81,7 +81,6 @@ These are pretty self-explanatory. You shouldn’t need to change them.
 
 **Back to:**
 - [Project Home](/README.md)
-- [Documentation Home](/Documentation/README.md)
 - [Program List](/Documentation/ProgramList.md)
 
 **Discord Server:** 
