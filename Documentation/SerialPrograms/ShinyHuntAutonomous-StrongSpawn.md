@@ -18,6 +18,7 @@ This program will automatically hunt for a shiny strong spawn and automatically 
 - Casual mode is off.
 - Your text speed must be set to fast.
 - Your lead Pokémon must be able to run away. (faster or holding Smoke Ball)
+- Your lead Pokémon must not be shiny. (this will cause false positive detections))
 - Change the date to one that has the appropriate weather for your desired strong spawn.
 
 **Setup Instructions:** (There are many ways to do this. This is just an example.)
