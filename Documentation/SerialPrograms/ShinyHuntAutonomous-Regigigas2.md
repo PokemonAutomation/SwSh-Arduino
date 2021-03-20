@@ -11,7 +11,7 @@ This program will automatically hunt for Regigigas and automatically stop on a s
 - This program will keep track of encounter statistics.
 - This program will detect error situations and automatically reset the game.
 
-**Demo Video:** https://cdn.discordapp.com/attachments/755635697737531544/822702343606632458/2021-03-20_00-22-46.mp4mp4
+**Demo Video:** https://cdn.discordapp.com/attachments/755635697737531544/822702343606632458/2021-03-20_00-22-46.mp4
 
 <img src="images/ShinyHuntAutonomous-Regigigas2.jpg" width="800">
 
