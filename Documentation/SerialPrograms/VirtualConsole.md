@@ -9,7 +9,7 @@ The Virtual Console is primarily used for two purposes. But really any program c
 1. Play your Switch on your computer and/or verify that all the connectivity is working.
 2. View logging information from a native program. (thus superceding the old DeviceLogger)
 
-<img src="images/virtual-console.png" height="600">
+<img src="images/VirtualConsole.png" height="600">
 
 ## Instructions
 

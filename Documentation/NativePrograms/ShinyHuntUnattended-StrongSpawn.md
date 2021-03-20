@@ -33,7 +33,7 @@ Before you do any extended run, it is important to check your calibration (next 
 
 **Setup Instructions:** (There are many ways to do this. This is just an example.)
 1. Despawn the Pokémon by fighting it and running, defeating, or catching it.
-2. Stand directly above the spawn spot for your desired Pokémon.
+2. Stand directly on the spawn spot for your desired Pokémon.
 3. Activate the VS (Y-COMM) glitch.
 4. Change the date forward and backwards one day. (This forces a day skip while resetting the date.)
 5. Save the game.

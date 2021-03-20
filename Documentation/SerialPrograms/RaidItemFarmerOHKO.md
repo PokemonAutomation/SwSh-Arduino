@@ -10,7 +10,7 @@ This program is not restricted to raids that can be OHKO'ed, by adjusting the ap
 
 Demo Video: https://cdn.discordapp.com/attachments/755635697737531544/814164114305581106/Candy_Farmer.mov
 
-<img src="images/candy-farmer.png" height="600">
+<img src="images/CandyFarmer.png" height="600">
 
 ## Instructions
 

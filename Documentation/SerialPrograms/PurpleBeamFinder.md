@@ -4,7 +4,7 @@ A smart version of [BeamReset](../NativePrograms/BeamReset.md). Reset for a purp
 
 This program requires video feedback.
 
-<img src="images/purple-beam-finder.png" height="600">
+<img src="images/PurpleBeamFinder.png" height="600">
 
 Demo Video: https://cdn.discordapp.com/attachments/755635697737531544/817957563287076864/PurpleBeamFinder.mp4
 

@@ -165,9 +165,7 @@ const uint32_t TOUCH_DATE_INTERVAL = (uint32_t)4 * 3600 * TICKS_PER_SECOND;  // 
 ```
 This is useful if your game is holding a den and you do not want an unintentional date-skip to destroy it.
 
-Prevent the den from rolling over by periodically touching the date at this interval.
-
-Set this value to zero to disable the feature.
+Prevent the den from rolling over by periodically touching the date at this interval. Set this value to zero to disable the feature.
 
 
 

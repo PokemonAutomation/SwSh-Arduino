@@ -4,7 +4,7 @@ The Switch Viewer is a multiple Switch version of the [Virtual Console](VirtualC
 
 This program is useful for figuring out your serial-to-camera mappings when you have multiple Switches connected for a multi-Switch program.
 
-<img src="images/switch-viewer.png">
+<img src="images/SwitchViewer.png">
 
 Note that running multiple Switches is resource-intensive due to the video output. You will need a fairly powerful computer to handle 4 Switches with video at once.
 

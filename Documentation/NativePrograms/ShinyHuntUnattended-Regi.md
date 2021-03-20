@@ -78,13 +78,13 @@ This is what you’re resetting for. Pick from: `Regirock`, `Regice`, `Registeel
 
 ### Correction Interval:
 ```
-const uint16_t CORRECTION_INTERVAL  =   10;
+const uint16_t CORRECTION_INTERVAL  =   20;
 ```
 The light puzzle is not 100% reliable. Sometimes it will miss lights. To counter that, the program will periodically leave and re-enter the building after this many encounters. Zero disables the corrections. If you disable corrections, the program will stop working when it misses a light and will not self-recover.
 
 ### Transition Delay:
 ```
-const uint16_t TRANSITION_DELAY     =   2 * TICKS_PER_SECOND;
+const uint16_t TRANSITION_DELAY     =   5 * TICKS_PER_SECOND;
 ```
 The time needed to enter and exit the building during a correction.
 
@@ -94,9 +94,7 @@ const uint32_t TOUCH_DATE_INTERVAL = (uint32_t)4 * 3600 * TICKS_PER_SECOND;  // 
 ```
 This is useful if your game is holding a den and you do not want an unintentional date-skip to destroy it.
 
-Prevent the den from rolling over by periodically touching the date at this interval.
-
-Set this value to zero to disable the feature.
+Prevent the den from rolling over by periodically touching the date at this interval. Set this value to zero to disable the feature.
 
 
 

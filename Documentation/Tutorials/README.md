@@ -90,7 +90,7 @@ These are the list of the devices that we support. Click on the links for the se
 - [Pro Micro](Hardware-ProMicro.md)
 - [Arduino Uno R3](Hardware-ArduinoUnoR3.md) (not recommended)
 
-For first time users, we recommend the Teensy 2.0. It is a somewhat expensive, but is by far the most user-friendly. You get what you pay for.
+For first time users, we recommend the Teensy 2.0. It is somewhat expensive, but is by far the most user-friendly. You get what you pay for.
 
 For experienced users looking to automate multiple Switches for serial programs and want to reduce the cost, we recommend the Pro Micro.
 The Pro Micro board is very cheap when purchased in quantity. But it is difficult and annoying to flash. Thus we recommend it only for PABotBase which you flash just once to use all the serial programs.

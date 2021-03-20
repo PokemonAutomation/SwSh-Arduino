@@ -1,5 +1,13 @@
 # Version History
 
+### 2021-03-19:
+- Increased exit building delay for Regi shiny hunting.
+- Default correction interval for Regi programs has been increased to 10.
+- Fixed an issue where date spamming misses the date.
+- Programs that stop will no longer keep the Switch from sleeping. If you don't want your Switch to sleep after going idle, you need to disable this in the system settings.
+- Keyboard mapping can be configured in the json settings file. It is not user friendly, but better than nothing.
+- Bugfixes and improved stability for the serial programs application.
+
 ### 2021-03-08:
 - For serial programs, auto-hosts will be close the game as soon as the raid starts. This reduces freezes.
 
