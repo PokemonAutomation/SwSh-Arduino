@@ -1,5 +1,8 @@
 # Version History
 
+### 2021-03-22:
+- The HexGenerator will display a warning when run from a path containing non-ASCII characters.
+
 ### 2021-03-19:
 - Increased exit building delay for Regi shiny hunting.
 - Default correction interval for Regi programs has been increased to 10.

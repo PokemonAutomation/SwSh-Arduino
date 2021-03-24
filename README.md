@@ -39,13 +39,14 @@ These programs are flashed directly to the microcontroller and are run natively 
 
 These programs run on a computer and control your Switch over serial connection.
 
+- [Auto-Fishing](https://cdn.discordapp.com/attachments/755635697737531544/823709108150075412/2021-03-22_19-04-14.mp4)
 - [Friend Code Adder](https://cdn.discordapp.com/attachments/755635697737531544/810360426784227348/FriendCodeAdder.mov)
 - [Multi-Switch Candy Farming](https://cdn.discordapp.com/attachments/755635697737531544/814164114305581106/Candy_Farmer.mov)
 - [Purple Beam Finder](https://cdn.discordapp.com/attachments/755635697737531544/817957563287076864/PurpleBeamFinder.mp4)
 - [Tool-Assisted Raid Entry](https://cdn.discordapp.com/attachments/755635697737531544/809314697476046898/Serial_-_FCE.mov)
 - [Setting up a program remotely without touching your Switch.](https://cdn.discordapp.com/attachments/755635697737531544/809314602638770176/Serial_-_Regi_Setup.mov)
 
-<img src="Documentation/Tutorials/images/serial-setup.jpg" height="330"> <img src="Documentation/Tutorials/images/serial-programs-0.png" height="330">
+<img src="Documentation/Tutorials/images/serial-setup.jpg"> <img src="Documentation/SerialPrograms/images/ShinyHuntAutonomous-SwordsOfJustice.jpg">
 
 ## Program List:
 

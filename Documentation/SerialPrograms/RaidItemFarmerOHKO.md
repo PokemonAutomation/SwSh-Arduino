@@ -6,7 +6,7 @@ Use Cases:
 - Farm Exp Candies off of a Shedinja raid.
 - Farm Dynite Ore off of a baby Crown Tundra or promo den.
 
-This program is not restricted to raids that can be OHKO'ed, by adjusting the appropriate timings, it can be used to farm any raid that can be finished in one turn. For example, 3-star Delibird can be one-turned using a team of Zacians for a faster method of farming Dynite Ore.
+This program is not restricted to raids that can be OHKO'ed. By adjusting the appropriate timings, it can be used to farm any raid that can be finished in one turn. For example, 3-star Delibird can be one-turned using a team of Zacians for a faster method of farming Dynite Ore.
 
 Demo Video: https://cdn.discordapp.com/attachments/755635697737531544/814164114305581106/Candy_Farmer.mov
 

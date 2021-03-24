@@ -75,8 +75,10 @@ In addition to the programs listed under here, nearly all the native programs (a
 - [**Shiny Hunt Autonomous - Regi**](SerialPrograms/ShinyHuntAutonomous-Regi.md)
 - [**Shiny Hunt Autonomous - Swords of Justice**](SerialPrograms/ShinyHuntAutonomous-SwordsOfJustice.md)
 - [**Shiny Hunt Autonomous - Strong Spawn**](SerialPrograms/ShinyHuntAutonomous-StrongSpawn.md)
-- [**Shiny Hunt Autonomous - Berry Tree**](SerialPrograms/ShinyHuntAutonomous-BerryTree.md)
 - [**Shiny Hunt Autonomous - Regigigas2**](SerialPrograms/ShinyHuntAutonomous-Regigigas2.md)
+- [**Shiny Hunt Autonomous - IoA Trade**](SerialPrograms/ShinyHuntAutonomous-IoATrade.md)
+- [**Shiny Hunt Autonomous - Berry Tree**](SerialPrograms/ShinyHuntAutonomous-BerryTree.md)
+- [**Shiny Hunt Autonomous - Fishing**](SerialPrograms/ShinyHuntAutonomous-Fishing.md)
 
 **New Programs:**
  - [**Purple Beam Finder**](SerialPrograms/PurpleBeamFinder.md) - Smart version of [BeamReset](NativePrograms/BeamReset.md) that automatically stops and notifies you on a purple beam.

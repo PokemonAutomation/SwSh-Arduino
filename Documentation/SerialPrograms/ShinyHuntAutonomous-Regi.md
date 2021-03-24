@@ -11,9 +11,12 @@ This program will automatically hunt for a shiny Regi golem and automatically st
 - This program will keep track of encounter statistics.
 - Light corrections are now on-demand instead of periodic. This program will detect when the floor lights are wrong and will do the correction only when needed.
 
-**Demo Video:** https://cdn.discordapp.com/attachments/755635697737531544/821048280187928616/2021-03-15_10-31-35.mp4
+**Demo Videos:**
+- Star: https://cdn.discordapp.com/attachments/755635697737531544/821048280187928616/2021-03-15_10-31-35.mp4
+- Square: https://cdn.discordapp.com/attachments/755635697737531544/824087881119301672/2021-03-23_20-06-38.mp4
 
 <img src="images/ShinyHuntAutonomous-Regi.jpg" width="800">
+<img src="images/ShinyHuntAutonomous-Regi-Square.jpg" width="800">
 
 ## Instructions:
 - You must have system time unsynced.
