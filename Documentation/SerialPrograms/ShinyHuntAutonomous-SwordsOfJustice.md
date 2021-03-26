@@ -20,6 +20,7 @@ This program will automatically hunt for a shiny Sword of Justice and automatica
 - The cursor in the menu is over the "Pokémon Camp" option.
 - Your lead Pokémon must be faster than the Sword of Justice.
 - Your lead Pokémon must not be shiny. (this will cause false positive detections)
+- You must have no Pokémon in your party with max happiness. This can add delays in the camp.
 - You must have previously defeated or ran away from the Sword of Justice so that it is no longer present.
 - You must be standing exactly on the spawn point of the Sword of Justice.
 - You must be in the overworld. (not inside the menu)
