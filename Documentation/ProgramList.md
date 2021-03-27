@@ -71,15 +71,6 @@ In addition to the programs listed under here, nearly all the native programs (a
 - [**Friend Code Adder**](SerialPrograms/FriendCodeAdder.md) - Easily add friend codes. Just copy-paste into the textbox!
 - [**Friend Search Disconnect**](SerialPrograms/FriendSearchDisconnect.md) - Disconnect from the internet with friend-search. Useful for activating Y-COMM glitch from a computer.
 
-**Autonomous Shiny Hunting:** Equipped with automatic detection of shiny animation. (private beta)
-- [**Shiny Hunt Autonomous - Regi**](SerialPrograms/ShinyHuntAutonomous-Regi.md)
-- [**Shiny Hunt Autonomous - Swords of Justice**](SerialPrograms/ShinyHuntAutonomous-SwordsOfJustice.md)
-- [**Shiny Hunt Autonomous - Strong Spawn**](SerialPrograms/ShinyHuntAutonomous-StrongSpawn.md)
-- [**Shiny Hunt Autonomous - Regigigas2**](SerialPrograms/ShinyHuntAutonomous-Regigigas2.md)
-- [**Shiny Hunt Autonomous - IoA Trade**](SerialPrograms/ShinyHuntAutonomous-IoATrade.md)
-- [**Shiny Hunt Autonomous - Berry Tree**](SerialPrograms/ShinyHuntAutonomous-BerryTree.md)
-- [**Shiny Hunt Autonomous - Fishing**](SerialPrograms/ShinyHuntAutonomous-Fishing.md)
-
 **New Programs:**
  - [**Purple Beam Finder**](SerialPrograms/PurpleBeamFinder.md) - Smart version of [BeamReset](NativePrograms/BeamReset.md) that automatically stops and notifies you on a purple beam.
 - [**Raid Item Farmer (OHKO)**](SerialPrograms/RaidItemFarmerOHKO.md) - Also known as the "Candy Farmer". Self-host a max raid for items. The raid must be cleared in one hit.
@@ -91,6 +82,16 @@ In addition to the programs listed under here, nearly all the native programs (a
 Both of the native auto-hosts can utilize feedback to:
 1. Start raids early when the lobby is full and everyone is ready.
 2. Wait for anyone who hasn't readied up by the start time.
+
+**Autonomous Shiny Hunting: (private beta)** Automatically detects shinies from the animation.
+- [**Shiny Hunt Autonomous - Regi**](SerialPrograms/ShinyHuntAutonomous-Regi.md)
+- [**Shiny Hunt Autonomous - Swords of Justice**](SerialPrograms/ShinyHuntAutonomous-SwordsOfJustice.md)
+- [**Shiny Hunt Autonomous - Strong Spawn**](SerialPrograms/ShinyHuntAutonomous-StrongSpawn.md)
+- [**Shiny Hunt Autonomous - Regigigas2**](SerialPrograms/ShinyHuntAutonomous-Regigigas2.md)
+- [**Shiny Hunt Autonomous - IoA Trade**](SerialPrograms/ShinyHuntAutonomous-IoATrade.md)
+- [**Shiny Hunt Autonomous - Berry Tree**](SerialPrograms/ShinyHuntAutonomous-BerryTree.md)
+- [**Shiny Hunt Autonomous - Whistling**](SerialPrograms/ShinyHuntAutonomous-Whistling.md)
+- [**Shiny Hunt Autonomous - Fishing**](SerialPrograms/ShinyHuntAutonomous-Fishing.md)
 
 <hr>
 

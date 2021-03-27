@@ -38,6 +38,7 @@ To configure the program to load backup save instead of the regular save, set �
 - Automatically accept friend requests.
 - Add a delay between raids to make farming more efficient when you can't clear a raid before the next one starts.
 - Select a first move for the hosting Pokémon.
+- Troll host and attack your allies for more challenge.
 
 **Important Warning:**
 
@@ -138,6 +139,7 @@ If you are farming a Pokémon and the time between raids is too short to join co
 ```
 const uint8_t MOVE_SLOT     =   0;
 const bool DYNAMAX          =   true;   //  Must set to false if you cannot dmax.
+const uint8_t TROLL_HOSTING =   0;      //  0 disables the troll hosting option, 1 attacks the first ally, 2 attacks the second one, 3 attacks the third one. Dynamaxing will disable this option.
 ```
 This is a silly feature that lets you choose a first move before resetting the game.
 

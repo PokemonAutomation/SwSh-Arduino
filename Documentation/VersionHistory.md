@@ -1,5 +1,8 @@
 # Version History
 
+### 2021-03-26:
+- Added troll-hosting option to AutoHost-Rolling. (native programs only)
+
 ### 2021-03-22:
 - The HexGenerator will display a warning when run from a path containing non-ASCII characters.
 
