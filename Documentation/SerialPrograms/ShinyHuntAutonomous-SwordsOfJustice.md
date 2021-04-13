@@ -12,6 +12,7 @@ This program will automatically hunt for a shiny Sword of Justice and automatica
 <img src="images/ShinyHuntAutonomous-SwordsOfJustice.jpg" width="800">
 
 ## Instructions:
+- Video resolution is 1280 x 720 or higher. Shiny detection is not reliable at low resolutions.
 - You must have system time unsynced.
 - Casual mode is off.
 - Your text speed must be set to fast.
@@ -38,6 +39,10 @@ When the a shiny is found, the program will save a video of the encounter. Then 
 This program uses [`TOLERATE_SYSTEM_UPDATE_MENU_FAST`](../Appendix/GlobalSettings.md#tolerate-system-update-menu-fast) to bypass the system update window.
 
 There is no option to search only for a square shiny. Nearly all shinies are square and only 15/65536 are star. Therefore it is infeasible to hunt for star shiny.
+
+### Go Home when Done:
+
+After finding a shiny, go to the Switch Home to idle. Turn this off for unattended streaming so that your viewers can see the shiny.
 
 ### Airplane Mode:
 

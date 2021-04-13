@@ -13,6 +13,7 @@ This program will shiny hunt the berry tree encounters. This program is new to t
 <img src="images/ShinyHuntAutonomous-BerryTree.jpg" width="800">
 
 ## Instructions:
+- Video resolution is 1280 x 720 or higher. Shiny detection is not reliable at low resolutions.
 - You must have system time unsynced.
 - Casual mode is off.
 - Your text speed must be set to fast.
@@ -33,6 +34,10 @@ When the desired shiny is found, the program will save a video of the encounter.
 ## Options:
 
 This program uses [`TOLERATE_SYSTEM_UPDATE_MENU_FAST`](../Appendix/GlobalSettings.md#tolerate-system-update-menu-fast) to bypass the system update window.
+
+### Go Home when Done:
+
+After finding a shiny, go to the Switch Home to idle. Turn this off for unattended streaming so that your viewers can see the shiny.
 
 ### Require Square:
 

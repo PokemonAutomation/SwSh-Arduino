@@ -19,6 +19,7 @@ This program will automatically hunt for a shiny Regi golem and automatically st
 <img src="images/ShinyHuntAutonomous-Regi-Square.jpg" width="800">
 
 ## Instructions:
+- Video resolution is 1280 x 720 or higher. Shiny detection is not reliable at low resolutions.
 - You must have system time unsynced.
 - Casual mode is off.
 - Your text speed must be set to fast.
@@ -42,13 +43,17 @@ Note that the Shiny Charm does not work on the Regis.
 
 This program uses [`TOLERATE_SYSTEM_UPDATE_MENU_FAST`](../Appendix/GlobalSettings.md#tolerate-system-update-menu-fast) to bypass the system update window.
 
-### Regi:
+### Go Home when Done:
 
-This is what you’re resetting for. Pick from: `Regirock`, `Regice`, `Registeel`, `Regieleki`, and `Regidrago`.
+After finding a shiny, go to the Switch Home to idle. Turn this off for unattended streaming so that your viewers can see the shiny.
 
 ### Require Square:
 
 The option will make the program run from star shinies and stop only on a square shiny. It will still record videos of all shinies.
+
+### Regi:
+
+This is what you’re resetting for. Pick from: `Regirock`, `Regice`, `Registeel`, `Regieleki`, and `Regidrago`.
 
 ### Exit Battle Time:
 

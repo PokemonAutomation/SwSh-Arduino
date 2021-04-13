@@ -1,28 +1,29 @@
-# Shiny Hunt Autonomous - In-place Whistling
+# Shiny Hunt Autonomous - Overworld
 
-This program will stand in one place and whistle. It will run from all non-shiny encounters and stop on the first shiny it finds.
+This is the "overworld encounter bot". It is the fastest and most advanced of the autonomous encounter bots that this package currently has.
+
+This program will randomly seek out and encounter overworld Pokémon until it finds a shiny.
 
 - No calibration is needed. This program will detect a shiny from its animation.
 - When a shiny is encountered, this program will save a video of the encounter.
 - This program will keep track of encounter statistics.
 
-This program is indended for any flying Pokémon that respawn or overworld Pokémon that will consistently charge at you. 
-or regular overworld Pokémon, use the (overworld bot)[ShinyHuntAutonomous-Overworld.md] instead.
+This program is still in development. All features are subject to change. The program currently does not work in Glimwood Tangle. If you want to hunt authentic Sinistea, do to the Old Cemetery in the Crown Tundra.
 
-**Demo Video:** https://cdn.discordapp.com/attachments/780505858613837835/825027189992718426/2021-03-26_10-14-13.mp4
+**Demo Video:** https://cdn.discordapp.com/attachments/755635697737531544/828071762595807282/2021-04-03_19-50-51.mp4
 
-<img src="images/ShinyHuntAutonomous-Whistling.jpg" width="800">
+<img src="images/ShinyHuntAutonomous-Overworld.jpg" width="800">
 
 ## Instructions:
 - Video resolution is 1280 x 720 or higher. Shiny detection is not reliable at low resolutions.
 - You must have system time unsynced.
 - Casual mode is off.
 - Your text speed must be set to fast.
-- You must be standing in a place where you will constantly be attacked by whistling.
-- Your lead Pokémon must be able to run away. (faster or holding Smoke Ball)
-- Your lead Pokémon must not be shiny. (this will cause false positive detections)
-- You must be in the overworld. (not inside the menu)
+- Your lead Pokémon is not following you around. (Applies to Isle of Armor and Crown Tundra)
+- You are standing in a grassy area with overworld spawns.
 - You must be zoomed out to maximize the view.
+- You are not on your bike.
+- You must be saved in the above position. The program will reset if it gets stuck.
 - Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
 **Recommended for Performance:**
@@ -41,6 +42,24 @@ There is no option to search only for a square shiny. Nearly all shinies are squ
 ### Go Home when Done:
 
 After finding a shiny, go to the Switch Home to idle. Turn this off for unattended streaming so that your viewers can see the shiny.
+
+### Prioritize Exclamation Points:
+
+Given multiple options, prefer those with exclamation points. This prioritizes random grass encounters and Pokémon that flee.
+
+### Enable Circling:
+
+After moving towards a Pokémon, make a circle. This increases the chance of encountering the Pokémon if it has moved or if the trajectory missed.
+
+### Maximum Move Duration:
+
+Maximum Move Duration:</b><br>Do not move in the same direction for more than this long. If you set this too high, you may wander too far from the grassy area.
+
+### Watchdog Timer:
+
+Reset the game if you go this long without any encounters. This allows the program to recover if it gets stuck.
+
+Be aware that open reset, all existing spawned overworld Pokémon will have the same stats from before. Thus they will be repeat encounters.
 
 ### Exit Battle Time:
 

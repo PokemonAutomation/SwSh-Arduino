@@ -14,6 +14,7 @@ This program will automatically hunt for a shiny strong spawn and automatically 
 ## Instructions:
 
 **General Requirements:**
+- Video resolution is 1280 x 720 or higher. Shiny detection is not reliable at low resolutions.
 - You must have system time unsynced.
 - Casual mode is off.
 - Your text speed must be set to fast.
@@ -45,9 +46,9 @@ This program uses [`TOLERATE_SYSTEM_UPDATE_MENU_FAST`](../Appendix/GlobalSetting
 
 There is no option to search only for a square shiny. Nearly all shinies are square and only 15/65536 are star. Therefore it is infeasible to hunt for star shiny.
 
-### Start Game Wait Delay:
+### Go Home when Done:
 
-After starting the game, wait this long before press A to actually enter the game. By default, this is set very high to ensure that the program works. You can try reducing this to make resetting faster.
+After finding a shiny, go to the Switch Home to idle. Turn this off for unattended streaming so that your viewers can see the shiny.
 
 ### Exit Battle Time:
 
