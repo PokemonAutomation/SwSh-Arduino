@@ -19,7 +19,7 @@ This program will shiny hunt the berry tree encounters. This program is new to t
 - Your text speed must be set to fast.
 - The VS (Y-COMM) glitch must be active.
 - Your lead Pokémon must be able to run away. (faster or holding Smoke Ball)
-- Your lead Pokémon must not be shiny. (this will cause false positive detections))
+- Your lead Pokémon must not be shiny. (this will cause false positive detections)
 - You must be standing in front of a berry tree.
 - You must be in the overworld. (not inside the menu)
 - Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).

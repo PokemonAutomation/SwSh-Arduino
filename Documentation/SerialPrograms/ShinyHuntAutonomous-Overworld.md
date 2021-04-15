@@ -20,6 +20,7 @@ This program is still in development. All features are subject to change. The pr
 - Casual mode is off.
 - Your text speed must be set to fast.
 - Your lead Pokémon is not following you around. (Applies to Isle of Armor and Crown Tundra)
+- Your lead Pokémon must not be shiny. (this will cause false positive detections)
 - You are standing in a grassy area with overworld spawns.
 - You must be zoomed out to maximize the view.
 - You are not on your bike.
