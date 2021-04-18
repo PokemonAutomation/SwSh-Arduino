@@ -1,5 +1,11 @@
 # Version History
 
+### 2021-04-17:
+- Added the autonomous shiny hunting programs.
+- Added stats tracking.
+- Added troll-hosting to AutoHost-Rolling.
+- Numerous bug fixes.
+
 ### 2021-03-26:
 - Added troll-hosting option to AutoHost-Rolling. (native programs only)
 
