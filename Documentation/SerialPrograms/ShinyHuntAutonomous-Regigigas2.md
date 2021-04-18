@@ -63,15 +63,22 @@ This is the amount of PP of your attacking move. Reversal has 24 PP when fully P
 
 The option will make the program run from star shinies and stop only on a square shiny. It will still record videos of all shinies.
 
-### Catch to Overworld Delay:
-
-The amount of time from when you choose not to catch Regigigas to when you return to the overworld.
-
 ### Rollover Prevention:
 
 This is useful if your game is holding a den and you do not want an unintentional date-skip to destroy it.
 
 Prevent the den from rolling over by periodically touching the date at this interval. Set this value to zero to disable the feature.
+
+
+
+## Advanced Settings:
+These are advanced settings. You shouldn’t need to touch these unless something isn’t working and you’re trying to debug it yourself.
+
+
+### Catch to Overworld Delay:
+
+The amount of time from when you choose not to catch Regigigas to when you return to the overworld.
+
 
 <hr>
 

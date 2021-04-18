@@ -84,6 +84,19 @@ const uint16_t START_TO_ATTACK_DELAY    =   3750;
 ```
 This is the delay from when talk to the den to when you attack Regigigas. This is the critical parameter that needs to be properly calibrated.
 
+### Rollover Prevention:
+```
+const uint32_t TOUCH_DATE_INTERVAL = (uint32_t)4 * 3600 * TICKS_PER_SECOND;  //  4 hours
+```
+This is useful if your game is holding a den and you do not want an unintentional date-skip to destroy it.
+
+Prevent the den from rolling over by periodically touching the date at this interval. Set this value to zero to disable the feature.
+
+
+## Advanced Settings:
+These are advanced settings. You shouldn’t need to touch these unless something isn’t working and you’re trying to debug it yourself.
+
+
 ### Attack to Catch Delay:
 ```
 const uint16_t ATTACK_TO_CATCH_DELAY    =   11 * TICKS_PER_SECOND;
@@ -95,14 +108,6 @@ The amount of time from when you attack Regigigas to when you can choose to catc
 const uint16_t CATCH_TO_OVERWORLD_DELAY =   8 * TICKS_PER_SECOND;
 ```
 The amount of time from when you choose not to catch Regigigas to when you return to the overworld.
-
-### Rollover Prevention:
-```
-const uint32_t TOUCH_DATE_INTERVAL = (uint32_t)4 * 3600 * TICKS_PER_SECOND;  //  4 hours
-```
-This is useful if your game is holding a den and you do not want an unintentional date-skip to destroy it.
-
-Prevent the den from rolling over by periodically touching the date at this interval. Set this value to zero to disable the feature.
 
 
 

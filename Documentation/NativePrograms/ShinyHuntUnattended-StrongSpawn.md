@@ -89,17 +89,22 @@ const uint16_t ENTER_GAME_TO_RUN_DELAY  =   2280;
 ```
 This is the delay from when you enter the game to when you run from the encounter. This is the critical parameter that needs to be properly calibrated.
 
-### Start Game Wait Delay:
-```
-const uint16_t START_GAME_WAIT_DELAY    =   20 * TICKS_PER_SECOND;
-```
-After starting the game, wait this long before press A to actually enter the game. By default, this is set very high to ensure that the program works. You can try reducing this to make resetting faster.
-
 ### Time Rollback:
 ```
 const uint8_t TIME_ROLLBACK_HOURS   =   1;
 ```
 Every this many hours, rollback the time by this many hours. This keeps the time constant to prevent the weather from changing. It also allows you to target time-specific marks. Set this to zero to disable this feature.
+
+
+## Advanced Settings:
+These are advanced settings. You shouldn’t need to touch these unless something isn’t working and you’re trying to debug it yourself.
+
+
+### Start Game Wait Delay:
+```
+const uint16_t START_GAME_WAIT_DELAY    =   20 * TICKS_PER_SECOND;
+```
+After starting the game, wait this long before press A to actually enter the game. By default, this is set very high to ensure that the program works. You can try reducing this to make resetting faster.
 
 
 

@@ -45,6 +45,19 @@ const uint16_t EXIT_CAMP_TO_RUN_DELAY   =   19 * TICKS_PER_SECOND;
 ```
 This is the delay from when you leave the camp to when you run from the battle. Increase this if you want to give yourself more time to stop the program on a shiny.
 
+### Time Rollback:
+```
+const uint8_t TIME_ROLLBACK_HOURS   =   1;
+```
+Every this many hours, rollback the time by this many hours. This keeps the time constant to prevent the weather from changing. It also allows you to target time-specific marks. Set this to zero to disable this feature.
+
+This feature will also prevent any unintentional day-skips that will destroy any dens that are on the save file.
+
+
+## Advanced Settings:
+These are advanced settings. You shouldn’t need to touch these unless something isn’t working and you’re trying to debug it yourself.
+
+
 ### Enter Camp Delay:
 ```
 const uint16_t ENTER_CAMP_DELAY         =   8 * TICKS_PER_SECOND;
@@ -56,14 +69,6 @@ Wait this long after entering camp before you leave.
 const uint16_t RUN_DELAY                =   5 * TICKS_PER_SECOND;
 ```
 The delay from when you run from the battle to when you bring up the menu to enter the camp.
-
-### Time Rollback:
-```
-const uint8_t TIME_ROLLBACK_HOURS   =   1;
-```
-Every this many hours, rollback the time by this many hours. This keeps the time constant to prevent the weather from changing. It also allows you to target time-specific marks. Set this to zero to disable this feature.
-
-This feature will also prevent any unintentional day-skips that will destroy any dens that are on the save file.
 
 
 

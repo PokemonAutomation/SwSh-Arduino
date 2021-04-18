@@ -43,9 +43,16 @@ After finding a shiny, go to the Switch Home to idle. Turn this off for unattend
 
 The option will make the program run from star shinies and stop only on a square shiny. It will still record videos of all shinies.
 
+
+## Advanced Settings:
+These are advanced settings. You shouldn’t need to touch these unless something isn’t working and you’re trying to debug it yourself.
+
+
 ### Exit Battle Time:
 
 After running, wait this long to return to the overworld.
+
+
 
 <hr>
 

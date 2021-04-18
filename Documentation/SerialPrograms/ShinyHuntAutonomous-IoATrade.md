@@ -40,15 +40,20 @@ This program uses [`TOLERATE_SYSTEM_UPDATE_MENU_FAST`](../Appendix/GlobalSetting
 
 After finding a shiny, go to the Switch Home to idle. Turn this off for unattended streaming so that your viewers can see the shiny.
 
-### Mash to Trade Delay:
-
-This is how long from when you start the trade to when the trade ends. You shouldn’t need to change this.
-
 ### Rollover Prevention:
 
 This is useful if your game is holding a den and you do not want an unintentional date-skip to destroy it.
 
 Prevent the den from rolling over by periodically touching the date at this interval. Set this value to zero to disable the feature.
+
+
+## Advanced Settings:
+These are advanced settings. You shouldn’t need to touch these unless something isn’t working and you’re trying to debug it yourself.
+
+
+### Mash to Trade Delay:
+
+This is how long from when you start the trade to when the trade ends. You shouldn’t need to change this.
 
 
 <hr>

@@ -55,6 +55,17 @@ The option will make the program run from star shinies and stop only on a square
 
 This is what you’re resetting for. Pick from: `Regirock`, `Regice`, `Registeel`, `Regieleki`, and `Regidrago`.
 
+### Rollover Prevention:
+
+This is useful if your game is holding a den and you do not want an unintentional date-skip to destroy it.
+
+Prevent the den from rolling over by periodically touching the date at this interval. Set this value to zero to disable the feature.
+
+
+## Advanced Settings:
+These are advanced settings. You shouldn’t need to touch these unless something isn’t working and you’re trying to debug it yourself.
+
+
 ### Exit Battle Time:
 
 After running, wait this long to return to the overworld.
@@ -62,12 +73,6 @@ After running, wait this long to return to the overworld.
 ### Transition Delay:
 
 The time needed to enter and exit the building during a correction.
-
-### Rollover Prevention:
-
-This is useful if your game is holding a den and you do not want an unintentional date-skip to destroy it.
-
-Prevent the den from rolling over by periodically touching the date at this interval. Set this value to zero to disable the feature.
 
 
 <hr>

@@ -75,12 +75,6 @@ const uint16_t START_TO_ATTACK_DELAY    =   3720;
 ```
 This is the delay from when talk to the den to when you attack Regigigas. This is the critical parameter that needs to be properly calibrated.
 
-### End Battle Delay:
-```
-const uint16_t END_BATTLE_DELAY         =   22 * TICKS_PER_SECOND;
-```
-After attacking Regigigas, wait this long for the program to return to the overworld.
-
 ### Rollover Prevention:
 ```
 const uint32_t TOUCH_DATE_INTERVAL = (uint32_t)4 * 3600 * TICKS_PER_SECOND;  //  4 hours
@@ -88,6 +82,17 @@ const uint32_t TOUCH_DATE_INTERVAL = (uint32_t)4 * 3600 * TICKS_PER_SECOND;  // 
 This is useful if your game is holding a den and you do not want an unintentional date-skip to destroy it.
 
 Prevent the den from rolling over by periodically touching the date at this interval. Set this value to zero to disable the feature.
+
+
+## Advanced Settings:
+These are advanced settings. You shouldn’t need to touch these unless something isn’t working and you’re trying to debug it yourself.
+
+
+### End Battle Delay:
+```
+const uint16_t END_BATTLE_DELAY         =   22 * TICKS_PER_SECOND;
+```
+After attacking Regigigas, wait this long for the program to return to the overworld.
 
 
 

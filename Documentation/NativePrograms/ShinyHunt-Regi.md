@@ -32,6 +32,11 @@ const uint16_t WAIT_TIME    =   12 * TICKS_PER_SECOND;
 ```
 Wait this long after initiating the battle before resetting.
 
+
+## Advanced Settings:
+These are advanced settings. You shouldn’t need to touch these unless something isn’t working and you’re trying to debug it yourself.
+
+
 ### Rollover Prevention:
 ```
 const uint32_t TOUCH_DATE_INTERVAL = (uint32_t)4 * 3600 * TICKS_PER_SECOND;  //  4 hours

@@ -99,6 +99,19 @@ const uint16_t START_TO_RUN_DELAY   =   1240;
 ```
 This is the delay from when stop moving toward the Beartic to when you run away. This is the critical parameter that needs to be properly calibrated.
 
+### Rollover Prevention:
+```
+const uint32_t TOUCH_DATE_INTERVAL = (uint32_t)4 * 3600 * TICKS_PER_SECOND;  //  4 hours
+```
+This is useful if your game is holding a den and you do not want an unintentional date-skip to destroy it.
+
+Prevent the den from rolling over by periodically touching the date at this interval. Set this value to zero to disable the feature.
+
+
+## Advanced Settings:
+These are advanced settings. You shouldn’t need to touch these unless something isn’t working and you’re trying to debug it yourself.
+
+
 ### Fly Duration:
 ```
 const uint16_t FLY_DURATION         =   800;
@@ -116,14 +129,6 @@ This is how long to move towards the Beartic after landing on Route 10.
 const uint16_t MASH_TO_TRADE_DELAY  =   3625;
 ```
 This is how long from when you start the trade to when the trade ends. You shouldn’t need to change this.
-
-### Rollover Prevention:
-```
-const uint32_t TOUCH_DATE_INTERVAL = (uint32_t)4 * 3600 * TICKS_PER_SECOND;  //  4 hours
-```
-This is useful if your game is holding a den and you do not want an unintentional date-skip to destroy it.
-
-Prevent the den from rolling over by periodically touching the date at this interval. Set this value to zero to disable the feature.
 
 
 

@@ -50,13 +50,18 @@ There is no option to search only for a square shiny. Nearly all shinies are squ
 
 After finding a shiny, go to the Switch Home to idle. Turn this off for unattended streaming so that your viewers can see the shiny.
 
-### Exit Battle Time:
-
-After running, wait this long to return to the overworld.
-
 ### Time Rollback:
 
 Every this many hours, rollback the time by this many hours. This keeps the time constant to prevent the weather from changing. It also allows you to target time-specific marks. Set this to zero to disable this feature.
+
+
+## Advanced Settings:
+These are advanced settings. You shouldn’t need to touch these unless something isn’t working and you’re trying to debug it yourself.
+
+
+### Exit Battle Time:
+
+After running, wait this long to return to the overworld.
 
 
 <hr>

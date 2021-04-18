@@ -136,8 +136,18 @@ By changing this number you can adjust the fetch rate of eggs. Thus with careful
 Since there are 5 eggs per batch, you will need to set this value to more than 5.0 to match the hatch rate since some fetches will fail. The optimal value will depend on the step count and the compatibility of the parents.
 Since this program is new, the exact fetch rates that lead to fetch/hatch equilibriums are not yet known. But they are believed to all be between 5.1 and 6.5.
 
+### Rollover Prevention:
+```
+const uint32_t TOUCH_DATE_INTERVAL = (uint32_t)4 * 3600 * TICKS_PER_SECOND;  //  4 hours
+```
+This is useful if your game is holding a den and you do not want an unintentional date-skip to destroy it.
+
+Prevent the den from rolling over by periodically touching the date at this interval. Set this value to zero to disable the feature.
+
+
 ## Advanced Settings:
 These are advanced settings. You shouldn’t need to touch these unless something isn’t working and you’re trying to debug it yourself.
+
 
 ### Safety Time:
 ```
@@ -158,14 +168,6 @@ Eggs will not hatch early by more than this period.
 const uint16_t HATCH_DELAY      =   88 * TICKS_PER_SECOND;
 ```
 Total animation time for hatching 5 eggs when there are no shinies.
-
-### Rollover Prevention:
-```
-const uint32_t TOUCH_DATE_INTERVAL = (uint32_t)4 * 3600 * TICKS_PER_SECOND;  //  4 hours
-```
-This is useful if your game is holding a den and you do not want an unintentional date-skip to destroy it.
-
-Prevent the den from rolling over by periodically touching the date at this interval. Set this value to zero to disable the feature.
 
 
 

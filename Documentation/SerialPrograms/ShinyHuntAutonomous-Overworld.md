@@ -8,7 +8,7 @@ This program will randomly seek out and encounter overworld Pokémon until it fi
 - When a shiny is encountered, this program will save a video of the encounter.
 - This program will keep track of encounter statistics.
 
-This program is still in development. All features are subject to change. The program currently does not work in Glimwood Tangle. If you want to hunt authentic Sinistea, do to the Old Cemetery in the Crown Tundra.
+This program is still in development. All features are subject to change. The program currently does not work in Glimwood Tangle. If you want to hunt authentic Sinistea, go to the Old Cemetery in the Crown Tundra.
 
 **Demo Video:** https://cdn.discordapp.com/attachments/755635697737531544/828071762595807282/2021-04-03_19-50-51.mp4
 
@@ -62,13 +62,19 @@ Reset the game if you go this long without any encounters. This allows the progr
 
 Be aware that open reset, all existing spawned overworld Pokémon will have the same stats from before. Thus they will be repeat encounters.
 
+### Time Rollback:
+
+Every this many hours, rollback the time by this many hours. This keeps the time constant to prevent the weather from changing. It also allows you to target time-specific marks. Set this to zero to disable this feature.
+
+
+## Advanced Settings:
+These are advanced settings. You shouldn’t need to touch these unless something isn’t working and you’re trying to debug it yourself.
+
+
 ### Exit Battle Time:
 
 After running, wait this long to return to the overworld.
 
-### Time Rollback:
-
-Every this many hours, rollback the time by this many hours. This keeps the time constant to prevent the weather from changing. It also allows you to target time-specific marks. Set this to zero to disable this feature.
 
 <hr>
 

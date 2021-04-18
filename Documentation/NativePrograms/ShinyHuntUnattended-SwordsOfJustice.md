@@ -103,12 +103,6 @@ const bool AIRPLANE_MODE                =   false;
 ```
 If you need to run the program in airplane mode, set this to true. It will slow down the program by a couple seconds.
 
-### Enter Camp Delay:
-```
-const uint16_t ENTER_CAMP_DELAY         =   8 * TICKS_PER_SECOND;
-```
-Wait this long after entering camp before you leave.
-
 ### Time Rollback:
 ```
 const uint8_t TIME_ROLLBACK_HOURS   =   1;
@@ -116,6 +110,17 @@ const uint8_t TIME_ROLLBACK_HOURS   =   1;
 Every this many hours, rollback the time by this many hours. This keeps the time constant to prevent the weather from changing. It also allows you to target time-specific marks. Set this to zero to disable this feature.
 
 This feature will also prevent any unintentional day-skips that will destroy any dens that are on the save file.
+
+
+## Advanced Settings:
+These are advanced settings. You shouldn’t need to touch these unless something isn’t working and you’re trying to debug it yourself.
+
+
+### Enter Camp Delay:
+```
+const uint16_t ENTER_CAMP_DELAY         =   8 * TICKS_PER_SECOND;
+```
+Wait this long after entering camp before you leave.
 
 
 

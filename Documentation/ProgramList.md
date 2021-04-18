@@ -83,7 +83,7 @@ Both of the native auto-hosts can utilize feedback to:
 1. Start raids early when the lobby is full and everyone is ready.
 2. Wait for anyone who hasn't readied up by the start time.
 
-**Autonomous Shiny Hunting: (private beta)** Automatically detects shinies from the animation.
+**Autonomous Shiny Hunting:** Automatically detects shinies from the animation.
 - [**Shiny Hunt Autonomous - Regi**](SerialPrograms/ShinyHuntAutonomous-Regi.md)
 - [**Shiny Hunt Autonomous - Swords of Justice**](SerialPrograms/ShinyHuntAutonomous-SwordsOfJustice.md)
 - [**Shiny Hunt Autonomous - Strong Spawn**](SerialPrograms/ShinyHuntAutonomous-StrongSpawn.md)
@@ -92,7 +92,7 @@ Both of the native auto-hosts can utilize feedback to:
 - [**Shiny Hunt Autonomous - Berry Tree**](SerialPrograms/ShinyHuntAutonomous-BerryTree.md)
 - [**Shiny Hunt Autonomous - Whistling**](SerialPrograms/ShinyHuntAutonomous-Whistling.md)
 - [**Shiny Hunt Autonomous - Fishing**](SerialPrograms/ShinyHuntAutonomous-Fishing.md)
-- [**Shiny Hunt Autonomous - Overworld**](SerialPrograms/ShinyHuntAutonomous-Overworld.md)
+- [**Shiny Hunt Autonomous - Overworld**](SerialPrograms/ShinyHuntAutonomous-Overworld.md) (private beta)
 
 <hr>
 

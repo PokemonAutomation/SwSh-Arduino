@@ -76,6 +76,19 @@ const RegiGolem REGI_NAME           =   Registeel;
 ```
 This is what you’re resetting for. Pick from: `Regirock`, `Regice`, `Registeel`, `Regieleki`, and `Regidrago`.
 
+### Rollover Prevention:
+```
+const uint32_t TOUCH_DATE_INTERVAL = (uint32_t)4 * 3600 * TICKS_PER_SECOND;  //  4 hours
+```
+This is useful if your game is holding a den and you do not want an unintentional date-skip to destroy it.
+
+Prevent the den from rolling over by periodically touching the date at this interval. Set this value to zero to disable the feature.
+
+
+## Advanced Settings:
+These are advanced settings. You shouldn’t need to touch these unless something isn’t working and you’re trying to debug it yourself.
+
+
 ### Correction Interval:
 ```
 const uint16_t CORRECTION_INTERVAL  =   20;
@@ -87,14 +100,6 @@ The light puzzle is not 100% reliable. Sometimes it will miss lights. To counter
 const uint16_t TRANSITION_DELAY     =   5 * TICKS_PER_SECOND;
 ```
 The time needed to enter and exit the building during a correction.
-
-### Rollover Prevention:
-```
-const uint32_t TOUCH_DATE_INTERVAL = (uint32_t)4 * 3600 * TICKS_PER_SECOND;  //  4 hours
-```
-This is useful if your game is holding a den and you do not want an unintentional date-skip to destroy it.
-
-Prevent the den from rolling over by periodically touching the date at this interval. Set this value to zero to disable the feature.
 
 
 
