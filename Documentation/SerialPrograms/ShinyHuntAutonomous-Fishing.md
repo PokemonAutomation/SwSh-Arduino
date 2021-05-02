@@ -27,7 +27,7 @@ This program will shiny hunt fishing encounters. This program is new to the seri
 - Your lead Pokémon does not have an ability that activates upon entry to battle.
 - Zoom in. The bigger exclamation icon is easier for the inference to detect. 
 
-When the a shiny is found, the program will save a video of the encounter. Then it will go to the Switch home to idle.
+When a shiny is found, the program will save a video of the encounter.
 
 ## Options:
 

@@ -38,7 +38,7 @@ This program will automatically hunt for a shiny strong spawn and automatically 
 - Your lead Pokémon does not have high happiness.
 - Your lead Pokémon does not have an ability that activates upon entry to battle.
 
-When the a shiny is found, the program will save a video of the encounter. Then it will go to the Switch home to idle.
+When a shiny is found, the program will save a video of the encounter.
 
 ## Options:
 

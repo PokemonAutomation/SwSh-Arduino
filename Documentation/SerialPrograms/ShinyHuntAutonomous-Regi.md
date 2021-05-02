@@ -35,7 +35,7 @@ This program will automatically hunt for a shiny Regi golem and automatically st
 - Your lead Pokémon does not have high happiness.
 - Your lead Pokémon does not have an ability that activates upon entry to battle.
 
-When the desired shiny is found, the program will save a video of the encounter. Then it will go to the Switch home to idle.
+When the desired shiny is found, the program will save a video of the encounter.
 
 Note that the Shiny Charm does not work on the Regis.
 

@@ -22,8 +22,8 @@ This program is still in development. All features are subject to change. The pr
 - Your lead Pokémon is not following you around. (Applies to Isle of Armor and Crown Tundra)
 - Your lead Pokémon must not be shiny. (this will cause false positive detections)
 - You are standing in a grassy area with overworld spawns.
-- You must be zoomed out to maximize the view.
-- You are not on your bike.
+- You must be zoomed out to maximize the view. (needed for accurate trajectory calculation)
+- You are not on your bike. (needed for correct trajectory movement)
 - You must be saved in the above position. The program will reset if it gets stuck.
 - Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
@@ -31,8 +31,9 @@ This program is still in development. All features are subject to change. The pr
 - Have the Shiny Charm. This triples the chance to find a shiny.
 - Your lead Pokémon does not have high happiness.
 - Your lead Pokémon does not have an ability that activates upon entry to battle.
+- Get rid of all the nearby strong spawns. They tend to pull you away from the grassy area.
 
-When the a shiny is found, the program will save a video of the encounter. Then it will go to the Switch home to idle.
+When a shiny is found, the program will save a video of the encounter.
 
 ## Options:
 

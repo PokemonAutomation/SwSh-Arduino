@@ -3,8 +3,8 @@
 Welcome to Pokémon Automation's official GitHub group. This is the distribution repo for our Arduino programs for Pokémon Sword/Shield.
 
 **Latest Downloads:**
-- **Native Programs:** [PASwSh-NativePrograms-20210417c.zip](PASwSh-NativePrograms-20210417c.zip?raw=true)
-- **Serial Programs:** [PASwSh-SerialPrograms-20210417c.zip](PASwSh-SerialPrograms-20210417c.zip?raw=true)
+- **Native Programs:** [PASwSh-NativePrograms-20210417c.zip](PASwSh-NativePrograms-20210430.zip?raw=true)
+- **Serial Programs:** [PASwSh-SerialPrograms-20210417c.zip](PASwSh-SerialPrograms-20210430.zip?raw=true)
 
 **Links:**
 - [Getting Started + Setup Tutorials](Documentation/Tutorials/README.md)
@@ -81,6 +81,14 @@ This project was originally started by Mysticial back in March 2020 as a stand-a
 
 As of this writing, Pokémon Automation's Arduino programs have been developed independently. With the exception of the LUFA library and the low-level USB descriptors, this project shares no code with and bears no resemblance to any other Arduino Switch programs.
 
+## Supporting Us
+
+As of this writing, we do not take donations of any kind for this project. The only support we request is by sharing our work with your friends if you have enjoyed using it.
+In the spirit of transparency, we kindly ask that you disclose the use of automation when sharing photos or videos of Pokémon obtained using these programs.
+This can be done simply by sharing a screenshot of the program with stats or with a text footer indicating it is done by automation.
+
+If such a disclosure is not permissible, we ask that you avoid any explicit or implicit claims that such Pokémon were caught manually.
+
 ## License
 
 You are free to use and distribute this original package for personal use only.
@@ -90,3 +98,5 @@ Do not try to profit off of these programs. It's just a game; keep the money out
 For all other uses, please reach out to the administrators of the Pokémon Automation discord server.
 
 This software is provided "as is" and the developers disclaim all warranties with regard to this software including all implied warranties of merchantability and fitness. In no event shall the developers be liable for any special, direct, indirect, or consequential damages, or any damages whatsoever resulting from loss of use, data or profits, whether in an action of contract, negligence or other tortious action, arising out of or in connection with the use or performance of this software.
+
+

@@ -1,5 +1,8 @@
 # Version History
 
+### 2021-04-30:
+ - Fix a stats tracking but in autonomous IoA trade.
+
 ### 2021-04-17:
 - Added the autonomous shiny hunting programs.
 - Added stats tracking.

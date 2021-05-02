@@ -27,10 +27,7 @@ This program will automatically hunt for a shiny Regina trade and stop on a shin
 - You must be in the overworld. (not inside the menu)
 - Start the program in the [Change Grip/Order Menu](../Appendix/ChangeGripOrderMenu.md).
 
-**Recommended for Performance:**
-- Have the Shiny Charm. This triples the chance to find a shiny.
-
-When a shiny is found, the program will save a video of the encounter. Then it will go to the Switch home to idle.
+When a shiny is found, the program will save a video of the encounter.
 
 ## Options:
 
