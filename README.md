@@ -3,8 +3,8 @@
 Welcome to Pokémon Automation's official GitHub group. This is the distribution repo for our Arduino programs for Pokémon Sword/Shield.
 
 **Latest Downloads:**
-- **Native Programs:** [PASwSh-NativePrograms-20210417c.zip](PASwSh-NativePrograms-20210430.zip?raw=true)
-- **Serial Programs:** [PASwSh-SerialPrograms-20210417c.zip](PASwSh-SerialPrograms-20210430.zip?raw=true)
+- **Native Programs:** [PASwSh-NativePrograms-20210430.zip](PASwSh-NativePrograms-20210430.zip?raw=true)
+- **Serial Programs:** [PASwSh-SerialPrograms-20210430.zip](PASwSh-SerialPrograms-20210430.zip?raw=true)
 
 **Links:**
 - [Getting Started + Setup Tutorials](Documentation/Tutorials/README.md)
