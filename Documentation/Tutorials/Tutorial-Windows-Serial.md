@@ -148,7 +148,7 @@ If you have played with the Switch Viewer program, you will notice that it suppo
 
 However, we have found that setting up the hardware to handle multiple serial ports and capture cards can be tricky. Sometimes they work, sometimes they don't. And it's often difficult to troubleshoot. This is regardless of whether you are running multiple Switches under the same instance or if you are running multiple instances of one Switch each.
 
-**Serial ports and Cameras can only be used at once place at a time.**
+**Serial ports and Cameras can only be used at one place at a time.**
 
 Both serial ports and cameras (capture cards) can only be used by one application at a time. Therefore you cannot view the same video capture from both OBS and SerialPrograms simultaneously. If you want to do this, use the OBS Virtual Camera.
 

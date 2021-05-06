@@ -7,7 +7,7 @@ This program will stand in one place and whistle. It will run from all non-shiny
 - This program will keep track of encounter statistics.
 
 This program is indended for any flying Pokémon that respawn or overworld Pokémon that will consistently charge at you. 
-or regular overworld Pokémon, use the (overworld bot)[ShinyHuntAutonomous-Overworld.md] instead.
+For regular overworld Pokémon, use the [overworld bot](ShinyHuntAutonomous-Overworld.md) instead.
 
 **Demo Video:** https://cdn.discordapp.com/attachments/780505858613837835/825027189992718426/2021-03-26_10-14-13.mp4
 
