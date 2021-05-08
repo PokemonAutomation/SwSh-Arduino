@@ -1,7 +1,12 @@
 # Version History
 
+### 2021-05-06:
+- Fixed an issue in the shiny detection for autonomous SoJ.
+- Autonomous shiny hunting programs now use feedback when running from an encounter.
+- Autonomous whistling and berry tree shiny hunt are now more smooth.
+
 ### 2021-04-30:
- - Fix a stats tracking but in autonomous IoA trade.
+- Fix a stats tracking but in autonomous IoA trade.
 
 ### 2021-04-17:
 - Added the autonomous shiny hunting programs.
