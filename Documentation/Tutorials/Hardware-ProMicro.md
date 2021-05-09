@@ -87,7 +87,7 @@ This option is cleaner, but is more involved.
 
 **Required Hardware:**
 1. Everything from the [previous section](#basic-hardware).
-2. A [USB-to-TTL UART cable or board](https://www.adafruit.com/product/954). It is recommended to get one with the CP210x controller. Avoid the ones with PLxxxx controllers since many of them are knock-offs that do not work.
+2. A [USB-to-TTL UART cable or board](https://www.adafruit.com/product/954). It is recommended to get one with the CP210x controller. ***Avoid the Prolific (PLxxxx) controllers. Many of them are knock-offs that do not work.***
 3. [Solderless Hammer Headers](https://www.adafruit.com/product/3662)
 4. A box cutter or a wire cutter.
 5. Pliers. (you will likely need two of them)

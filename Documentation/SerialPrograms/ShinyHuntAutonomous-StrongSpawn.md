@@ -58,11 +58,7 @@ Every this many hours, rollback the time by this many hours. This keeps the time
 ## Advanced Settings:
 These are advanced settings. You shouldn’t need to touch these unless something isn’t working and you’re trying to debug it yourself.
 
-
-### Exit Battle Time:
-
-After running, wait this long to return to the overworld.
-
+(none for this program)
 
 <hr>
 

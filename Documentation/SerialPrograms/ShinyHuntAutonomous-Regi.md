@@ -66,9 +66,9 @@ Prevent the den from rolling over by periodically touching the date at this inte
 These are advanced settings. You shouldn’t need to touch these unless something isn’t working and you’re trying to debug it yourself.
 
 
-### Exit Battle Time:
+### Exit Battle Timeout:
 
-After running, wait this long to return to the overworld.
+After running, wait this long to return to the overworld. The program will resume before this time if it detects that that the battle has ended.
 
 ### Transition Delay:
 

@@ -6,7 +6,7 @@
 - Autonomous whistling and berry tree shiny hunt are now more smooth.
 
 ### 2021-04-30:
-- Fix a stats tracking but in autonomous IoA trade.
+- Fix a stats tracking bug in autonomous IoA trade.
 
 ### 2021-04-17:
 - Added the autonomous shiny hunting programs.

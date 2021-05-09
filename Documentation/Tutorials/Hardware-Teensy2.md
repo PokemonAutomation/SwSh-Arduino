@@ -69,7 +69,7 @@ This option is the easiest to setup, however the mini grabber cables that are ne
 
 **Required Hardware:**
 1. Everything from the [previous section](#basic-hardware).
-2. A [USB-to-TTL UART cable or board](https://www.adafruit.com/product/954). It is recommended to get one with the CP210x controller. Avoid the ones with PLxxxx controllers since many of them are knock-offs that do not work.
+2. A [USB-to-TTL UART cable or board](https://www.adafruit.com/product/954). It is recommended to get one with the CP210x controller. ***Avoid the Prolific (PLxxxx) controllers. Many of them are knock-offs that do not work.***
 3. [Mini grabber to jumper wires (male).](https://www.amazon.com/gp/product/B08M5GNY47) You want the one with ***male*** jumper wires.
 
 <img src="images/uart-adafruit.jpg" height="200"> <img src="images/mini-grabber.jpg" height="200">

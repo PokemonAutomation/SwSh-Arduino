@@ -54,7 +54,7 @@ This is the standard setup for the Arduino Uno R3.
 
 **Required Hardware:**
 1. Everything from the [previous section](#basic-hardware).
-2. A [USB-to-TTL UART cable or board](https://www.adafruit.com/product/954). It is recommended to get one with the CP210x controller. Avoid the ones with PLxxxx controllers since many of them are knock-offs that do not work.
+2. A [USB-to-TTL UART cable or board](https://www.adafruit.com/product/954). It is recommended to get one with the CP210x controller. ***Avoid the Prolific (PLxxxx) controllers. Many of them are knock-offs that do not work.***
 3. Male-to-male jumper wires. (https://www.amazon.com/gp/product/B01EV47GI4/)
 
 <img src="images/uart-adafruit.jpg" height="200"> <img src="images/jumper-cables.jpg" height="200">
