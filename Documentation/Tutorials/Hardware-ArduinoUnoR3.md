@@ -46,6 +46,8 @@ To use any of the serial or feedback programs, you will need additional hardware
 
 There are many ways to set this up with varying cost and difficulty. Here we will present some simple options that do not require soldering. If you are experienced with electronics, feel free to do your own thing.
 
+***Important:** You will need a fairly powerful computer to handle serial programs with video feedback. For a single Switch with video feedback, we recommend a quad core computer no older than 2015. If you want to run 4 Switches all with feedback, we recommend a modern 8-core computer. The computer must also be running 64-bit Windows, though plan to extend support to other operating systems in the future.*
+
 ## Option 1: UART Cable + Jumper Cables
 
 This is the standard setup for the Arduino Uno R3.

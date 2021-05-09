@@ -61,6 +61,8 @@ Here are the two options covered in this tutorial:
 It is worth noting that the most difficult part of the serial setup is connecting to the holes on the Teensy.
 This can be made much easier by purchasing a Teensy with pins, but this is not recommended unless you plan on keeping the Teensy in a breadboard as it is too easy to damage or short the pins.
 
+***Important:** You will need a fairly powerful computer to handle serial programs with video feedback. For a single Switch with video feedback, we recommend a quad core computer no older than 2015. If you want to run 4 Switches all with feedback, we recommend a modern 8-core computer. The computer must also be running 64-bit Windows, though plan to extend support to other operating systems in the future.*
+
 ## Option 1: UART Cable + Mini-Grabber Cables
 
 This option is the easiest to setup, however the mini grabber cables that are needed are rarely in stock.

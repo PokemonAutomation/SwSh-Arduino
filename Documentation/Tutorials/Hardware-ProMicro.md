@@ -52,6 +52,8 @@ Here are the two options covered in this tutorial:
 - [**Option 1:** UART Cable + Mini-Grabber Cables](#option-1-uart-cable--mini-grabber-cables)
 - [**Option 2:** UART Cable + Solderless Hammer Headers](#option-2-uart-cable--solderless-hammer-headers)
 
+***Important:** You will need a fairly powerful computer to handle serial programs with video feedback. For a single Switch with video feedback, we recommend a quad core computer no older than 2015. If you want to run 4 Switches all with feedback, we recommend a modern 8-core computer. The computer must also be running 64-bit Windows, though plan to extend support to other operating systems in the future.*
+
 ## Option 1: UART Cable + Mini-Grabber Cables
 
 This option is the easiest to setup, however the mini grabber cables that are needed are rarely in stock.

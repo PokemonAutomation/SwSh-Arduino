@@ -69,7 +69,7 @@ Thus you now have tool-assisted gameplay. This can be useful for many things - s
 
 <img src="images/serial-setup.jpg" height="330"> <img src="images/serial-programs-0.png" height="330">
 
-**Important:** As of this writing, only Windows is supported for the serial programs. We do intend to port it to Mac and Linux at some point in the future. Furthermore, your Windows computer needs to be sufficiently powerful to handle video capture.
+***Important:** You will need a fairly powerful computer to handle serial programs with video feedback. For a single Switch with video feedback, we recommend a quad core computer no older than 2015. If you want to run 4 Switches all with feedback, we recommend a modern 8-core computer. The computer must also be running 64-bit Windows, though plan to extend support to other operating systems in the future.*
 
 **For reasons involving latency, many of the "fast" programs cannot run reliably over a serial connection. These programs partially remain on the device. For this reason, PABotBase has a library of subroutines that handle these timing-sensitive operations. Unfortunately, this library is too large to fit onto the Arduino Uno R3. Therefore, the Arduino Uno R3 cannot run all the programs in our serial programs package even though the device is supposed to be just a proxy.*
 
