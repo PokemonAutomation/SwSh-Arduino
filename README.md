@@ -40,6 +40,7 @@ These programs are flashed directly to the microcontroller and are run natively 
 These programs run on a computer and control your Switch over serial connection.
 
 - [Auto-Fishing](https://cdn.discordapp.com/attachments/755635697737531544/823709108150075412/2021-03-22_19-04-14.mp4)
+- [Overworld Encounter Bot (Authentic Sinistea)](https://cdn.discordapp.com/attachments/780505858613837835/842199538440732672/Shiny_Authentic_Sinistea.mp4)
 - [Friend Code Adder](https://cdn.discordapp.com/attachments/755635697737531544/810360426784227348/FriendCodeAdder.mov)
 - [Multi-Switch Candy Farming](https://cdn.discordapp.com/attachments/755635697737531544/814164114305581106/Candy_Farmer.mov)
 - [Purple Beam Finder](https://cdn.discordapp.com/attachments/755635697737531544/817957563287076864/PurpleBeamFinder.mp4)
