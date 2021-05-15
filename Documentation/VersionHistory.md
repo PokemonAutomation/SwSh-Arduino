@@ -1,5 +1,11 @@
 # Version History
 
+### 2021-05-14:
+- Added Overworld Encounter Bot.
+- Added Pokemon Home page swap.
+- Fix an issue in the HexGenerator that may prevent it from working on file paths with spaces.
+- Fixed a bug AutoHost-MultiGame where it may improperly save the number of day skips.
+
 ### 2021-05-06:
 - Fixed an issue in the shiny detection for autonomous SoJ.
 - Autonomous shiny hunting programs now use feedback when running from an encounter.

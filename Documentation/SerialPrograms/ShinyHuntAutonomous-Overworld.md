@@ -61,7 +61,7 @@ Example: Ralts - reacts with exclamation mark, then flees.
 
 Example: Hattrem - walks up to you, but never reacts with a mark.
 
-- Mark Priority: (doesn't matter since they don't react)
+- Mark Priority: `Question Marks Only (Ignore Exclamation Marks)`
 - Trigger Method: `Circle 3 times, then whistle 3 times.`
 
 **Sinistea (Old Cemetery):**

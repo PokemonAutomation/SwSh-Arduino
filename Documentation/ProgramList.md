@@ -72,7 +72,7 @@ In addition to the programs listed under here, nearly all the native programs (a
 - [**Friend Search Disconnect**](SerialPrograms/FriendSearchDisconnect.md) - Disconnect from the internet with friend-search. Useful for activating Y-COMM glitch from a computer.
 
 **New Programs:**
- - [**Purple Beam Finder**](SerialPrograms/PurpleBeamFinder.md) - Smart version of [BeamReset](NativePrograms/BeamReset.md) that automatically stops and notifies you on a purple beam.
+- [**Purple Beam Finder**](SerialPrograms/PurpleBeamFinder.md) - Smart version of [BeamReset](NativePrograms/BeamReset.md) that automatically stops and notifies you on a purple beam.
 - [**Raid Item Farmer (OHKO)**](SerialPrograms/RaidItemFarmerOHKO.md) - Also known as the "Candy Farmer". Self-host a max raid for items. The raid must be cleared in one hit.
 
 **Auto-Host Enhancements:**
@@ -92,7 +92,7 @@ Both of the native auto-hosts can utilize feedback to:
 - [**Shiny Hunt Autonomous - Berry Tree**](SerialPrograms/ShinyHuntAutonomous-BerryTree.md)
 - [**Shiny Hunt Autonomous - Whistling**](SerialPrograms/ShinyHuntAutonomous-Whistling.md)
 - [**Shiny Hunt Autonomous - Fishing**](SerialPrograms/ShinyHuntAutonomous-Fishing.md)
-- [**Shiny Hunt Autonomous - Overworld**](SerialPrograms/ShinyHuntAutonomous-Overworld.md) (private beta)
+- [**Shiny Hunt Autonomous - Overworld**](SerialPrograms/ShinyHuntAutonomous-Overworld.md)
 
 <hr>
 
