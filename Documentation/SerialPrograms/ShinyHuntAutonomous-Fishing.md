@@ -11,6 +11,7 @@ This program will shiny hunt fishing encounters. This program is new to the seri
 <img src="images/ShinyHuntAutonomous-Fishing.jpg" width="800">
 
 ## Instructions:
+- Screen size must be 100%.
 - Video resolution is 1280 x 720 or higher. Shiny detection is not reliable at low resolutions.
 - You must have system time unsynced.
 - Casual mode is off.

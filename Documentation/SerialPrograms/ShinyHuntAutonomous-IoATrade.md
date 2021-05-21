@@ -14,6 +14,7 @@ This program will automatically hunt for a shiny Regina trade and stop on a shin
 <img src="images/ShinyHuntAutonomous-IoATrade.jpg" width="800">
 
 ## Instructions:
+- Screen size must be 100%.
 - You must have system time unsynced.
 - Casual mode is off.
 - Your text speed must be set to fast.

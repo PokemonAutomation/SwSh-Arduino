@@ -18,14 +18,14 @@ The basic Teensy hardware setup will look something like this:
 **Required Hardware:**
 
 1. [Teensy 2.0](https://www.pjrc.com/store/teensy.html) or [Teensy++ 2.0](https://www.pjrc.com/store/teensypp.html)
-2. Mini-USB male to USB-A male cable or adapter. ([example](https://www.amazon.com/Cmple-Pack-Male-5-Pin-Adapter/dp/B00A1PH0ZW))
+2. Mini-USB male to USB-A male cable or adapter. (~~[example 0](https://www.amazon.com/Cmple-Pack-Male-5-Pin-Adapter/dp/B00A1PH0ZW)~~, [example 1](https://www.amazon.com/gp/product/B07QJTX59H/))
 
 <img src="images/teensy2.jpg" height="100"> <img src="images/teensypp2.jpg" height="100">
 
 <img src="images/usb-a-to-usb-mini.jpg" height="200">
 
-If you intend to use multiple Teensys, we strongly recommend getting the 10-pack for the adapters since it is more cost effective.
-If you will be using the [Pro Micro board](Hardware-ProMicro.md) as well, then [get this instead](https://www.amazon.com/gp/product/B081HDS3WB).
+~~If you intend to use multiple Teensys, we strongly recommend getting the 10-pack for the adapters since it is more cost effective.
+If you will be using the [Pro Micro board](Hardware-ProMicro.md) as well, then [get this instead](https://www.amazon.com/gp/product/B081HDS3WB).~~
 
 **Switch Lite users will also need:**
 

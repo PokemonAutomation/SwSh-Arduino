@@ -10,6 +10,7 @@ Demo Video: https://cdn.discordapp.com/attachments/755635697737531544/8179575632
 
 ## Instructions
 
+- Screen size must be 100%.
 - Casual mode is off.
 - Your text speed must be set to SLOW.
 - You must stand in front of an empty den with watts collected.

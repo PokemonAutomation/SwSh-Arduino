@@ -14,6 +14,7 @@ This program will automatically hunt for a shiny strong spawn and automatically 
 ## Instructions:
 
 **General Requirements:**
+- Screen size must be 100%.
 - Video resolution is 1280 x 720 or higher. Shiny detection is not reliable at low resolutions.
 - You must have system time unsynced.
 - Casual mode is off.

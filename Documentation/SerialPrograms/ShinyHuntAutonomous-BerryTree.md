@@ -13,6 +13,7 @@ This program will shiny hunt the berry tree encounters. This program is new to t
 <img src="images/ShinyHuntAutonomous-BerryTree.jpg" width="800">
 
 ## Instructions:
+- Screen size must be 100%.
 - Video resolution is 1280 x 720 or higher. Shiny detection is not reliable at low resolutions.
 - You must have system time unsynced.
 - Casual mode is off.

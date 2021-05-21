@@ -34,6 +34,10 @@ Flash the appropriate one to your device.
 2. Connect your device (Teensy/Pro Micro/Arduino) to the Switch or its dock.
 3. Connect the UART to your computer.
 
+You may need to install the drivers for your UART:
+- SiLabs CP210x: https://www.silabs.com/documents/public/software/CP210x_Universal_Windows_Driver.zip
+
+
 ## Step 5: Setup the video capture.
 
 1. Connect an HDMI cable from your Switch dock to your video capture card.

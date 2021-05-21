@@ -19,6 +19,7 @@ This program will automatically hunt for a shiny Regi golem and automatically st
 <img src="images/ShinyHuntAutonomous-Regi-Square.jpg" width="800">
 
 ## Instructions:
+- Screen size must be 100%.
 - Video resolution is 1280 x 720 or higher. Shiny detection is not reliable at low resolutions.
 - You must have system time unsynced.
 - Casual mode is off.

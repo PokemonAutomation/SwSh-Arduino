@@ -19,12 +19,10 @@ The basic Pro Micro hardware setup will look like this:
 **Required Hardware:**
 
 1. [Pro Micro Board](https://www.amazon.com/gp/product/B08BJNV1J3)
-2. Micro-USB male to USB-A male cable or adapter. ([example](https://www.amazon.com/gp/product/B081HDS3WB))
+2. Micro-USB male to USB-A male cable or adapter. ([example 1](https://www.amazon.com/gp/product/B081HDS3WB), [example 2](https://www.amazon.com/gp/product/B00TAM0MZW))
 
 ***Adapters*** for Micro-USB male to USB-A male are notoriously difficult to find in quantity.
 Cables are easy to find, but less convenient if you just want to plug them into the standing Switch dock.
-
-The adapter linked above is one Micro-USB and one Mini-USB. The Mini-USB isn't useful for the Pro Micro, but is useful for Teensy if you also have those.
 
 <img src="images/pro-micro.jpg" height="200"> <img src="images/usb-a-to-usb-micro.jpg" height="200">
 
