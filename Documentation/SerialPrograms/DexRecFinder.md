@@ -22,7 +22,9 @@ Find a specific Pokédex Recommendation (Dex Rec). The purpose of dex recs is to
 
 The program will repeatedly date-skip and view the Pokédex. Once you find what you want, you need to stop the program manually. It currently does not stop on its own.
 
-Note that a Pokémon will not appear as a dex rec if you already have it in your Pokédex, but your Pokédex is not complete. This also applies to the Isle of Armor and Crown Tundra Pokédex if you have entered those areas.
+Once you have found what you want, save the game and disable the Y-COMM glitch to lock in the dex rec.
+
+Note that a Pokémon will not appear as a dex rec if you already have it in your Pokédex, but your Pokédex is not complete. This also applies to the Isle of Armor and Crown Tundra Pokédexes if you have entered those areas.
 
 ## Options:
 This program does not have the ability to avoid the system update window.

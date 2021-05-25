@@ -1,5 +1,11 @@
 # Version History
 
+### 2021-05-24:
+- Added Pokedex Recommendation Finder.
+- Purple Beam Finder has fewer purple beam false positives.
+- The fishing bot now works in Motostoke.
+- Numerous other minor big fixes.
+
 ### 2021-05-14:
 - Added Overworld Encounter Bot.
 - Added Pokemon Home page swap.
