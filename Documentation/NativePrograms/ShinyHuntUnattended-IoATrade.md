@@ -8,7 +8,7 @@ In all seriousness, this (along with Regigigas) should not be the first unattend
 
 This program does one encounter every ~2 minutes. This leads to 5.5 day odds for a shiny. If you intend to square hunt with this program, average time is 3 months on one Switch. Therefore, this program will be a test of patience.
 
-*Warning, this program may require calibration. The default settings are not guaranteed to work on your Switch. Read the instructions here carefully and be patient. Hardly anybody gets it right the first time.*
+***Warning, this program may require calibration. The default settings are not guaranteed to work on your Switch. Read the instructions here carefully and be patient. Hardly anybody gets it right the first time.***
 
 This program works by performing a trade and then forcing an encounter with the Beartic on Route 10.
 

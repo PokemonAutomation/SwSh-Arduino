@@ -4,7 +4,7 @@ Hunt for shiny Swords of Justice and Spiritomb.
 
 [Please read the appendix to understand how unattended shiny-hunting programs work.](../Appendix/UnattendedShinyHuntingPrograms.md)
 
-*Warning, this program requires calibration and is significantly harder to calibrate than the other unattended programs. Read the instructions here carefully and be patient. Hardly anybody gets it right the first time.*
+***Warning, this program requires calibration and is significantly harder to calibrate than the other unattended programs. Read the instructions here carefully and be patient. Hardly anybody gets it right the first time.***
 
 When correctly calibrated:
 - If the encounter is not shiny, the program will run from the battle and move on to the next encounter.

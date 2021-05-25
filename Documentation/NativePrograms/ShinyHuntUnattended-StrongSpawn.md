@@ -10,7 +10,7 @@ To read more about this method, search online for “Strong Spawn Shiny Hunting 
 
 This program will only work on Pokémon with non-activating abilities or if both abilities activate with the same delay. It will not work with Pokémon that have two abilities where only one activates upon battle entry.
 
-*Warning, this program will require calibration. The default settings are not guaranteed to work on your Switch. Read the instructions here carefully and be patient. Hardly anybody gets it right the first time.*
+***Warning, this program may require calibration. The default settings are not guaranteed to work on your Switch. Read the instructions here carefully and be patient. Hardly anybody gets it right the first time.***
 
 When correctly calibrated:
 - If the encounter is not shiny, the program will run from the battle and move on to the next encounter.

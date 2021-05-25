@@ -6,7 +6,7 @@ Hunt for a shiny Regi golem.
 
 When correctly utilized, this program will stop on a shiny thus allowing you to let it run unattended. Note that the Shiny Charm does not work on the Regis, thus the average running time to a shiny is about 50 hours.
 
-*Warning, this program may require calibration. The default settings are not guaranteed to work on your Switch. Read the instructions here carefully and be patient.*
+***Warning, this program may require calibration. The default settings are not guaranteed to work on your Switch. Read the instructions here carefully and be patient. Hardly anybody gets it right the first time.***
 
 When correctly calibrated:
 - If the encounter is not shiny, the program will run from the battle and move on to the next encounter.

@@ -8,7 +8,7 @@ This is a more optimized version of [ShinyHuntUnattended-Regigigas](ShinyHuntUna
 
 This program uses a 1 HP lead that is able to OHKO the Regigigas using the move Reversal. Then it retries until it runs out of PP where it will do a soft-reset to restore the PP and continue.
 
-*Warning, this program may require calibration. The default settings are not guaranteed to work on your Switch. Read the instructions here carefully and be patient. Hardly anybody gets it right the first time.*
+***Warning, this program may require calibration. The default settings are not guaranteed to work on your Switch. Read the instructions here carefully and be patient. Hardly anybody gets it right the first time.***
 
 When correctly calibrated:
 - If the encounter is not shiny, the program will kill Regigigas, not catch it, and move on.
