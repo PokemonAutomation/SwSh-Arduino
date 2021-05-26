@@ -99,7 +99,7 @@ If you want to hear sound on your computer, you need to do it through Windows.
 
 You should now be able to hear the sound of your Switch from your computer. It not then there can be many issues causing it. If you need help resolving this, please ask in our Discord server.
 
-## Step 6: Play around with the keyboard controls.
+## Step 8: Play around with the keyboard controls.
 
 If you make it here, then both your serial connection and your video is working. Congrats! Now it's time to play with the program.
 
@@ -116,7 +116,7 @@ The playability of this will depend drastically on the quality of your capture c
 
 **Note:** Since `Shift` is mapped to the B button, you will need to disable Sticky Keys in the system. Alternatively, you can press `CTRL` for B. Some buttons have multiple keyboard keys that can be used to invoke it, but they are undocumented at this time.
 
-## Step 7: Run a program.
+## Step 9: Run a program.
 
 Now that you know how to use the Virtual Console, you can try running some programs on the left panel. The first thing that you will notice is that every program is a virtual console!
 
