@@ -74,6 +74,7 @@ In addition to the programs listed under here, nearly all the native programs (a
 **New Programs:**
 - [**Purple Beam Finder**](SerialPrograms/PurpleBeamFinder.md) - Smart version of [BeamReset](NativePrograms/BeamReset.md) that automatically stops and notifies you on a purple beam.
 - [**Dex Rec Finder**](SerialPrograms/DexRecFinder.md) - Find a specific Pokédex recommendation to increase the encounter odds of the Pokémon that you are hunting.
+- [**Stats Reset (private beta)**](SerialPrograms/StatsReset.md) - Reset gift Pokémon for desired stats.
 - [**Raid Item Farmer (OHKO)**](SerialPrograms/RaidItemFarmerOHKO.md) - Also known as the "Candy Farmer". Self-host a max raid for items. The raid must be cleared in one hit.
 
 **Auto-Host Enhancements:**
