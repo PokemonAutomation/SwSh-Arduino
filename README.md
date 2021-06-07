@@ -70,7 +70,7 @@ With serial and video feedback, the computer can play the game just like a human
 As you can probably guess, the techniques involved are no longer trivial. For example: Machine learning for video recognition, OCR for text reading, and artificial intelligence for game play decisions. But as the user, you don't need to know any of that. You get to enjoy the automation directly.
 
 <img src="Documentation/images/serial-programs.png">
-
+<img src="Documentation/SerialPrograms/images/ShinyHuntAutonomous-Overworld-1.png">
 
 
 
