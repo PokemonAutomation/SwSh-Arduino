@@ -91,9 +91,9 @@ In addition to choosing what level of automation you wish to achieve, you must a
 
 These are the list of the devices that we support. Click on the links for the setup guide for the device.
 
-- [Teensy 2.0 and Teensy++ 2.0](Hardware-Teensy2.md)
-- [Pro Micro](Hardware-ProMicro.md)
-- [Arduino Uno R3](Hardware-ArduinoUnoR3.md) (not recommended)
+- [Hardware Setup: Teensy 2.0 and Teensy++ 2.0](Hardware-Teensy2.md)
+- [Hardware Setup: Pro Micro](Hardware-ProMicro.md)
+- [Hardware Setup: Arduino Uno R3](Hardware-ArduinoUnoR3.md) (not recommended)
 
 For first time users, we recommend the Teensy 2.0. It is somewhat expensive, but is by far the most user-friendly. You get what you pay for.
 
@@ -108,14 +108,11 @@ This option is only here for legacy purposes and for those who already have the 
 
 Which tutorial you use will depend on what operating system you are using and what board/device you have chosen.
 
-**Windows:**
-- [Teensy 2.0 and Teensy++ 2.0](Tutorial-Windows-Teensy2.md)
-- [Pro Micro](Tutorial-Windows-ProMicro.md)
-- [Arduino Uno R3](Tutorial-Windows-ArduinoUnoR3.md)
-
-**Mac:**
-- [Teensy 2.0 and Teensy++ 2.0](Tutorial-Mac-Teensy2.md)
-- [Pro Micro and Arduino Uno R3](Tutorial-Mac-ArduinoProMicro.md)
+ | Device | Windows | Mac
+ | --- | --- | ---
+ | [Teensy 2.0 and Teensy++ 2.0](Hardware-Teensy2.md)           | [Native Programs](Tutorial-Windows-Teensy2.md)<br>[Serial Programs](Tutorial-Windows-Serial.md)      | [Native Programs](Tutorial-Mac-Teensy2.md)<br>[Serial Programs](Tutorial-Windows-Serial.md)
+ | [Pro Micro](Hardware-ProMicro.md)                            | [Native Programs](Tutorial-Windows-ProMicro.md)     | [Native Programs](Tutorial-Mac-ArduinoProMicro.md)
+ | [Arduino Uno R3](Hardware-ArduinoUnoR3.md) (not recommended) | [Native Programs](Tutorial-Windows-ArduinoUnoR3.md) | [Native Programs](Tutorial-Mac-ArduinoProMicro.md)
 
 
 

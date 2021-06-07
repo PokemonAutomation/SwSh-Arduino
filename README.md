@@ -18,9 +18,67 @@ The latest releases and betas are in the discord server. This repo is merely a m
 <img src="Documentation/images/server-banner.png" width="800">
 
 
+## What is this?
+
+Pokémon Automation is a project that strives to automate the Pokémon games. This particular repo is for Pokémon Sword and Shield.
+
+### Why automate the game?
+
+Certain aspects of Pokémon are very boring and tedious (such as shiny hunting). So rather than spending hundreds of hours grinding with manual gameplay, you have a bot do it for you. Thus the fun changes to managing the bots that play the game for you.
+
+With automation, it becomes possible to play 24/7 and simultaneously on multiple devices without wasting too much of your own time. Thus with so much extra game time, it becomes possible to legitimately obtain extremely rare Pokémon that are normally only feasible via hacking.
+
+### How does this work?
+
+The Nintendo Switch allows the use of 3rd party wired controllers. But instead of using an actual game controller, we emulate a controller using a microcontroller such as an Arduino. This microcontroller can then be programmed to send button presses to the Switch. Once programmed, all that is needed is to plug the microcontroller into your Switch's USB port just like any handheld controller and watch it do its thing.
+
+This approach is not new. Many other Switch automation projects did the same thing long before this project existed.
+
+<img src="Documentation/Tutorials/images/basic-setup.jpg" height="600">
+
+
+
+### What does this project do differently than other similar projects?
+
+As of this writing, the vast majority of similar projects are based off of the [Splatoon proof-of-concept](https://github.com/progmem/Switch-Fightstick) and use only a single microcontroller to control the Switch.
+
+Since these programs reside entirely on the microcontroller, they are limited in size, complexity, and cannot utilize sound or visual feedback from the Switch. Thus these programs are small and are completely blind. Button presses are done entirely on timer with no way to respond to events in the game.
+
+We call these programs, "Native Programs" - since they run entirely on the microcontroller.
+
+Like other projects, we have our own comprehensive set of native programs for Pokémon Sword/Shield:
+- Auto-hosting
+- Watt and other forms of farming.
+- Egg hatching
+- Unattended shiny-hunting.
+- much more... [click here for complete list.](Documentation/ProgramList.md)
+
+But of course, that's not what you're interested in right?
+
+In addition to the classic "native" programs, we take things a bit further with "serial" programs. Serial programs work by connecting the microcontroller to the computer over a serial connection. This allows a computer to control the Switch.
+
+<img src="Documentation/Tutorials/images/serial-setup.jpg">
+
+What does connecting to a computer provide? For starters:
+1. Much larger and more sophisticated programs that cannot fit onto a microcontroller.
+2. The ability to play your Switch from your computer using a keyboard. (and thus remotely through remote control software)
+3. The ability to control multiple Switches simultaneously in a single program.
+4. The ability to use feedback from video capture card.
+
+With serial and video feedback, the computer can play the game just like a human does. It watches the screen and presses buttons in response to events that it sees.
+
+As you can probably guess, the techniques involved are no longer trivial. For example: Machine learning for video recognition, OCR for text reading, and artificial intelligence for game play decisions. But as the user, you don't need to know any of that. You get to enjoy the automation directly.
+
+<img src="Documentation/images/serial-programs.png">
+
+
+
+
+
+
 ## Demo Videos:
 
-Just curious? Here's are some demos for what our set of programs can do!
+Curious? Here are some demos for what our set of programs can do!
 
 **Native Programs:**
 
@@ -33,8 +91,6 @@ These programs are flashed directly to the microcontroller and are run natively 
 - [Fast Code Entry - Enter any 8-digit code in half a second.](https://cdn.discordapp.com/attachments/755635697737531544/755642709183561789/FastCodeEntry.mov)
 - [Rolling Auto-Host](https://cdn.discordapp.com/attachments/755635697737531544/755891856172253194/RollingAutoHost.mov)
 
-<img src="Documentation/Tutorials/images/basic-setup.jpg" height="400">
-
 **Serial Programs:**
 
 These programs run on a computer and control your Switch over serial connection.
@@ -46,8 +102,6 @@ These programs run on a computer and control your Switch over serial connection.
 - [Purple Beam Finder](https://cdn.discordapp.com/attachments/755635697737531544/817957563287076864/PurpleBeamFinder.mp4)
 - [Tool-Assisted Raid Entry](https://cdn.discordapp.com/attachments/755635697737531544/809314697476046898/Serial_-_FCE.mov)
 - [Setting up a program remotely without touching your Switch.](https://cdn.discordapp.com/attachments/755635697737531544/809314602638770176/Serial_-_Regi_Setup.mov)
-
-<img src="Documentation/Tutorials/images/serial-setup.jpg"> <img src="Documentation/SerialPrograms/images/ShinyHuntAutonomous-SwordsOfJustice.jpg">
 
 ## Program List:
 
