@@ -55,7 +55,7 @@ Like other projects, we have our own comprehensive set of native programs for Po
 
 But of course, that's not what you're interested in right?
 
-In addition to the classic "native" programs, we take things a bit further with "serial" programs. Serial programs work by connecting the microcontroller to the computer over a serial connection. This allows a computer to control the Switch.
+In addition to the classic "native" programs, we also have "serial" programs. Serial programs work by connecting the microcontroller to the computer over a serial connection. This allows a computer to control the Switch.
 
 <img src="Documentation/Tutorials/images/serial-setup.jpg">
 
@@ -67,7 +67,7 @@ What does connecting to a computer provide? For starters:
 
 With serial and video feedback, the computer can play the game just like a human does. It watches the screen and presses buttons in response to events that it sees.
 
-As you can probably guess, the techniques involved are no longer trivial. For example: Machine learning for video recognition, OCR for text reading, and artificial intelligence for game play decisions. But as the user, you don't need to know any of that. You get to enjoy the automation directly.
+As you can probably guess, the techniques involved are no longer trivial. Visual recognition will inevitably involve machine learning and game play decisions may require some forms of artificial intelligence. But as the user, you don't need to know any of that. You get to enjoy the automation directly.
 
 <img src="Documentation/images/serial-programs.png">
 <img src="Documentation/SerialPrograms/images/ShinyHuntAutonomous-Overworld-1.png">
