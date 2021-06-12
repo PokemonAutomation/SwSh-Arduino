@@ -110,7 +110,7 @@ Which tutorial you use will depend on what operating system you are using and wh
 
  | Device | Windows | Mac
  | --- | --- | ---
- | [Teensy 2.0 and Teensy++ 2.0](Hardware-Teensy2.md)           | [Native Programs](Tutorial-Windows-Teensy2.md)<br>[Serial Programs](Tutorial-Windows-Serial.md)      | [Native Programs](Tutorial-Mac-Teensy2.md)<br>[Serial Programs](Tutorial-Windows-Serial.md)
+ | [Teensy 2.0 and Teensy++ 2.0](Hardware-Teensy2.md)           | [Native Programs](Tutorial-Windows-Teensy2.md)<br>[Serial Programs](Tutorial-Windows-Serial.md)      | [Native Programs](Tutorial-Mac-Teensy2.md)
  | [Pro Micro](Hardware-ProMicro.md)                            | [Native Programs](Tutorial-Windows-ProMicro.md)     | [Native Programs](Tutorial-Mac-ArduinoProMicro.md)
  | [Arduino Uno R3](Hardware-ArduinoUnoR3.md) (not recommended) | [Native Programs](Tutorial-Windows-ArduinoUnoR3.md) | [Native Programs](Tutorial-Mac-ArduinoProMicro.md)
 
