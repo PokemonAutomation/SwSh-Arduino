@@ -10,9 +10,11 @@ Follow the [hardware guide](Hardware-Teensy2.md) for the "Basic Hardware" sectio
 
 ## Step 2: Install Homebrew and AVR
 
-1. Install homebrew.
-2. Run `brew tap osx-cross/avr` to install AVR.
-3. If the above doesn't work, try running `brew install avr-gcc` as well.
+1. Install homebrew: https://brew.sh/
+2. Install AVR:
+    1. Run `brew tap osx-cross/avr`.
+    2. Run `brew install avr-gcc`.
+    3. Run `brew install avrdude`.
 
 ## Step 3: Download Teensy Loader
 
@@ -34,7 +36,7 @@ Once you have downloaded the package, unzip to somewhere you can access later.
 
 This step isn't needed for the TurboA example here, but is for nearly every other program.
 
-1. Navigate into the `NativePrograms` folder.
+1. Navigate into the `NativePrograms/PokemonSwSh` folder.
 2. Open `TurboA` with a text editor.
 
 Normally you will see a bunch of options that can configured. But TurboA has nothing.
