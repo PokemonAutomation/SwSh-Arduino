@@ -35,7 +35,7 @@ Flash the appropriate one to your device.
 3. Connect the UART to your computer.
 
 You may need to install the drivers for your UART:
-- SiLabs CP210x: https://www.silabs.com/documents/public/software/CP210x_Universal_Windows_Driver.zip
+- SiLabs CP210x: https://www.silabs.com/documents/public/software/CP210x_Windows_Drivers.zip
 
 
 ## Step 5: Setup the video capture.
