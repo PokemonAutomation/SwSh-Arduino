@@ -77,15 +77,28 @@ Trigger Methods `Whistle Only` and `Circle Only` are generally not recommended. 
 - `Whistle Only` combined with `Exclamation Marks Only (Ignore Question Marks)` will get stuck if the Pokémon walk up to you, but don't attack.
 - `Circle Only` will get stuck if you manage to get just outside of the grassy area. Normally, whistling will trigger a mark reaction to pull you back to the grass.
 
+
 ## Options:
 
 This program uses [`TOLERATE_SYSTEM_UPDATE_MENU_FAST`](../Appendix/GlobalSettings.md#tolerate-system-update-menu-fast) to bypass the system update window.
 
 There is no option to search only for a square shiny. Nearly all shinies are square and only 15/65536 are star. Therefore it is infeasible to hunt for star shiny.
 
+
 ### Go Home when Done:
 
 After finding a shiny, go to the Switch Home to idle. Turn this off for unattended streaming so that your viewers can see the shiny.
+
+
+### Game Language:
+
+If set to a language, the program will attempt to read the name of each Pokémon you encounter and log it.
+
+
+### Mark Offset:
+
+Aim this far below the bottom of the exclamation/question mark. 1.0 is the height of the mark. Increase this value when the Pokémon are large.
+
 
 ### Mark Priority:
 
@@ -96,6 +109,7 @@ Prefer exclamation marks or question marks?
 - Prioritize Question Marks
 - Question Marks Only (Ignore Exclamation Marks)
 
+
 ### Trigger Method:
 
 How do you want to trigger Pokémon to react?
@@ -104,15 +118,18 @@ How do you want to trigger Pokémon to react?
 - Circle 3 times, then whistle once.
 - Circle Only
 
+
 ### Maximum Move Duration:
 
 Do not move in the same direction for more than this long. If you set this too high, you may wander too far from the grassy area.
+
 
 ### Watchdog Timer:
 
 Reset the game if you go this long without any encounters. This allows the program to recover if it gets stuck.
 
 Be aware that upon reset, all existing spawned overworld Pokémon will have the same stats from before. Thus they will be repeat encounters.
+
 
 ### Time Rollback:
 

@@ -39,9 +39,16 @@ This program uses [`TOLERATE_SYSTEM_UPDATE_MENU_FAST`](../Appendix/GlobalSetting
 
 There is no option to search only for a square shiny. Nearly all shinies are square and only 15/65536 are star. Therefore it is infeasible to hunt for star shiny.
 
+
 ### Go Home when Done:
 
 After finding a shiny, go to the Switch Home to idle. Turn this off for unattended streaming so that your viewers can see the shiny.
+
+
+### Game Language:
+
+If set to a language, the program will attempt to read the name of each Pokémon you encounter and log it.
+
 
 ### Time Rollback:
 

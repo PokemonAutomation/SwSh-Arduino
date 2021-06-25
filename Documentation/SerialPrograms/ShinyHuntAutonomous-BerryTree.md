@@ -36,9 +36,16 @@ When the desired shiny is found, the program will save a video of the encounter.
 
 This program uses [`TOLERATE_SYSTEM_UPDATE_MENU_FAST`](../Appendix/GlobalSettings.md#tolerate-system-update-menu-fast) to bypass the system update window.
 
+
 ### Go Home when Done:
 
 After finding a shiny, go to the Switch Home to idle. Turn this off for unattended streaming so that your viewers can see the shiny.
+
+
+### Game Language:
+
+If set to a language, the program will attempt to read the name of each Pokémon you encounter and log it.
+
 
 ### Require Square:
 
