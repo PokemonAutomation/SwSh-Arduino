@@ -15,6 +15,7 @@ Follow the [hardware guide](Hardware-Teensy2.md) for the "Basic Hardware" sectio
     1. Run `brew tap osx-cross/avr`.
     2. Run `brew install avr-gcc`.
     3. Run `brew install avrdude`.
+3. Install fzf: `brew install fzf`
 
 ## Step 3: Download Teensy Loader
 
