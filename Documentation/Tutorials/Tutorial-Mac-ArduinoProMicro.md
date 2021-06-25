@@ -17,6 +17,7 @@ Follow the hardware guide for the "Basic Hardware" section:
     1. Run `brew tap osx-cross/avr`.
     2. Run `brew install avr-gcc`.
     3. Run `brew install avrdude`.
+3. Install fzf: `brew install fzf`
 
 ## Step 3: Download the Arduino Programs
 
