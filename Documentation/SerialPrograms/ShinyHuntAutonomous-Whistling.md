@@ -16,6 +16,7 @@ For regular overworld Pokémon, use the [overworld bot](ShinyHuntAutonomous-Over
 ## Instructions:
 - Screen size must be 100%.
 - Video resolution is 1280 x 720 or higher. Shiny detection is not reliable at low resolutions.
+- If playing in an Asian language, your video resolution should be 1920 x 1080. Text recognition is more accurate at higher resolutions.
 - You must have system time unsynced.
 - Casual mode is off.
 - Your text speed must be set to fast.
@@ -48,6 +49,8 @@ After finding a shiny, go to the Switch Home to idle. Turn this off for unattend
 ### Game Language:
 
 If set to a language, the program will attempt to read the name of each Pokémon you encounter and log it.
+
+If you are playing in an Asian language (Japanese, Korean, Chinese), set your video resolution to 1080p or higher. These languages are difficult to accurately read with text recognition at low resolutions.
 
 
 ### Time Rollback:
