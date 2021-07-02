@@ -1,5 +1,18 @@
 # Version History
 
+### 2021-06-30:
+- Native Programs: New directory structure and HexGenerator layout to make room for BDSP and future games.
+- Native Programs: Mac build scripts no longer use its own FZF binary to avoid permission errors.
+- Serial Programs: Lots of changes to prepare for BDSP and future games.
+- New Program: Stats Reset. Reset gift Pokemon for the desired stats. (Type: Null, Cosmog, Poipole)
+- New Program: Turbo Button. It is a more generalized version of Turbo A for any button.
+- The Dex Rec Finder now supports feedback. You can specify what Pokemon you're looking for and it will stop when it finds it.
+- The Dex Rec Finder can now run on the Uno R3.
+- Purple Beam Finder is more accurate at detecting beam types.
+- Day skippers now show stats.
+- Berry tree, whistling, fishing, and overworld encounter bots will read the Pokemon that you encounter, log it, and show encounter statistics.
+- Overworld encounter bot has new settings that will work in Glimwood Tangle.
+
 ### 2021-05-24:
 - Added Pokedex Recommendation Finder.
 - Purple Beam Finder has fewer purple beam false positives.
