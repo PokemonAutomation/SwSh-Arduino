@@ -126,6 +126,8 @@ These programs run on a computer and control your Switch over serial connection.
 - SakuraKim - Release management, development, and R&D.
 - denvoros - Build scripts, Mac support, and AI R&D.
 - MrDonders - R&D
+- pifopi - R&D
+- Ryder - Documentation and wiki management.
 - joyrida - Build scripts and Mac support.
 
 And countless users and testers in the Pokémon Automation Discord Server.
