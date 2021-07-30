@@ -4,7 +4,7 @@ The video capture hardware is separate from the device controller emulation. The
 
 **Required Hardware:**
 
-1. A video capture card. ([example](https://www.amazon.com/gp/product/B08FC3JCL5))
+1. A video capture card. ([example](https://www.amazon.com/product/dp/B08L64XT3J/))
 2. HDMI cable(s)
 
 There are a wide variety of capture cards with a large range of prices.
