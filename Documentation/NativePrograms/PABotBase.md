@@ -1,10 +1,6 @@
 # PABotBase
 
-Pokémon Automation Bot Base (PABotBase) is the program used by all the [serial programs](../ProgramList.md#serial-programs).
-
-You shouldn't have to compile this program yourself since the SerialPrograms package has this precompiled.
-
-
+This page has moved to the [wiki](https://github.com/PokemonAutomation/SwSh-Arduino/wiki/PABotBase).
 
 <hr>
 
