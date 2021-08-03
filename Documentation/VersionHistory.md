@@ -1,5 +1,15 @@
 # Version History
 
+### 2021-07-31:
+- Added Curry Hunter. You can now hunt for camp shinies!
+- Documention links updated to point to the wiki.
+- Encounter bot filtering. You can now choose what shinies/species to stop or run from.
+- Added Discord webhook notifications. Get updates and notifications of your shiny hunts on your private server!
+- Added an option to start programs in-game instead of the grip menu.
+- Shiny detection will no longer false positive on dive balls and your own lead shiny.
+- Fixed a bug in the overworld bot where mark prioritization did not always work.
+- Minor adjustments to overworld bot.
+
 ### 2021-06-30:
 - Native Programs: New directory structure and HexGenerator layout to make room for BDSP and future games.
 - Native Programs: Mac build scripts no longer use its own FZF binary to avoid permission errors.
