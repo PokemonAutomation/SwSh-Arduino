@@ -1,11 +1,6 @@
 # CustomProgram
 
-This is a template for writing your own programs. To build your own program, you can start by editing this one. Then rename it later.
-
-(explanation coming soon!)
-
-
-
+This page has moved to the [wiki](https://github.com/PokemonAutomation/SwSh-Arduino/wiki/Basic:-CustomProgram).
 
 <hr>
 
