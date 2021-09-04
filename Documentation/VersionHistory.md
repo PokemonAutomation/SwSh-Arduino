@@ -1,5 +1,17 @@
 # Version History
 
+### 2021-08-26:
+- Fixed an issue in the SurpriseTrade config that made it disappear from the HexGenerator.
+- Den Roller can now recognize silhouettes and automatically stop on a specific Pokemon. So now you can easily roll for g-maxes and other 1% rolls.
+- Overworld, fishing, whistling, and berry tree encounter bots now support auto-catching.
+- Added Autonomous Ball Thrower.
+- Added Regi auto-catch and Stats Reset.
+- Added Moltres auto-catch Stats Reset.
+- Discord notifications are now sent when a program stops due to an error.
+- Discord notifications are also sent for auto-catching.
+- Discord notifications now include a screenshot of encounter bot shinies.
+- Numerous internal changes and refactors.
+
 ### 2021-07-31:
 - Added Curry Hunter. You can now hunt for camp shinies!
 - Documention links updated to point to the wiki.
