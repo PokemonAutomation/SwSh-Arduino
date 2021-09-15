@@ -1,5 +1,8 @@
 # Version History
 
+### 2021-09-14:
+- Fixed date-spam break for firmware 13.
+
 ### 2021-08-26:
 - Fixed an issue in the SurpriseTrade config that made it disappear from the HexGenerator.
 - Den Roller can now recognize silhouettes and automatically stop on a specific Pokemon. So now you can easily roll for g-maxes and other 1% rolls.
