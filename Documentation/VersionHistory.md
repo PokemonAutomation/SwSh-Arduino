@@ -1,5 +1,11 @@
 # Version History
 
+### 2021-09-16:
+- More fixes for date-spam break on firmware 13.
+- Added Calyrex auto-catching and stats reset.
+- Discord notifications can now be sent to multiple webhooks instead of just one.
+- Added test buttons for Discord webhook notifications.
+
 ### 2021-09-14:
 - Fixed date-spam break for firmware 13.
 
