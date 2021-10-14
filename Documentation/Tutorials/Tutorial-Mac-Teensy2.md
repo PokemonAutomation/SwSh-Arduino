@@ -1,4 +1,4 @@
-The guide has moved! https://github.com/PokemonAutomation/About/blob/master/README.md
+The guide has moved! https://github.com/PokemonAutomation/About/
 
 <hr>
 

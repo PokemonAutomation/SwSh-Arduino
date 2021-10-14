@@ -1,4 +1,4 @@
-This page has moved to here: https://github.com/PokemonAutomation/About/blob/master/README.md
+This page has moved to here: https://github.com/PokemonAutomation/About/
 
 <hr>
 
