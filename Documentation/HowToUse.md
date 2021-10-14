@@ -1,5 +1,9 @@
-# How to Use
+This is page has moved to here: https://github.com/PokemonAutomation/About/blob/master/README.md
 
-This section of the guide has moved. [Go see the new one!](Tutorials/README.md)
+<hr>
+
+**Discord Server:** 
+
+[<img src="https://canary.discordapp.com/api/guilds/695809740428673034/widget.png?style=banner2">](https://discord.gg/cQ4gWxN)
 
 
