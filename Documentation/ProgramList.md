@@ -1,4 +1,4 @@
-This is page has moved to here:
+This page has moved to here:
 - **Microcontroller:** https://github.com/PokemonAutomation/Microcontroller/blob/master/Wiki/Programs/README.md
 - **Computer Control:** https://github.com/PokemonAutomation/ComputerControl/blob/master/Wiki/Programs/README.md
 

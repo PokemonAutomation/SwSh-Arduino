@@ -1,4 +1,4 @@
-This is page has moved to here: https://github.com/PokemonAutomation/ComputerControl
+This page has moved to here: https://github.com/PokemonAutomation/ComputerControl
 
 <hr>
 
